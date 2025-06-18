@@ -8,7 +8,13 @@ import {
 
 const PROGRESS_VERSION = 1
 const PROGRESS_KEY = 'progress-v1'
-const DEFAULT_PROGRESS = { version: PROGRESS_VERSION, week: 1, day: 1, session: 1 }
+const DEFAULT_PROGRESS = {
+  version: PROGRESS_VERSION,
+  week: 1,
+  day: 1,
+  session: 1,
+  streak: 0,
+}
 
 const ContentContext = createContext()
 
@@ -27,7 +33,7 @@ function loadProgress() {
       stored.day &&
       stored.session
     ) {
-      return stored
+      return { ...DEFAULT_PROGRESS, ...stored }
     }
   } catch {
     // ignore parse errors
@@ -71,7 +77,9 @@ export const ContentProvider = ({ children }) => {
   }
 
   const completeSession = () => {
-    let { week, day, session } = progress
+    let {
+      week, day, session, streak,
+    } = progress
     if (session < 3) {
       session += 1
     } else {
@@ -82,8 +90,9 @@ export const ContentProvider = ({ children }) => {
         day = 1
         week += 1
       }
+      streak += 1
     }
-    saveProgress({ week, day, session })
+    saveProgress({ week, day, session, streak })
   }
 
   const previousWeek = () => {
@@ -92,17 +101,27 @@ export const ContentProvider = ({ children }) => {
     }
   }
 
+  const resetToday = () => {
+    saveProgress({ ...progress, session: 1 })
+  }
+
+  const resetAll = () => {
+    saveProgress(DEFAULT_PROGRESS)
+  }
+
   return (
     <ContentContext.Provider
       value={{
         progress,
         weekData,
         loading,
-        error,
-        completeSession,
-        loadWeek,
-        previousWeek,
-      }}
+      error,
+      completeSession,
+      loadWeek,
+      previousWeek,
+      resetToday,
+      resetAll,
+    }}
     >
       {children}
     </ContentContext.Provider>

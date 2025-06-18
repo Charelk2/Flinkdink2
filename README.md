@@ -46,6 +46,8 @@ The home page now shows three inline circles representing the number of complete
 
 When you're beyond week 1, a **Previous Week** button lets you revisit the prior week's content.
 
+If you complete sessions on two or more days in a row, a small flame badge displays your streak count.
+
 guteek-codex/update-mathmodule-and-extend-tests
 The math module's red dots are now styled entirely inline. Each dot uses `inline-block` positioning with explicit width, height, background color, and border radius so they remain visible even if Tailwind utilities are unavailable.
 
@@ -60,11 +62,15 @@ A fixed header at the top of every page displays the current week, day, and sess
 
 Carousel navigation buttons now include descriptive ARIA labels and retain their focus outlines for improved keyboard navigation.
 
+Finishing a session triggers a short confetti toast before returning to the home screen.
+
 ## Loading States
 
 All screens now display a reusable skeleton placeholder while week data loads.
 The skeleton uses an animated shimmer and sets `aria-busy="true"` for assistive
 technology. If loading fails, an error message is displayed.
+
+An optional `/dashboard` route is protected by a simple PIN entry form. It shows a 7-day progress grid and buttons to reset progress or print awards.
 
 ## Error Handling
 
