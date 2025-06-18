@@ -21,11 +21,13 @@ Lint the code with ESLint:
 npm run lint
 ```
 
-Run the unit tests:
+Run the unit tests with Jest:
 
 ```bash
 npm test
 ```
+
+The suite uses **Jest** alongside **React Testing Library** for component tests.
 
 ## Project Structure
 
