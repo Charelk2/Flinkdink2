@@ -1,23 +1,32 @@
-import { useState, useEffect } from 'react';
-import { useContent } from '../contexts/ContentProvider';
+import { useState, useEffect } from 'react'
+import { useContent } from '../contexts/ContentProvider'
+import LoadingSkeleton from '../components/LoadingSkeleton'
 import LanguageModule from '../modules/LanguageModule';
 import MathModule from '../modules/MathModule';
 import EncyclopediaModule from '../modules/EncyclopediaModule';
 
 const Session = () => {
-  const { progress, weekData, loading, completeSession } = useContent();
+  const { progress, weekData, loading, error, completeSession } = useContent()
   const [step, setStep] = useState(0);
 
   useEffect(() => {
     if (!loading) window.scrollTo(0, 0);
   }, [step, loading]);
 
-  if (loading || !weekData) {
+  if (loading) {
+    return <LoadingSkeleton />
+  }
+
+  if (error) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        Loading...
+      <div className="flex items-center justify-center h-screen text-red-600">
+        Failed to load week data: {error.message}
       </div>
-    );
+    )
+  }
+
+  if (!weekData) {
+    return null
   }
 
   const titles = ['📝 Language', '🔢 Math Dots', '🦁 Encyclopedia'];

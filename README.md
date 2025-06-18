@@ -51,6 +51,10 @@ A fixed header at the top of every page displays the current week, day, and sess
 
 Carousel navigation buttons now include descriptive ARIA labels and retain their focus outlines for improved keyboard navigation.
 
+## Loading States
+
+The session screen shows a skeleton placeholder while week data loads. If loading fails, an error message is displayed.
+
 ## License
 
 Images used in the encyclopedia module are loaded from Unsplash using CC-licensed URLs.
