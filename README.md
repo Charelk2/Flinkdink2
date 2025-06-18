@@ -56,9 +56,9 @@ The math module's red dots are now styled entirely inline. Each dot uses `inline
 Math slides now follow a sliding window of ten numbers. From week two onward the first five numbers are shown in a random order while the upper five stay sequential.
 
 
-## Header
+## Navigation
 
-A fixed header at the top of every page displays the current week, day, and session along with a home icon link back to the main menu.
+The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
 
 ## Accessibility
 
