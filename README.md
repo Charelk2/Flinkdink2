@@ -118,6 +118,14 @@ Run a small API server to handle login and registration requests:
 npm run server
 ```
 
+Create a `.env` file in the project root with the following variables:
+
+```bash
+PORT=3001
+JWT_SECRET=your-secret
+DB_PATH=./users.db
+```
+
 The default credentials are **demo@example.com** / **password**. You can also
 register a new account using the **Sign Up** page. Successful authentication
 returns a token stored in `localStorage` by the `AuthProvider`.
