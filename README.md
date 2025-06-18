@@ -39,6 +39,10 @@ npm test
 
 User progress is stored in `localStorage` under the key `progress-v1`. The app automatically advances sessions, days, and weeks.
 
+## Home Screen
+
+The home page now shows three inline circles representing the number of completed sessions for the day. A button labeled with the exact week, day, and session starts the next session. Below the button is a short list of the upcoming module titles: Language, Math, and Knowledge.
+
 ## License
 
 Images used in the encyclopedia module are loaded from Unsplash using CC-licensed URLs.
