@@ -34,7 +34,7 @@ const Carousel = ({ items, renderItem }) => {
 
   return (
     <div className="space-y-4" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-      <div className="card flex items-center justify-center min-h-[300px]">
+      <div className="card flex items-center justify-center min-h-[50vh]">
         {renderItem(items[index])}
       </div>
       <div className="flex justify-between">

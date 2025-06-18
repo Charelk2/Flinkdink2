@@ -11,8 +11,7 @@ const ProgressStrip = () => {
           <span
             key={n}
             data-testid="session-dot"
-            className={`rounded-full ${n <= session ? 'bg-indigo-600' : 'bg-gray-300'}`}
-            style={{ width: '8px', height: '8px' }}
+            className={`size-2 rounded-full ${n <= session ? 'bg-indigo-600' : 'bg-gray-300'}`}
           />
         ))}
       </div>
