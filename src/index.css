@@ -85,4 +85,13 @@
   .cta-btn:hover .cta-arrow {
     transform: translateX(0.25rem);
   }
+
+  .bounce-toast {
+    animation: bounce 1s;
+  }
+@media (prefers-reduced-motion: reduce) {
+    .bounce-toast {
+      animation: none;
+    }
+  }
 }

@@ -8,7 +8,7 @@ const ConfettiToast = ({ onDone }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center pointer-events-none">
-      <div className="bg-green-600 text-white py-2 px-4 rounded-lg animate-bounce">
+      <div className="bg-green-600 text-white py-2 px-4 rounded-lg bounce-toast">
         🎉 Great job!
       </div>
     </div>
