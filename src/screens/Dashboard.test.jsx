@@ -65,4 +65,31 @@ describe('Dashboard', () => {
     fireEvent.click(screen.getByTestId('week-btn-10'))
     expect(jumpToWeek).toHaveBeenCalledWith(10)
   })
+
+  it('uses responsive classes for week grid', () => {
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      resetToday: jest.fn(),
+      resetAll: jest.fn(),
+      weekData: null,
+      loading: false,
+      error: null,
+      jumpToWeek: jest.fn(),
+    })
+
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    fireEvent.change(screen.getByLabelText('PIN'), { target: { value: '1234' } })
+    fireEvent.click(screen.getByRole('button', { name: /unlock/i }))
+
+    expect(screen.getByTestId('week-grid')).toHaveClass(
+      'grid grid-cols-7 sm:grid-cols-13 gap-1 text-center',
+    )
+  })
 })

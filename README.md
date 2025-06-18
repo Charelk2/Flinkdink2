@@ -154,6 +154,8 @@ Math practice screens now size their dot container responsively using
 `h-[60vw] sm:h-[300px]`. Dots are positioned with a new algorithm that retries
 until each one is at least eight percent away from the others, preventing
 overlap on small displays.
+The Dashboard now uses a responsive week grid that shows seven columns on small
+screens and thirteen on larger displays.
 
 ### Build for Android or iOS
 
