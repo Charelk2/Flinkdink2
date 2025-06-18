@@ -123,6 +123,44 @@ describe('previousWeek', () => {
   })
 })
 
+describe('jumpToWeek', () => {
+  const JumpConsumer = () => {
+    const { progress, jumpToWeek } = useContent()
+    return (
+      <div>
+        <span data-testid="week">{progress.week}</span>
+        <span data-testid="day">{progress.day}</span>
+        <span data-testid="session">{progress.session}</span>
+        <button type="button" onClick={() => jumpToWeek(4)}>
+          jump
+        </button>
+      </div>
+    )
+  }
+
+  it('jumps to given week and resets progress', () => {
+    localStorage.setItem(
+      'progress-v1',
+      JSON.stringify({ version: 1, week: 2, day: 3, session: 2 }),
+    )
+
+    render(
+      <ContentProvider>
+        <JumpConsumer />
+      </ContentProvider>,
+    )
+
+    fireEvent.click(screen.getByText('jump'))
+    expect(screen.getByTestId('week')).toHaveTextContent('4')
+    expect(screen.getByTestId('day')).toHaveTextContent('1')
+    expect(screen.getByTestId('session')).toHaveTextContent('1')
+    const stored = JSON.parse(localStorage.getItem('progress-v1'))
+    expect(stored.week).toBe(4)
+    expect(stored.day).toBe(1)
+    expect(stored.session).toBe(1)
+  })
+})
+
 describe('reset helpers', () => {
   it('resetToday sets session to 1', () => {
     localStorage.setItem(
