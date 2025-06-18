@@ -1,13 +1,8 @@
-/**
- * @vitest-environment jsdom
- */
-import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
 import Session from './Session'
 import { useContent } from '../contexts/ContentProvider'
 
-vi.mock('../contexts/ContentProvider')
+jest.mock('../contexts/ContentProvider')
 
 describe('Session screen', () => {
   it('shows skeleton when loading', () => {

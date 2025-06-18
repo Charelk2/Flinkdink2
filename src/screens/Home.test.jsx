@@ -1,14 +1,9 @@
-/**
- * @vitest-environment jsdom
- */
-import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
 import Home from './Home'
 import { MemoryRouter } from 'react-router-dom'
 import { useContent } from '../contexts/ContentProvider'
 
-vi.mock('../contexts/ContentProvider')
+jest.mock('../contexts/ContentProvider')
 
 describe('Home screen', () => {
   it('renders progress and next session titles', () => {

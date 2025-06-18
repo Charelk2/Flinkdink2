@@ -1,9 +1,4 @@
-/**
- * @vitest-environment jsdom
- */
-import { describe, it, expect, vi, afterEach } from 'vitest'
 import { render, screen, waitFor, cleanup } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
 import { ContentProvider, useContent } from './ContentProvider'
 
 const TestConsumer = () => {
@@ -19,14 +14,15 @@ const ProgressConsumer = () => {
 }
 
 afterEach(() => {
-  vi.restoreAllMocks()
+  jest.restoreAllMocks()
   cleanup()
   localStorage.clear()
+  delete global.fetch
 })
 
 describe('ContentProvider fetch handling', () => {
   it('loads week data successfully', async () => {
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+  global.fetch = jest.fn().mockResolvedValue({
       ok: true,
       json: async () => ({ language: ['hi'], mathWindowStart: 0, encyclopedia: [] }),
     })
@@ -42,7 +38,7 @@ describe('ContentProvider fetch handling', () => {
   })
 
   it('handles fetch failure', async () => {
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 404 })
+  global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 404 })
 
     render(
       <ContentProvider>

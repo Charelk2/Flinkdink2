@@ -1,14 +1,9 @@
-/**
- * @vitest-environment jsdom
- */
-import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom/vitest'
 import { MemoryRouter } from 'react-router-dom'
 import Header from './Header'
 import { useContent } from '../contexts/ContentProvider'
 
-vi.mock('../contexts/ContentProvider')
+jest.mock('../contexts/ContentProvider')
 
 describe('Header', () => {
   it('shows progress and home link', () => {
