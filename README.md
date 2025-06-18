@@ -1,6 +1,12 @@
 # FlinkDink Flashcards
 
-This project is a simple flashcard app for toddlers built with **React**, **Vite**, and **Tailwind CSS**. Content is organized in weekly JSON files and progress is saved locally.
+This project is a simple flashcard app for toddlers built with **React**, **Vite**,
+and **Tailwind CSS**. Content is organized in weekly JSON files and progress is
+saved locally.
+
+> **Heads up!** Tailwind v4 removes some classic utility classes such as `w-10`
+> and `h-10`. If you see "unknown utility" errors during builds, use explicit CSS
+> widths/heights or the new `size-*` utilities as shown below.
 
 ## Development
 
@@ -18,6 +24,12 @@ about unknown utilities (for example `bg-orange-500`), make sure the plugin is
 installed and listed in `postcss.config.js`. When a particular utility still
 fails to apply, replace it with an equivalent CSS declaration inside a `@layer`
 block.
+
+**Width/Height utilities**: Tailwind v4 removed some fixed width and height
+classes like `w-10` and `h-10`. When upgrading you may see errors such as
+`Cannot apply unknown utility class "w-10"`. Replace these with explicit CSS
+properties (e.g. `width: 2.5rem; height: 2.5rem;`) or use the new `size-*`
+utilities.
 
 You can modify default styles by editing `tailwind.config.cjs`. Add new colors
 or font families under the `extend` section. Reusable custom classes should be
