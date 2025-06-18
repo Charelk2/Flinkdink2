@@ -1,0 +1,27 @@
+{
+  "language": [
+    "apple",
+    "banana",
+    "cat",
+    "dog",
+    "elephant",
+    "flower",
+    "guitar",
+    "house",
+    "ice",
+    "juice"
+  ],
+  "mathWindowStart": 1,
+  "encyclopedia": [
+    { "id": "lion", "title": "Lion", "fact": "Lions live in prides.", "image": "https://source.unsplash.com/featured/?lion" },
+    { "id": "tiger", "title": "Tiger", "fact": "Tigers have striped fur.", "image": "https://source.unsplash.com/featured/?tiger" },
+    { "id": "bear", "title": "Bear", "fact": "Bears hibernate in winter.", "image": "https://source.unsplash.com/featured/?bear" },
+    { "id": "giraffe", "title": "Giraffe", "fact": "Giraffes have long necks.", "image": "https://source.unsplash.com/featured/?giraffe" },
+    { "id": "zebra", "title": "Zebra", "fact": "Zebras have black and white stripes.", "image": "https://source.unsplash.com/featured/?zebra" },
+    { "id": "monkey", "title": "Monkey", "fact": "Monkeys are very playful.", "image": "https://source.unsplash.com/featured/?monkey" },
+    { "id": "elephant", "title": "Elephant", "fact": "Elephants never forget.", "image": "https://source.unsplash.com/featured/?elephant" },
+    { "id": "panda", "title": "Panda", "fact": "Pandas love bamboo.", "image": "https://source.unsplash.com/featured/?panda" },
+    { "id": "koala", "title": "Koala", "fact": "Koalas sleep a lot.", "image": "https://source.unsplash.com/featured/?koala" },
+    { "id": "kangaroo", "title": "Kangaroo", "fact": "Kangaroos carry babies in pouches.", "image": "https://source.unsplash.com/featured/?kangaroo" }
+  ]
+}
