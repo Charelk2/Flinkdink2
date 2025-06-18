@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
+const PROGRESS_VERSION = 1
 const PROGRESS_KEY = 'progress-v1'
-const DEFAULT_PROGRESS = { week: 1, day: 1, session: 1 }
+const DEFAULT_PROGRESS = { version: PROGRESS_VERSION, week: 1, day: 1, session: 1 }
 
 const ContentContext = createContext()
 
@@ -13,7 +14,15 @@ export function useContent() {
 function loadProgress() {
   try {
     const stored = JSON.parse(localStorage.getItem(PROGRESS_KEY))
-    if (stored && stored.week && stored.day && stored.session) return stored
+    if (
+      stored &&
+      stored.version === PROGRESS_VERSION &&
+      stored.week &&
+      stored.day &&
+      stored.session
+    ) {
+      return stored
+    }
   } catch {
     // ignore parse errors
   }
@@ -48,8 +57,9 @@ export const ContentProvider = ({ children }) => {
   }, [progress.week])
 
   const saveProgress = (p) => {
-    setProgress(p)
-    localStorage.setItem(PROGRESS_KEY, JSON.stringify(p))
+    const data = { ...p, version: PROGRESS_VERSION }
+    setProgress(data)
+    localStorage.setItem(PROGRESS_KEY, JSON.stringify(data))
   }
 
   const completeSession = () => {
