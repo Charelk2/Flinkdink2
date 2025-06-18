@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react'
 
 const PROGRESS_VERSION = 1
 const PROGRESS_KEY = 'progress-v1'
@@ -35,25 +41,27 @@ export const ContentProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    const loadWeek = async () => {
-      setLoading(true)
-      setError(null)
-      const id = String(progress.week).padStart(3, '0')
-      try {
-        const res = await fetch(`/weeks/week${id}.json`)
-        if (!res.ok) throw new Error(`HTTP ${res.status}`)
-        const data = await res.json()
-        setWeekData(data)
-      } catch (err) {
-        console.error('Failed to load week data', err)
-        setWeekData(null)
-        setError(err)
-      } finally {
-        setLoading(false)
-      }
+  const loadWeek = useCallback(async () => {
+    setLoading(true)
+    setError(null)
+    const id = String(progress.week).padStart(3, '0')
+    try {
+      const res = await fetch(`/weeks/week${id}.json`)
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const data = await res.json()
+      setWeekData(data)
+    } catch (err) {
+      console.error('Failed to load week data', err)
+      setWeekData(null)
+      setError(err)
+    } finally {
+      setLoading(false)
     }
+  }, [progress.week])
+
+  useEffect(() => {
     loadWeek()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress.week])
 
   const saveProgress = (p) => {
@@ -79,7 +87,9 @@ export const ContentProvider = ({ children }) => {
   }
 
   return (
-    <ContentContext.Provider value={{ progress, weekData, loading, error, completeSession }}>
+    <ContentContext.Provider
+      value={{ progress, weekData, loading, error, completeSession, loadWeek }}
+    >
       {children}
     </ContentContext.Provider>
   )
