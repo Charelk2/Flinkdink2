@@ -8,7 +8,13 @@ jest.mock('../contexts/ContentProvider')
 describe('Home screen', () => {
   it('renders progress and next session titles', () => {
     useContent.mockReturnValue({
-      progress: { version: 1, week: 2, day: 3, session: 2 },
+      progress: {
+        version: 1,
+        week: 2,
+        day: 3,
+        session: 2,
+        streak: 2,
+      },
       loading: false,
       previousWeek: jest.fn(),
     })
@@ -31,6 +37,7 @@ describe('Home screen', () => {
     const filled = dots.filter((d) => d.classList.contains('filled'))
     expect(filled).toHaveLength(1)
 
+    expect(screen.getByText('🔥 2-day streak')).toBeInTheDocument()
     expect(screen.getByText('Language')).toBeInTheDocument()
     expect(screen.getByText('Math')).toBeInTheDocument()
     expect(screen.getByText('Knowledge')).toBeInTheDocument()
@@ -49,7 +56,7 @@ describe('Home screen', () => {
 
   it('hides previous week button on week one', () => {
     useContent.mockReturnValue({
-      progress: { version: 1, week: 1, day: 1, session: 1 },
+      progress: { version: 1, week: 1, day: 1, session: 1, streak: 0 },
       loading: false,
     })
 

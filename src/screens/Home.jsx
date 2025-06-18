@@ -14,6 +14,9 @@ const Home = () => {
       <p>
         Week {progress.week} – Day {progress.day}
       </p>
+      {progress.streak >= 2 && (
+        <span className="badge">🔥 {progress.streak}-day streak</span>
+      )}
       <div className="flex gap-1" aria-label="sessions-progress">
         {[1, 2, 3].map((n) => (
           <span
@@ -28,7 +31,7 @@ const Home = () => {
           <li key={t}>{t}</li>
         ))}
       </ul>
-      <Link to="/session" className="btn">
+      <Link to="/session" className="btn w-full">
         Start Week {progress.week} • Day {progress.day} • Session {progress.session}
       </Link>
       {progress.week > 1 && (

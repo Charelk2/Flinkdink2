@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useContent } from '../contexts/ContentProvider'
 import LoadingSkeleton from '../components/LoadingSkeleton'
 import LanguageModule from '../modules/LanguageModule';
 import MathModule from '../modules/MathModule';
 import EncyclopediaModule from '../modules/EncyclopediaModule';
+import ConfettiToast from '../components/ConfettiToast'
 
 const Session = () => {
+  const navigate = useNavigate()
   const { progress, weekData, loading, error, completeSession } = useContent()
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(0)
+  const [showToast, setShowToast] = useState(false)
 
   useEffect(() => {
     if (!loading) window.scrollTo(0, 0);
@@ -37,7 +41,7 @@ const Session = () => {
       setStep(step + 1);
     } else {
       completeSession();
-      setStep(0);
+      setShowToast(true);
     }
   };
 
@@ -60,6 +64,15 @@ const Session = () => {
           {isLast ? 'Finish Session' : 'Next →'}
         </button>
       </div>
+      {showToast && (
+        <ConfettiToast
+          onDone={() => {
+            setShowToast(false)
+            navigate('/')
+            setStep(0)
+          }}
+        />
+      )}
     </div>
   );
 };

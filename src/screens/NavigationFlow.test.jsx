@@ -36,7 +36,6 @@ describe('Session navigation flow', () => {
     expect(screen.getByText('🦁 Encyclopedia')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /finish session/i }));
     expect(completeSession).toHaveBeenCalled();
-    // Reset back to first title
-    expect(screen.getByText('📝 Language')).toBeInTheDocument();
+    expect(screen.getByText(/great job/i)).toBeInTheDocument();
   });
 });

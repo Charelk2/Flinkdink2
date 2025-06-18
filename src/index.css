@@ -35,3 +35,7 @@
   background-color: rgb(79 70 229);
   border-color: rgb(79 70 229);
 }
+
+.badge {
+  @apply bg-orange-500 text-white px-2 py-1 rounded-full text-sm font-semibold;
+}

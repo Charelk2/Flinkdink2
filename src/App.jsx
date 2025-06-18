@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './screens/Home'
 import Session from './screens/Session'
+import Dashboard from './screens/Dashboard'
 import { ContentProvider } from './contexts/ContentProvider'
 import Header from './components/Header'
 import ErrorBanner from './components/ErrorBanner'
@@ -15,6 +16,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/session" element={<Session />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </ContentProvider>
