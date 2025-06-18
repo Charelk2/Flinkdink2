@@ -7,4 +7,14 @@ describe('MathModule', () => {
     const dots = screen.getAllByTestId('carousel-dot');
     expect(dots).toHaveLength(10);
   });
+
+  it('renders visible dots for each math slide', () => {
+    const { container } = render(<MathModule start={1} />);
+    const dot = container.querySelector('span');
+    expect(dot).not.toBeNull();
+    const computed = getComputedStyle(dot);
+    expect(parseFloat(computed.width)).toBeGreaterThan(0);
+    expect(parseFloat(computed.height)).toBeGreaterThan(0);
+    expect(computed.backgroundColor).not.toBe('');
+  });
 });
