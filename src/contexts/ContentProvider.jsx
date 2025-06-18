@@ -86,9 +86,23 @@ export const ContentProvider = ({ children }) => {
     saveProgress({ week, day, session })
   }
 
+  const previousWeek = () => {
+    if (progress.week > 1) {
+      saveProgress({ week: progress.week - 1, day: 1, session: 1 })
+    }
+  }
+
   return (
     <ContentContext.Provider
-      value={{ progress, weekData, loading, error, completeSession, loadWeek }}
+      value={{
+        progress,
+        weekData,
+        loading,
+        error,
+        completeSession,
+        loadWeek,
+        previousWeek,
+      }}
     >
       {children}
     </ContentContext.Provider>

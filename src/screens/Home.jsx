@@ -3,7 +3,7 @@ import { useContent } from '../contexts/ContentProvider'
 import LoadingSkeleton from '../components/LoadingSkeleton'
 
 const Home = () => {
-  const { progress, loading } = useContent()
+  const { progress, loading, previousWeek } = useContent()
   if (loading) return <LoadingSkeleton />
   const completed = progress.session - 1
   const titles = ['Language', 'Math', 'Knowledge']
@@ -31,6 +31,11 @@ const Home = () => {
       <Link to="/session" className="btn">
         Start Week {progress.week} • Day {progress.day} • Session {progress.session}
       </Link>
+      {progress.week > 1 && (
+        <button type="button" onClick={previousWeek} className="btn">
+          ← Previous Week
+        </button>
+      )}
     </div>
   )
 }

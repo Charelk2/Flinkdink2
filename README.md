@@ -44,6 +44,8 @@ User progress is stored in `localStorage` under the key `progress-v1`. Each save
 
 The home page now shows three inline circles representing the number of completed sessions for the day. A button labeled with the exact week, day, and session starts the next session. Below the button is a short list of the upcoming module titles: Language, Math, and Knowledge.
 
+When you're beyond week 1, a **Previous Week** button lets you revisit the prior week's content.
+
 guteek-codex/update-mathmodule-and-extend-tests
 The math module's red dots are now styled entirely inline. Each dot uses `inline-block` positioning with explicit width, height, background color, and border radius so they remain visible even if Tailwind utilities are unavailable.
 

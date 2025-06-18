@@ -1,4 +1,4 @@
-import { render, screen, waitFor, cleanup } from '@testing-library/react'
+import { render, screen, waitFor, cleanup, fireEvent } from '@testing-library/react'
 import { ContentProvider, useContent } from './ContentProvider'
 
 const TestConsumer = () => {
@@ -81,5 +81,44 @@ describe('progress version handling', () => {
     )
 
     expect(screen.getByTestId('progress')).toHaveTextContent('1')
+  })
+})
+
+describe('previousWeek', () => {
+  const PrevConsumer = () => {
+    const { progress, previousWeek } = useContent()
+    return (
+      <div>
+        <span data-testid="week">{progress.week}</span>
+        <span data-testid="day">{progress.day}</span>
+        <span data-testid="session">{progress.session}</span>
+        <button type="button" onClick={previousWeek}>
+          prev
+        </button>
+      </div>
+    )
+  }
+
+  it('moves back one week and resets day and session', () => {
+    localStorage.setItem(
+      'progress-v1',
+      JSON.stringify({ version: 1, week: 3, day: 4, session: 2 }),
+    )
+
+    render(
+      <ContentProvider>
+        <PrevConsumer />
+      </ContentProvider>,
+    )
+
+    expect(screen.getByTestId('week')).toHaveTextContent('3')
+    fireEvent.click(screen.getByText('prev'))
+    expect(screen.getByTestId('week')).toHaveTextContent('2')
+    expect(screen.getByTestId('day')).toHaveTextContent('1')
+    expect(screen.getByTestId('session')).toHaveTextContent('1')
+    const stored = JSON.parse(localStorage.getItem('progress-v1'))
+    expect(stored.week).toBe(2)
+    expect(stored.day).toBe(1)
+    expect(stored.session).toBe(1)
   })
 })

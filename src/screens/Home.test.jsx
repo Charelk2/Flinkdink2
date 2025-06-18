@@ -7,7 +7,11 @@ jest.mock('../contexts/ContentProvider')
 
 describe('Home screen', () => {
   it('renders progress and next session titles', () => {
-    useContent.mockReturnValue({ progress: { version: 1, week: 2, day: 3, session: 2 }, loading: false })
+    useContent.mockReturnValue({
+      progress: { version: 1, week: 2, day: 3, session: 2 },
+      loading: false,
+      previousWeek: jest.fn(),
+    })
 
     render(
       <MemoryRouter>
@@ -30,6 +34,7 @@ describe('Home screen', () => {
     expect(screen.getByText('Language')).toBeInTheDocument()
     expect(screen.getByText('Math')).toBeInTheDocument()
     expect(screen.getByText('Knowledge')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /previous week/i })).toBeInTheDocument()
   })
 
   it('shows skeleton when loading', () => {
@@ -40,5 +45,20 @@ describe('Home screen', () => {
       </MemoryRouter>,
     )
     expect(screen.getByTestId('loading')).toBeInTheDocument()
+  })
+
+  it('hides previous week button on week one', () => {
+    useContent.mockReturnValue({
+      progress: { version: 1, week: 1, day: 1, session: 1 },
+      loading: false,
+    })
+
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
+
+    expect(screen.queryByRole('button', { name: /previous week/i })).toBeNull()
   })
 })
