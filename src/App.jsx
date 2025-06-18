@@ -3,6 +3,7 @@ import Home from './screens/Home'
 import Session from './screens/Session'
 import Dashboard from './screens/Dashboard'
 import Login from './screens/Login'
+import SignUp from './screens/SignUp'
 import { ContentProvider } from './contexts/ContentProvider'
 import { AuthProvider } from './contexts/AuthProvider'
 import ErrorBanner from './components/ErrorBanner'
@@ -15,6 +16,7 @@ const App = () => (
         <ErrorBanner />
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/" element={<Home />} />
           <Route path="/session" element={<Session />} />
           <Route path="/dashboard" element={<Dashboard />} />

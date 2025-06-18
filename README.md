@@ -112,19 +112,39 @@ HTTP status or message. The banner includes a **Retry** button that re-runs the
 
 ## Authentication
 
-Run a small API server to handle login requests:
+Run a small API server to handle login and registration requests:
 
 ```bash
 npm run server
 ```
 
-The default credentials are **demo@example.com** / **password**. Successful
-login returns a token stored in `localStorage` by the `AuthProvider`.
+The default credentials are **demo@example.com** / **password**. You can also
+register a new account using the **Sign Up** page. Successful authentication
+returns a token stored in `localStorage` by the `AuthProvider`.
 
 ## Mobile Usage
 
-FlinkDink is a Progressive Web App. Add it to your home screen on Android or iOS
-from the browser share menu to use it like a native app.
+FlinkDink is a Progressive Web App. You can add it to your home screen from the
+browser share menu or package it as a native app using **Capacitor**.
+
+### Build for Android or iOS
+
+Install Capacitor and sync the project:
+
+```bash
+npm install
+npm run build
+npx cap sync
+```
+
+Open the project in Android Studio or Xcode:
+
+```bash
+npx cap open android
+npx cap open ios
+```
+
+From there you can build and publish the app to the Play Store or App Store.
 
 ## License
 
