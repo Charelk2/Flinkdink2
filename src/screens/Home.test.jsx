@@ -27,11 +27,11 @@ describe('Home screen', () => {
       screen.getByRole('heading', { name: /flinkdink flashcards/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText('Week 2 \u2022 Day 3 \u2022 Session 2'),
+      screen.getByText('Week 2 \u00B7 Day 3 \u00B7 Session 2'),
     ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /settings/i })).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: /continue week 2 • day 3 • session 2/i }),
+      screen.getByRole('link', { name: /continue week 2 · day 3 · session 2/i }),
     ).toBeInTheDocument();
     expect(screen.getAllByRole('listitem')).toHaveLength(3);
   });

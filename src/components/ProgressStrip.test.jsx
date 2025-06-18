@@ -10,7 +10,7 @@ describe('ProgressStrip', () => {
 
     render(<ProgressStrip />);
 
-    expect(screen.getByText('Week 1 \u2022 Day 2 \u2022 Session 3')).toBeInTheDocument();
+    expect(screen.getByText('Week 1 \u00B7 Day 2 \u00B7 Session 3')).toBeInTheDocument();
     const group = screen.getByLabelText('sessions-progress');
     expect(group).toBeInTheDocument();
 

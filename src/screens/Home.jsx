@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <NavBar />
-      <main className="flex-grow flex flex-col items-center justify-center space-y-8 w-11/12 md:w-4/5 lg:max-w-md mx-auto">
+      <main className="flex-grow flex flex-col items-center justify-center space-y-8 max-w-md w-11/12 md:w-4/5 mx-auto">
         <Hero />
         <ProgressStrip />
         <ThemeList />

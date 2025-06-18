@@ -5,6 +5,7 @@ import {
   useState,
   useCallback,
 } from 'react'
+import { fetchWeekData } from '../utils/fetchWeek'
 
 const PROGRESS_VERSION = 1
 const PROGRESS_KEY = 'progress-v1'
@@ -50,11 +51,8 @@ export const ContentProvider = ({ children }) => {
   const loadWeek = useCallback(async () => {
     setLoading(true)
     setError(null)
-    const id = String(progress.week).padStart(3, '0')
     try {
-      const res = await fetch(`/weeks/week${id}.json`)
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const data = await res.json()
+      const data = await fetchWeekData(progress.week)
       setWeekData(data)
     } catch (err) {
       console.error('Failed to load week data', err)

@@ -13,7 +13,7 @@ describe('CTAButton', () => {
         <CTAButton />
       </MemoryRouter>,
     )
-    const link = screen.getByRole('link', { name: /start week 1 • day 2 • session 1/i })
+    const link = screen.getByRole('link', { name: /start week 1 · day 2 · session 1/i })
     expect(link).toHaveAttribute('href', '/session')
   })
 
@@ -25,7 +25,7 @@ describe('CTAButton', () => {
       </MemoryRouter>,
     )
     expect(
-      screen.getByRole('link', { name: /continue week 3 • day 4 • session 2/i }),
+      screen.getByRole('link', { name: /continue week 3 · day 4 · session 2/i }),
     ).toBeInTheDocument()
   })
 })
