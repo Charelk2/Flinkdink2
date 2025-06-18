@@ -55,6 +55,7 @@ The suite uses **Jest** alongside **React Testing Library** for component tests.
 - `src/modules` – individual learning modules (Language, Math, Encyclopedia)
 - `src/screens` – page components for the router
 - `public/weeks` – JSON data files per week
+- `src/utils/fetchWeek.js` – helper to fetch a week's JSON by number
 
 ## Progress Storage
 

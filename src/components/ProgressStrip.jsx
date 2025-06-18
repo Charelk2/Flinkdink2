@@ -5,7 +5,7 @@ const ProgressStrip = () => {
   const { week, day, session } = progress;
   return (
     <div className="text-center space-y-1">
-      <p className="font-semibold text-gray-700">Week {week} • Day {day} • Session {session}</p>
+      <p className="font-semibold text-gray-700">Week {week} · Day {day} · Session {session}</p>
       <div className="flex items-center justify-center space-x-1" aria-label="sessions-progress">
         {[1, 2, 3].map((n) => (
           <span
@@ -15,7 +15,6 @@ const ProgressStrip = () => {
             style={{ width: '8px', height: '8px' }}
           />
         ))}
-        <span className="text-sm text-gray-600 ml-1">{session} of 3 sessions</span>
       </div>
     </div>
   );
