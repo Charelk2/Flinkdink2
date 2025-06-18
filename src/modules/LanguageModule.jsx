@@ -1,0 +1,15 @@
+import Carousel from '../components/Carousel'
+
+const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5)
+
+const LanguageModule = ({ words }) => {
+  const items = shuffle(words)
+  return (
+    <Carousel
+      items={items}
+      renderItem={(word) => <div className="text-4xl font-bold">{word}</div>}
+    />
+  )
+}
+
+export default LanguageModule

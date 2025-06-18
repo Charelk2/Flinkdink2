@@ -1,12 +1,33 @@
-# React + Vite
+# FlinkDink Flashcards
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple flashcard app for toddlers built with **React**, **Vite**, and **Tailwind CSS**. Content is organized in weekly JSON files and progress is saved locally.
 
-Currently, two official plugins are available:
+## Development
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install dependencies and start the dev server:
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Lint the code with ESLint:
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+- `src/contexts` – global `ContentProvider` that loads week data and tracks progress
+- `src/modules` – individual learning modules (Language, Math, Encyclopedia)
+- `src/screens` – page components for the router
+- `public/weeks` – JSON data files per week
+
+## Progress Storage
+
+User progress is stored in `localStorage` under the key `progress-v1`. The app automatically advances sessions, days, and weeks.
+
+## License
+
+Images used in the encyclopedia module are loaded from Unsplash using CC-licensed URLs.
