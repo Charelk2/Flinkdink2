@@ -9,7 +9,7 @@ const EncyclopediaModule = ({ cards }) => {
       items={items}
       renderItem={(card) => (
         <div className="space-y-2">
-          <img src={card.image} alt={card.title} className="w-full h-64 object-cover rounded-xl" />
+          <img loading="lazy" src={card.image} alt={card.title} className="w-full h-64 object-cover rounded-xl" />
           <h3 className="text-xl font-bold">{card.title}</h3>
           <p className="text-gray-600">{card.fact}</p>
         </div>

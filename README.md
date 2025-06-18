@@ -95,12 +95,13 @@ Parents can also jump to any of the 52 weeks from the Dashboard. Selecting a wee
 
 Carousel navigation buttons now include descriptive ARIA labels and retain their focus outlines for improved keyboard navigation.
 
-Finishing a session triggers a short confetti toast before returning to the home screen.
+Finishing a session triggers a short confetti toast before returning to the home screen. The animation respects the user's `prefers-reduced-motion` setting to reduce movement.
 
 ## Loading States
 
 Most screens display a reusable skeleton placeholder while week data loads.
 The skeleton uses an animated shimmer and sets `aria-busy="true"` for assistive technology. If loading fails, an error message is displayed.
+Encyclopedia images are lazy loaded to keep initial renders snappy.
 
 
 ## Error Handling
