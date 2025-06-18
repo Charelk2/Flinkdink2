@@ -12,8 +12,10 @@ npm run dev
 ```
 
 Tailwind CSS is processed with `@tailwindcss/postcss`. If you encounter a build
-error about unknown utility classes, verify the plugin is installed and listed
-in `postcss.config.js`.
+error about unknown utility classes (for example `bg-orange-500`), verify the
+plugin is installed and listed in `postcss.config.js`. Custom styles that use
+`@apply` should be wrapped in a `@layer` block so Tailwind can register the
+utilities correctly.
 
 Lint the code with ESLint:
 

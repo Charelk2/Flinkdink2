@@ -56,7 +56,6 @@ const Dashboard = () => {
             <div className="font-bold">Day {d}</div>
             {modules.map((m, i) => (
               <div
-                // eslint-disable-next-line react/no-array-index-key
                 key={i}
                 className={`h-4 ${isComplete(d, i) ? 'bg-green-400' : 'bg-gray-200'}`}
                 data-testid={`day${d}-module${i}`}
