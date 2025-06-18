@@ -43,6 +43,10 @@ User progress is stored in `localStorage` under the key `progress-v1`. The app a
 
 The home page now shows three inline circles representing the number of completed sessions for the day. A button labeled with the exact week, day, and session starts the next session. Below the button is a short list of the upcoming module titles: Language, Math, and Knowledge.
 
+## Header
+
+A fixed header at the top of every page displays the current week, day, and session along with a home icon link back to the main menu.
+
 ## License
 
 Images used in the encyclopedia module are loaded from Unsplash using CC-licensed URLs.

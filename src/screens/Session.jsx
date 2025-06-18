@@ -35,7 +35,7 @@ const Session = () => {
   const handlePrev = () => step > 0 && setStep(step - 1);
 
   return (
-    <div className="max-w-md mx-auto px-4 py-8 space-y-6 text-center">
+    <div className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-6">
       <h1 className="text-2xl font-bold">Week {progress.week} – Session</h1>
       <h2 className="text-lg text-gray-500">{titles[step]}</h2>
 
