@@ -21,7 +21,7 @@ const MathModule = ({ start }) => {
       renderItem={(n) => {
         const positions = generateDotPositions(n)
         return (
-          <div className="relative w-full h-[300px]">
+          <div className="relative w-full h-[60vw] sm:h-[300px]">
             {positions.map((pos, i) => (
               <span
                 key={i}

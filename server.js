@@ -72,7 +72,8 @@ app.post('/api/register', async (req, res) => {
 
 const port = process.env.PORT || 3001;
 // Generic error handler to capture unexpected errors
-app.use((err, req, res, next) => {
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, _next) => {
   console.error(err);
   const status = err.status || 500;
   res.status(status).json({ detail: err.message || 'Internal server error' });

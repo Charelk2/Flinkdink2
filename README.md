@@ -150,6 +150,11 @@ status code.
 FlinkDink is a Progressive Web App. You can add it to your home screen from the
 browser share menu or package it as a native app using **Capacitor**.
 
+Math practice screens now size their dot container responsively using
+`h-[60vw] sm:h-[300px]`. Dots are positioned with a new algorithm that retries
+until each one is at least eight percent away from the others, preventing
+overlap on small displays.
+
 ### Build for Android or iOS
 
 Install Capacitor and sync the project:
