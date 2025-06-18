@@ -70,4 +70,5 @@ HTTP status or message. The banner includes a **Retry** button that re-runs the
 
 ## License
 
-Images used in the encyclopedia module are loaded from Unsplash using CC-licensed URLs.
+Images used in the encyclopedia module are stored locally under `public/images`.
+Each file is a small SVG placeholder so the app works without internet access.
