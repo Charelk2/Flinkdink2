@@ -13,15 +13,15 @@
   ],
   "mathWindowStart": 1,
   "encyclopedia": [
-    { "id": "lion", "title": "Lion", "fact": "Lions live in prides.", "image": "https://source.unsplash.com/featured/?lion" },
-    { "id": "tiger", "title": "Tiger", "fact": "Tigers have striped fur.", "image": "https://source.unsplash.com/featured/?tiger" },
-    { "id": "bear", "title": "Bear", "fact": "Bears hibernate in winter.", "image": "https://source.unsplash.com/featured/?bear" },
-    { "id": "giraffe", "title": "Giraffe", "fact": "Giraffes have long necks.", "image": "https://source.unsplash.com/featured/?giraffe" },
-    { "id": "zebra", "title": "Zebra", "fact": "Zebras have black and white stripes.", "image": "https://source.unsplash.com/featured/?zebra" },
-    { "id": "monkey", "title": "Monkey", "fact": "Monkeys are very playful.", "image": "https://source.unsplash.com/featured/?monkey" },
-    { "id": "elephant", "title": "Elephant", "fact": "Elephants never forget.", "image": "https://source.unsplash.com/featured/?elephant" },
-    { "id": "panda", "title": "Panda", "fact": "Pandas love bamboo.", "image": "https://source.unsplash.com/featured/?panda" },
-    { "id": "koala", "title": "Koala", "fact": "Koalas sleep a lot.", "image": "https://source.unsplash.com/featured/?koala" },
-    { "id": "kangaroo", "title": "Kangaroo", "fact": "Kangaroos carry babies in pouches.", "image": "https://source.unsplash.com/featured/?kangaroo" }
+    { "id": "lion", "title": "Lion", "fact": "Lions live in prides.", "image": "/images/lion.svg" },
+    { "id": "tiger", "title": "Tiger", "fact": "Tigers have striped fur.", "image": "/images/tiger.svg" },
+    { "id": "bear", "title": "Bear", "fact": "Bears hibernate in winter.", "image": "/images/bear.svg" },
+    { "id": "giraffe", "title": "Giraffe", "fact": "Giraffes have long necks.", "image": "/images/giraffe.svg" },
+    { "id": "zebra", "title": "Zebra", "fact": "Zebras have black and white stripes.", "image": "/images/zebra.svg" },
+    { "id": "monkey", "title": "Monkey", "fact": "Monkeys are very playful.", "image": "/images/monkey.svg" },
+    { "id": "elephant", "title": "Elephant", "fact": "Elephants never forget.", "image": "/images/elephant.svg" },
+    { "id": "panda", "title": "Panda", "fact": "Pandas love bamboo.", "image": "/images/panda.svg" },
+    { "id": "koala", "title": "Koala", "fact": "Koalas sleep a lot.", "image": "/images/koala.svg" },
+    { "id": "kangaroo", "title": "Kangaroo", "fact": "Kangaroos carry babies in pouches.", "image": "/images/kangaroo.svg" }
   ]
 }
