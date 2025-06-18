@@ -11,11 +11,17 @@ npm install
 npm run dev
 ```
 
+This launches a hot-reloading dev server so you can iterate quickly.
+
 Tailwind CSS is processed with `@tailwindcss/postcss`. If you see a build error
 about unknown utilities (for example `bg-orange-500`), make sure the plugin is
 installed and listed in `postcss.config.js`. When a particular utility still
 fails to apply, replace it with an equivalent CSS declaration inside a `@layer`
 block.
+
+You can modify default styles by editing `tailwind.config.cjs`. Add new colors
+or font families under the `extend` section. Reusable custom classes should be
+placed inside the `@layer components` block in `src/index.css`.
 
 Lint the code with ESLint:
 
@@ -44,16 +50,24 @@ User progress is stored in `localStorage` under the key `progress-v1`. Each save
 
 ## Home Screen
 
-The home page now shows three inline circles representing the number of completed sessions for the day. A button labeled with the exact week, day, and session starts the next session. Below the button is a short list of the upcoming module titles: Language, Math, and Knowledge.
+The top of the page includes a compact `NavBar` with a home icon on the left,
+the **FlinkDink** title in the center and a `SettingsButton` on the right.
 
-When you're beyond week 1, a **Previous Week** button lets you revisit the prior week's content.
+Below the navigation is the main content area. A `Hero` component displays the
+headline and the current week/day. If multiple days are completed in a row a
+small flame badge shows the streak count.
 
-If you complete sessions on two or more days in a row, a small flame badge displays your streak count.
+Progress for the day is visualized by the `ProgressStrip` which renders three
+session dots. Underneath, `ThemeList` previews upcoming module titles such as
+Language, Math and Knowledge.
 
-guteek-codex/update-mathmodule-and-extend-tests
-The math module's red dots are now styled entirely inline. Each dot uses `inline-block` positioning with explicit width, height, background color, and border radius so they remain visible even if Tailwind utilities are unavailable.
+A large `CTAButton` starts the next session. When past week one, an additional
+button allows you to revisit the previous week's content.
 
-Math slides now follow a sliding window of ten numbers. From week two onward the first five numbers are shown in a random order while the upper five stay sequential.
+The math module's red dots are now styled inline with explicit dimensions so
+they remain visible even if Tailwind utilities are unavailable. Math slides use
+a sliding window of ten numbers; starting on week two the first five appear in a
+random order while the upper five stay sequential.
 
 
 ## Navigation
