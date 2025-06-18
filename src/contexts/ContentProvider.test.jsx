@@ -122,3 +122,65 @@ describe('previousWeek', () => {
     expect(stored.session).toBe(1)
   })
 })
+
+describe('reset helpers', () => {
+  it('resetToday sets session to 1', () => {
+    localStorage.setItem(
+      'progress-v1',
+      JSON.stringify({ version: 1, week: 2, day: 3, session: 2 }),
+    )
+
+    const ResetConsumer = () => {
+      const { progress, resetToday } = useContent()
+      return (
+        <div>
+          <span data-testid="session">{progress.session}</span>
+          <button type="button" onClick={resetToday}>
+            reset
+          </button>
+        </div>
+      )
+    }
+
+    render(
+      <ContentProvider>
+        <ResetConsumer />
+      </ContentProvider>,
+    )
+
+    fireEvent.click(screen.getByText('reset'))
+    expect(screen.getByTestId('session')).toHaveTextContent('1')
+    const stored = JSON.parse(localStorage.getItem('progress-v1'))
+    expect(stored.session).toBe(1)
+  })
+
+  it('resetAll clears all progress', () => {
+    localStorage.setItem(
+      'progress-v1',
+      JSON.stringify({ version: 1, week: 3, day: 2, session: 3 }),
+    )
+
+    const AllConsumer = () => {
+      const { progress, resetAll } = useContent()
+      return (
+        <div>
+          <span data-testid="week">{progress.week}</span>
+          <button type="button" onClick={resetAll}>
+            reset all
+          </button>
+        </div>
+      )
+    }
+
+    render(
+      <ContentProvider>
+        <AllConsumer />
+      </ContentProvider>,
+    )
+
+    fireEvent.click(screen.getByText('reset all'))
+    expect(screen.getByTestId('week')).toHaveTextContent('1')
+    const stored = JSON.parse(localStorage.getItem('progress-v1'))
+    expect(stored.week).toBe(1)
+  })
+})
