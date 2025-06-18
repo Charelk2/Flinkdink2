@@ -2,40 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
-  padding: 0.5rem 1.25rem;
-  background-color: rgb(79 70 229);
-  color: white;
-  border-radius: 9999px;
-}
-.btn:hover {
-  background-color: rgb(67 56 202);
-}
-.btn:disabled {
-  opacity: 0.5;
-}
+@layer components {
+  .btn {
+    padding: 0.5rem 1.25rem;
+    background-color: rgb(79 70 229);
+    color: white;
+    border-radius: 9999px;
+  }
+  .btn:hover {
+    background-color: rgb(67 56 202);
+  }
+  .btn:disabled {
+    opacity: 0.5;
+  }
 
-.card {
-  border-radius: 1rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  background-color: white;
-  padding: 1.5rem;
-}
+  .card {
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 1.5rem;
+  }
 
-.progress-dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 9999px;
-  border: 1px solid rgb(156 163 175);
-  margin-left: 0.125rem;
-  margin-right: 0.125rem;
-}
+  .progress-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid rgb(156 163 175);
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
+  }
 
-.progress-dot.filled {
-  background-color: rgb(79 70 229);
-  border-color: rgb(79 70 229);
-}
+  .progress-dot.filled {
+    background-color: rgb(79 70 229);
+    border-color: rgb(79 70 229);
+  }
 
-.badge {
-  @apply bg-orange-500 text-white px-2 py-1 rounded-full text-sm font-semibold;
+  .badge {
+    @apply bg-orange-500 text-white px-2 py-1 rounded-full text-sm font-semibold;
+  }
 }
