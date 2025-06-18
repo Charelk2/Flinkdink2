@@ -94,7 +94,7 @@ Finishing a session triggers a short confetti toast before returning to the home
 
 ## Loading States
 
-All screens now display a reusable skeleton placeholder while week data loads.
+Most screens display a reusable skeleton placeholder while week data loads.
 The skeleton uses an animated shimmer and sets `aria-busy="true"` for assistive technology. If loading fails, an error message is displayed.
 
 

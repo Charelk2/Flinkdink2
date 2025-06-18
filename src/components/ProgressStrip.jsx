@@ -1,28 +1,24 @@
-import { useContent } from '../contexts/ContentProvider'
+import { useContent } from '../contexts/ContentProvider';
 
 const ProgressStrip = () => {
-  const { progress } = useContent()
-  const completedSessions = progress.session - 1
+  const { progress } = useContent();
+  const { week, day, session } = progress;
   return (
     <div className="text-center space-y-1">
-      <p className="font-semibold text-gray-700">
-        Week {progress.week} • Day {progress.day} • Session {progress.session}
-      </p>
-      <div className="flex justify-center gap-1" aria-label="sessions-progress">
+      <p className="font-semibold text-gray-700">Week {week} • Day {day} • Session {session}</p>
+      <div className="flex items-center justify-center space-x-1" aria-label="sessions-progress">
         {[1, 2, 3].map((n) => (
           <span
             key={n}
             data-testid="session-dot"
-            className={`rounded-full ${n <= completedSessions ? 'bg-indigo-600' : 'bg-gray-300'}`}
+            className={`rounded-full ${n <= session ? 'bg-indigo-600' : 'bg-gray-300'}`}
             style={{ width: '8px', height: '8px' }}
           />
         ))}
+        <span className="text-sm text-gray-600 ml-1">{session} of 3 sessions</span>
       </div>
-      <p className="text-sm text-gray-600">
-        {completedSessions} of 3 sessions
-      </p>
     </div>
-  )
-}
+  );
+};
 
-export default ProgressStrip
+export default ProgressStrip;

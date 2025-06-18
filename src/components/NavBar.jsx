@@ -1,15 +1,15 @@
-import { Link, useLocation } from 'react-router-dom'
-import SettingsButton from './SettingsButton'
+import { Link, useLocation } from 'react-router-dom';
+import SettingsButton from './SettingsButton';
 
 const NavBar = () => {
-  const { pathname } = useLocation()
-  const isHome = pathname === '/'
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
   return (
-    <nav className="sticky top-0 bg-gray-50 shadow-sm flex items-center p-4 z-50">
+    <nav className="sticky top-0 bg-gray-50 flex items-center p-4 z-50">
       {isHome ? (
         <>
           <div className="flex-1" />
-          <span className="mx-auto font-bold text-indigo-600">FlinkDink</span>
+          <span className="mx-auto font-bold text-2xl text-indigo-600">FlinkDink</span>
           <SettingsButton />
         </>
       ) : (
@@ -17,7 +17,7 @@ const NavBar = () => {
           <Link
             to="/"
             aria-label="Home"
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             🏠
           </Link>
@@ -26,7 +26,7 @@ const NavBar = () => {
         </>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
