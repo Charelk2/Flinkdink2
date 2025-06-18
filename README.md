@@ -22,6 +22,12 @@ Lint the code with ESLint:
 npm run lint
 ```
 
+Run the unit tests:
+
+```bash
+npm test
+```
+
 ## Project Structure
 
 - `src/contexts` – global `ContentProvider` that loads week data and tracks progress
