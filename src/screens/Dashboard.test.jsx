@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import Dashboard from './Dashboard'
 import { useContent } from '../contexts/ContentProvider'
 
@@ -12,7 +13,11 @@ describe('Dashboard', () => {
       resetAll: jest.fn(),
     })
 
-    render(<Dashboard />)
+    render(
+      <MemoryRouter>
+        <Dashboard />
+      </MemoryRouter>,
+    )
 
     fireEvent.change(screen.getByLabelText('PIN'), { target: { value: '1234' } })
     fireEvent.click(screen.getByRole('button', { name: /unlock/i }))

@@ -85,6 +85,7 @@ random order while the upper five stay sequential.
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
+Clicking the settings button now opens a simple **Dashboard** route showing overall progress and reset options.
 
 ## Accessibility
 
