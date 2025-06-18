@@ -9,9 +9,12 @@ const CTAButton = () => {
   return (
     <Link
       to="/session"
-      className="block w-full px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-2xl shadow-lg mt-6 md:mt-8 mx-4 md:mx-0 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      className="cta-btn shadow-lg mt-6 md:mt-8 mx-4 md:mx-0 focus:outline-none focus:ring-2 focus:ring-indigo-500"
     >
-        {label} Week {week} · Day {day} · Session {session} →
+      <span>
+        {label} Week {week} · Day {day} · Session {session}
+      </span>
+      <span className="cta-arrow" aria-hidden="true">→</span>
     </Link>
   );
 };

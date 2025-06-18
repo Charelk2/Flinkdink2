@@ -60,12 +60,29 @@
   }
 
   .cta-btn {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     padding: 0.75rem 1.25rem; /* py-3 and btn horizontal padding */
     background-color: rgb(79 70 229);
     color: white;
     border-radius: 9999px;
     width: 100%;
     font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    transition: background-color 0.2s;
+  }
+
+  .cta-btn:hover {
+    background-color: rgb(67 56 202);
+  }
+
+  .cta-arrow {
+    transition: transform 0.2s;
+  }
+
+  .cta-btn:hover .cta-arrow {
+    transform: translateX(0.25rem);
   }
 }
