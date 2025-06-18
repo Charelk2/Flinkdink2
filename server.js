@@ -4,6 +4,7 @@ import cors from 'cors';
 import sqlite3 from 'sqlite3';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import morgan from 'morgan';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ db.serialize(() => {
 const app = express();
 app.use(express.json());
 app.use(cors());
+app.use(morgan('combined'));
 
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
@@ -69,6 +71,13 @@ app.post('/api/register', async (req, res) => {
 });
 
 const port = process.env.PORT || 3001;
+// Generic error handler to capture unexpected errors
+app.use((err, req, res, next) => {
+  console.error(err);
+  const status = err.status || 500;
+  res.status(status).json({ detail: err.message || 'Internal server error' });
+});
+
 if (process.env.NODE_ENV !== 'test') {
   app.listen(port, () => {
     console.log(`API server running on ${port}`);
