@@ -1,5 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { AuthProvider } from '../contexts/AuthProvider'
 import Home from './Home'
 import ErrorBanner from '../components/ErrorBanner'
 import { ContentProvider } from '../contexts/ContentProvider'
@@ -22,10 +23,12 @@ describe('week load error flow', () => {
 
     render(
       <MemoryRouter>
-        <ContentProvider>
-          <ErrorBanner />
-          <Home />
-        </ContentProvider>
+        <AuthProvider>
+          <ContentProvider>
+            <ErrorBanner />
+            <Home />
+          </ContentProvider>
+        </AuthProvider>
       </MemoryRouter>,
     )
 

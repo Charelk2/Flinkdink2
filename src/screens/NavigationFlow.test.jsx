@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { AuthProvider } from '../contexts/AuthProvider';
 import Session from './Session';
 import { useContent } from '../contexts/ContentProvider';
 
@@ -24,7 +25,9 @@ describe('Session navigation flow', () => {
 
     render(
       <MemoryRouter>
-        <Session />
+        <AuthProvider>
+          <Session />
+        </AuthProvider>
       </MemoryRouter>,
     );
 
