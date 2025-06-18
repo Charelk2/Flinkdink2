@@ -4,7 +4,7 @@ This project is a simple flashcard app for toddlers built with **React**, **Vite
 
 ## Development
 
-Install dependencies and start the dev server:
+Install dependencies (including the new `@tailwindcss/postcss` plugin) and start the dev server:
 
 ```bash
 npm install
