@@ -11,6 +11,11 @@ npm install
 npm run dev
 ```
 
+Tailwind CSS 4.x requires any files using `@apply` to be included in the
+`content` array of `tailwind.config.js`. The configuration already references
+`src/index.css`, so unknown utility class errors should not occur during
+development.
+
 Lint the code with ESLint:
 
 ```bash
