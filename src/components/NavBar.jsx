@@ -13,9 +13,10 @@ const NavBar = () => {
       Logout
     </button>
   ) : (
-    <Link to="/login" className="text-sm underline ml-2">
-      Login
-    </Link>
+    <div className="flex items-center space-x-2">
+      <Link to="/login" className="text-sm underline">Login</Link>
+      <Link to="/signup" className="text-sm underline">Sign Up</Link>
+    </div>
   );
 
   return pathname === '/' ? (
