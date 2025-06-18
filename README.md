@@ -159,6 +159,19 @@ screens and thirteen on larger displays. The carousel height now uses
 `min-h-[50vh]` and login/signup forms are `w-full max-w-xs` so they fit on
 narrow devices.
 
+Full-screen areas leverage viewport units so layouts adapt to device height.
+The math board scales with the viewport width while carousels always take up at
+least half of the viewport height. Week buttons switch between seven and
+thirteen columns depending on the viewport width. Dots will never overlap
+because positions are regenerated until the minimum eight percent spacing is
+met.
+
+**Small screen layout**: On a 360 px wide phone the Dashboard displays two
+short rows of seven week buttons with progress info below. The math practice
+screen shows four non-overlapping dots inside a square area roughly 60 % of the
+viewport width. Forms and buttons stretch across the width but remain capped at
+`max-w-xs`.
+
 ### Build for Android or iOS
 
 Install Capacitor and sync the project:
