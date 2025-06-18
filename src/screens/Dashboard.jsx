@@ -8,7 +8,15 @@ const Dashboard = () => {
   const [entered, setEntered] = useState('')
   const [unlocked, setUnlocked] = useState(false)
 
-  const { progress, resetToday, resetAll } = useContent()
+  const {
+    progress,
+    weekData,
+    loading,
+    error,
+    jumpToWeek,
+    resetToday,
+    resetAll,
+  } = useContent()
 
 
   if (!unlocked) {
@@ -42,6 +50,7 @@ const Dashboard = () => {
 
   const days = Array.from({ length: 7 }, (_, i) => i + 1)
   const modules = ['L', 'M', 'E']
+  const weeks = Array.from({ length: 52 }, (_, i) => i + 1)
 
   const isComplete = (day, modIndex) => {
     if (day < progress.day) return true
@@ -73,6 +82,30 @@ const Dashboard = () => {
           </div>
         ))}
       </div>
+      <h2 className="text-xl font-semibold pt-4">Weeks</h2>
+      <div className="grid grid-cols-13 gap-1 text-center" data-testid="week-grid">
+        {weeks.map((w) => (
+          <button
+            key={w}
+            type="button"
+            data-testid={`week-btn-${w}`}
+            className={`border p-1 rounded ${w === progress.week ? 'bg-indigo-200' : ''}`}
+            onClick={() => jumpToWeek(w)}
+          >
+            {w}
+          </button>
+        ))}
+      </div>
+      {loading && <p>Loading...</p>}
+      {!loading && error && <p className="text-red-600">Failed to load</p>}
+      {!loading && !error && !weekData && <p>empty</p>}
+      {!loading && weekData && (
+        <div className="pt-2 text-sm" data-testid="week-info">
+          <div>Language: {weekData.language.slice(0, 3).join(', ')}</div>
+          <div>Math start: {weekData.mathWindowStart}</div>
+          <div>Cards: {weekData.encyclopedia.length}</div>
+        </div>
+      )}
       <div className="space-x-2">
         <button type="button" onClick={resetToday} className="btn">
           Reset Today

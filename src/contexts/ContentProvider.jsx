@@ -99,6 +99,12 @@ export const ContentProvider = ({ children }) => {
     }
   }
 
+  const jumpToWeek = (week) => {
+    if (week >= 1 && week <= 52) {
+      saveProgress({ week, day: 1, session: 1 })
+    }
+  }
+
   const resetToday = () => {
     saveProgress({ ...progress, session: 1 })
   }
@@ -117,6 +123,7 @@ export const ContentProvider = ({ children }) => {
       completeSession,
       loadWeek,
       previousWeek,
+      jumpToWeek,
       resetToday,
       resetAll,
     }}
