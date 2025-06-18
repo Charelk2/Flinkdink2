@@ -1,4 +1,8 @@
 /* App level styles */
-body {
-  @apply bg-gray-100;
+@tailwind utilities;
+@reference utilities from tailwindcss;
+@layer base {
+  body {
+    @apply bg-gray-100;
+  }
 }
