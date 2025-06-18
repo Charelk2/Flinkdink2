@@ -14,7 +14,9 @@ npm run dev
 Tailwind CSS 4.x requires any files using `@apply` to be included in the
 `content` array of `tailwind.config.js`. The configuration already references
 `src/index.css`, so unknown utility class errors should not occur during
-development.
+development. If you see a build error about unknown utility classes, make sure
+the `@tailwindcss/postcss` package is installed and listed in
+`postcss.config.js`.
 
 Lint the code with ESLint:
 
