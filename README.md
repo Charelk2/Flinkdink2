@@ -44,7 +44,7 @@ User progress is stored in `localStorage` under the key `progress-v1`. Each save
 
 The home page now shows three inline circles representing the number of completed sessions for the day. A button labeled with the exact week, day, and session starts the next session. Below the button is a short list of the upcoming module titles: Language, Math, and Knowledge.
 
-The red dots displayed on math slides rely on Tailwind's `w-4`, `h-4`, and `inline-block` utilities. Ensure the compiled CSS is included so these dots appear with the correct size.
+The red dots displayed on math slides still use Tailwind's `inline-block` utility, but their width and height are now set inline to avoid them collapsing if the build misses the `w-4`/`h-4` classes.
 
 ## Header
 
