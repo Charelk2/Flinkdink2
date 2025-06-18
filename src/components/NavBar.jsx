@@ -7,7 +7,7 @@ const NavBar = () => {
   const isHome = pathname === '/';
   const handleSettings = () => navigate('/dashboard');
   return (
-    <nav className="sticky top-0 bg-gray-50 flex items-center p-4 z-50">
+    <nav className="sticky top-0 w-full bg-gray-50 shadow-sm flex items-center px-6 py-4 z-50">
       {isHome ? (
         <>
           <div className="flex-1" />
