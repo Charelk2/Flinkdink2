@@ -3,10 +3,17 @@ import { generateDotPositions } from '../utils/randomDots'
 
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5)
 
-const MathModule = ({ start }) => {
+// eslint-disable-next-line react-refresh/only-export-components
+export const createSlides = (start) => {
   const numbers = Array.from({ length: 10 }, (_, i) => start + i)
-  const first = shuffle(numbers.slice(0, 5))
-  const slides = [...first, ...numbers.slice(5)]
+  const firstHalf = numbers.slice(0, 5)
+  const secondHalf = numbers.slice(5)
+  const first = start === 1 ? firstHalf : shuffle(firstHalf)
+  return [...first, ...secondHalf]
+}
+
+const MathModule = ({ start }) => {
+  const slides = createSlides(start)
 
   return (
     <Carousel

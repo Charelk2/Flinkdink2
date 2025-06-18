@@ -47,6 +47,8 @@ The home page now shows three inline circles representing the number of complete
 guteek-codex/update-mathmodule-and-extend-tests
 The math module's red dots are now styled entirely inline. Each dot uses `inline-block` positioning with explicit width, height, background color, and border radius so they remain visible even if Tailwind utilities are unavailable.
 
+Math slides now follow a sliding window of ten numbers. From week two onward the first five numbers are shown in a random order while the upper five stay sequential.
+
 
 ## Header
 
