@@ -18,7 +18,7 @@ const MathModule = ({ start }) => {
             {positions.map((pos, i) => (
               <span
                 key={i}
-                className="absolute w-4 h-4 bg-red-500 rounded-full"
+                className="absolute inline-block w-4 h-4 bg-red-500 rounded-full"
                 style={{ top: pos.top, left: pos.left }}
               />
             ))}
