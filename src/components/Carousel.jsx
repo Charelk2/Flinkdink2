@@ -45,11 +45,12 @@ const Carousel = ({ items, renderItem }) => {
           Next
         </button>
       </div>
-      <div className="flex justify-center gap-1">
+      <div className="flex justify-center gap-1" aria-label="carousel-progress">
         {items.map((_, i) => (
           <span
             key={i}
-            className={`w-2 h-2 rounded-full ${i === index ? 'bg-indigo-600' : 'bg-gray-300'}`}
+            data-testid="carousel-dot"
+            className={`progress-dot${i === index ? ' filled' : ''}`}
           />
         ))}
       </div>

@@ -7,7 +7,7 @@ const Home = () => {
   const titles = ['Language', 'Math', 'Knowledge']
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-4 p-4 text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen space-y-4 p-4 pt-12 text-center">
       <h1 className="text-3xl font-bold">FlinkDink Flashcards</h1>
       <p>
         Week {progress.week} – Day {progress.day}
