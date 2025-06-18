@@ -136,6 +136,15 @@ During development the API server runs on `http://localhost:3001`, so the
 `VITE_API_BASE_URL` variable should point there. For production builds set it to
 the full URL of your deployed API server.
 
+### Interpreting Server Logs
+
+The server uses the `morgan` middleware in the `combined` format to log every
+incoming HTTP request. Each line shows the method, URL, response status and
+response time. In addition, the generic error handler prints any unexpected
+errors. If something goes wrong you'll see a message in the console and the API
+responds with JSON like `{ "detail": "Database error" }` along with the relevant
+status code.
+
 ## Mobile Usage
 
 FlinkDink is a Progressive Web App. You can add it to your home screen from the
