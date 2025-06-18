@@ -37,7 +37,7 @@ npm test
 
 ## Progress Storage
 
-User progress is stored in `localStorage` under the key `progress-v1`. The app automatically advances sessions, days, and weeks.
+User progress is stored in `localStorage` under the key `progress-v1`. Each saved record contains a `version` field. If the stored version does not match the current application version, progress is reset to defaults. Bump the version when changing the progress schema.
 
 ## Home Screen
 

@@ -12,7 +12,7 @@ vi.mock('../contexts/ContentProvider')
 
 describe('Home screen', () => {
   it('renders progress and next session titles', () => {
-    useContent.mockReturnValue({ progress: { week: 2, day: 3, session: 2 } })
+    useContent.mockReturnValue({ progress: { version: 1, week: 2, day: 3, session: 2 } })
 
     render(
       <MemoryRouter>
