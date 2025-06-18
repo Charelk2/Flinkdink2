@@ -2,10 +2,10 @@ const SettingsButton = ({ onClick }) => (
   <button
     type="button"
     aria-label="Settings"
-    className="icon-btn"
     onClick={onClick}
+    className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
   >
-    ⚙
+    ⚙️
   </button>
 )
 

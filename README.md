@@ -62,19 +62,19 @@ User progress is stored in `localStorage` under the key `progress-v1`. Each save
 
 ## Home Screen
 
-The top of the page includes a compact `NavBar` with a home icon on the left,
-the **FlinkDink** title in the center and a `SettingsButton` on the right.
+The top of the page includes a sticky `NavBar` with a centered **FlinkDink**
+title and a circular settings button. When viewing a session, the bar shows a
+home icon on the left so you can navigate back.
 
-Below the navigation is the main content area. A `Hero` component displays the
-headline and the current week/day. If multiple days are completed in a row a
-small flame badge shows the streak count.
+Below the navigation is the main content area. A `Hero` component displays a
+static headline and tagline welcoming toddlers to the flashcards.
 
 Progress for the day is visualized by the `ProgressStrip` which renders three
 session dots. Underneath, `ThemeList` previews upcoming module titles such as
 Language, Math and Knowledge.
 
-A large `CTAButton` starts the next session. When past week one, an additional
-button allows you to revisit the previous week's content.
+A large `CTAButton` starts or continues the current session depending on your
+progress.
 
 The math module's red dots are now styled inline with explicit dimensions so
 they remain visible even if Tailwind utilities are unavailable. Math slides use
@@ -95,11 +95,7 @@ Finishing a session triggers a short confetti toast before returning to the home
 ## Loading States
 
 All screens now display a reusable skeleton placeholder while week data loads.
-The skeleton uses an animated shimmer and sets `aria-busy="true"` for assistive
-technology. If loading fails, an error message is displayed.
-
-
-An optional `/dashboard` route is protected by a simple PIN entry form. It shows a 7-day progress grid where completed modules are highlighted in green, along with buttons to reset progress or print awards.
+The skeleton uses an animated shimmer and sets `aria-busy="true"` for assistive technology. If loading fails, an error message is displayed.
 
 
 ## Error Handling
