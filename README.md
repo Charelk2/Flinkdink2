@@ -74,7 +74,8 @@ session dots. Underneath, `ThemeList` previews upcoming module titles such as
 Language, Math and Knowledge.
 
 A large `CTAButton` starts or continues the current session depending on your
-progress.
+progress. When you're beyond week 1, a **Previous Week** button appears so you
+can revisit earlier content.
 
 The math module's red dots are now styled inline with explicit dimensions so
 they remain visible even if Tailwind utilities are unavailable. Math slides use

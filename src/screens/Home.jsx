@@ -3,8 +3,10 @@ import Hero from '../components/Hero';
 import ProgressStrip from '../components/ProgressStrip';
 import ThemeList from '../components/ThemeList';
 import CTAButton from '../components/CTAButton';
+import { useContent } from '../contexts/ContentProvider';
 
 export default function Home() {
+  const { progress, previousWeek } = useContent();
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <NavBar />
@@ -13,6 +15,11 @@ export default function Home() {
         <ProgressStrip />
         <ThemeList />
         <CTAButton />
+        {progress.week > 1 && (
+          <button type="button" onClick={previousWeek} className="btn">
+            ← Previous Week
+          </button>
+        )}
       </main>
     </div>
   );
