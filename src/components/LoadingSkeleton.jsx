@@ -1,11 +1,17 @@
 import React from 'react'
+import Skeleton from './Skeleton'
 
 const LoadingSkeleton = () => (
-  <div className="flex items-center justify-center h-screen" data-testid="loading">
-    <div className="animate-pulse space-y-4 w-60">
-      <div className="h-6 bg-gray-200 rounded" />
-      <div className="h-4 bg-gray-200 rounded w-1/2" />
-      <div className="h-32 bg-gray-200 rounded" />
+  <div
+    className="flex items-center justify-center h-screen"
+    data-testid="loading"
+    role="status"
+    aria-busy="true"
+  >
+    <div className="space-y-4 w-60">
+      <Skeleton className="h-6" />
+      <Skeleton className="h-4 w-1/2" />
+      <Skeleton className="h-32" />
     </div>
   </div>
 )

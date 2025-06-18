@@ -54,7 +54,9 @@ Carousel navigation buttons now include descriptive ARIA labels and retain their
 
 ## Loading States
 
-The session screen shows a skeleton placeholder while week data loads. If loading fails, an error message is displayed.
+All screens now display a reusable skeleton placeholder while week data loads.
+The skeleton uses an animated shimmer and sets `aria-busy="true"` for assistive
+technology. If loading fails, an error message is displayed.
 
 ## License
 

@@ -7,7 +7,7 @@ jest.mock('../contexts/ContentProvider')
 
 describe('Home screen', () => {
   it('renders progress and next session titles', () => {
-    useContent.mockReturnValue({ progress: { version: 1, week: 2, day: 3, session: 2 } })
+    useContent.mockReturnValue({ progress: { version: 1, week: 2, day: 3, session: 2 }, loading: false })
 
     render(
       <MemoryRouter>
@@ -30,5 +30,15 @@ describe('Home screen', () => {
     expect(screen.getByText('Language')).toBeInTheDocument()
     expect(screen.getByText('Math')).toBeInTheDocument()
     expect(screen.getByText('Knowledge')).toBeInTheDocument()
+  })
+
+  it('shows skeleton when loading', () => {
+    useContent.mockReturnValue({ loading: true })
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    )
+    expect(screen.getByTestId('loading')).toBeInTheDocument()
   })
 })

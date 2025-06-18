@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useContent } from '../contexts/ContentProvider'
+import LoadingSkeleton from '../components/LoadingSkeleton'
 
 const Home = () => {
-  const { progress } = useContent()
+  const { progress, loading } = useContent()
+  if (loading) return <LoadingSkeleton />
   const completed = progress.session - 1
   const titles = ['Language', 'Math', 'Knowledge']
 
