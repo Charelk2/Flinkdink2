@@ -56,6 +56,8 @@ The suite uses **Jest** alongside **React Testing Library** for component tests.
 - `src/screens` – page components for the router
 - `public/weeks` – JSON data files per week
 - `src/utils/fetchWeek.js` – helper to fetch a week's JSON by number
+ - Language words now display in a very large lowercase font so toddlers
+   can easily read them
 
 ## Progress Storage
 
