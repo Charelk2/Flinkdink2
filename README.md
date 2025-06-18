@@ -124,11 +124,16 @@ Create a `.env` file in the project root with the following variables:
 PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
+VITE_API_BASE_URL=http://localhost:3001
 ```
 
 The default credentials are **demo@example.com** / **password**. You can also
 register a new account using the **Sign Up** page. Successful authentication
 returns a token stored in `localStorage` by the `AuthProvider`.
+
+During development the API server runs on `http://localhost:3001`, so the
+`VITE_API_BASE_URL` variable should point there. For production builds set it to
+the full URL of your deployed API server.
 
 ## Mobile Usage
 
