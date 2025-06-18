@@ -48,10 +48,24 @@
   }
 
   .icon-btn {
-    @apply flex items-center justify-center w-10 h-10 rounded-full bg-white shadow;
+    /* Avoid @apply errors by using explicit CSS rules */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem; /* w-10 */
+    height: 2.5rem; /* h-10 */
+    border-radius: 9999px; /* rounded-full */
+    background-color: white; /* bg-white */
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* shadow */
   }
 
   .cta-btn {
-    @apply btn w-full text-lg py-3;
+    display: inline-block;
+    padding: 0.75rem 1.25rem; /* py-3 and btn horizontal padding */
+    background-color: rgb(79 70 229);
+    color: white;
+    border-radius: 9999px;
+    width: 100%;
+    font-size: 1.125rem; /* text-lg */
   }
 }
