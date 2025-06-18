@@ -110,6 +110,22 @@ When week data fails to load, a red banner appears below the header with the
 HTTP status or message. The banner includes a **Retry** button that re-runs the
 `loadWeek` request.
 
+## Authentication
+
+Run a small API server to handle login requests:
+
+```bash
+npm run server
+```
+
+The default credentials are **demo@example.com** / **password**. Successful
+login returns a token stored in `localStorage` by the `AuthProvider`.
+
+## Mobile Usage
+
+FlinkDink is a Progressive Web App. Add it to your home screen on Android or iOS
+from the browser share menu to use it like a native app.
+
 ## License
 
 Images used in the encyclopedia module are stored locally under `public/images`.

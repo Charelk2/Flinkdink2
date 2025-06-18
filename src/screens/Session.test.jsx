@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { AuthProvider } from '../contexts/AuthProvider'
 import Session from './Session'
 import { useContent } from '../contexts/ContentProvider'
 
@@ -10,7 +11,9 @@ describe('Session screen', () => {
     useContent.mockReturnValue({ loading: true })
     render(
       <MemoryRouter>
-        <Session />
+        <AuthProvider>
+          <Session />
+        </AuthProvider>
       </MemoryRouter>,
     )
     expect(screen.getByTestId('loading')).toBeInTheDocument()
@@ -20,7 +23,9 @@ describe('Session screen', () => {
     useContent.mockReturnValue({ loading: false, error: new Error('404') })
     render(
       <MemoryRouter>
-        <Session />
+        <AuthProvider>
+          <Session />
+        </AuthProvider>
       </MemoryRouter>,
     )
     expect(screen.getByText(/failed to load week data/i)).toBeInTheDocument()
@@ -40,7 +45,9 @@ describe('Session screen', () => {
     })
     render(
       <MemoryRouter>
-        <Session />
+        <AuthProvider>
+          <Session />
+        </AuthProvider>
       </MemoryRouter>,
     )
     expect(screen.getByTestId('app-header')).toBeInTheDocument()

@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { AuthProvider } from '../contexts/AuthProvider';
 import Home from './Home';
 import { useContent } from '../contexts/ContentProvider';
 
@@ -19,7 +20,9 @@ describe('Home screen', () => {
 
     render(
       <MemoryRouter>
-        <Home />
+        <AuthProvider>
+          <Home />
+        </AuthProvider>
       </MemoryRouter>,
     );
 

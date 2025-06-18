@@ -1,16 +1,31 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SettingsButton from './SettingsButton';
+import { useAuth } from '../contexts/AuthProvider';
 
 const NavBar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const { token, logout } = useAuth();
   const handleSettings = () => navigate('/dashboard');
   const common = 'w-full bg-gray-50 shadow-sm px-6 py-4 flex items-center justify-between';
+  const authButton = token ? (
+    <button type="button" onClick={logout} className="text-sm underline ml-2">
+      Logout
+    </button>
+  ) : (
+    <Link to="/login" className="text-sm underline ml-2">
+      Login
+    </Link>
+  );
+
   return pathname === '/' ? (
     <nav className={common}>
       <div className="flex-1" />
       <span className="text-2xl font-bold text-indigo-600">FlinkDink</span>
-      <SettingsButton onClick={handleSettings} />
+      <div className="flex items-center">
+        {authButton}
+        <SettingsButton onClick={handleSettings} />
+      </div>
     </nav>
   ) : (
     <nav className={common}>
@@ -21,7 +36,10 @@ const NavBar = () => {
       >
         🏠
       </Link>
-      <SettingsButton onClick={handleSettings} />
+      <div className="flex items-center">
+        {authButton}
+        <SettingsButton onClick={handleSettings} />
+      </div>
     </nav>
   );
 };

@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { AuthProvider } from '../contexts/AuthProvider'
 import Dashboard from './Dashboard'
 import { useContent } from '../contexts/ContentProvider'
 
@@ -19,7 +20,9 @@ describe('Dashboard', () => {
 
     render(
       <MemoryRouter>
-        <Dashboard />
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
       </MemoryRouter>,
     )
 
@@ -49,7 +52,9 @@ describe('Dashboard', () => {
 
     render(
       <MemoryRouter>
-        <Dashboard />
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
       </MemoryRouter>,
     )
 
