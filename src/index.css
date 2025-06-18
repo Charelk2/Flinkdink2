@@ -38,6 +38,12 @@
   }
 
   .badge {
-    @apply bg-orange-500 text-white px-2 py-1 rounded-full text-sm font-semibold;
+    /* Use explicit color to avoid unknown Tailwind utility errors */
+    background-color: #f97316; /* tailwind orange-500 */
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600; /* font-semibold */
   }
 }
