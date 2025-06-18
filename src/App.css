@@ -1,8 +1,6 @@
 /* App level styles */
 @tailwind utilities;
-@reference utilities from tailwindcss;
-@layer base {
-  body {
-    @apply bg-gray-100;
-  }
+
+body {
+  background-color: rgb(243 244 246);
 }

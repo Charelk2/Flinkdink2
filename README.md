@@ -4,19 +4,16 @@ This project is a simple flashcard app for toddlers built with **React**, **Vite
 
 ## Development
 
-Install dependencies (including the new `@tailwindcss/postcss` plugin) and start the dev server:
+Install dependencies (including the `@tailwindcss/postcss` plugin) and start the development server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Tailwind CSS 4.x requires any files using `@apply` to be included in the
-`content` array of `tailwind.config.js`. The configuration already references
-`src/index.css`, so unknown utility class errors should not occur during
-development. If you see a build error about unknown utility classes, make sure
-the `@tailwindcss/postcss` package is installed and listed in
-`postcss.config.js`.
+Tailwind CSS is processed with `@tailwindcss/postcss`. If you encounter a build
+error about unknown utility classes, verify the plugin is installed and listed
+in `postcss.config.js`.
 
 Lint the code with ESLint:
 
