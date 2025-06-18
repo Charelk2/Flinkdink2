@@ -11,8 +11,13 @@ const AUTH_KEY = 'auth-token';
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem(AUTH_KEY));
 
+  const baseUrl =
+    (import.meta.env && import.meta.env.VITE_API_BASE_URL) ||
+    process.env.VITE_API_BASE_URL ||
+    '';
+
   const login = async (email, password) => {
-    const res = await fetch('/api/login', {
+    const res = await fetch(`${baseUrl}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -28,7 +33,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (email, password) => {
-    const res = await fetch('/api/register', {
+    const res = await fetch(`${baseUrl}/api/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
