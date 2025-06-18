@@ -151,6 +151,19 @@ npm run build
 npx cap sync
 ```
 
+Before building the native projects, make sure a `.env` file exists in the
+project root so both the frontend and API server share the correct values:
+
+```bash
+PORT=3001
+JWT_SECRET=your-secret
+DB_PATH=./users.db
+VITE_API_BASE_URL=https://your-server.com
+```
+
+Whenever you change these variables run `npx cap sync` again so Capacitor copies
+them into the platform folders.
+
 Open the project in Android Studio or Xcode:
 
 ```bash
@@ -158,7 +171,17 @@ npx cap open android
 npx cap open ios
 ```
 
-From there you can build and publish the app to the Play Store or App Store.
+From there you can build and publish the app to the Play Store or App Store. For
+release builds remember to configure signing keys:
+
+- **Android** – create a keystore and reference it from
+  `android/gradle.properties` or `signing.properties`.
+- **iOS** – add your certificates and provisioning profiles in Xcode.
+
+The backend requires a Node.js environment with SQLite support. Deploy
+`server.js` to a Node host (such as Railway or a small VPS) and ensure the
+database file is writable. Update `VITE_API_BASE_URL` in your `.env` to point to
+the deployed server.
 
 ## License
 
