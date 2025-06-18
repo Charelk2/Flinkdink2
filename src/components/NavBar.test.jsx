@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './NavBar'
 
 describe('NavBar', () => {
@@ -22,5 +22,18 @@ describe('NavBar', () => {
     )
     expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /settings/i })).toBeInTheDocument()
+  })
+
+  it('navigates to dashboard when settings clicked', () => {
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route path="/" element={<NavBar />} />
+          <Route path="/dashboard" element={<div>Dash</div>} />
+        </Routes>
+      </MemoryRouter>,
+    )
+    fireEvent.click(screen.getByRole('button', { name: /settings/i }))
+    expect(screen.getByText('Dash')).toBeInTheDocument()
   })
 })

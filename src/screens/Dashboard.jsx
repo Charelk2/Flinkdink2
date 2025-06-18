@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useContent } from '../contexts/ContentProvider'
+import NavBar from '../components/NavBar'
 
 const PIN = '1234'
 
@@ -12,8 +13,10 @@ const Dashboard = () => {
 
   if (!unlocked) {
     return (
-      <div className="p-4 space-y-2 text-center">
-        <h1 className="text-xl font-bold">Enter PIN</h1>
+      <>
+        <NavBar />
+        <div className="p-4 space-y-2 text-center pt-20">
+          <h1 className="text-xl font-bold">Enter PIN</h1>
 
         <label htmlFor="pin" className="sr-only">PIN</label>
         <input
@@ -31,7 +34,8 @@ const Dashboard = () => {
         >
           Unlock
         </button>
-      </div>
+        </div>
+      </>
     )
   }
 
@@ -47,8 +51,10 @@ const Dashboard = () => {
 
 
   return (
-    <div className="p-4 space-y-4">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
+    <>
+      <NavBar />
+      <div className="p-4 space-y-4 pt-20">
+        <h1 className="text-2xl font-bold">Dashboard</h1>
       <div className="grid grid-cols-7 gap-2 text-center text-sm">
 
         {days.map((d) => (
@@ -81,7 +87,8 @@ const Dashboard = () => {
           Print Certificate
         </button>
       </div>
-    </div>
+      </div>
+    </>
   )
 }
 
