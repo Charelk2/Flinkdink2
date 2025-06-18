@@ -70,7 +70,9 @@ All screens now display a reusable skeleton placeholder while week data loads.
 The skeleton uses an animated shimmer and sets `aria-busy="true"` for assistive
 technology. If loading fails, an error message is displayed.
 
-An optional `/dashboard` route is protected by a simple PIN entry form. It shows a 7-day progress grid and buttons to reset progress or print awards.
+
+An optional `/dashboard` route is protected by a simple PIN entry form. It shows a 7-day progress grid where completed modules are highlighted in green, along with buttons to reset progress or print awards.
+
 
 ## Error Handling
 
