@@ -58,6 +58,12 @@ All screens now display a reusable skeleton placeholder while week data loads.
 The skeleton uses an animated shimmer and sets `aria-busy="true"` for assistive
 technology. If loading fails, an error message is displayed.
 
+## Error Handling
+
+When week data fails to load, a red banner appears below the header with the
+HTTP status or message. The banner includes a **Retry** button that re-runs the
+`loadWeek` request.
+
 ## License
 
 Images used in the encyclopedia module are loaded from Unsplash using CC-licensed URLs.
