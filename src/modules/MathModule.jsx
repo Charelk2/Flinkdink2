@@ -1,4 +1,5 @@
 import Carousel from '../components/Carousel'
+import { generateDotPositions } from '../utils/randomDots'
 
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5)
 
@@ -10,13 +11,20 @@ const MathModule = ({ start }) => {
   return (
     <Carousel
       items={slides}
-      renderItem={(n) => (
-        <div className="grid grid-cols-5 gap-2">
-          {Array.from({ length: n }).map((_, i) => (
-            <span key={i} className="w-4 h-4 bg-red-500 rounded-full" />
-          ))}
-        </div>
-      )}
+      renderItem={(n) => {
+        const positions = generateDotPositions(n)
+        return (
+          <div className="relative w-full h-[300px]">
+            {positions.map((pos, i) => (
+              <span
+                key={i}
+                className="absolute w-4 h-4 bg-red-500 rounded-full"
+                style={{ top: pos.top, left: pos.left }}
+              />
+            ))}
+          </div>
+        )
+      }}
     />
   )
 }
