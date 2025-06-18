@@ -83,7 +83,7 @@ const Dashboard = () => {
         ))}
       </div>
       <h2 className="text-xl font-semibold pt-4">Weeks</h2>
-      <div className="grid grid-cols-13 gap-1 text-center" data-testid="week-grid">
+      <div className="grid grid-cols-7 sm:grid-cols-13 gap-1 text-center" data-testid="week-grid">
         {weeks.map((w) => (
           <button
             key={w}
