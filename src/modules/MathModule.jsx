@@ -21,18 +21,14 @@ const MathModule = ({ start }) => {
       renderItem={(n) => {
         const positions = generateDotPositions(n)
         return (
-          <div className="relative w-full h-[60vw] sm:h-[300px]">
+          <div className="relative w-full h-[60vw] sm:h-[40vh]">
             {positions.map((pos, i) => (
               <span
                 key={i}
-                className="absolute inline-block"
+                className="absolute inline-block size-4 rounded-full bg-red-500"
                 style={{
                   top: pos.top,
                   left: pos.left,
-                  width: '1rem',
-                  height: '1rem',
-                  borderRadius: '9999px',
-                  backgroundColor: '#ef4444',
                 }}
               />
             ))}

@@ -151,11 +151,13 @@ FlinkDink is a Progressive Web App. You can add it to your home screen from the
 browser share menu or package it as a native app using **Capacitor**.
 
 Math practice screens now size their dot container responsively using
-`h-[60vw] sm:h-[300px]`. Dots are positioned with a new algorithm that retries
+`h-[60vw] sm:h-[40vh]`. Dots are positioned with a new algorithm that retries
 until each one is at least eight percent away from the others, preventing
 overlap on small displays.
 The Dashboard now uses a responsive week grid that shows seven columns on small
-screens and thirteen on larger displays.
+screens and thirteen on larger displays. The carousel height now uses
+`min-h-[50vh]` and login/signup forms are `w-full max-w-xs` so they fit on
+narrow devices.
 
 ### Build for Android or iOS
 
