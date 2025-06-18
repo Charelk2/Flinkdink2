@@ -1,27 +1,27 @@
 {
   "language": [
-    "appel",
-    "boom",
-    "huis",
-    "kat",
-    "hond",
-    "water",
-    "lig",
-    "gras",
-    "skoen",
-    "vriend"
+    "Mamma",
+    "Pappa",
+    "Ouma",
+    "Oupa",
+    "Baba",
+    "Dogter",
+    "Seun",
+    "Neef",
+    "Niggie",
+    "Familie"
   ],
   "mathWindowStart": 1,
   "encyclopedia": [
-    { "id": "lion", "title": "Lion", "fact": "Lions live in prides.", "image": "/images/lion.svg" },
-    { "id": "tiger", "title": "Tiger", "fact": "Tigers have striped fur.", "image": "/images/tiger.svg" },
-    { "id": "bear", "title": "Bear", "fact": "Bears hibernate in winter.", "image": "/images/bear.svg" },
-    { "id": "giraffe", "title": "Giraffe", "fact": "Giraffes have long necks.", "image": "/images/giraffe.svg" },
-    { "id": "zebra", "title": "Zebra", "fact": "Zebras have black and white stripes.", "image": "/images/zebra.svg" },
-    { "id": "monkey", "title": "Monkey", "fact": "Monkeys are very playful.", "image": "/images/monkey.svg" },
-    { "id": "elephant", "title": "Elephant", "fact": "Elephants never forget.", "image": "/images/elephant.svg" },
-    { "id": "panda", "title": "Panda", "fact": "Pandas love bamboo.", "image": "/images/panda.svg" },
-    { "id": "koala", "title": "Koala", "fact": "Koalas sleep a lot.", "image": "/images/koala.svg" },
-    { "id": "kangaroo", "title": "Kangaroo", "fact": "Kangaroos carry babies in pouches.", "image": "/images/kangaroo.svg" }
+    { "id": "afghaanse-hond", "title": "Afgaanse hond", "fact": "This hound has long, silky hair.", "image": "/images/dog.svg" },
+    { "id": "goudkleurige-apporteerhond", "title": "Goudkleurige Apporteerhond", "fact": "This retriever loves to fetch.", "image": "/images/dog.svg" },
+    { "id": "dalmatiese-hond", "title": "Dalmatiese hond", "fact": "Known for its white coat with black spots.", "image": "/images/dog.svg" },
+    { "id": "dashond", "title": "Dashond", "fact": "This breed has a long body and short legs.", "image": "/images/dog.svg" },
+    { "id": "franse-dashond", "title": "Franse Dashond", "fact": "A playful companion from France.", "image": "/images/dog.svg" },
+    { "id": "jagwindhond", "title": "Jagwindhond", "fact": "This sighthound can run very fast.", "image": "/images/dog.svg" },
+    { "id": "bulhond", "title": "Bulhond", "fact": "Bulldogs have a distinctive wrinkled face.", "image": "/images/dog.svg" },
+    { "id": "engelse-patryshond", "title": "Engelse Patryshond", "fact": "English Pointers excel at bird hunting.", "image": "/images/dog.svg" },
+    { "id": "bloedhond", "title": "Bloedhond", "fact": "Bloodhounds have an exceptional sense of smell.", "image": "/images/dog.svg" },
+    { "id": "rhodesiese-rifrughond", "title": "Rhodesiese Rifrughond", "fact": "This dog has a ridge of hair along its back.", "image": "/images/dog.svg" }
   ]
 }
