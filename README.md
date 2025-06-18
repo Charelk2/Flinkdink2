@@ -47,6 +47,10 @@ The home page now shows three inline circles representing the number of complete
 
 A fixed header at the top of every page displays the current week, day, and session along with a home icon link back to the main menu.
 
+## Accessibility
+
+Carousel navigation buttons now include descriptive ARIA labels and retain their focus outlines for improved keyboard navigation.
+
 ## License
 
 Images used in the encyclopedia module are loaded from Unsplash using CC-licensed URLs.

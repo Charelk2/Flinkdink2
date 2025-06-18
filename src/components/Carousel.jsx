@@ -38,10 +38,20 @@ const Carousel = ({ items, renderItem }) => {
         {renderItem(items[index])}
       </div>
       <div className="flex justify-between">
-        <button onClick={prev} disabled={index === 0} className="btn">
+        <button
+          onClick={prev}
+          disabled={index === 0}
+          className="btn"
+          aria-label="Previous card"
+        >
           Prev
         </button>
-        <button onClick={next} disabled={index === items.length - 1} className="btn">
+        <button
+          onClick={next}
+          disabled={index === items.length - 1}
+          className="btn"
+          aria-label="Next card"
+        >
           Next
         </button>
       </div>
