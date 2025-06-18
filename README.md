@@ -41,13 +41,14 @@ Lint the code with ESLint:
 npm run lint
 ```
 
-Run the unit tests with Jest:
+Run the unit tests with Jest. The suite automatically runs after `npm install`:
 
 ```bash
 npm test
 ```
 
-The suite uses **Jest** alongside **React Testing Library** for component tests.
+The tests use **Jest** with **Supertest** and an in-memory SQLite database for
+the API routes, while React components rely on **React Testing Library**.
 
 ## Project Structure
 

@@ -41,4 +41,12 @@ describe('auth endpoints', () => {
     expect(res.status).toBe(422);
     expect(res.body.detail).toBe('User already exists');
   });
+
+  test('fails login for non-existent user', async () => {
+    const res = await request(app)
+      .post('/api/login')
+      .send({ email: 'missing@example.com', password: 'pass' });
+    expect(res.status).toBe(422);
+    expect(res.body.detail).toBe('Invalid credentials');
+  });
 });
