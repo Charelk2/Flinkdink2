@@ -1,20 +1,10 @@
-import React, { createContext, useContext, useState } from 'react';
-
-const AuthContext = createContext();
-
-export function useAuth() {
-  return useContext(AuthContext);
-}
-
-const AUTH_KEY = 'auth-token';
+import React, { useState } from 'react';
+import { AuthContext, AUTH_KEY, getBaseUrl } from './authHelpers';
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem(AUTH_KEY));
 
-  const baseUrl =
-    (import.meta.env && import.meta.env.VITE_API_BASE_URL) ||
-    process.env.VITE_API_BASE_URL ||
-    '';
+  const baseUrl = getBaseUrl();
 
   const login = async (email, password) => {
     const res = await fetch(`${baseUrl}/api/login`, {
@@ -59,3 +49,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+

@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SettingsButton from './SettingsButton';
-import { useAuth } from '../contexts/AuthProvider';
+import { useAuth } from '../contexts/authHelpers';
 
 const NavBar = () => {
   const navigate = useNavigate();

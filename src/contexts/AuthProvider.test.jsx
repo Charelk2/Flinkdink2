@@ -1,6 +1,7 @@
 import { render, waitFor } from '@testing-library/react';
 import { useEffect } from 'react';
-import { AuthProvider, useAuth } from './AuthProvider';
+import { AuthProvider } from './AuthProvider';
+import { useAuth } from './authHelpers';
 
 const Caller = ({ action }) => {
   const auth = useAuth();
