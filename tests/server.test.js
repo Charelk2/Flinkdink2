@@ -162,6 +162,24 @@ describe('photo endpoint', () => {
     );
   });
 
+  test('sets Cache-Control header when format is provided', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [
+          { urls: { raw: 'http://img.test/s.jpg' } },
+        ],
+      }),
+    });
+
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: 'cat', format: 'regular' });
+
+    expect(res.status).toBe(200);
+    expect(res.headers['cache-control']).toBe('no-store');
+  });
+
   test('requests compressed photo', async () => {
     const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
