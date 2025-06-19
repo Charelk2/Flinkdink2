@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useContent } from '../contexts/ContentProvider'
 import NavBar from '../components/NavBar'
+import DashboardHeader from '../components/DashboardHeader'
 
 const PIN = '1234'
 
@@ -62,6 +63,7 @@ const Dashboard = () => {
   return (
     <>
       <NavBar />
+      <DashboardHeader />
       <div className="p-4 space-y-4 pt-20">
         <h1 className="text-2xl font-bold">Dashboard</h1>
       <div className="grid grid-cols-7 gap-2 text-center text-sm">
