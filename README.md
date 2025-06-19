@@ -149,8 +149,8 @@ The frontend reads this value via the `__API_BASE_URL__` constant defined by Vit
 
 ### Photo Search API
 
-`GET /api/photos?query=term` searches Unsplash and returns a compressed landscape photo.
-The server tries several search phrases with a white background and falls back to `/images/placeholder.png` if none succeed.
+`GET /api/photos?query=term` searches Unsplash and returns a 640×360 smart-cropped landscape photo.
+The server tries several search phrases with a white background and falls back to `/images/placeholder.png` if none succeed. Unsplash uses Imgix to crop the image to center faces or the most interesting region.
 Without extra parameters the response has the shape `{ "small": "url", "regular": "url" }` where both URLs are identical.
 Include a `format` query to receive a single `{ "url": "..." }` instead.
 The server requires `UNSPLASH_ACCESS_KEY` in the environment. Queries for Afrikaans dog breed names are translated to their English equivalents so Unsplash can find matching photos.
