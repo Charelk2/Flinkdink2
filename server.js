@@ -78,6 +78,7 @@ app.get('/api/photos', async (req, res) => {
     res.status(400).json({ detail: 'Missing query parameter' });
     return;
   }
+  res.set('Cache-Control', 'no-store');
   try {
     const url = `${UNSPLASH_URL}?query=${encodeURIComponent(query)}&per_page=1`;
     const response = await fetch(url, {
