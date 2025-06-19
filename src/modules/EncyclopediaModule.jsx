@@ -15,11 +15,11 @@ const EncyclopediaModule = ({ cards }) => {
     shuffled.forEach((card, index) => {
       const searchTerm = card.query || card.title
       fetchPhoto(searchTerm)
-        .then((url) => {
+        .then((img) => {
           if (active) {
             setItems((prev) => {
               const next = [...prev]
-              next[index] = { ...next[index], image: url }
+              next[index] = { ...next[index], image: img }
               return next
             })
           }
@@ -37,18 +37,29 @@ const EncyclopediaModule = ({ cards }) => {
   return (
     <Carousel
       items={items}
-      renderItem={(card) => (
-        <div className="space-y-2">
-          <img
-            loading="lazy"
-            src={card.image}
-            alt={card.title}
-            className="w-full h-48 sm:h-64 object-cover rounded-xl"
-          />
-          <h3 className="text-xl font-bold">{card.title}</h3>
-          <p className="text-gray-600">{card.fact}</p>
-        </div>
-      )}
+      renderItem={(card) => {
+        const img =
+          typeof card.image === 'string'
+            ? { avif: card.image, webp: card.image, fallback: card.image }
+            : card.image
+
+        return (
+          <div className="space-y-2">
+            <picture>
+              <source type="image/avif" srcSet={img.avif} />
+              <source type="image/webp" srcSet={img.webp} />
+              <img
+                loading="lazy"
+                src={img.fallback}
+                alt={card.title}
+                className="w-full h-48 sm:h-64 object-cover rounded-xl"
+              />
+            </picture>
+            <h3 className="text-xl font-bold">{card.title}</h3>
+            <p className="text-gray-600">{card.fact}</p>
+          </div>
+        )
+      }}
     />
   )
 }
