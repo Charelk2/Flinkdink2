@@ -91,6 +91,7 @@ random order while the upper five stay sequential.
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
 Clicking the settings button now opens a simple **Dashboard** route showing overall progress and reset options.
 Parents can also jump to any of the 52 weeks from the Dashboard. Selecting a week loads its curriculum or displays "empty" if no data exists.
+When unlocked, the Dashboard now shows a large progress header with your current week, day, session and streak. It reuses the same session dots as the home screen.
 
 ## Accessibility
 
