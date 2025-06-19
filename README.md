@@ -188,9 +188,10 @@ The progress table now uses `table-fixed` so its seven columns fit within a
 360&nbsp;px wide viewport, and the action buttons are arranged in a single-column
 grid that expands to four columns on larger screens.
 Encyclopedia images now use an `.encyclopedia-thumb` class with
-`aspect-ratio: 3 / 2` so photos scale consistently on mobile devices. A
-`zoom-img` class adds a gentle scale animation on hover starting at the `md`
-breakpoint, leaving touch devices unaffected.
+`aspect-ratio: 16 / 9` so photos scale consistently on mobile devices. This
+matches the 640×360 smart-crop returned by `/api/photos`. A `zoom-img` class
+adds a gentle scale animation on hover starting at the `md` breakpoint,
+leaving touch devices unaffected.
 
 Full-screen areas leverage viewport units so layouts adapt to device height.
 The math board scales with the viewport width while carousels always take up at
