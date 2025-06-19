@@ -1,17 +1,28 @@
+/* global __API_BASE_URL__ */
 export async function fetchPhoto(query) {
-  // Vite injects environment variables via `import.meta.env` in the browser.
-  // During Jest tests or Node usage `import.meta` is undefined, so fall back to
-  // `process.env` to keep the function working in all environments.
+  // `__API_BASE_URL__` is replaced by Vite during the build. Jest and Node
+  // fall back to `process.env` when the global constant is undefined.
   const baseUrl =
-    (typeof import.meta !== 'undefined' && import.meta.env.VITE_API_BASE_URL) ||
+    (typeof __API_BASE_URL__ !== 'undefined' && __API_BASE_URL__) ||
     process.env.VITE_API_BASE_URL ||
-    ''
-  const res = await fetch(`${baseUrl}/api/photos?query=${encodeURIComponent(query)}`);
-  if (!res.ok) {
-    const message = await res.text();
-    console.error('Photo fetch failed', message);
-    throw new Error(message || `HTTP ${res.status}`);
+    '';
+
+  try {
+    const res = await fetch(
+      `${baseUrl}/api/photos?query=${encodeURIComponent(query)}`,
+    );
+    const body = await res.text();
+    console.log('Unsplash status', res.status);
+    console.log('Unsplash body', body);
+
+    if (!res.ok) {
+      return '/images/placeholder.png';
+    }
+
+    const data = JSON.parse(body);
+    return data.url || '/images/placeholder.png';
+  } catch (err) {
+    console.error('Photo fetch failed', err);
+    return '/images/placeholder.png';
   }
-  const data = await res.json();
-  return data.url;
 }

@@ -144,6 +144,7 @@ returns a token stored in `localStorage` by the `AuthProvider`.
 During development the API server runs on `http://localhost:3001`, so the
 `VITE_API_BASE_URL` variable should point there. For production builds set it to
 the full URL of your deployed API server.
+The frontend reads this value via the `__API_BASE_URL__` constant defined by Vite.
 
 ### Photo Search API
 
@@ -152,6 +153,7 @@ The server requires `UNSPLASH_ACCESS_KEY` in the environment. A failed Unsplash
 request responds with `{ "detail": "Unsplash request failed", "error": "message" }`,
 where the `error` field contains either the Unsplash response text or the network
 error message.
+If the request fails on the client, the app falls back to `/images/placeholder.png`. The file is not included in the repo; add your own placeholder image at `public/images/placeholder.png`.
 
 ### Interpreting Server Logs
 

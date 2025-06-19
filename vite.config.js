@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     define: {
       'import.meta.env.VITE_API_BASE_URL': JSON.stringify(env.VITE_API_BASE_URL),
+      __API_BASE_URL__: JSON.stringify(env.VITE_API_BASE_URL),
       'import.meta.env.VITE_UNSPLASH_ACCESS_KEY': JSON.stringify(env.UNSPLASH_ACCESS_KEY),
       'import.meta.env.VITE_UNSPLASH_SECRET_KEY': JSON.stringify(env.UNSPLASH_SECRET_KEY),
     },
