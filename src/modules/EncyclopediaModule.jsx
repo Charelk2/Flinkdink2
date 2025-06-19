@@ -45,7 +45,7 @@ const EncyclopediaModule = ({ cards }) => {
 
         return (
           <div className="space-y-2">
-            <picture>
+            <picture className="zoom-img">
               <source type="image/avif" srcSet={img.avif} />
               <source type="image/webp" srcSet={img.webp} />
               <img
