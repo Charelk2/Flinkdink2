@@ -6,6 +6,8 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import morgan from 'morgan';
 
+const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
+
 dotenv.config();
 
 const { Database } = sqlite3;
@@ -68,6 +70,36 @@ app.post('/api/register', async (req, res) => {
       res.json({ token });
     });
   });
+});
+
+app.get('/api/photos', async (req, res) => {
+  const { query } = req.query;
+  if (!query) {
+    res.status(400).json({ detail: 'Missing query parameter' });
+    return;
+  }
+  try {
+    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(query)}&per_page=1`;
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
+      },
+    });
+    if (!response.ok) {
+      console.error('Unsplash error', await response.text());
+      res.status(response.status).json({ detail: 'Unsplash request failed' });
+      return;
+    }
+    const data = await response.json();
+    if (!data.results || data.results.length === 0) {
+      res.status(404).json({ detail: 'Unsplash request failed' });
+      return;
+    }
+    res.json({ url: data.results[0].urls.small });
+  } catch (err) {
+    console.error('Fetch to Unsplash failed', err);
+    res.status(502).json({ detail: 'Unsplash request failed' });
+  }
 });
 
 const port = process.env.PORT || 3001;
