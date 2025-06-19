@@ -149,8 +149,9 @@ the full URL of your deployed API server.
 
 `GET /api/photos?query=term` searches Unsplash and returns the first image URL.
 The server requires `UNSPLASH_ACCESS_KEY` in the environment. A failed Unsplash
-request responds with `{ "detail": "Unsplash request failed" }` and the status
-code from the Unsplash API.
+request responds with `{ "detail": "Unsplash request failed", "error": "message" }`,
+where the `error` field contains either the Unsplash response text or the network
+error message.
 
 ### Interpreting Server Logs
 
