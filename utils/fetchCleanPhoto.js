@@ -25,11 +25,10 @@ export default async function fetchCleanPhoto(rawQuery) {
       }
       const data = await res.json();
       if (data.results && data.results[0] && data.results[0].urls) {
-        const { raw, regular } = data.results[0].urls;
-        if (raw || regular) {
-          const baseUrl = raw || regular;
-          const join = baseUrl.includes('?') ? '&' : '?';
-          return `${baseUrl}${join}${CROP_PARAMS}`;
+        const { raw } = data.results[0].urls;
+        if (raw) {
+          const join = raw.includes('?') ? '&' : '?';
+          return `${raw}${join}${CROP_PARAMS}`;
         }
       }
     } catch (err) {
