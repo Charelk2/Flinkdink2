@@ -174,6 +174,13 @@ Make sure this key is valid and that the server can reach `api.unsplash.com`. Th
 If you use a proxy or have restricted egress, set the appropriate environment variables (e.g. `HTTPS_PROXY`) so outbound requests to Unsplash succeed.
 If Unsplash has no results the endpoint responds with HTTP `404` and `{ "detail": "Unsplash request failed" }`.
 Network or server errors from Unsplash result in HTTP `502` with the same `detail` field and the underlying error code for troubleshooting.
+
+```json
+{
+  "detail": "Unsplash request failed",
+  "error": "Bad Gateway"
+}
+```
 If the request fails on the client, the app falls back to `/images/placeholder.png`.
 The file is not included in the repo; add your own placeholder image at `public/images/placeholder.png`.
 ### Interpreting Server Logs
