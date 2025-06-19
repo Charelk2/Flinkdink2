@@ -186,7 +186,8 @@ exceeding `max-w-xs`.
 The progress table now uses `table-fixed` so its seven columns fit within a
 360&nbsp;px wide viewport, and the action buttons are arranged in a single-column
 grid that expands to four columns on larger screens.
-Encyclopedia images now use `h-48 sm:h-64` so photos scale down on mobile devices.
+Encyclopedia images now use an `.encyclopedia-thumb` class with
+`aspect-ratio: 3 / 2` so photos scale consistently on mobile devices.
 
 Full-screen areas leverage viewport units so layouts adapt to device height.
 The math board scales with the viewport width while carousels always take up at

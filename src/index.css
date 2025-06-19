@@ -100,4 +100,10 @@
     padding: 0.25rem;
     border: 1px solid rgb(209 213 219); /* tailwind gray-300 */
   }
+
+  /* Keep encyclopedia images consistent regardless of width */
+  .encyclopedia-thumb {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+  }
 }
