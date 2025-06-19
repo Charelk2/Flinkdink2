@@ -11,10 +11,18 @@ const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
 // Map Afrikaans breed names to their English equivalents so Unsplash can
 // return matching results. The search terms are almost entirely in English,
 // so Afrikaans queries often yield a 404 response.
+// Translation map from Afrikaans dog breed names to their English equivalents.
+// Keys are lower-cased so lookups can be case-insensitive.
 export const breedMap = {
-  Jagwindhond: 'greyhound',
-  'Engelse Patryshond': 'English pointer',
-  'Goudkleurige Apporteerhond': 'Golden Retriever',
+  jagwindhond: 'greyhound',
+  'engelse patryshond': 'english pointer',
+  'goudkleurige apporteerhond': 'golden retriever',
+  bulhond: 'bulldog',
+  dashond: 'dachshund',
+  'rhodesiese rifrughond': 'rhodesian ridgeback',
+  bloedhond: 'bloodhound',
+  'dalmatiese hond': 'dalmatian',
+  'afgaanse hond': 'afghan hound',
 };
 
 dotenv.config();
@@ -89,7 +97,8 @@ app.get('/api/photos', async (req, res) => {
   }
   res.set('Cache-Control', 'no-store');
   try {
-    const searchTerm = breedMap[query] || query;
+    const lowerQuery = String(query).toLowerCase();
+    const searchTerm = breedMap[lowerQuery] || query;
     const url = `${UNSPLASH_URL}?query=${encodeURIComponent(searchTerm)}&per_page=1`;
     const response = await fetch(url, {
       headers: {

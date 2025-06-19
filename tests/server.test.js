@@ -8,7 +8,12 @@ beforeAll(async () => {
   process.env.DB_PATH = ':memory:';
   process.env.JWT_SECRET = 'testsecret';
   process.env.NODE_ENV = 'test';
-  app = (await import('../server.js')).default;
+  const mod = await import('../server.js');
+  app = mod.default;
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
 });
 
 describe('auth endpoints', () => {
@@ -75,24 +80,34 @@ describe('photo endpoint', () => {
     expect(global.fetch).toHaveBeenCalled();
   });
 
-  test('translates Afrikaans breed names', async () => {
+  test.each([
+    ['Jagwindhond', 'greyhound'],
+    ['Engelse Patryshond', 'english pointer'],
+    ['Goudkleurige Apporteerhond', 'golden retriever'],
+    ['Bulhond', 'bulldog'],
+    ['Dashond', 'dachshund'],
+    ['Rhodesiese Rifrughond', 'rhodesian ridgeback'],
+    ['Bloedhond', 'bloodhound'],
+    ['Dalmatiese hond', 'dalmatian'],
+    ['Afgaanse hond', 'afghan hound'],
+  ])('translates %s to %s', async (afrikaans, english) => {
     const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
       json: async () => ({
         results: [
-          { urls: { small: 'http://img.test/greyhound.jpg' } },
+          { urls: { small: `http://img.test/${english}.jpg` } },
         ],
       }),
     });
 
     const res = await request(app)
       .get('/api/photos')
-      .query({ query: 'Jagwindhond' });
+      .query({ query: afrikaans });
 
     expect(res.status).toBe(200);
-    expect(res.body.url).toBe('http://img.test/greyhound.jpg');
+    expect(res.body.url).toBe(`http://img.test/${english}.jpg`);
     expect(spy).toHaveBeenCalledWith(
-      expect.stringContaining('greyhound'),
+      expect.stringContaining(encodeURIComponent(english)),
       expect.any(Object),
     );
   });
