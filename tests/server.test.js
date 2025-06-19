@@ -56,6 +56,10 @@ describe('photo endpoint', () => {
     process.env.UNSPLASH_ACCESS_KEY = 'abc';
   });
 
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   test('returns photo URL on success', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
@@ -75,27 +79,38 @@ describe('photo endpoint', () => {
     expect(global.fetch).toHaveBeenCalled();
   });
 
-  test('translates Afrikaans breed names', async () => {
-    const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        results: [
-          { urls: { small: 'http://img.test/greyhound.jpg' } },
-        ],
-      }),
-    });
+  const translations = [
+    ['Jagwindhond', 'greyhound'],
+    ['Dashond', 'Dachshund'],
+    ['Bloedhond', 'Bloodhound'],
+    ['Siamese kat', 'Siamese cat'],
+  ];
 
-    const res = await request(app)
-      .get('/api/photos')
-      .query({ query: 'Jagwindhond' });
+  test.each(translations)(
+    'translates %s to English',
+    async (afrikaans, english) => {
+      const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          results: [
+            { urls: { small: `http://img.test/${english}.jpg` } },
+          ],
+        }),
+      });
 
-    expect(res.status).toBe(200);
-    expect(res.body.url).toBe('http://img.test/greyhound.jpg');
-    expect(spy).toHaveBeenCalledWith(
-      expect.stringContaining('greyhound'),
-      expect.any(Object),
-    );
-  });
+      const res = await request(app)
+        .get('/api/photos')
+        .query({ query: afrikaans });
+
+      expect(res.status).toBe(200);
+      expect(res.body.url).toBe(`http://img.test/${english}.jpg`);
+      const encoded = encodeURIComponent(english);
+      expect(spy).toHaveBeenCalledWith(
+        expect.stringContaining(encoded),
+        expect.any(Object),
+      );
+    },
+  );
 
   test('handles failed Unsplash response', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
