@@ -108,7 +108,9 @@ app.get('/api/photos', async (req, res) => {
   res.set('Cache-Control', 'no-store');
   try {
     const searchTerm = breedMap[query] || query;
-    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(searchTerm)}&per_page=1`;
+    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(
+      searchTerm,
+    )}&per_page=1&w=640&q=80`;
     const response = await fetch(url, {
       headers: {
         Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
@@ -116,10 +118,12 @@ app.get('/api/photos', async (req, res) => {
     });
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Unsplash error', errorText);
-      res
-        .status(response.status)
-        .json({ detail: 'Unsplash request failed', error: errorText });
+      console.error('Unsplash error', response.status, errorText);
+      res.status(response.status).json({
+        detail: 'Unsplash request failed',
+        status: response.status,
+        error: errorText,
+      });
       return;
     }
     const data = await response.json();

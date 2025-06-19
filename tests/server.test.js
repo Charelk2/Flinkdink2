@@ -134,6 +134,25 @@ describe('photo endpoint', () => {
     expect(res.body.url).toBe('http://img.test/r.jpg');
   });
 
+  test('requests compressed photo', async () => {
+    const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [{ urls: { small: 's', regular: 'r' } }],
+      }),
+    });
+
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: 'cats' });
+
+    expect(res.status).toBe(200);
+    expect(spy).toHaveBeenCalledWith(
+      expect.stringContaining('&w=640&q=80'),
+      expect.any(Object),
+    );
+  });
+
   test('handles failed Unsplash response', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: false,
