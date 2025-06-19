@@ -13,7 +13,7 @@ describe('fetchCleanPhoto', () => {
   test('returns first result', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ results: [{ urls: { raw: 'http://img.test/a.jpg' } }] }),
+      json: async () => ({ urls: { raw: 'http://img.test/a.jpg' } }),
     })
 
     await expect(fetchCleanPhoto('cats')).resolves.toBe(
@@ -24,7 +24,7 @@ describe('fetchCleanPhoto', () => {
   test('handles existing query strings', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ results: [{ urls: { raw: 'http://img.test/a.jpg?foo=1' } }] }),
+      json: async () => ({ urls: { raw: 'http://img.test/a.jpg?foo=1' } }),
     })
 
     await expect(fetchCleanPhoto('cats')).resolves.toBe(
@@ -35,7 +35,7 @@ describe('fetchCleanPhoto', () => {
   test('includes smart crop parameters', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ results: [{ urls: { raw: 'http://img.test/a.jpg' } }] }),
+      json: async () => ({ urls: { raw: 'http://img.test/a.jpg' } }),
     })
 
     const result = await fetchCleanPhoto('pug')
@@ -46,7 +46,7 @@ describe('fetchCleanPhoto', () => {
   test('trims whitespace in query', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ results: [{ urls: { raw: 'http://img.test/d.jpg' } }] }),
+      json: async () => ({ urls: { raw: 'http://img.test/d.jpg' } }),
     })
 
     const result = await fetchCleanPhoto('  Dalmatian  ')
@@ -59,15 +59,15 @@ describe('fetchCleanPhoto', () => {
   test('falls back through queries', async () => {
     global.fetch = jest
       .fn()
-      .mockResolvedValueOnce({ ok: true, json: async () => ({ results: [] }) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({}) })
       .mockResolvedValueOnce({ ok: false, status: 404, text: async () => 'Not found' })
-      .mockResolvedValueOnce({ ok: true, json: async () => ({ results: [{ urls: { raw: 'dog.jpg' } }] }) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ urls: { raw: 'dog.jpg' } }) })
 
     const result = await fetchCleanPhoto('pug')
     expect(result).toBe('dog.jpg?w=640&h=360&fit=crop&crop=faces,entropy')
     expect(global.fetch).toHaveBeenCalledTimes(3)
     expect(global.fetch.mock.calls[0][0]).toContain('isolated')
-    expect(global.fetch.mock.calls[2][0]).toContain('dog%20white%20background')
+    expect(global.fetch.mock.calls[2][0]).toContain('pug')
   })
 
   test('returns placeholder on 404', async () => {

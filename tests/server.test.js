@@ -63,11 +63,7 @@ describe('photo endpoint', () => {
   test('returns photo URLs on success', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({
-        results: [
-          { urls: { raw: 'http://img.test/photo-small.jpg' } },
-        ],
-      }),
+      json: async () => ({ urls: { raw: 'http://img.test/photo-small.jpg' } }),
     });
 
     const res = await request(app)
@@ -87,11 +83,7 @@ describe('photo endpoint', () => {
   test('adds crop params with ampersand when query exists', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({
-        results: [
-          { urls: { raw: 'http://img.test/photo-small.jpg?foo=1' } },
-        ],
-      }),
+      json: async () => ({ urls: { raw: 'http://img.test/photo-small.jpg?foo=1' } }),
     });
 
     const res = await request(app)
@@ -116,11 +108,7 @@ describe('photo endpoint', () => {
     async (afrikaans, english) => {
       const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
         ok: true,
-        json: async () => ({
-          results: [
-            { urls: { raw: `http://img.test/${english}.jpg` } },
-          ],
-        }),
+        json: async () => ({ urls: { raw: `http://img.test/${english}.jpg` } }),
       });
 
       const res = await request(app)
@@ -145,11 +133,7 @@ describe('photo endpoint', () => {
   test('returns requested format', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({
-        results: [
-          { urls: { raw: 'http://img.test/s.jpg' } },
-        ],
-      }),
+      json: async () => ({ urls: { raw: 'http://img.test/s.jpg' } }),
     });
 
     const res = await request(app)
@@ -165,11 +149,7 @@ describe('photo endpoint', () => {
   test('sets Cache-Control header when format is provided', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({
-        results: [
-          { urls: { raw: 'http://img.test/s.jpg' } },
-        ],
-      }),
+      json: async () => ({ urls: { raw: 'http://img.test/s.jpg' } }),
     });
 
     const res = await request(app)
@@ -183,9 +163,7 @@ describe('photo endpoint', () => {
   test('requests compressed photo', async () => {
     const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({
-        results: [{ urls: { raw: 's' } }],
-      }),
+      json: async () => ({ urls: { raw: 's' } }),
     });
 
     const res = await request(app)
@@ -195,7 +173,7 @@ describe('photo endpoint', () => {
     expect(res.status).toBe(200);
     const callUrl = spy.mock.calls[0][0];
     expect(callUrl).toContain('orientation=landscape');
-    expect(callUrl).toContain('per_page=1');
+    expect(callUrl).toContain('count=1');
     expect(callUrl).not.toContain('fit=crop');
 
     expect(res.body.small).toContain('w=640');
@@ -207,9 +185,7 @@ describe('photo endpoint', () => {
   test('trims query before sending to Unsplash', async () => {
     const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({
-        results: [{ urls: { raw: 'http://img.test/dal.jpg' } }],
-      }),
+      json: async () => ({ urls: { raw: 'http://img.test/dal.jpg' } }),
     });
 
     const res = await request(app)
