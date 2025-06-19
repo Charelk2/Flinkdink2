@@ -65,7 +65,7 @@ describe('photo endpoint', () => {
       ok: true,
       json: async () => ({
         results: [
-          { urls: { small: 'http://img.test/photo-small.jpg' } },
+          { urls: { raw: 'http://img.test/photo-small.jpg' } },
         ],
       }),
     });
@@ -76,8 +76,9 @@ describe('photo endpoint', () => {
 
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
-      small: 'http://img.test/photo-small.jpg',
-      regular: 'http://img.test/photo-small.jpg',
+      small: 'http://img.test/photo-small.jpg?w=640&h=360&fit=crop&crop=faces,entropy',
+      regular:
+        'http://img.test/photo-small.jpg?w=640&h=360&fit=crop&crop=faces,entropy',
     });
     expect(global.fetch).toHaveBeenCalled();
   });
@@ -96,7 +97,7 @@ describe('photo endpoint', () => {
         ok: true,
         json: async () => ({
           results: [
-            { urls: { small: `http://img.test/${english}.jpg` } },
+            { urls: { raw: `http://img.test/${english}.jpg` } },
           ],
         }),
       });
@@ -106,8 +107,12 @@ describe('photo endpoint', () => {
         .query({ query: afrikaans });
 
       expect(res.status).toBe(200);
-      expect(res.body.small).toBe(`http://img.test/${english}.jpg`);
-      expect(res.body.regular).toBe(`http://img.test/${english}.jpg`);
+      expect(res.body.small).toBe(
+        `http://img.test/${english}.jpg?w=640&h=360&fit=crop&crop=faces,entropy`,
+      );
+      expect(res.body.regular).toBe(
+        `http://img.test/${english}.jpg?w=640&h=360&fit=crop&crop=faces,entropy`,
+      );
       const encoded = encodeURIComponent(english);
       expect(spy).toHaveBeenCalledWith(
         expect.stringContaining(encoded),
@@ -121,7 +126,7 @@ describe('photo endpoint', () => {
       ok: true,
       json: async () => ({
         results: [
-          { urls: { small: 'http://img.test/s.jpg' } },
+          { urls: { raw: 'http://img.test/s.jpg' } },
         ],
       }),
     });
@@ -131,14 +136,16 @@ describe('photo endpoint', () => {
       .query({ query: 'cats', format: 'regular' });
 
     expect(res.status).toBe(200);
-    expect(res.body.url).toBe('http://img.test/s.jpg');
+    expect(res.body.url).toBe(
+      'http://img.test/s.jpg?w=640&h=360&fit=crop&crop=faces,entropy',
+    );
   });
 
   test('requests compressed photo', async () => {
     const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
       json: async () => ({
-        results: [{ urls: { small: 's' } }],
+        results: [{ urls: { raw: 's' } }],
       }),
     });
 
@@ -147,13 +154,15 @@ describe('photo endpoint', () => {
       .query({ query: 'cats' });
 
     expect(res.status).toBe(200);
-    const callUrl = spy.mock.calls[0][0]
-    expect(callUrl).toContain('orientation=landscape')
-    expect(callUrl).toContain('per_page=1')
-    expect(callUrl).toContain('w=640')
-    expect(callUrl).toContain('h=360')
-    expect(callUrl).toContain('fit=crop')
-    expect(callUrl).toContain('crop=faces,entropy')
+    const callUrl = spy.mock.calls[0][0];
+    expect(callUrl).toContain('orientation=landscape');
+    expect(callUrl).toContain('per_page=1');
+    expect(callUrl).not.toContain('fit=crop');
+
+    expect(res.body.small).toContain('w=640');
+    expect(res.body.small).toContain('h=360');
+    expect(res.body.small).toContain('fit=crop');
+    expect(res.body.small).toContain('crop=faces,entropy');
   });
 
   test('handles failed Unsplash response', async () => {
