@@ -13,22 +13,23 @@ describe('fetchCleanPhoto', () => {
   test('returns first result', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ results: [{ urls: { small: 'http://img.test/a.jpg' } }] }),
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/a.jpg' } }] }),
     })
 
-    await expect(fetchCleanPhoto('cats')).resolves.toBe('http://img.test/a.jpg')
+    await expect(fetchCleanPhoto('cats')).resolves.toBe(
+      'http://img.test/a.jpg?w=640&h=360&fit=crop&crop=faces,entropy',
+    )
   })
 
   test('includes smart crop parameters', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ results: [{ urls: { small: 'http://img.test/a.jpg' } }] }),
+      json: async () => ({ results: [{ urls: { regular: 'http://img.test/a.jpg' } }] }),
     })
 
-    await fetchCleanPhoto('pug')
-    const callUrl = global.fetch.mock.calls[0][0]
-    expect(callUrl).toContain('fit=crop')
-    expect(callUrl).toContain('crop=faces,entropy')
+    const result = await fetchCleanPhoto('pug')
+    expect(result).toContain('fit=crop')
+    expect(result).toContain('crop=faces,entropy')
   })
 
   test('falls back through queries', async () => {
@@ -36,10 +37,10 @@ describe('fetchCleanPhoto', () => {
       .fn()
       .mockResolvedValueOnce({ ok: true, json: async () => ({ results: [] }) })
       .mockResolvedValueOnce({ ok: false, status: 404, text: async () => 'Not found' })
-      .mockResolvedValueOnce({ ok: true, json: async () => ({ results: [{ urls: { small: 'dog.jpg' } }] }) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ results: [{ urls: { raw: 'dog.jpg' } }] }) })
 
     const result = await fetchCleanPhoto('pug')
-    expect(result).toBe('dog.jpg')
+    expect(result).toBe('dog.jpg?w=640&h=360&fit=crop&crop=faces,entropy')
     expect(global.fetch).toHaveBeenCalledTimes(3)
     expect(global.fetch.mock.calls[0][0]).toContain('isolated')
     expect(global.fetch.mock.calls[2][0]).toContain('dog%20white%20background')
