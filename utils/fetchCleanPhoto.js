@@ -4,7 +4,7 @@ const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
 const CROP_PARAMS = 'w=640&h=360&fit=crop&crop=faces,entropy';
 
 export default async function fetchCleanPhoto(rawQuery) {
-  const term = breedMap[rawQuery] || rawQuery;
+  const term = (breedMap[rawQuery] || rawQuery).trim();
   const queries = [
     `${term} isolated minimal background`,
     `${term} white background`,

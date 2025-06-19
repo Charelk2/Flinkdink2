@@ -152,6 +152,7 @@ The frontend reads this value via the `__API_BASE_URL__` constant defined by Vit
 ### Photo Search API
 
 `GET /api/photos?query=term` searches Unsplash and returns a 640×360 smart-cropped landscape photo.
+Search terms are sanitized by trimming leading and trailing whitespace before contacting Unsplash.
 The server tries several search phrases with a white background and falls back to `/images/placeholder.png` if none succeed.
 It appends `w=640&h=360&fit=crop&crop=faces,entropy` to the Unsplash **raw** image URL so Imgix crops around faces or the most interesting region. If the original Unsplash link already includes query parameters, the cropping string is concatenated with `&` instead of `?`.
 Without extra parameters the response has the shape `{ "small": "url", "regular": "url" }` where both URLs are identical.

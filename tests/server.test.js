@@ -185,6 +185,29 @@ describe('photo endpoint', () => {
     expect(res.body.small).toContain('crop=faces,entropy');
   });
 
+  test('trims query before sending to Unsplash', async () => {
+    const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [{ urls: { raw: 'http://img.test/dal.jpg' } }],
+      }),
+    });
+
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: '  Dalmatian  ' });
+
+    expect(res.status).toBe(200);
+    expect(res.body.small).toBe(
+      'http://img.test/dal.jpg?w=640&h=360&fit=crop&crop=faces,entropy',
+    );
+    const encoded = encodeURIComponent('Dalmatian');
+    expect(spy).toHaveBeenCalledWith(
+      expect.stringContaining(encoded),
+      expect.any(Object),
+    );
+  });
+
   test('handles failed Unsplash response', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: false,

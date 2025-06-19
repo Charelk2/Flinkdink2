@@ -43,6 +43,19 @@ describe('fetchCleanPhoto', () => {
     expect(result).toContain('crop=faces,entropy')
   })
 
+  test('trims whitespace in query', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/d.jpg' } }] }),
+    })
+
+    const result = await fetchCleanPhoto('  Dalmatian  ')
+    expect(result).toBe(
+      'http://img.test/d.jpg?w=640&h=360&fit=crop&crop=faces,entropy',
+    )
+    expect(global.fetch.mock.calls[0][0]).toContain('Dalmatian')
+  })
+
   test('falls back through queries', async () => {
     global.fetch = jest
       .fn()
