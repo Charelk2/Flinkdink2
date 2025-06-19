@@ -175,15 +175,10 @@ It appends `w=640&h=360&fit=crop&crop=faces,entropy` to the Unsplash **raw** ima
 Without extra parameters the response has the shape `{ "small": "url", "regular": "url" }` where both URLs are identical.
 Include a `format` query to receive a single `{ "url": "..." }` instead.
 The server requires `UNSPLASH_ACCESS_KEY` in the environment. Queries for Afrikaans dog breed names are translated to their English equivalents so Unsplash can find matching photos.
-Make sure this key is valid and that the server can reach `api.unsplash.com`. The `/api/photos` route requires outbound network access. If the request fails, the server falls back to `/images/placeholder.png` and responds with HTTP `404`.
+Make sure this key is valid and that the server can reach `api.unsplash.com`. The `/api/photos` route requires outbound network access. If the request fails or Unsplash has no matching photos, the server simply returns `/images/placeholder.png` with HTTP `200`.
 If you use a proxy or have restricted egress, set the appropriate environment variables (e.g. `HTTPS_PROXY`) so outbound requests to Unsplash succeed.
-If Unsplash has no results or a network error occurs, the endpoint responds with HTTP `404` and `{ "detail": "Unsplash request failed" }`.
+If Unsplash cannot provide a photo, you receive `{ "small": "/images/placeholder.png", "regular": "/images/placeholder.png" }`.
 
-```json
-{
-  "detail": "Unsplash request failed",
-}
-```
 If the request fails on the client, the app falls back to `/images/placeholder.png`.
 The file is not included in the repo; add your own placeholder image at `public/images/placeholder.png`.
 ### Interpreting Server Logs

@@ -204,7 +204,7 @@ describe('photo endpoint', () => {
     );
   });
 
-  test('returns 404 when Unsplash has no results', async () => {
+  test('falls back to placeholder when Unsplash has no results', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: false,
       status: 404,
@@ -215,11 +215,14 @@ describe('photo endpoint', () => {
       .get('/api/photos')
       .query({ query: 'dogs' });
 
-    expect(res.status).toBe(404);
-    expect(res.body.detail).toBe('Unsplash request failed');
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      small: '/images/placeholder.png',
+      regular: '/images/placeholder.png',
+    });
   });
 
-  test('returns 404 when fetch fails', async () => {
+  test('falls back to placeholder when fetch fails', async () => {
     jest
       .spyOn(global, 'fetch')
       .mockRejectedValue(Object.assign(new Error('fail'), { code: 'ENETUNREACH' }));
@@ -228,7 +231,10 @@ describe('photo endpoint', () => {
       .get('/api/photos')
       .query({ query: 'dogs' });
 
-    expect(res.status).toBe(404);
-    expect(res.body.detail).toBe('Unsplash request failed');
+    expect(res.status).toBe(200);
+    expect(res.body).toEqual({
+      small: '/images/placeholder.png',
+      regular: '/images/placeholder.png',
+    });
   });
 });
