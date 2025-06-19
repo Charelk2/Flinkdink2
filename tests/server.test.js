@@ -60,12 +60,12 @@ describe('photo endpoint', () => {
     jest.restoreAllMocks();
   });
 
-  test('returns photo URL on success', async () => {
+  test('returns photo URLs on success', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
       json: async () => ({
         results: [
-          { urls: { small: 'http://img.test/photo.jpg' } },
+          { urls: { small: 'http://img.test/photo-small.jpg', regular: 'http://img.test/photo-reg.jpg' } },
         ],
       }),
     });
@@ -75,7 +75,10 @@ describe('photo endpoint', () => {
       .query({ query: 'cats' });
 
     expect(res.status).toBe(200);
-    expect(res.body.url).toBe('http://img.test/photo.jpg');
+    expect(res.body).toEqual({
+      small: 'http://img.test/photo-small.jpg',
+      regular: 'http://img.test/photo-reg.jpg',
+    });
     expect(global.fetch).toHaveBeenCalled();
   });
 
@@ -93,7 +96,7 @@ describe('photo endpoint', () => {
         ok: true,
         json: async () => ({
           results: [
-            { urls: { small: `http://img.test/${english}.jpg` } },
+            { urls: { small: `http://img.test/${english}.jpg`, regular: `http://img.test/${english}-reg.jpg` } },
           ],
         }),
       });
@@ -103,7 +106,8 @@ describe('photo endpoint', () => {
         .query({ query: afrikaans });
 
       expect(res.status).toBe(200);
-      expect(res.body.url).toBe(`http://img.test/${english}.jpg`);
+      expect(res.body.small).toBe(`http://img.test/${english}.jpg`);
+      expect(res.body.regular).toBe(`http://img.test/${english}-reg.jpg`);
       const encoded = encodeURIComponent(english);
       expect(spy).toHaveBeenCalledWith(
         expect.stringContaining(encoded),
@@ -111,6 +115,24 @@ describe('photo endpoint', () => {
       );
     },
   );
+
+  test('returns requested format', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [
+          { urls: { small: 'http://img.test/s.jpg', regular: 'http://img.test/r.jpg' } },
+        ],
+      }),
+    });
+
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: 'cats', format: 'regular' });
+
+    expect(res.status).toBe(200);
+    expect(res.body.url).toBe('http://img.test/r.jpg');
+  });
 
   test('handles failed Unsplash response', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({

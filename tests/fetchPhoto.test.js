@@ -19,15 +19,19 @@ describe('fetchPhoto', () => {
     delete global.fetch
   })
 
-  test('returns URL on success', async () => {
-    const url = 'http://img.test/photo.jpg'
+  test('returns URLs on success', async () => {
+    const data = { small: 'http://img.test/small.jpg', regular: 'http://img.test/reg.jpg' }
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
       status: 200,
-      text: async () => JSON.stringify({ url }),
+      text: async () => JSON.stringify(data),
     })
 
-    await expect(fetchPhoto('cats')).resolves.toBe(url)
+    await expect(fetchPhoto('cats')).resolves.toEqual({
+      avif: `${data.regular}&fm=avif`,
+      webp: `${data.regular}&fm=webp`,
+      fallback: data.small,
+    })
   })
 
   test('returns placeholder on 404', async () => {
@@ -37,13 +41,21 @@ describe('fetchPhoto', () => {
       text: async () => 'Not found',
     })
 
-    await expect(fetchPhoto('cats')).resolves.toBe('/images/placeholder.png')
+    await expect(fetchPhoto('cats')).resolves.toEqual({
+      avif: '/images/placeholder.png',
+      webp: '/images/placeholder.png',
+      fallback: '/images/placeholder.png',
+    })
   })
 
   test('returns placeholder on network error', async () => {
     global.fetch = jest.fn().mockRejectedValue(new Error('fail'))
 
-    await expect(fetchPhoto('cats')).resolves.toBe('/images/placeholder.png')
+    await expect(fetchPhoto('cats')).resolves.toEqual({
+      avif: '/images/placeholder.png',
+      webp: '/images/placeholder.png',
+      fallback: '/images/placeholder.png',
+    })
     expect(errorSpy).toHaveBeenCalledWith('Photo fetch failed', expect.any(Error))
   })
 })

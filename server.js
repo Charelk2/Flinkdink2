@@ -100,7 +100,7 @@ app.post('/api/register', async (req, res) => {
 });
 
 app.get('/api/photos', async (req, res) => {
-  const { query } = req.query;
+  const { query, format } = req.query;
   if (!query) {
     res.status(400).json({ detail: 'Missing query parameter' });
     return;
@@ -127,7 +127,13 @@ app.get('/api/photos', async (req, res) => {
       res.status(404).json({ detail: 'Unsplash request failed' });
       return;
     }
-    res.json({ url: data.results[0].urls.small });
+
+    const { urls } = data.results[0];
+    if (format && urls[format]) {
+      res.json({ url: urls[format] });
+    } else {
+      res.json({ small: urls.small, regular: urls.regular });
+    }
   } catch (err) {
     console.error('Fetch to Unsplash failed', err);
     res.status(502).json({ detail: 'Unsplash request failed', error: err.message });

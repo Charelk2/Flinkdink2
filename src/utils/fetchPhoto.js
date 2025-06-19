@@ -16,13 +16,36 @@ export async function fetchPhoto(query) {
     console.log('Unsplash body', body);
 
     if (!res.ok) {
-      return '/images/placeholder.png';
+      return {
+        avif: '/images/placeholder.png',
+        webp: '/images/placeholder.png',
+        fallback: '/images/placeholder.png',
+      };
     }
 
     const data = JSON.parse(body);
-    return data.url || '/images/placeholder.png';
+    const regular = data.regular || data.url;
+    const small = data.small || regular;
+
+    if (!regular) {
+      return {
+        avif: '/images/placeholder.png',
+        webp: '/images/placeholder.png',
+        fallback: '/images/placeholder.png',
+      };
+    }
+
+    return {
+      avif: `${regular}&fm=avif`,
+      webp: `${regular}&fm=webp`,
+      fallback: small,
+    };
   } catch (err) {
     console.error('Photo fetch failed', err);
-    return '/images/placeholder.png';
+    return {
+      avif: '/images/placeholder.png',
+      webp: '/images/placeholder.png',
+      fallback: '/images/placeholder.png',
+    };
   }
 }
