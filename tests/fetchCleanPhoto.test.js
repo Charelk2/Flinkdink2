@@ -35,7 +35,7 @@ describe('fetchCleanPhoto', () => {
   test('includes smart crop parameters', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ results: [{ urls: { regular: 'http://img.test/a.jpg' } }] }),
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/a.jpg' } }] }),
     })
 
     const result = await fetchCleanPhoto('pug')
