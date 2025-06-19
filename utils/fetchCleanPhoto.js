@@ -1,8 +1,9 @@
 import { breedMap } from './breedMap.js';
 
-// Use the Unsplash random photo endpoint so repeated requests
-// yield different images even for the same search term.
-const UNSPLASH_URL = 'https://api.unsplash.com/photos/random';
+// Use the Unsplash search endpoint for more relevant results. The API
+// returns a list of photos ordered by relevance. We take the first item
+// to avoid displaying completely unrelated images.
+const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
 const CROP_PARAMS = 'w=640&h=360&fit=crop&crop=faces,entropy';
 
 export default async function fetchCleanPhoto(rawQuery) {
@@ -15,7 +16,7 @@ export default async function fetchCleanPhoto(rawQuery) {
 
   let lastError = null;
   for (const q of queries) {
-    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(q)}&orientation=landscape&count=1`;
+    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(q)}&orientation=landscape&per_page=1&page=1`;
     try {
       const res = await fetch(url, {
         headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` },
@@ -29,9 +30,9 @@ export default async function fetchCleanPhoto(rawQuery) {
         continue;
       }
       const data = await res.json();
-      // The random endpoint returns either a single object or an array when
-      // the `count` parameter is used. Normalise it to a single photo object.
-      const photo = Array.isArray(data) ? data[0] : data;
+      // The search endpoint returns `{ results: [...] }`. Grab the first
+      // result and return its raw URL if present.
+      const photo = data && (Array.isArray(data.results) ? data.results[0] : data);
       if (photo && photo.urls && photo.urls.raw) {
         const { raw } = photo.urls;
         const join = raw.includes('?') ? '&' : '?';

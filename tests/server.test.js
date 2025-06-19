@@ -173,7 +173,8 @@ describe('photo endpoint', () => {
     expect(res.status).toBe(200);
     const callUrl = spy.mock.calls[0][0];
     expect(callUrl).toContain('orientation=landscape');
-    expect(callUrl).toContain('count=1');
+    expect(callUrl).toContain('per_page=1');
+    expect(callUrl).toContain('/search/photos');
     expect(callUrl).not.toContain('fit=crop');
 
     expect(res.body.small).toContain('w=640');
