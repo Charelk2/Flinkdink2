@@ -11,14 +11,14 @@ export default async function fetchCleanPhoto(rawQuery) {
   ]
 
   for (const q of queries) {
-    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(q)}&color=white&orientation=landscape&per_page=3`
+    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(q)}&color=white&orientation=landscape&per_page=1&w=640&h=360&fit=crop&crop=faces,entropy`
     try {
       const res = await fetch(url, {
         headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` },
       })
       if (!res.ok) {
         const text = await res.text().catch(() => '')
-        console.error('Unsplash error', res.status, text)
+        console.error(`Unsplash error for "${q}"`, res.status, text)
         if (res.status === 404) continue
         continue
       }

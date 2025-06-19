@@ -147,10 +147,13 @@ describe('photo endpoint', () => {
       .query({ query: 'cats' });
 
     expect(res.status).toBe(200);
-    expect(spy).toHaveBeenCalledWith(
-      expect.stringContaining('orientation=landscape'),
-      expect.any(Object),
-    );
+    const callUrl = spy.mock.calls[0][0]
+    expect(callUrl).toContain('orientation=landscape')
+    expect(callUrl).toContain('per_page=1')
+    expect(callUrl).toContain('w=640')
+    expect(callUrl).toContain('h=360')
+    expect(callUrl).toContain('fit=crop')
+    expect(callUrl).toContain('crop=faces,entropy')
   });
 
   test('handles failed Unsplash response', async () => {
