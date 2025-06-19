@@ -8,6 +8,15 @@ import morgan from 'morgan';
 
 const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
 
+// Map Afrikaans breed names to their English equivalents so Unsplash can
+// return matching results. The search terms are almost entirely in English,
+// so Afrikaans queries often yield a 404 response.
+export const breedMap = {
+  Jagwindhond: 'greyhound',
+  'Engelse Patryshond': 'English pointer',
+  'Goudkleurige Apporteerhond': 'Golden Retriever',
+};
+
 dotenv.config();
 
 const { Database } = sqlite3;
@@ -80,7 +89,8 @@ app.get('/api/photos', async (req, res) => {
   }
   res.set('Cache-Control', 'no-store');
   try {
-    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(query)}&per_page=1`;
+    const searchTerm = breedMap[query] || query;
+    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(searchTerm)}&per_page=1`;
     const response = await fetch(url, {
       headers: {
         Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
