@@ -114,18 +114,18 @@ const Dashboard = () => {
           <div>Cards: {weekData.encyclopedia.length}</div>
         </div>
       )}
-      <div className="space-x-2">
+      <div className="flex flex-wrap gap-2">
         <button type="button" onClick={resetToday} className="btn">
-          Reset Today
+          🔄 Reset Today
         </button>
         <button type="button" onClick={resetAll} className="btn">
-          Reset All
+          🗑️ Reset All
         </button>
         <button type="button" onClick={() => window.print()} className="btn">
-          Print Star Chart
+          ⭐ Print Star Chart
         </button>
         <button type="button" onClick={() => window.print()} className="btn">
-          Print Certificate
+          📜 Print Certificate
         </button>
       </div>
       </div>
