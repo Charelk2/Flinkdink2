@@ -130,6 +130,8 @@ PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
 VITE_API_BASE_URL=http://localhost:3001
+UNSPLASH_ACCESS_KEY=
+UNSPLASH_SECRET_KEY=
 ```
 
 The default credentials are **demo@example.com** / **password**. You can also
@@ -204,6 +206,8 @@ PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
 VITE_API_BASE_URL=https://your-server.com
+UNSPLASH_ACCESS_KEY=
+UNSPLASH_SECRET_KEY=
 ```
 
 Whenever you change these variables run `npx cap sync` again so Capacitor copies
