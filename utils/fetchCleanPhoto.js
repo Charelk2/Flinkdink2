@@ -1,56 +1,47 @@
-import { breedMap } from './breedMap.js';
-
-// Use the Unsplash search endpoint for more relevant results. The API
-// returns a list of photos ordered by relevance. We take the first item
-// to avoid displaying completely unrelated images.
+import { breedMap } from '../server.js';
 const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
-const CROP_PARAMS = 'w=640&h=360&fit=crop&crop=faces,entropy';
+
+const CROP = '&w=640&h=360&fit=crop&crop=faces,entropy';
 
 export default async function fetchCleanPhoto(rawQuery) {
   const term = (breedMap[rawQuery] || rawQuery).trim();
-  // 1) Portrait photo  2) White background  3) Studio isolation  4) Plain term
   const queries = [
-    { q: term, orientation: 'portrait' },
-    { q: `${term} white background`, color: 'white', orientation: 'landscape' },
-    { q: `${term} isolated minimal background`, orientation: 'landscape' },
-    { q: term, orientation: 'landscape' },
+    // 1) portrait
+    { qs: term, params: '&orientation=portrait' },
+    // 2) portrait + white bg
+    { qs: term, params: '&orientation=portrait&color=white' },
+    // 3) clean studio‐look
+    { qs: `${term} isolated minimal background`, params: '&orientation=landscape&color=white' },
+    // 4) any landscape
+    { qs: term, params: '&orientation=landscape' },
   ];
 
-  let lastError = null;
-  for (const { q, color, orientation } of queries) {
-    const params = new URLSearchParams({
-      query: q,
-      per_page: '3',
-      orientation,
-      ...(color ? { color } : {}),
-    });
-    const url = `${UNSPLASH_URL}?${params.toString()}`;
-
+  for (const { qs, params } of queries) {
+    const url = `${UNSPLASH_URL}` +
+                `?query=${encodeURIComponent(qs)}` +
+                `&per_page=3` +
+                params +
+                CROP;
+    console.log('[fetchCleanPhoto] trying →', qs, url);
     try {
       const res = await fetch(url, {
         headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` },
       });
-      if (!res.ok) continue;
-
+      console.log('[fetchCleanPhoto] status', res.status);
+      if (!res.ok) {
+        console.warn('[fetchCleanPhoto] bad status, continuing…');
+        continue;
+      }
       const { results } = await res.json();
-      if (!results?.length) continue;
-
-      const pick =
-        results.find((img) =>
-          img.tags?.some((t) => t.title.toLowerCase().includes(term.toLowerCase())),
-        ) || results[0];
-
-      const raw = pick.urls.raw;
-      const sep = raw.includes('?') ? '&' : '?';
-      return `${raw}${sep}${CROP_PARAMS}`;
+      console.log('[fetchCleanPhoto] got', results.length, 'results');
+      if (results.length > 0 && results[0].urls?.small) {
+        return results[0].urls.small;
+      }
     } catch (err) {
-      lastError = err;
+      console.error('[fetchCleanPhoto] fetch error, continuing…', err);
     }
   }
 
-  if (lastError) {
-    console.error('All Unsplash requests failed, returning placeholder', lastError);
-  }
-
+  console.warn('[fetchCleanPhoto] all queries failed, falling back to placeholder');
   return '/images/placeholder.png';
 }
