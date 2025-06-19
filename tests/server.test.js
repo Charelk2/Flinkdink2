@@ -75,6 +75,28 @@ describe('photo endpoint', () => {
     expect(global.fetch).toHaveBeenCalled();
   });
 
+  test('translates Afrikaans breed names', async () => {
+    const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [
+          { urls: { small: 'http://img.test/greyhound.jpg' } },
+        ],
+      }),
+    });
+
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: 'Jagwindhond' });
+
+    expect(res.status).toBe(200);
+    expect(res.body.url).toBe('http://img.test/greyhound.jpg');
+    expect(spy).toHaveBeenCalledWith(
+      expect.stringContaining('greyhound'),
+      expect.any(Object),
+    );
+  });
+
   test('handles failed Unsplash response', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: false,

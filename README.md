@@ -149,8 +149,9 @@ The frontend reads this value via the `__API_BASE_URL__` constant defined by Vit
 ### Photo Search API
 
 `GET /api/photos?query=term` searches Unsplash and returns the first image URL.
-The server requires `UNSPLASH_ACCESS_KEY` in the environment. A failed Unsplash
-request responds with `{ "detail": "Unsplash request failed", "error": "message" }`,
+The server requires `UNSPLASH_ACCESS_KEY` in the environment. Queries for Afrikaans
+dog breed names are translated to their English equivalents so Unsplash can find
+matching photos. A failed Unsplash request responds with `{ "detail": "Unsplash request failed", "error": "message" }`,
 where the `error` field contains either the Unsplash response text or the network
 error message.
 If the request fails on the client, the app falls back to `/images/placeholder.png`. The file is not included in the repo; add your own placeholder image at `public/images/placeholder.png`.
