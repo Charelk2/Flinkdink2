@@ -94,6 +94,8 @@ Parents can also jump to any of the 52 weeks from the Dashboard. Selecting a wee
 When unlocked, the Dashboard now shows a large progress header with your current week, day, session and streak. It reuses the same session dots as the home screen.
 Daily modules are listed in a small table labelled **"Weekly progress"**, where completed cells appear green.
 
+Below the table is a row of control buttons arranged with `flex` and `flex-wrap` so they stack neatly on narrow screens. Each button label now starts with a small emoji, for example **"🔄 Reset Today"** and **"🗑️ Reset All"**. Selecting **Reset All** opens a confirmation dialog before all progress is cleared.
+
 ## Accessibility
 
 Carousel navigation buttons now include descriptive ARIA labels and retain their focus outlines for improved keyboard navigation.

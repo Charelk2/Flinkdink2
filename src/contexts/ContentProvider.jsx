@@ -110,7 +110,9 @@ export const ContentProvider = ({ children }) => {
   }
 
   const resetAll = () => {
-    saveProgress(DEFAULT_PROGRESS)
+    if (window.confirm('Are you sure you want to reset all progress?')) {
+      saveProgress(DEFAULT_PROGRESS)
+    }
   }
 
   return (

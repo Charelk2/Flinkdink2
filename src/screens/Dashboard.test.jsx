@@ -116,4 +116,62 @@ describe('Dashboard', () => {
       'grid grid-cols-7 sm:grid-cols-13 gap-1 text-center',
     )
   })
+
+  it('renders control buttons with emoji labels', () => {
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      resetToday: jest.fn(),
+      resetAll: jest.fn(),
+      weekData: null,
+      loading: false,
+      error: null,
+      jumpToWeek: jest.fn(),
+    })
+
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    fireEvent.change(screen.getByLabelText('PIN'), { target: { value: '1234' } })
+    fireEvent.click(screen.getByRole('button', { name: /unlock/i }))
+
+    expect(screen.getByRole('button', { name: '🔄 Reset Today' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '🗑️ Reset All' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '⭐ Print Star Chart' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '📜 Print Certificate' })).toBeInTheDocument()
+  })
+
+  it('prompts for confirmation before resetting all', () => {
+    const resetAll = jest.fn()
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      resetToday: jest.fn(),
+      resetAll,
+      weekData: null,
+      loading: false,
+      error: null,
+      jumpToWeek: jest.fn(),
+    })
+
+    window.confirm = jest.fn(() => true)
+
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    fireEvent.change(screen.getByLabelText('PIN'), { target: { value: '1234' } })
+    fireEvent.click(screen.getByRole('button', { name: /unlock/i }))
+
+    fireEvent.click(screen.getByRole('button', { name: '🗑️ Reset All' }))
+    expect(window.confirm).toHaveBeenCalled()
+    expect(resetAll).toHaveBeenCalled()
+  })
 })

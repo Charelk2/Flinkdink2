@@ -192,7 +192,7 @@ describe('reset helpers', () => {
     expect(stored.session).toBe(1)
   })
 
-  it('resetAll clears all progress', () => {
+  it('resetAll clears all progress after confirmation', () => {
     localStorage.setItem(
       'progress-v1',
       JSON.stringify({ version: 1, week: 3, day: 2, session: 3 }),
@@ -210,6 +210,8 @@ describe('reset helpers', () => {
       )
     }
 
+    window.confirm = jest.fn(() => true)
+
     render(
       <ContentProvider>
         <AllConsumer />
@@ -220,5 +222,6 @@ describe('reset helpers', () => {
     expect(screen.getByTestId('week')).toHaveTextContent('1')
     const stored = JSON.parse(localStorage.getItem('progress-v1'))
     expect(stored.week).toBe(1)
+    expect(window.confirm).toHaveBeenCalled()
   })
 })
