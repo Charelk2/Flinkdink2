@@ -52,7 +52,7 @@ const EncyclopediaModule = ({ cards }) => {
                 loading="lazy"
                 src={img.fallback}
                 alt={card.title}
-                className="w-full h-48 sm:h-64 object-cover rounded-xl"
+                className="w-full rounded-xl encyclopedia-thumb"
               />
             </picture>
             <h3 className="text-xl font-bold">{card.title}</h3>

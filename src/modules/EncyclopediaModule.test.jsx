@@ -15,7 +15,7 @@ describe('EncyclopediaModule', () => {
     render(<EncyclopediaModule cards={cards} />);
     const img = screen.getByRole('img', { name: 'Test Card' });
     expect(img).toHaveAttribute('alt', 'Test Card');
-    expect(img).toHaveClass('w-full', 'h-48', 'sm:h-64', 'object-cover', 'rounded-xl');
+    expect(img).toHaveClass('w-full', 'rounded-xl', 'encyclopedia-thumb');
     const picture = img.closest('picture');
     expect(picture).not.toBeNull();
     const sources = picture.querySelectorAll('source');
