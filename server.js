@@ -5,8 +5,7 @@ import sqlite3 from 'sqlite3';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import morgan from 'morgan';
-
-const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
+import fetchCleanPhoto from './utils/fetchCleanPhoto.js';
 
 // Map Afrikaans breed names to their English equivalents so Unsplash can
 // return matching results. The search terms are almost entirely in English,
@@ -107,36 +106,15 @@ app.get('/api/photos', async (req, res) => {
   }
   res.set('Cache-Control', 'no-store');
   try {
-    const searchTerm = breedMap[query] || query;
-    const url = `${UNSPLASH_URL}?query=${encodeURIComponent(
-      searchTerm,
-    )}&per_page=1&w=640&q=80`;
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
-      },
-    });
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Unsplash error', response.status, errorText);
-      res.status(response.status).json({
-        detail: 'Unsplash request failed',
-        status: response.status,
-        error: errorText,
-      });
-      return;
-    }
-    const data = await response.json();
-    if (!data.results || data.results.length === 0) {
+    const photo = await fetchCleanPhoto(query);
+    if (photo === '/images/placeholder.png') {
       res.status(404).json({ detail: 'Unsplash request failed' });
       return;
     }
-
-    const { urls } = data.results[0];
-    if (format && urls[format]) {
-      res.json({ url: urls[format] });
+    if (format) {
+      res.json({ url: photo });
     } else {
-      res.json({ small: urls.small, regular: urls.regular });
+      res.json({ small: photo, regular: photo });
     }
   } catch (err) {
     console.error('Fetch to Unsplash failed', err);

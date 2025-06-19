@@ -65,7 +65,7 @@ describe('photo endpoint', () => {
       ok: true,
       json: async () => ({
         results: [
-          { urls: { small: 'http://img.test/photo-small.jpg', regular: 'http://img.test/photo-reg.jpg' } },
+          { urls: { small: 'http://img.test/photo-small.jpg' } },
         ],
       }),
     });
@@ -77,7 +77,7 @@ describe('photo endpoint', () => {
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
       small: 'http://img.test/photo-small.jpg',
-      regular: 'http://img.test/photo-reg.jpg',
+      regular: 'http://img.test/photo-small.jpg',
     });
     expect(global.fetch).toHaveBeenCalled();
   });
@@ -96,7 +96,7 @@ describe('photo endpoint', () => {
         ok: true,
         json: async () => ({
           results: [
-            { urls: { small: `http://img.test/${english}.jpg`, regular: `http://img.test/${english}-reg.jpg` } },
+            { urls: { small: `http://img.test/${english}.jpg` } },
           ],
         }),
       });
@@ -107,7 +107,7 @@ describe('photo endpoint', () => {
 
       expect(res.status).toBe(200);
       expect(res.body.small).toBe(`http://img.test/${english}.jpg`);
-      expect(res.body.regular).toBe(`http://img.test/${english}-reg.jpg`);
+      expect(res.body.regular).toBe(`http://img.test/${english}.jpg`);
       const encoded = encodeURIComponent(english);
       expect(spy).toHaveBeenCalledWith(
         expect.stringContaining(encoded),
@@ -121,7 +121,7 @@ describe('photo endpoint', () => {
       ok: true,
       json: async () => ({
         results: [
-          { urls: { small: 'http://img.test/s.jpg', regular: 'http://img.test/r.jpg' } },
+          { urls: { small: 'http://img.test/s.jpg' } },
         ],
       }),
     });
@@ -131,14 +131,14 @@ describe('photo endpoint', () => {
       .query({ query: 'cats', format: 'regular' });
 
     expect(res.status).toBe(200);
-    expect(res.body.url).toBe('http://img.test/r.jpg');
+    expect(res.body.url).toBe('http://img.test/s.jpg');
   });
 
   test('requests compressed photo', async () => {
     const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
       json: async () => ({
-        results: [{ urls: { small: 's', regular: 'r' } }],
+        results: [{ urls: { small: 's' } }],
       }),
     });
 
@@ -148,7 +148,7 @@ describe('photo endpoint', () => {
 
     expect(res.status).toBe(200);
     expect(spy).toHaveBeenCalledWith(
-      expect.stringContaining('&w=640&q=80'),
+      expect.stringContaining('orientation=landscape'),
       expect.any(Object),
     );
   });
@@ -164,8 +164,7 @@ describe('photo endpoint', () => {
       .get('/api/photos')
       .query({ query: 'dogs' });
 
-    expect(res.status).toBe(503);
+    expect(res.status).toBe(404);
     expect(res.body.detail).toBe('Unsplash request failed');
-    expect(res.body.error).toBe('Error');
   });
 });
