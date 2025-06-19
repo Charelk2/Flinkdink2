@@ -57,6 +57,7 @@ the API routes, while React components rely on **React Testing Library**.
 - `src/screens` – page components for the router
 - `public/weeks` – JSON data files per week
 - `src/utils/fetchWeek.js` – helper to fetch a week's JSON by number
+- `src/utils/fetchPhoto.js` – fetches an Unsplash image for a given query
  - Language words now display in a very large lowercase font so toddlers
    can easily read them
 

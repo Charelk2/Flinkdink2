@@ -1,9 +1,38 @@
+import { useEffect, useState } from 'react'
 import Carousel from '../components/Carousel'
+import { fetchPhoto } from '../utils/fetchPhoto'
 
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5)
 
 const EncyclopediaModule = ({ cards }) => {
-  const items = shuffle(cards)
+  const [items, setItems] = useState(() => shuffle(cards))
+
+  useEffect(() => {
+    const shuffled = shuffle(cards)
+    setItems(shuffled)
+
+    let active = true
+    shuffled.forEach((card, index) => {
+      fetchPhoto(card.title)
+        .then((url) => {
+          if (active) {
+            setItems((prev) => {
+              const next = [...prev]
+              next[index] = { ...next[index], image: url }
+              return next
+            })
+          }
+        })
+        .catch((err) => {
+          console.error('Failed to fetch image', err)
+        })
+    })
+
+    return () => {
+      active = false
+    }
+  }, [cards])
+
   return (
     <Carousel
       items={items}
