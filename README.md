@@ -41,11 +41,23 @@ Lint the code with ESLint:
 npm run lint
 ```
 
-Run the unit tests with Jest. The suite automatically runs after `npm install`:
+Before running the tests make sure all dependencies are installed:
+
+```bash
+npm install
+```
+
+With everything installed you can run the Jest suite manually:
 
 ```bash
 npm test
 ```
+
+The `postinstall` script also invokes `npm test` automatically, so simply
+running `npm install` will execute the suite in CI environments.
+
+CI pipelines can also invoke `scripts/ci-test.sh` which installs
+dependencies and runs the tests in one step.
 
 The tests use **Jest** with **Supertest** and an in-memory SQLite database for
 the API routes, while React components rely on **React Testing Library**.
