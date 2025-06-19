@@ -88,5 +88,6 @@ describe('photo endpoint', () => {
 
     expect(res.status).toBe(503);
     expect(res.body.detail).toBe('Unsplash request failed');
+    expect(res.body.error).toBe('Error');
   });
 });

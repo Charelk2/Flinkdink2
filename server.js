@@ -86,8 +86,11 @@ app.get('/api/photos', async (req, res) => {
       },
     });
     if (!response.ok) {
-      console.error('Unsplash error', await response.text());
-      res.status(response.status).json({ detail: 'Unsplash request failed' });
+      const errorText = await response.text();
+      console.error('Unsplash error', errorText);
+      res
+        .status(response.status)
+        .json({ detail: 'Unsplash request failed', error: errorText });
       return;
     }
     const data = await response.json();
@@ -98,7 +101,7 @@ app.get('/api/photos', async (req, res) => {
     res.json({ url: data.results[0].urls.small });
   } catch (err) {
     console.error('Fetch to Unsplash failed', err);
-    res.status(502).json({ detail: 'Unsplash request failed' });
+    res.status(502).json({ detail: 'Unsplash request failed', error: err.message });
   }
 });
 
