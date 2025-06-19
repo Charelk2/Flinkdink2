@@ -131,9 +131,11 @@ PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
 VITE_API_BASE_URL=http://localhost:3001
-UNSPLASH_ACCESS_KEY=
-UNSPLASH_SECRET_KEY=
+UNSPLASH_ACCESS_KEY=your-access-key
+UNSPLASH_SECRET_KEY=your-secret-key
 ```
+
+Create these keys by signing up for a developer account at [Unsplash](https://unsplash.com/developers) and creating a new application. Add the generated Access Key and Secret Key to your `.env` as shown above. Keep both keys private and **never commit them to the repository**. The `/api/photos` proxy route must be running via `npm run server` for images to load during development.
 
 The default credentials are **demo@example.com** / **password**. You can also
 register a new account using the **Sign Up** page. Successful authentication
@@ -214,9 +216,10 @@ PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
 VITE_API_BASE_URL=https://your-server.com
-UNSPLASH_ACCESS_KEY=
-UNSPLASH_SECRET_KEY=
+UNSPLASH_ACCESS_KEY=your-access-key
+UNSPLASH_SECRET_KEY=your-secret-key
 ```
+Obtain your Unsplash credentials from the Unsplash Developer dashboard. Keep them private and do not commit them. Ensure the `/api/photos` proxy is running so images load correctly.
 
 Whenever you change these variables run `npx cap sync` again so Capacitor copies
 them into the platform folders.
