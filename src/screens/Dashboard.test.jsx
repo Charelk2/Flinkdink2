@@ -7,6 +7,29 @@ import { useContent } from '../contexts/ContentProvider'
 jest.mock('../contexts/ContentProvider')
 
 describe('Dashboard', () => {
+  it('PIN input uses responsive width classes', () => {
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      resetToday: jest.fn(),
+      resetAll: jest.fn(),
+      weekData: null,
+      loading: false,
+      error: null,
+      jumpToWeek: jest.fn(),
+    })
+
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    const input = screen.getByLabelText('PIN')
+    expect(input).toHaveClass('w-full')
+    expect(input).toHaveClass('max-w-xs')
+  })
   it('unlocks with PIN and shows progress grid', () => {
     useContent.mockReturnValue({
       progress: { week: 1, day: 2, session: 2 },

@@ -31,7 +31,7 @@ const Dashboard = () => {
           id="pin"
 
           type="password"
-          className="border p-2"
+          className="border p-2 w-full max-w-xs"
           value={entered}
           onChange={(e) => setEntered(e.target.value)}
         />

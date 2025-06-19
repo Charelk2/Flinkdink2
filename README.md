@@ -157,7 +157,8 @@ overlap on small displays.
 The Dashboard now uses a responsive week grid that shows seven columns on small
 screens and thirteen on larger displays. The carousel height now uses
 `min-h-[50vh]` and login/signup forms are `w-full max-w-xs` so they fit on
-narrow devices.
+narrow devices. The PIN input on the Dashboard also uses these classes so it
+stretches across narrow screens without exceeding `max-w-xs`.
 
 Full-screen areas leverage viewport units so layouts adapt to device height.
 The math board scales with the viewport width while carousels always take up at
