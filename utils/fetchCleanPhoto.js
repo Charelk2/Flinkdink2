@@ -1,7 +1,7 @@
 import { breedMap } from '../server.js';
 const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
 
-const CROP = '&w=640&h=360&fit=crop&crop=faces,entropy';
+const IMGIX_PARAMS = 'w=640&h=360&fit=crop&crop=faces,entropy';
 
 export default async function fetchCleanPhoto(rawQuery) {
   const term = (breedMap[rawQuery] || rawQuery).trim();
@@ -19,9 +19,8 @@ export default async function fetchCleanPhoto(rawQuery) {
   for (const { qs, params } of queries) {
     const url = `${UNSPLASH_URL}` +
                 `?query=${encodeURIComponent(qs)}` +
-                `&per_page=3` +
-                params +
-                CROP;
+                `&per_page=1` +
+                params;
     console.log('[fetchCleanPhoto] trying →', qs, url);
     try {
       const res = await fetch(url, {
@@ -34,8 +33,9 @@ export default async function fetchCleanPhoto(rawQuery) {
       }
       const { results } = await res.json();
       console.log('[fetchCleanPhoto] got', results.length, 'results');
-      if (results.length > 0 && results[0].urls?.small) {
-        return results[0].urls.small;
+      if (results.length > 0 && results[0].urls?.raw) {
+        const raw = results[0].urls.raw;
+        return `${raw}${raw.includes('?') ? '&' : '?'}${IMGIX_PARAMS}`;
       }
     } catch (err) {
       console.error('[fetchCleanPhoto] fetch error, continuing…', err);
