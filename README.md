@@ -55,7 +55,8 @@ the API routes, while React components rely on **React Testing Library**.
 - `src/contexts` – global `ContentProvider` that loads week data and tracks progress
 - `src/modules` – individual learning modules (Language, Math, Encyclopedia)
 - `src/screens` – page components for the router
-- `public/weeks` – JSON data files per week
+- `public/weeks` – JSON data files per week. Encyclopedia cards include a
+  `query` field with an English search term used for fetching photos
 - `src/utils/fetchWeek.js` – helper to fetch a week's JSON by number
 - `src/utils/fetchPhoto.js` – fetches an Unsplash image for a given query
  - Language words now display in a very large lowercase font so toddlers

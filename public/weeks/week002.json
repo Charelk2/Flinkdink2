@@ -13,15 +13,15 @@
   ],
   "mathWindowStart": 6,
   "encyclopedia": [
-    {"id": "rob-bruin-himalajan-kat", "title": "Rob bruin Himalajan kat", "fact": "Known for its rounded brown coat.", "image": "/images/cat.svg"},
-    {"id": "siamese-kat", "title": "Siamese kat", "fact": "Recognizable by its point coloration.", "image": "/images/cat.svg"},
-    {"id": "turkse-van-kat", "title": "Turkse Van kat", "fact": "Loves swimming and has a white body.", "image": "/images/cat.svg"},
-    {"id": "chinchilla-kat", "title": "Chinchilla kat", "fact": "Has a soft, silvery coat.", "image": "/images/cat.svg"},
-    {"id": "rooi-persiese-kat", "title": "Rooi Persiese kat", "fact": "A Persian breed with red fur.", "image": "/images/cat.svg"},
-    {"id": "rokerige-swart-persiese-kat", "title": "Rokerige Swart Persiese kat", "fact": "Features a smoky black coat.", "image": "/images/cat.svg"},
-    {"id": "turkse-angora-kat", "title": "Turkse Angora kat", "fact": "Elegant cat with a silky tail.", "image": "/images/cat.svg"},
-    {"id": "abbesinier-kat", "title": "Abbesini\u00e9r kat", "fact": "Agile breed with ticked fur.", "image": "/images/cat.svg"},
-    {"id": "maine-coon", "title": "Maine Coon", "fact": "Large breed known for its tufted ears.", "image": "/images/cat.svg"},
-    {"id": "ragdoll-kat", "title": "Ragdoll kat", "fact": "Called ragdoll for its relaxed pose.", "image": "/images/cat.svg"}
+    {"id": "rob-bruin-himalajan-kat", "title": "Rob bruin Himalajan kat", "query": "Himalayan cat", "fact": "Known for its rounded brown coat.", "image": "/images/cat.svg"},
+    {"id": "siamese-kat", "title": "Siamese kat", "query": "Siamese cat", "fact": "Recognizable by its point coloration.", "image": "/images/cat.svg"},
+    {"id": "turkse-van-kat", "title": "Turkse Van kat", "query": "Turkish Van cat", "fact": "Loves swimming and has a white body.", "image": "/images/cat.svg"},
+    {"id": "chinchilla-kat", "title": "Chinchilla kat", "query": "Chinchilla cat", "fact": "Has a soft, silvery coat.", "image": "/images/cat.svg"},
+    {"id": "rooi-persiese-kat", "title": "Rooi Persiese kat", "query": "Red Persian cat", "fact": "A Persian breed with red fur.", "image": "/images/cat.svg"},
+    {"id": "rokerige-swart-persiese-kat", "title": "Rokerige Swart Persiese kat", "query": "Smoky black Persian cat", "fact": "Features a smoky black coat.", "image": "/images/cat.svg"},
+    {"id": "turkse-angora-kat", "title": "Turkse Angora kat", "query": "Turkish Angora cat", "fact": "Elegant cat with a silky tail.", "image": "/images/cat.svg"},
+    {"id": "abbesinier-kat", "title": "Abbesini\u00e9r kat", "query": "Abyssinian cat", "fact": "Agile breed with ticked fur.", "image": "/images/cat.svg"},
+    {"id": "maine-coon", "title": "Maine Coon", "query": "Maine Coon", "fact": "Large breed known for its tufted ears.", "image": "/images/cat.svg"},
+    {"id": "ragdoll-kat", "title": "Ragdoll kat", "query": "Ragdoll cat", "fact": "Called ragdoll for its relaxed pose.", "image": "/images/cat.svg"}
   ]
 }

@@ -42,4 +42,29 @@ describe('EncyclopediaModule', () => {
       expect(img).toHaveAttribute('src', 'https://img.test/photo.jpg'),
     )
   })
+
+  it('uses the query field when provided', async () => {
+    const fetchMock = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ url: 'https://img.test/photo2.jpg' }),
+    })
+    global.fetch = fetchMock
+    globalThis.fetch = fetchMock
+    if (typeof window !== 'undefined') {
+      window.fetch = fetchMock
+    }
+
+    const cards = [
+      { image: '/images/test.svg', title: 'Leeu', query: 'Lion', fact: 'King' },
+    ]
+    render(<EncyclopediaModule cards={cards} />)
+
+    await waitFor(() =>
+      expect(fetchMock).toHaveBeenCalledWith('/api/photos?query=Lion'),
+    )
+    const img = screen.getByRole('img', { name: 'Leeu' })
+    await waitFor(() =>
+      expect(img).toHaveAttribute('src', 'https://img.test/photo2.jpg'),
+    )
+  })
 });
