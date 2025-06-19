@@ -162,10 +162,12 @@ The frontend reads this value via the `__API_BASE_URL__` constant defined by Vit
 ### Encyclopedia Images
 
 Images for the encyclopedia module are stored locally under `public/images/encyclopedia`.
+
 The `src/utils/encyclopediaImages.js` module uses Vite's `import.meta.glob` with
 `eager: true`, `query: '?url'` and `import: 'default'` to load every file in that
 directory and build an object keyed by slug. React components can look up a
 matching image by its slug without explicit import statements.
+
 ### Interpreting Server Logs
 The server uses the `morgan` middleware in the `combined` format to log every
 incoming HTTP request. Each line shows the method, URL, response status and
