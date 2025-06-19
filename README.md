@@ -70,7 +70,7 @@ the API routes, while React components rely on **React Testing Library**.
 - `public/weeks` – JSON data files per week. Encyclopedia cards include a
   `query` field with an English search term used for fetching photos
 - `src/utils/fetchWeek.js` – helper to fetch a week's JSON by number
-- `src/utils/fetchPhoto.js` – fetches an Unsplash image for a given query
+- `src/utils/encyclopediaImages.js` – imports encyclopedia images using Vite's glob feature
  - Language words now display in a very large lowercase font so toddlers
    can easily read them
 
@@ -144,11 +144,9 @@ PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
 VITE_API_BASE_URL=http://localhost:3001
-UNSPLASH_ACCESS_KEY=your-access-key
-UNSPLASH_SECRET_KEY=your-secret-key
 ```
 
-Create these keys by signing up for a developer account at [Unsplash](https://unsplash.com/developers) and creating a new application. Add the generated Access Key and Secret Key to your `.env` as shown above. Keep both keys private and **never commit them to the repository**. The `/api/photos` proxy route must be running via `npm run server` for images to load during development.
+
 
 The default credentials are **demo@example.com** / **password**. You can also
 register a new account using the **Sign Up** page. Successful authentication
@@ -161,26 +159,13 @@ During development the API server runs on `http://localhost:3001`, so the
 the full URL of your deployed API server.
 The frontend reads this value via the `__API_BASE_URL__` constant defined by Vite.
 
-### Photo Search API
+### Encyclopedia Images
 
-`GET /api/photos?query=term` fetches the first Unsplash search result and returns a 640×360 face/entropy crop using the raw URL with Imgix parameters.
-Search terms are sanitized by trimming leading and trailing whitespace before contacting Unsplash.
-The server attempts several search phrases and falls back to `/images/placeholder.png` if none succeed:
-
-1. A portrait-oriented shot of the breed
-2. The breed on a white background
-3. A clean studio-style image using "isolated minimal background"
-4. A plain search using the breed name
-It appends `w=640&h=360&fit=crop&crop=faces,entropy` to the Unsplash **raw** image URL so Imgix crops around faces or the most interesting region. If the original Unsplash link already includes query parameters, the cropping string is concatenated with `&` instead of `?`.
-Without extra parameters the response has the shape `{ "small": "url", "regular": "url" }` where both URLs are identical.
-Include a `format` query to receive a single `{ "url": "..." }` instead.
-The server requires `UNSPLASH_ACCESS_KEY` in the environment. Queries for Afrikaans dog breed names are translated to their English equivalents so Unsplash can find matching photos.
-Make sure this key is valid and that the server can reach `api.unsplash.com`. The `/api/photos` route requires outbound network access. If the request fails or Unsplash has no matching photos, the server simply returns `/images/placeholder.png` with HTTP `200`.
-If you use a proxy or have restricted egress, set the appropriate environment variables (e.g. `HTTPS_PROXY`) so outbound requests to Unsplash succeed.
-If Unsplash cannot provide a photo, you receive `{ "small": "/images/placeholder.png", "regular": "/images/placeholder.png" }`.
-
-If the request fails on the client, the app falls back to `/images/placeholder.png`.
-The file is not included in the repo; add your own placeholder image at `public/images/placeholder.png`.
+Images for the encyclopedia module are stored locally under `public/images/encyclopedia`.
+The `src/utils/encyclopediaImages.js` module uses Vite's `import.meta.glob` with
+`eager: true`, `query: '?url'` and `import: 'default'` to load every file in that
+directory and build an object keyed by slug. React components can look up a
+matching image by its slug without explicit import statements.
 ### Interpreting Server Logs
 The server uses the `morgan` middleware in the `combined` format to log every
 incoming HTTP request. Each line shows the method, URL, response status and
@@ -248,10 +233,7 @@ PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
 VITE_API_BASE_URL=https://your-server.com
-UNSPLASH_ACCESS_KEY=your-access-key
-UNSPLASH_SECRET_KEY=your-secret-key
 ```
-Obtain your Unsplash credentials from the Unsplash Developer dashboard. Keep them private and do not commit them. Ensure the `/api/photos` proxy is running so images load correctly.
 
 Whenever you change these variables run `npx cap sync` again so Capacitor copies
 them into the platform folders.
