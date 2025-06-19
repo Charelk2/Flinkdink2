@@ -75,6 +75,7 @@ describe('photo endpoint', () => {
       .query({ query: 'cats' });
 
     expect(res.status).toBe(200);
+    expect(res.headers['cache-control']).toBe('no-store');
     expect(res.body).toEqual({
       small: 'http://img.test/photo-small.jpg?w=640&h=360&fit=crop&crop=faces,entropy',
       regular:
