@@ -63,7 +63,7 @@ describe('photo endpoint', () => {
   test('returns photo URLs on success', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({ urls: { raw: 'http://img.test/photo-small.jpg' } }),
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/photo-small.jpg' }, tags: [] }] }),
     });
 
     const res = await request(app)
@@ -83,7 +83,7 @@ describe('photo endpoint', () => {
   test('adds crop params with ampersand when query exists', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({ urls: { raw: 'http://img.test/photo-small.jpg?foo=1' } }),
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/photo-small.jpg?foo=1' }, tags: [] }] }),
     });
 
     const res = await request(app)
@@ -108,7 +108,7 @@ describe('photo endpoint', () => {
     async (afrikaans, english) => {
       const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
         ok: true,
-        json: async () => ({ urls: { raw: `http://img.test/${english}.jpg` } }),
+        json: async () => ({ results: [{ urls: { raw: `http://img.test/${english}.jpg` }, tags: [] }] }),
       });
 
       const res = await request(app)
@@ -122,7 +122,7 @@ describe('photo endpoint', () => {
       expect(res.body.regular).toBe(
         `http://img.test/${english}.jpg?w=640&h=360&fit=crop&crop=faces,entropy`,
       );
-      const encoded = encodeURIComponent(english);
+      const encoded = encodeURIComponent(english).replace(/%20/g, '+');
       expect(spy).toHaveBeenCalledWith(
         expect.stringContaining(encoded),
         expect.any(Object),
@@ -133,7 +133,7 @@ describe('photo endpoint', () => {
   test('returns requested format', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({ urls: { raw: 'http://img.test/s.jpg' } }),
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/s.jpg' }, tags: [] }] }),
     });
 
     const res = await request(app)
@@ -149,7 +149,7 @@ describe('photo endpoint', () => {
   test('sets Cache-Control header when format is provided', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({ urls: { raw: 'http://img.test/s.jpg' } }),
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/s.jpg' }, tags: [] }] }),
     });
 
     const res = await request(app)
@@ -163,7 +163,7 @@ describe('photo endpoint', () => {
   test('requests compressed photo', async () => {
     const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({ urls: { raw: 's' } }),
+      json: async () => ({ results: [{ urls: { raw: 's' }, tags: [] }] }),
     });
 
     const res = await request(app)
@@ -172,8 +172,8 @@ describe('photo endpoint', () => {
 
     expect(res.status).toBe(200);
     const callUrl = spy.mock.calls[0][0];
-    expect(callUrl).toContain('orientation=landscape');
-    expect(callUrl).toContain('per_page=1');
+    expect(callUrl).toContain('orientation=portrait');
+    expect(callUrl).toContain('per_page=3');
     expect(callUrl).toContain('/search/photos');
     expect(callUrl).not.toContain('fit=crop');
 
@@ -186,7 +186,7 @@ describe('photo endpoint', () => {
   test('trims query before sending to Unsplash', async () => {
     const spy = jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
-      json: async () => ({ urls: { raw: 'http://img.test/dal.jpg' } }),
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/dal.jpg' }, tags: [] }] }),
     });
 
     const res = await request(app)
@@ -197,7 +197,7 @@ describe('photo endpoint', () => {
     expect(res.body.small).toBe(
       'http://img.test/dal.jpg?w=640&h=360&fit=crop&crop=faces,entropy',
     );
-    const encoded = encodeURIComponent('Dalmatian');
+    const encoded = encodeURIComponent('Dalmatian').replace(/%20/g, '+');
     expect(spy).toHaveBeenCalledWith(
       expect.stringContaining(encoded),
       expect.any(Object),
