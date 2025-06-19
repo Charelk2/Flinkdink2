@@ -103,7 +103,7 @@
 
   /* Keep encyclopedia images consistent regardless of width */
   .encyclopedia-thumb {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
   }
 
