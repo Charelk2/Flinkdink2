@@ -21,7 +21,9 @@ export default async function fetchCleanPhoto(rawQuery) {
         const text = await res.text().catch(() => '');
         console.error(`Unsplash error for "${q}"`, res.status, text);
         if (res.status === 404) continue;
-        continue;
+        const error = new Error(text || `Unsplash request failed with status ${res.status}`);
+        error.code = res.status;
+        throw error;
       }
       const data = await res.json();
       if (data.results && data.results[0] && data.results[0].urls) {
@@ -33,6 +35,7 @@ export default async function fetchCleanPhoto(rawQuery) {
       }
     } catch (err) {
       console.error(`Fetch failed for "${q}"`, err);
+      throw err;
     }
   }
   return '/images/placeholder.png';

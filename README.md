@@ -170,7 +170,8 @@ It appends `w=640&h=360&fit=crop&crop=faces,entropy` to the Unsplash **raw** ima
 Without extra parameters the response has the shape `{ "small": "url", "regular": "url" }` where both URLs are identical.
 Include a `format` query to receive a single `{ "url": "..." }` instead.
 The server requires `UNSPLASH_ACCESS_KEY` in the environment. Queries for Afrikaans dog breed names are translated to their English equivalents so Unsplash can find matching photos.
-A failed Unsplash lookup results in a `404` response with `{ "detail": "Unsplash request failed" }`.
+If Unsplash has no results the endpoint responds with HTTP `404` and `{ "detail": "Unsplash request failed" }`.
+Network or server errors from Unsplash result in HTTP `502` with the same `detail` field and the underlying error code for troubleshooting.
 If the request fails on the client, the app falls back to `/images/placeholder.png`.
 The file is not included in the repo; add your own placeholder image at `public/images/placeholder.png`.
 ### Interpreting Server Logs

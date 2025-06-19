@@ -70,11 +70,23 @@ describe('fetchCleanPhoto', () => {
     expect(global.fetch.mock.calls[2][0]).toContain('dog%20white%20background')
   })
 
-  test('returns placeholder on failure', async () => {
-    global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 404, text: async () => 'Not found' })
+  test('returns placeholder on 404', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+      status: 404,
+      text: async () => 'Not found',
+    })
 
     const result = await fetchCleanPhoto('pug')
     expect(result).toBe('/images/placeholder.png')
     expect(global.fetch).toHaveBeenCalledTimes(3)
+  })
+
+  test('throws on network error', async () => {
+    global.fetch = jest
+      .fn()
+      .mockRejectedValue(Object.assign(new Error('fail'), { code: 'ENETUNREACH' }))
+
+    await expect(fetchCleanPhoto('pug')).rejects.toThrow('fail')
   })
 })

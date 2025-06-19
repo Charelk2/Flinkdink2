@@ -93,7 +93,12 @@ app.get('/api/photos', async (req, res) => {
     }
   } catch (err) {
     console.error('Fetch to Unsplash failed', err);
-    res.status(502).json({ detail: 'Unsplash request failed', error: err.message });
+    res
+      .status(502)
+      .json({
+        detail: 'Unsplash request failed',
+        error: err.code || err.message,
+      });
   }
 });
 
