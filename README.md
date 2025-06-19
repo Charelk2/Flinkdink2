@@ -142,6 +142,13 @@ During development the API server runs on `http://localhost:3001`, so the
 `VITE_API_BASE_URL` variable should point there. For production builds set it to
 the full URL of your deployed API server.
 
+### Photo Search API
+
+`GET /api/photos?query=term` searches Unsplash and returns the first image URL.
+The server requires `UNSPLASH_ACCESS_KEY` in the environment. A failed Unsplash
+request responds with `{ "detail": "Unsplash request failed" }` and the status
+code from the Unsplash API.
+
 ### Interpreting Server Logs
 
 The server uses the `morgan` middleware in the `combined` format to log every

@@ -50,3 +50,43 @@ describe('auth endpoints', () => {
     expect(res.body.detail).toBe('Invalid credentials');
   });
 });
+
+describe('photo endpoint', () => {
+  beforeEach(() => {
+    process.env.UNSPLASH_ACCESS_KEY = 'abc';
+  });
+
+  test('returns photo URL on success', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [
+          { urls: { small: 'http://img.test/photo.jpg' } },
+        ],
+      }),
+    });
+
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: 'cats' });
+
+    expect(res.status).toBe(200);
+    expect(res.body.url).toBe('http://img.test/photo.jpg');
+    expect(global.fetch).toHaveBeenCalled();
+  });
+
+  test('handles failed Unsplash response', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: false,
+      status: 503,
+      text: async () => 'Error',
+    });
+
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: 'dogs' });
+
+    expect(res.status).toBe(503);
+    expect(res.body.detail).toBe('Unsplash request failed');
+  });
+});
