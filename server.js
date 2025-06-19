@@ -78,11 +78,17 @@ app.get('/api/photos', async (req, res) => {
     res.status(400).json({ detail: 'Missing query parameter' });
     return;
   }
+  const key = process.env.UNSPLASH_ACCESS_KEY;
+  if (!key) {
+    console.error('UNSPLASH_ACCESS_KEY is not set');
+    res.status(500).json({ detail: 'Server misconfiguration' });
+    return;
+  }
   try {
     const url = `${UNSPLASH_URL}?query=${encodeURIComponent(query)}&per_page=1`;
     const response = await fetch(url, {
       headers: {
-        Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`,
+        Authorization: `Client-ID ${key}`,
       },
     });
     if (!response.ok) {

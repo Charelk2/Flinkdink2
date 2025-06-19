@@ -56,6 +56,15 @@ describe('photo endpoint', () => {
     process.env.UNSPLASH_ACCESS_KEY = 'abc';
   });
 
+  test('fails when access key missing', async () => {
+    delete process.env.UNSPLASH_ACCESS_KEY;
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: 'cats' });
+    expect(res.status).toBe(500);
+    expect(res.body.detail).toBe('Server misconfiguration');
+  });
+
   test('returns photo URL on success', async () => {
     jest.spyOn(global, 'fetch').mockResolvedValue({
       ok: true,
