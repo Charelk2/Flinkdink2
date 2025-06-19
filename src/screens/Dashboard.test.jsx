@@ -117,6 +117,34 @@ describe('Dashboard', () => {
     )
   })
 
+  it('marks active week button and includes hover class', () => {
+    useContent.mockReturnValue({
+      progress: { week: 3, day: 1, session: 1 },
+      resetToday: jest.fn(),
+      resetAll: jest.fn(),
+      weekData: null,
+      loading: false,
+      error: null,
+      jumpToWeek: jest.fn(),
+    })
+
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    fireEvent.change(screen.getByLabelText('PIN'), { target: { value: '1234' } })
+    fireEvent.click(screen.getByRole('button', { name: /unlock/i }))
+
+    const active = screen.getByTestId('week-btn-3')
+    expect(active).toHaveAttribute('aria-current', 'true')
+    expect(active).toHaveClass('font-bold')
+    expect(active).toHaveClass('hover:bg-indigo-100')
+  })
+
   it('renders control buttons with emoji labels', () => {
     useContent.mockReturnValue({
       progress: { week: 1, day: 1, session: 1 },

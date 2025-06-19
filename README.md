@@ -161,10 +161,12 @@ overlap on small displays.
 Red dots specify their width, height and color inline so builds without
 Tailwind still display them correctly.
 The Dashboard now uses a responsive week grid that shows seven columns on small
-screens and thirteen on larger displays. The carousel height now uses
-`min-h-[50vh]` and login/signup forms are `w-full max-w-xs` so they fit on
-narrow devices. The PIN input on the Dashboard also uses these classes so it
-stretches across narrow screens without exceeding `max-w-xs`.
+screens and thirteen on larger displays. Each week button has a subtle hover
+state, and the active week appears in bold with `aria-current="true"` for
+accessibility. The carousel height now uses `min-h-[50vh]` and login/signup
+forms are `w-full max-w-xs` so they fit on narrow devices. The PIN input on the
+Dashboard also uses these classes so it stretches across narrow screens without
+exceeding `max-w-xs`.
 Encyclopedia images now use `h-48 sm:h-64` so photos scale down on mobile devices.
 
 Full-screen areas leverage viewport units so layouts adapt to device height.
