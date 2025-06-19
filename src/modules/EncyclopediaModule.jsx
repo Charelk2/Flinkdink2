@@ -13,7 +13,8 @@ const EncyclopediaModule = ({ cards }) => {
 
     let active = true
     shuffled.forEach((card, index) => {
-      fetchPhoto(card.title)
+      const searchTerm = card.query || card.title
+      fetchPhoto(searchTerm)
         .then((url) => {
           if (active) {
             setItems((prev) => {
