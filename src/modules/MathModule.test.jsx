@@ -18,6 +18,7 @@ describe('MathModule', () => {
       const computed = getComputedStyle(dot);
       expect(parseFloat(computed.width)).toBeGreaterThan(0);
       expect(parseFloat(computed.height)).toBeGreaterThan(0);
+      expect(dot.style.backgroundColor).not.toBe('');
     });
   });
 
