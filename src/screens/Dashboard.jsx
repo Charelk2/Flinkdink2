@@ -66,7 +66,7 @@ const Dashboard = () => {
       <DashboardHeader />
       <div className="p-4 space-y-4 pt-20">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-      <table className="progress-table w-full text-center text-xs" aria-label="Weekly progress">
+      <table className="progress-table w-full table-fixed text-center text-xs" aria-label="Weekly progress">
         <thead>
           <tr>
             {days.map((d) => (
@@ -115,17 +115,17 @@ const Dashboard = () => {
           <div>Cards: {weekData.encyclopedia.length}</div>
         </div>
       )}
-      <div className="flex flex-wrap gap-2">
-        <button type="button" onClick={resetToday} className="btn">
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-2" data-testid="action-grid">
+        <button type="button" onClick={resetToday} className="btn w-full sm:w-auto">
           🔄 Reset Today
         </button>
-        <button type="button" onClick={resetAll} className="btn">
+        <button type="button" onClick={resetAll} className="btn w-full sm:w-auto">
           🗑️ Reset All
         </button>
-        <button type="button" onClick={() => window.print()} className="btn">
+        <button type="button" onClick={() => window.print()} className="btn w-full sm:w-auto">
           ⭐ Print Star Chart
         </button>
-        <button type="button" onClick={() => window.print()} className="btn">
+        <button type="button" onClick={() => window.print()} className="btn w-full sm:w-auto">
           📜 Print Certificate
         </button>
       </div>

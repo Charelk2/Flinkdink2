@@ -117,6 +117,32 @@ describe('Dashboard', () => {
     )
   })
 
+  it('uses fixed layout for progress table', () => {
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      resetToday: jest.fn(),
+      resetAll: jest.fn(),
+      weekData: null,
+      loading: false,
+      error: null,
+      jumpToWeek: jest.fn(),
+    })
+
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    fireEvent.change(screen.getByLabelText('PIN'), { target: { value: '1234' } })
+    fireEvent.click(screen.getByRole('button', { name: /unlock/i }))
+
+    const table = screen.getByRole('table', { name: /weekly progress/i })
+    expect(table).toHaveClass('progress-table', 'w-full', 'table-fixed', 'text-center', 'text-xs')
+  })
+
   it('marks active week button and includes hover class', () => {
     useContent.mockReturnValue({
       progress: { week: 3, day: 1, session: 1 },
@@ -171,6 +197,33 @@ describe('Dashboard', () => {
     expect(screen.getByRole('button', { name: '🗑️ Reset All' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '⭐ Print Star Chart' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '📜 Print Certificate' })).toBeInTheDocument()
+  })
+
+  it('uses responsive grid for action buttons', () => {
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      resetToday: jest.fn(),
+      resetAll: jest.fn(),
+      weekData: null,
+      loading: false,
+      error: null,
+      jumpToWeek: jest.fn(),
+    })
+
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Dashboard />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+
+    fireEvent.change(screen.getByLabelText('PIN'), { target: { value: '1234' } })
+    fireEvent.click(screen.getByRole('button', { name: /unlock/i }))
+
+    const grid = screen.getByTestId('action-grid')
+    expect(grid).toHaveClass('grid', 'grid-cols-1', 'sm:grid-cols-4', 'gap-2')
+    expect(screen.getByRole('button', { name: '🔄 Reset Today' })).toHaveClass('w-full', 'sm:w-auto')
   })
 
   it('prompts for confirmation before resetting all', () => {
