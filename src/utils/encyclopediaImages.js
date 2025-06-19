@@ -1,4 +1,10 @@
-const modules = import.meta.glob('/images/encyclopedia/*', { eager: true, as: 'url' });
+
+const modules = import.meta.glob('/images/encyclopedia/*', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
+
 const images = {};
 Object.entries(modules).forEach(([path, url]) => {
   const file = path.split('/').pop();
