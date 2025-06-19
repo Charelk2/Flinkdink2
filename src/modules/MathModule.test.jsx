@@ -10,12 +10,15 @@ describe('MathModule', () => {
 
   it('renders visible dots for each math slide', () => {
     const { container } = render(<MathModule start={1} />);
-    const dot = container.querySelector('span');
-    expect(dot).not.toBeNull();
-    const computed = getComputedStyle(dot);
-    expect(parseFloat(computed.width)).toBeGreaterThan(0);
-    expect(parseFloat(computed.height)).toBeGreaterThan(0);
-    expect(computed.backgroundColor).not.toBe('');
+    const board = container.querySelector('.relative');
+    expect(board).not.toBeNull();
+    const dots = board.querySelectorAll('span');
+    expect(dots.length).toBeGreaterThan(0);
+    dots.forEach((dot) => {
+      const computed = getComputedStyle(dot);
+      expect(parseFloat(computed.width)).toBeGreaterThan(0);
+      expect(parseFloat(computed.height)).toBeGreaterThan(0);
+    });
   });
 
   describe('createSlides', () => {

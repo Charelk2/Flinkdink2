@@ -154,6 +154,8 @@ Math practice screens now size their dot container responsively using
 `h-[60vw] sm:h-[40vh]`. Dots are positioned with a new algorithm that retries
 until each one is at least eight percent away from the others, preventing
 overlap on small displays.
+Red dots specify their width and height inline so builds without Tailwind still
+display them correctly.
 The Dashboard now uses a responsive week grid that shows seven columns on small
 screens and thirteen on larger displays. The carousel height now uses
 `min-h-[50vh]` and login/signup forms are `w-full max-w-xs` so they fit on
