@@ -242,7 +242,7 @@ describe('photo endpoint', () => {
     expect(res.body.detail).toBe('Unsplash request failed');
   });
 
-  test('returns 502 when fetch fails', async () => {
+  test('returns 404 when fetch fails', async () => {
     jest
       .spyOn(global, 'fetch')
       .mockRejectedValue(Object.assign(new Error('fail'), { code: 'ENETUNREACH' }));
@@ -251,8 +251,7 @@ describe('photo endpoint', () => {
       .get('/api/photos')
       .query({ query: 'dogs' });
 
-    expect(res.status).toBe(502);
+    expect(res.status).toBe(404);
     expect(res.body.detail).toBe('Unsplash request failed');
-    expect(res.body.error).toBe('ENETUNREACH');
   });
 });

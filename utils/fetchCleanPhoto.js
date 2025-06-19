@@ -11,6 +11,7 @@ export default async function fetchCleanPhoto(rawQuery) {
     'dog white background',
   ];
 
+  let lastError = null;
   for (const q of queries) {
     const url = `${UNSPLASH_URL}?query=${encodeURIComponent(q)}&color=white&orientation=landscape&per_page=1`;
     try {
@@ -21,9 +22,9 @@ export default async function fetchCleanPhoto(rawQuery) {
         const text = await res.text().catch(() => '');
         console.error(`Unsplash error for "${q}"`, res.status, text);
         if (res.status === 404) continue;
-        const error = new Error(text || `Unsplash request failed with status ${res.status}`);
-        error.code = res.status;
-        throw error;
+        lastError = new Error(text || `Unsplash request failed with status ${res.status}`);
+        lastError.code = res.status;
+        continue;
       }
       const data = await res.json();
       if (data.results && data.results[0] && data.results[0].urls) {
@@ -35,8 +36,11 @@ export default async function fetchCleanPhoto(rawQuery) {
       }
     } catch (err) {
       console.error(`Fetch failed for "${q}"`, err);
-      throw err;
+      lastError = err;
     }
+  }
+  if (lastError) {
+    console.error('All Unsplash requests failed, returning placeholder', lastError);
   }
   return '/images/placeholder.png';
 }

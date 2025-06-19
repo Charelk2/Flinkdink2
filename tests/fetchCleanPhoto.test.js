@@ -82,21 +82,23 @@ describe('fetchCleanPhoto', () => {
     expect(global.fetch).toHaveBeenCalledTimes(3)
   })
 
-  test('throws on network error', async () => {
+  test('returns placeholder on network error', async () => {
     global.fetch = jest
       .fn()
       .mockRejectedValue(Object.assign(new Error('fail'), { code: 'ENETUNREACH' }))
 
-    await expect(fetchCleanPhoto('pug')).rejects.toThrow('fail')
+    const result = await fetchCleanPhoto('pug')
+    expect(result).toBe('/images/placeholder.png')
   })
 
-  test('throws with error code on server error', async () => {
+  test('returns placeholder on server error', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: false,
       status: 500,
       text: async () => 'Server error',
     })
 
-    await expect(fetchCleanPhoto('pug')).rejects.toMatchObject({ code: 500 })
+    const result = await fetchCleanPhoto('pug')
+    expect(result).toBe('/images/placeholder.png')
   })
 })
