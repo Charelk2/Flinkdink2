@@ -89,4 +89,14 @@ describe('fetchCleanPhoto', () => {
 
     await expect(fetchCleanPhoto('pug')).rejects.toThrow('fail')
   })
+
+  test('throws with error code on server error', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+      status: 500,
+      text: async () => 'Server error',
+    })
+
+    await expect(fetchCleanPhoto('pug')).rejects.toMatchObject({ code: 500 })
+  })
 })
