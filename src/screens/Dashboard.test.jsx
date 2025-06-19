@@ -30,7 +30,7 @@ describe('Dashboard', () => {
     expect(input).toHaveClass('w-full')
     expect(input).toHaveClass('max-w-xs')
   })
-  it('unlocks with PIN and shows progress grid', () => {
+  it('unlocks with PIN and shows progress table', () => {
     useContent.mockReturnValue({
       progress: { week: 1, day: 2, session: 2 },
       resetToday: jest.fn(),
@@ -53,6 +53,7 @@ describe('Dashboard', () => {
     fireEvent.click(screen.getByRole('button', { name: /unlock/i }))
 
     expect(screen.getByText('Dashboard')).toBeInTheDocument()
+    expect(screen.getByRole('table', { name: /weekly progress/i })).toBeInTheDocument()
     // day 1 modules are all complete
     expect(screen.getByTestId('day1-module0')).toHaveClass('bg-green-400')
     expect(screen.getByTestId('day1-module2')).toHaveClass('bg-green-400')
