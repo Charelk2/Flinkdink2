@@ -85,6 +85,7 @@ app.get('/api/photos', async (req, res) => {
       res.status(404).json({ detail: 'Unsplash request failed' });
       return;
     }
+    console.log('Unsplash final URL', photo);
     if (format) {
       res.json({ url: photo });
     } else {
