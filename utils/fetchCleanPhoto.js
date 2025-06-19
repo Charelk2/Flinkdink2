@@ -27,7 +27,9 @@ export default async function fetchCleanPhoto(rawQuery) {
       if (data.results && data.results[0] && data.results[0].urls) {
         const { raw, regular } = data.results[0].urls;
         if (raw || regular) {
-          return `${raw || regular}?${CROP_PARAMS}`;
+          const baseUrl = raw || regular;
+          const join = baseUrl.includes('?') ? '&' : '?';
+          return `${baseUrl}${join}${CROP_PARAMS}`;
         }
       }
     } catch (err) {
