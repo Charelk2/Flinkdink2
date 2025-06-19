@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import EncyclopediaModule from './EncyclopediaModule'
 
 jest.mock('../utils/encyclopediaImages', () => ({
-  lion: '/images/encyclopedia/lion.svg',
+  lion: '/assets/encyclopedia/lion.svg',
 }))
 
 // Verify the image uses responsive height classes and includes an alt attribute
@@ -35,6 +35,6 @@ describe('EncyclopediaModule', () => {
     ]
     render(<EncyclopediaModule cards={cards} />)
     const img = screen.getByRole('img', { name: 'Lion' })
-    expect(img).toHaveAttribute('src', '/images/encyclopedia/lion.svg')
+    expect(img).toHaveAttribute('src', '/assets/encyclopedia/lion.svg')
   })
 });

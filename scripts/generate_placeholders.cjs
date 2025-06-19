@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const weeks = ['public/weeks/week001.json', 'public/weeks/week002.json'];
-const outDir = 'public/images/encyclopedia';
+const outDir = 'src/assets/encyclopedia';
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 const slugs = new Map();
 for (const file of weeks) {

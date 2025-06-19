@@ -1,5 +1,5 @@
 
-const modules = import.meta.glob('/images/encyclopedia/*', {
+const modules = import.meta.glob('../assets/encyclopedia/*', {
   eager: true,
   query: '?url',
   import: 'default',

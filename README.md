@@ -161,7 +161,7 @@ The frontend reads this value via the `__API_BASE_URL__` constant defined by Vit
 
 ### Encyclopedia Images
 
-Images for the encyclopedia module are stored locally under `public/images/encyclopedia`.
+Images for the encyclopedia module are stored locally under `src/assets/encyclopedia`.
 
 The `src/utils/encyclopediaImages.js` module uses Vite's `import.meta.glob` with
 `eager: true`, `query: '?url'` and `import: 'default'` to load every file in that
@@ -261,5 +261,5 @@ the deployed server.
 
 ## License
 
-Images used in the encyclopedia module are stored locally under `public/images`.
+Images used in the encyclopedia module are stored locally under `src/assets/encyclopedia`.
 Each file is a small SVG placeholder so the app works without internet access.
