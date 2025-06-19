@@ -18,6 +18,7 @@ describe('EncyclopediaModule', () => {
     expect(img).toHaveClass('w-full', 'rounded-xl', 'encyclopedia-thumb');
     const picture = img.closest('picture');
     expect(picture).not.toBeNull();
+    expect(picture).toHaveClass('zoom-img');
     const sources = picture.querySelectorAll('source');
     expect(sources).toHaveLength(2);
     expect(sources[0]).toHaveAttribute('type', 'image/avif');
@@ -27,7 +28,10 @@ describe('EncyclopediaModule', () => {
   it('fetches remote photos and replaces defaults', async () => {
     const fetchMock = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ small: 'https://img.test/s.jpg', regular: 'https://img.test/r.jpg' }),
+      text: async () => JSON.stringify({
+        small: 'https://img.test/s.jpg',
+        regular: 'https://img.test/r.jpg',
+      }),
     })
     global.fetch = fetchMock
     globalThis.fetch = fetchMock
@@ -52,7 +56,10 @@ describe('EncyclopediaModule', () => {
   it('uses the query field when provided', async () => {
     const fetchMock = jest.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ small: 'https://img.test/s2.jpg', regular: 'https://img.test/r2.jpg' }),
+      text: async () => JSON.stringify({
+        small: 'https://img.test/s2.jpg',
+        regular: 'https://img.test/r2.jpg',
+      }),
     })
     global.fetch = fetchMock
     globalThis.fetch = fetchMock

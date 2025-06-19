@@ -106,4 +106,13 @@
     aspect-ratio: 3 / 2;
     object-fit: cover;
   }
+
+  .zoom-img {
+    transition: transform 0.2s;
+  }
+  @media (min-width: 768px) {
+    .zoom-img:hover {
+      transform: scale(1.05);
+    }
+  }
 }
