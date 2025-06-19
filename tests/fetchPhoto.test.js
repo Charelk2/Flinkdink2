@@ -5,7 +5,16 @@ beforeAll(async () => {
 })
 
 describe('fetchPhoto', () => {
+  let logSpy
+  let errorSpy
+
+  beforeEach(() => {
+    logSpy = jest.spyOn(console, 'log').mockImplementation(() => {})
+    errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {})
+  })
   afterEach(() => {
+    logSpy.mockRestore()
+    errorSpy.mockRestore()
     jest.restoreAllMocks()
     delete global.fetch
   })
@@ -35,5 +44,6 @@ describe('fetchPhoto', () => {
     global.fetch = jest.fn().mockRejectedValue(new Error('fail'))
 
     await expect(fetchPhoto('cats')).resolves.toBe('/images/placeholder.png')
+    expect(errorSpy).toHaveBeenCalledWith('Photo fetch failed', expect.any(Error))
   })
 })
