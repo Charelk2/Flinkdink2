@@ -21,6 +21,17 @@ describe('fetchCleanPhoto', () => {
     )
   })
 
+  test('handles existing query strings', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ results: [{ urls: { raw: 'http://img.test/a.jpg?foo=1' } }] }),
+    })
+
+    await expect(fetchCleanPhoto('cats')).resolves.toBe(
+      'http://img.test/a.jpg?foo=1&w=640&h=360&fit=crop&crop=faces,entropy',
+    )
+  })
+
   test('includes smart crop parameters', async () => {
     global.fetch = jest.fn().mockResolvedValue({
       ok: true,

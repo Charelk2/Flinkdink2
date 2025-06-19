@@ -83,6 +83,26 @@ describe('photo endpoint', () => {
     expect(global.fetch).toHaveBeenCalled();
   });
 
+  test('adds crop params with ampersand when query exists', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        results: [
+          { urls: { raw: 'http://img.test/photo-small.jpg?foo=1' } },
+        ],
+      }),
+    });
+
+    const res = await request(app)
+      .get('/api/photos')
+      .query({ query: 'cats' });
+
+    expect(res.status).toBe(200);
+    expect(res.body.small).toBe(
+      'http://img.test/photo-small.jpg?foo=1&w=640&h=360&fit=crop&crop=faces,entropy',
+    );
+  });
+
   const translations = [
     ['Jagwindhond', 'greyhound'],
     ['Dashond', 'Dachshund'],
