@@ -74,27 +74,22 @@ app.post('/api/register', async (req, res) => {
 
 app.get('/api/photos', async (req, res) => {
   const { query, format } = req.query;
-  if (!query) {
-    return res.status(400).json({ detail: 'Missing query parameter' });
-  }
+  if (!query) return res.status(400).json({ detail: 'Missing query parameter' });
 
   res.set('Cache-Control', 'no-store');
 
   try {
     const photoUrl = await fetchCleanPhoto(query);
-    console.log('Unsplash final URL', photoUrl);
 
     if (format === 'regular' || format === 'small') {
       return res.json({ url: photoUrl });
     }
-
     return res.json({ small: photoUrl, regular: photoUrl });
   } catch (err) {
-    console.error('Failed to fetch photo:', err);
-    return res.status(502).json({
-      detail: 'Unsplash request failed',
-      error: err.code || err.message,
-    });
+    console.error('Unexpected error in /api/photos:', err);
+    return res
+      .status(502)
+      .json({ detail: 'Unsplash request failed', error: err.message });
   }
 });
 
