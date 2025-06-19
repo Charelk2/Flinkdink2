@@ -89,9 +89,15 @@
   .bounce-toast {
     animation: bounce 1s;
   }
-@media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
     .bounce-toast {
       animation: none;
     }
+  }
+
+  .progress-table th,
+  .progress-table td {
+    padding: 0.25rem;
+    border: 1px solid rgb(209 213 219); /* tailwind gray-300 */
   }
 }

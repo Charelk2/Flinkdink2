@@ -66,24 +66,30 @@ const Dashboard = () => {
       <DashboardHeader />
       <div className="p-4 space-y-4 pt-20">
         <h1 className="text-2xl font-bold">Dashboard</h1>
-      <div className="grid grid-cols-7 gap-2 text-center text-sm">
-
-        {days.map((d) => (
-          <div key={d} className="border p-2 space-y-1">
-            <div className="font-bold">Day {d}</div>
-            {modules.map((m, i) => (
-              <div
-                key={i}
-                className={`h-4 ${isComplete(d, i) ? 'bg-green-400' : 'bg-gray-200'}`}
-                data-testid={`day${d}-module${i}`}
-              >
-                {m}
-              </div>
+      <table className="progress-table w-full text-center text-xs" aria-label="Weekly progress">
+        <thead>
+          <tr>
+            {days.map((d) => (
+              <th key={d}>Day {d}</th>
             ))}
-
-          </div>
-        ))}
-      </div>
+          </tr>
+        </thead>
+        <tbody>
+          {modules.map((m, i) => (
+            <tr key={m}>
+              {days.map((d) => (
+                <td
+                  key={d}
+                  className={isComplete(d, i) ? 'bg-green-400' : 'bg-gray-200'}
+                  data-testid={`day${d}-module${i}`}
+                >
+                  {m}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
       <h2 className="text-xl font-semibold pt-4">Weeks</h2>
       <div className="grid grid-cols-7 sm:grid-cols-13 gap-1 text-center" data-testid="week-grid">
         {weeks.map((w) => (
