@@ -167,6 +167,9 @@ accessibility. The carousel height now uses `min-h-[50vh]` and login/signup
 forms are `w-full max-w-xs` so they fit on narrow devices. The PIN input on the
 Dashboard also uses these classes so it stretches across narrow screens without
 exceeding `max-w-xs`.
+The progress table now uses `table-fixed` so its seven columns fit within a
+360&nbsp;px wide viewport, and the action buttons are arranged in a single-column
+grid that expands to four columns on larger screens.
 Encyclopedia images now use `h-48 sm:h-64` so photos scale down on mobile devices.
 
 Full-screen areas leverage viewport units so layouts adapt to device height.
@@ -180,7 +183,8 @@ met.
 short rows of seven week buttons with progress info below. The math practice
 screen shows four non-overlapping dots inside a square area roughly 60 % of the
 viewport width. Forms and buttons stretch across the width but remain capped at
-`max-w-xs`.
+`max-w-xs`. These layouts were verified with browser device emulation to ensure
+no horizontal scrolling occurs.
 
 ### Build for Android or iOS
 
