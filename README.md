@@ -67,7 +67,8 @@ the API routes, while React components rely on **React Testing Library**.
 - `src/contexts` – global `ContentProvider` that loads week data and tracks progress
 - `src/modules` – individual learning modules (Language, Math, Encyclopedia)
 - `src/screens` – page components for the router
-- `public/weeks` – JSON data files per week. Encyclopedia cards include a
+- `public/terms/term*/weeks` – JSON data files grouped by term. Each
+  week file lives inside its term folder. Encyclopedia cards include a
   `query` field with an English search term used for fetching photos
 - `src/utils/fetchWeek.js` – helper to fetch a week's JSON by number
 - `src/utils/encyclopediaImages.js` – imports encyclopedia images using Vite's glob feature
@@ -76,7 +77,8 @@ the API routes, while React components rely on **React Testing Library**.
 
 ## Curriculum Files
 
-Week data lives under `public/weeks` as `weekXXX.json` (e.g. `week001.json`).
+Week data lives under `public/terms` as `termN/weeks/weekXXX.json` (e.g.
+`terms/term1/weeks/week001.json`).
 Each file defines three keys:
 
 - `language` – array of 10 words for the Language module
