@@ -13,8 +13,11 @@ jest.mock('react-router-dom', () => {
 
 jest.mock('../contexts/ContentProvider')
 
+const origScroll = HTMLElement.prototype.scrollIntoView
+
 afterEach(() => {
   jest.clearAllMocks()
+  HTMLElement.prototype.scrollIntoView = origScroll
 })
 
 describe('Dashboard', () => {
@@ -75,6 +78,8 @@ describe('Dashboard', () => {
 
   it('shows week buttons and jumps to week', () => {
     const jumpToWeek = jest.fn()
+    const scrollMock = jest.fn()
+    HTMLElement.prototype.scrollIntoView = scrollMock
     useContent.mockReturnValue({
       progress: { week: 1, day: 1, session: 1 },
       resetToday: jest.fn(),
@@ -99,6 +104,7 @@ describe('Dashboard', () => {
     expect(screen.getByTestId(`week-btn-${TOTAL_WEEKS}`)).toBeInTheDocument()
     fireEvent.click(screen.getByTestId(`week-btn-${TOTAL_WEEKS}`))
     expect(screen.getByTestId('week-confirm')).toBeInTheDocument()
+    expect(scrollMock).toHaveBeenCalled()
     fireEvent.click(screen.getByRole('button', { name: /continue/i }))
     expect(jumpToWeek).toHaveBeenCalledWith(TOTAL_WEEKS)
     expect(mockNavigate).toHaveBeenCalledWith('/session')

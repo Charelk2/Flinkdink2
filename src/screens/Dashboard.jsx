@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useContent, TOTAL_WEEKS } from '../contexts/ContentProvider'
 import NavBar from '../components/NavBar'
@@ -10,6 +10,13 @@ const Dashboard = () => {
   const [entered, setEntered] = useState('')
   const [unlocked, setUnlocked] = useState(false)
   const [confirmWeek, setConfirmWeek] = useState(null)
+  const confirmRef = useRef(null)
+
+  useEffect(() => {
+    if (confirmWeek !== null && confirmRef.current) {
+      confirmRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [confirmWeek])
   const navigate = useNavigate()
 
   const {
@@ -134,27 +141,26 @@ const Dashboard = () => {
       </div>
       {confirmWeek !== null && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          className="p-4 mt-4 bg-white rounded shadow space-y-2"
           data-testid="week-confirm"
+          ref={confirmRef}
         >
-          <div className="p-4 bg-white rounded shadow space-y-2">
-            <p>Continue to session?</p>
-            <div className="flex justify-center gap-2">
-              <button
-                type="button"
-                className="btn"
-                onClick={() => {
-                  jumpToWeek(confirmWeek)
-                  setConfirmWeek(null)
-                  navigate('/session')
-                }}
-              >
-                Continue
-              </button>
-              <button type="button" className="btn" onClick={() => setConfirmWeek(null)}>
-                Cancel
-              </button>
-            </div>
+          <p>Continue to session?</p>
+          <div className="flex justify-center gap-2">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                jumpToWeek(confirmWeek)
+                setConfirmWeek(null)
+                navigate('/session')
+              }}
+            >
+              Continue
+            </button>
+            <button type="button" className="btn" onClick={() => setConfirmWeek(null)}>
+              Cancel
+            </button>
           </div>
         </div>
       )}
