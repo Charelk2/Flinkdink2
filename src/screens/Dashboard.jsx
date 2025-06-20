@@ -132,7 +132,7 @@ const Dashboard = () => {
           📜 Print Certificate
         </button>
       </div>
-      {confirmWeek && (
+      {confirmWeek !== null && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center" data-testid="week-confirm">
           <div className="bg-white p-4 rounded space-y-2 text-center shadow">
             <p>Start Week {confirmWeek}?</p>
