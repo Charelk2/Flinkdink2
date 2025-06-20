@@ -100,7 +100,7 @@ const Dashboard = () => {
             key={w}
             type="button"
             data-testid={`week-btn-${w}`}
-            className={`border p-1 rounded hover:bg-indigo-100 ${w === progress.week ? 'bg-indigo-200 font-bold' : ''}`}
+            className={`border p-1 rounded hover:bg-indigo-100 cursor-pointer ${w === progress.week ? 'bg-indigo-200 font-bold' : ''}`}
             aria-current={w === progress.week ? 'true' : undefined}
             onClick={() => setConfirmWeek(w)}
           >
