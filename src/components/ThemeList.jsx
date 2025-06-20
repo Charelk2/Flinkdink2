@@ -9,12 +9,16 @@ const ThemeList = () => {
   const mathLength = weekData.mathWindowLength ?? 10;
   const knowledge = weekData.encyclopedia[0].title;
   const firstSum = weekData.addition?.[0]?.[0];
+  const firstDiff = weekData.subtraction?.[0]?.[0];
 
   let mathText = `${mathStart}–${mathStart + mathLength - 1}`;
-  if (mathLength === 0 && firstSum) {
-    mathText = `${firstSum.a} + ${firstSum.b} = ${firstSum.sum}`;
-  } else if (mathLength > 0 && firstSum) {
-    mathText += `, ${firstSum.a} + ${firstSum.b} = ${firstSum.sum}`;
+  const sumText = firstSum && `${firstSum.a} + ${firstSum.b} = ${firstSum.sum}`;
+  const diffText = firstDiff && `${firstDiff.a} - ${firstDiff.b} = ${firstDiff.difference}`;
+
+  if (mathLength === 0) {
+    mathText = sumText || diffText || mathText;
+  } else if (sumText || diffText) {
+    mathText += `, ${sumText || diffText}`;
   }
 
   return (
