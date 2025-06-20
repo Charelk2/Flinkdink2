@@ -140,6 +140,7 @@ randomized.
 Term&nbsp;2 continues math practice with short addition sums. Each day has
 three sessions and the dot counter represents the numbers visually.
 
+
 An **Addition Module** now appears between Math Dots and the Encyclopedia
 session. It shows the current day's sum with three dot groups so toddlers can
 count each number before solving.
