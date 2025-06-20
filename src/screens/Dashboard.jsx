@@ -133,25 +133,23 @@ const Dashboard = () => {
         </button>
       </div>
       {confirmWeek !== null && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center" data-testid="week-confirm">
-          <div className="bg-white p-4 rounded space-y-2 text-center shadow">
-            <p>Continue to session?</p>
-            <div className="flex justify-center gap-2">
-              <button
-                type="button"
-                className="btn"
-                onClick={() => {
-                  jumpToWeek(confirmWeek)
-                  setConfirmWeek(null)
-                  navigate('/session')
-                }}
-              >
-                Continue
-              </button>
-              <button type="button" className="btn" onClick={() => setConfirmWeek(null)}>
-                Cancel
-              </button>
-            </div>
+        <div className="p-4 mt-4 bg-white rounded shadow space-y-2" data-testid="week-confirm">
+          <p>Continue to session?</p>
+          <div className="flex justify-center gap-2">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                jumpToWeek(confirmWeek)
+                setConfirmWeek(null)
+                navigate('/session')
+              }}
+            >
+              Continue
+            </button>
+            <button type="button" className="btn" onClick={() => setConfirmWeek(null)}>
+              Cancel
+            </button>
           </div>
         </div>
       )}
