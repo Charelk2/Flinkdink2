@@ -185,6 +185,42 @@ kids match each numeral to a tangible count.
 - Session&nbsp;2 – `8 + 5 = 13` (8 dots, 5 dots, 13 dots)
 - Session&nbsp;3 – `6 + 9 = 15` (6 dots, 9 dots, 15 dots)
 
+### Term 2 Week 2 Addition
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `2 + 5 = 7` (2 dots, 5 dots, 7 dots)
+- Session&nbsp;2 – `20 + 3 = 23` (20 dots, 3 dots, 23 dots)
+- Session&nbsp;3 – `2 + 1 = 3` (2 dots, 1 dot, 3 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `8 + 1 = 9` (8 dots, 1 dot, 9 dots)
+- Session&nbsp;2 – `19 + 2 = 21` (19 dots, 2 dots, 21 dots)
+- Session&nbsp;3 – `18 + 6 = 24` (18 dots, 6 dots, 24 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `3 + 8 = 11` (3 dots, 8 dots, 11 dots)
+- Session&nbsp;2 – `5 + 10 = 15` (5 dots, 10 dots, 15 dots)
+- Session&nbsp;3 – `4 + 4 = 8` (4 dots, 4 dots, 8 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `12 + 5 = 17` (12 dots, 5 dots, 17 dots)
+- Session&nbsp;2 – `9 + 4 = 13` (9 dots, 4 dots, 13 dots)
+- Session&nbsp;3 – `2 + 2 = 4` (2 dots, 2 dots, 4 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `6 + 2 = 8` (6 dots, 2 dots, 8 dots)
+- Session&nbsp;2 – `13 + 5 = 18` (13 dots, 5 dots, 18 dots)
+- Session&nbsp;3 – `24 + 1 = 25` (24 dots, 1 dot, 25 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `7 + 6 = 13` (7 dots, 6 dots, 13 dots)
+- Session&nbsp;2 – `3 + 3 = 6` (3 dots, 3 dots, 6 dots)
+- Session&nbsp;3 – `15 + 4 = 19` (15 dots, 4 dots, 19 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `10 + 10 = 20` (10 dots, 10 dots, 20 dots)
+- Session&nbsp;2 – `8 + 5 = 13` (8 dots, 5 dots, 13 dots)
+- Session&nbsp;3 – `6 + 9 = 15` (6 dots, 9 dots, 15 dots)
 
 ## Navigation
 
