@@ -98,7 +98,8 @@ describe('Dashboard', () => {
 
     expect(screen.getByTestId(`week-btn-${TOTAL_WEEKS}`)).toBeInTheDocument()
     fireEvent.click(screen.getByTestId(`week-btn-${TOTAL_WEEKS}`))
-    expect(screen.queryByTestId('week-confirm')).not.toBeInTheDocument()
+    expect(screen.getByTestId('week-confirm')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /continue/i }))
     expect(jumpToWeek).toHaveBeenCalledWith(TOTAL_WEEKS)
     expect(mockNavigate).toHaveBeenCalledWith('/session')
   })
