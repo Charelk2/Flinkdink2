@@ -554,6 +554,43 @@ kids match each numeral to a tangible count.
 - Session&nbsp;1 – `45 - 15 = 30` (45 dots, minus 15 dots, 30 dots)
 - Session&nbsp;2 – `12 + 17 = 29` (12 dots, 17 dots, 29 dots)
 - Session&nbsp;3 – `33 - 14 = 19` (33 dots, minus 14 dots, 19 dots)
+
+### Term 3 Week 2 Addition & Subtraction
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `14 - 9 = 5` (14 dots, minus 9 dots, 5 dots)
+- Session&nbsp;2 – `19 + 6 = 25` (19 dots, 6 dots, 25 dots)
+- Session&nbsp;3 – `50 - 7 = 43` (50 dots, minus 7 dots, 43 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `16 + 3 = 19` (16 dots, 3 dots, 19 dots)
+- Session&nbsp;2 – `20 - 8 = 12` (20 dots, minus 8 dots, 12 dots)
+- Session&nbsp;3 – `40 + 9 = 49` (40 dots, 9 dots, 49 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `15 - 7 = 8` (15 dots, minus 7 dots, 8 dots)
+- Session&nbsp;2 – `10 + 1 = 11` (10 dots, 1 dot, 11 dots)
+- Session&nbsp;3 – `35 - 15 = 20` (35 dots, minus 15 dots, 20 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `16 + 6 = 22` (16 dots, 6 dots, 22 dots)
+- Session&nbsp;2 – `27 + 14 = 41` (27 dots, 14 dots, 41 dots)
+- Session&nbsp;3 – `30 + 5 = 35` (30 dots, 5 dots, 35 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `34 - 4 = 30` (34 dots, minus 4 dots, 30 dots)
+- Session&nbsp;2 – `25 - 7 = 18` (25 dots, minus 7 dots, 18 dots)
+- Session&nbsp;3 – `33 + 3 = 36` (33 dots, 3 dots, 36 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `18 + 12 = 30` (18 dots, 12 dots, 30 dots)
+- Session&nbsp;2 – `41 - 19 = 22` (41 dots, minus 19 dots, 22 dots)
+- Session&nbsp;3 – `26 + 8 = 34` (26 dots, 8 dots, 34 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `45 - 23 = 22` (45 dots, minus 23 dots, 22 dots)
+- Session&nbsp;2 – `14 + 9 = 23` (14 dots, 9 dots, 23 dots)
+- Session&nbsp;3 – `38 - 17 = 21` (38 dots, minus 17 dots, 21 dots)
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
