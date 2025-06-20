@@ -84,7 +84,9 @@ Each file defines three keys:
 - `encyclopedia` – array of fact objects with `id`, `title`, `query`, `fact` and `image`
 
 The application loads weeks 1–46. When adding or removing weeks, update the
-`TOTAL_WEEKS` constant in `src/contexts/ContentProvider.jsx`.
+`TOTAL_WEEKS` constant in `src/contexts/ContentProvider.jsx`. Completing the
+final week keeps progress locked at week 46 and logs **"Course Finished!"** in
+the browser console.
 
 ## Progress Storage
 
