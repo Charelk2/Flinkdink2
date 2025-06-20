@@ -16,6 +16,14 @@ describe('MathModule', () => {
     expect(screen.getByText('1 + 2 = 3')).toBeInTheDocument();
   });
 
+  it('appends subtraction slides when a difference is provided', () => {
+    const diff = { a: 5, b: 2, difference: 3 };
+    render(<MathModule start={1} length={2} difference={diff} />);
+    const dots = screen.getAllByTestId('carousel-dot');
+    expect(dots).toHaveLength(5); // 2 number slides + 3 subtraction slides
+    expect(screen.getByText('5 - 2 = 3')).toBeInTheDocument();
+  });
+
   it('renders visible dots for each math slide', () => {
     const { container } = render(<MathModule start={1} />);
     const card = container.querySelector('.card');

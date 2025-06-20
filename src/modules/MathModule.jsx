@@ -44,10 +44,11 @@ export const createSlides = (
   return [...first, ...secondHalf]
 }
 
-const MathModule = ({ start, length = 10, shuffleFirstHalf, sum }) => {
+const MathModule = ({ start, length = 10, shuffleFirstHalf, sum, difference }) => {
   const numberSlides = createSlides(start, length, shuffleFirstHalf)
   const additionSlides = sum ? [sum.a, sum.b, sum.sum] : []
-  const slides = [...numberSlides, ...additionSlides]
+  const subtractionSlides = difference ? [difference.a, difference.b, difference.difference] : []
+  const slides = [...numberSlides, ...additionSlides, ...subtractionSlides]
 
   return (
     <div className="space-y-4 text-center">
@@ -58,6 +59,11 @@ const MathModule = ({ start, length = 10, shuffleFirstHalf, sum }) => {
       {sum && (
         <div className="text-lg font-semibold">
           {sum.a} + {sum.b} = {sum.sum}
+        </div>
+      )}
+      {difference && (
+        <div className="text-lg font-semibold">
+          {difference.a} - {difference.b} = {difference.difference}
         </div>
       )}
     </div>
