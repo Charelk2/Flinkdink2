@@ -5,7 +5,17 @@ import Dashboard from './Dashboard'
 import { useContent } from '../contexts/ContentProvider'
 const { TOTAL_WEEKS } = jest.requireActual('../contexts/ContentProvider')
 
+const mockNavigate = jest.fn()
+jest.mock('react-router-dom', () => {
+  const actual = jest.requireActual('react-router-dom')
+  return { ...actual, useNavigate: () => mockNavigate }
+})
+
 jest.mock('../contexts/ContentProvider')
+
+afterEach(() => {
+  jest.clearAllMocks()
+})
 
 describe('Dashboard', () => {
   it('PIN input uses responsive width classes', () => {
@@ -88,7 +98,10 @@ describe('Dashboard', () => {
 
     expect(screen.getByTestId(`week-btn-${TOTAL_WEEKS}`)).toBeInTheDocument()
     fireEvent.click(screen.getByTestId(`week-btn-${TOTAL_WEEKS}`))
+    expect(screen.getByTestId('week-confirm')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: /yes/i }))
     expect(jumpToWeek).toHaveBeenCalledWith(TOTAL_WEEKS)
+    expect(mockNavigate).toHaveBeenCalledWith('/session')
   })
 
   it('uses responsive classes for week grid', () => {
