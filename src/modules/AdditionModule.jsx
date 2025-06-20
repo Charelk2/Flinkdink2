@@ -1,9 +1,10 @@
+import Carousel from '../components/Carousel'
 import { generateDotPositions } from '../utils/randomDots'
 
 const DotBoard = ({ count }) => {
   const positions = generateDotPositions(count)
   return (
-    <div className="relative inline-block w-16 h-16">
+    <div className="relative w-full h-[60vw] sm:h-[40vh]">
       <span data-testid="dot-count" className="absolute top-0 right-0 m-1 text-[10px] text-black">
         {count}
       </span>
@@ -27,15 +28,13 @@ const DotBoard = ({ count }) => {
 const AdditionModule = ({ sum }) => {
   if (!sum) return null
   const { a, b, sum: result } = sum
+  const slides = [a, b, result]
   return (
     <div className="space-y-4 text-center">
-      <div className="flex items-center justify-center gap-2">
-        <DotBoard count={a} />
-        <span className="text-2xl font-bold">+</span>
-        <DotBoard count={b} />
-        <span className="text-2xl font-bold">=</span>
-        <DotBoard count={result} />
-      </div>
+      <Carousel
+        items={slides}
+        renderItem={(n) => <DotBoard count={n} />}
+      />
       <div className="text-lg font-semibold">{a} + {b} = {result}</div>
     </div>
   )
