@@ -369,6 +369,43 @@ kids match each numeral to a tangible count.
 - Session&nbsp;1 – `8 + 27 = 35` (8 dots, 27 dots, 35 dots)
 - Session&nbsp;2 – `22 + 9 = 31` (22 dots, 9 dots, 31 dots)
 - Session&nbsp;3 – `13 + 17 = 30` (13 dots, 17 dots, 30 dots)
+
+### Term 2 Week 7 Subtraction
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `2 - 1 = 1` (2 dots, minus 1 dot, 1 dot)
+- Session&nbsp;2 – `25 - 20 = 5` (25 dots, minus 20 dots, 5 dots)
+- Session&nbsp;3 – `18 - 9 = 9` (18 dots, minus 9 dots, 9 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `14 - 4 = 10` (14 dots, minus 4 dots, 10 dots)
+- Session&nbsp;2 – `9 - 8 = 1` (9 dots, minus 8 dots, 1 dot)
+- Session&nbsp;3 – `29 - 22 = 7` (29 dots, minus 22 dots, 7 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `28 - 17 = 11` (28 dots, minus 17 dots, 11 dots)
+- Session&nbsp;2 – `14 - 10 = 4` (14 dots, minus 10 dots, 4 dots)
+- Session&nbsp;3 – `17 - 4 = 13` (17 dots, minus 4 dots, 13 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `24 - 5 = 19` (24 dots, minus 5 dots, 19 dots)
+- Session&nbsp;2 – `19 - 10 = 9` (19 dots, minus 10 dots, 9 dots)
+- Session&nbsp;3 – `15 - 5 = 10` (15 dots, minus 5 dots, 10 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `14 - 2 = 12` (14 dots, minus 2 dots, 12 dots)
+- Session&nbsp;2 – `5 - 2 = 3` (5 dots, minus 2 dots, 3 dots)
+- Session&nbsp;3 – `18 - 1 = 17` (18 dots, minus 1 dot, 17 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `30 - 12 = 18` (30 dots, minus 12 dots, 18 dots)
+- Session&nbsp;2 – `27 - 20 = 7` (27 dots, minus 20 dots, 7 dots)
+- Session&nbsp;3 – `21 - 6 = 15` (21 dots, minus 6 dots, 15 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `40 - 25 = 15` (40 dots, minus 25 dots, 15 dots)
+- Session&nbsp;2 – `33 - 30 = 3` (33 dots, minus 30 dots, 3 dots)
+- Session&nbsp;3 – `22 - 11 = 11` (22 dots, minus 11 dots, 11 dots)
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
