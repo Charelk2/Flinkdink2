@@ -144,6 +144,9 @@ three sessions and the dot counter represents the numbers visually.
 An **Addition Module** now appears between Math Dots and the Encyclopedia
 session. It shows the current day's sum with three dot groups so toddlers can
 count each number before solving.
+For example, the sum `1 + 2 = 3` is rendered as a row of dot boards:
+one dot, two dots, then three dots for the answer. This visual layout helps
+kids match each numeral to a tangible count.
 
 **Day&nbsp;1**
 - Session&nbsp;1 – `1 + 2 = 3` (1 dot, 2 dots, 3 dots)
