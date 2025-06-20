@@ -138,14 +138,14 @@ randomized.
 ### Term 2 Week 1 Addition
 
 Term&nbsp;2 continues math practice with short addition sums. Each day has
-three sessions and the dot counter represents the numbers visually.
-During a session the dots appear across three slides: first the initial
-number, then the second number, and finally the total.
+three sessions and the dot counter represents the numbers visually. During the
+Math module the dots appear across three slides: first the initial number, then
+the second number, and finally the total.
 
 
-An **Addition Module** now appears between Math Dots and the Encyclopedia
-session. It shows the current day's sum with three dot groups so toddlers can
-count each number before solving.
+The sum slides now display at the end of the Math module so there are still
+only three learning modules each day. The dot boards let toddlers count each
+number before seeing the answer.
 For example, the sum `1 + 2 = 3` is rendered as a row of dot boards:
 one dot, two dots, then three dots for the answer. This visual layout helps
 kids match each numeral to a tangible count.

@@ -8,6 +8,14 @@ describe('MathModule', () => {
     expect(dots).toHaveLength(5);
   });
 
+  it('appends addition slides when a sum is provided', () => {
+    const sum = { a: 1, b: 2, sum: 3 };
+    render(<MathModule start={1} length={2} sum={sum} />);
+    const dots = screen.getAllByTestId('carousel-dot');
+    expect(dots).toHaveLength(5); // 2 number slides + 3 addition slides
+    expect(screen.getByText('1 + 2 = 3')).toBeInTheDocument();
+  });
+
   it('renders visible dots for each math slide', () => {
     const { container } = render(<MathModule start={1} />);
     const card = container.querySelector('.card');

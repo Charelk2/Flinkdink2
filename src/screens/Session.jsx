@@ -5,7 +5,6 @@ import LoadingSkeleton from '../components/LoadingSkeleton'
 import Header from '../components/Header'
 import LanguageModule from '../modules/LanguageModule';
 import MathModule from '../modules/MathModule';
-import AdditionModule from '../modules/AdditionModule';
 import EncyclopediaModule from '../modules/EncyclopediaModule';
 import ConfettiToast from '../components/ConfettiToast'
 
@@ -35,10 +34,7 @@ const Session = () => {
     return null
   }
 
-  const titles = ['📝 Language', '🔢 Math Dots'];
-  const hasAddition = Array.isArray(weekData.addition);
-  if (hasAddition) titles.push('➕ Addition');
-  titles.push('🦁 Encyclopedia');
+  const titles = ['📝 Language', '🔢 Math', '🦁 Encyclopedia'];
   const isLast = step === titles.length - 1;
 
   const handleNext = () => {
@@ -60,21 +56,16 @@ const Session = () => {
       <h2 className="text-lg text-gray-500">{titles[step]}</h2>
 
       {step === 0 && <LanguageModule words={weekData.language} />}
-      {step === titles.indexOf('🔢 Math Dots') && (
+      {step === titles.indexOf('🔢 Math') && (
         <MathModule
           start={weekData.mathWindowStart}
           length={weekData.mathWindowLength}
           shuffleFirstHalf={weekData.mathShuffleFirstHalf}
+          sum={
+            weekData.addition?.[progress.day - 1]?.[progress.session - 1]
+          }
         />
       )}
-      {hasAddition &&
-        step === titles.indexOf('➕ Addition') && (
-          <AdditionModule
-            sum={
-              weekData.addition?.[progress.day - 1]?.[progress.session - 1]
-            }
-          />
-        )}
       {step === titles.indexOf('🦁 Encyclopedia') && (
         <EncyclopediaModule cards={weekData.encyclopedia} />
       )}
