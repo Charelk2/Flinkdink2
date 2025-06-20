@@ -222,6 +222,153 @@ kids match each numeral to a tangible count.
 - Session&nbsp;2 – `8 + 5 = 13` (8 dots, 5 dots, 13 dots)
 - Session&nbsp;3 – `6 + 9 = 15` (6 dots, 9 dots, 15 dots)
 
+### Term 2 Week 3 Addition
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `3 + 3 = 6` (3 dots, 3 dots, 6 dots)
+- Session&nbsp;2 – `2 + 5 = 7` (2 dots, 5 dots, 7 dots)
+- Session&nbsp;3 – `7 + 9 = 16` (7 dots, 9 dots, 16 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `20 + 10 = 30` (20 dots, 10 dots, 30 dots)
+- Session&nbsp;2 – `4 + 19 = 23` (4 dots, 19 dots, 23 dots)
+- Session&nbsp;3 – `19 + 3 = 22` (19 dots, 3 dots, 22 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `15 + 14 = 29` (15 dots, 14 dots, 29 dots)
+- Session&nbsp;2 – `16 + 10 = 26` (16 dots, 10 dots, 26 dots)
+- Session&nbsp;3 – `6 + 4 = 10` (6 dots, 4 dots, 10 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `14 + 14 = 28` (14 dots, 14 dots, 28 dots)
+- Session&nbsp;2 – `1 + 1 = 2` (1 dot, 1 dot, 2 dots)
+- Session&nbsp;3 – `15 + 5 = 20` (15 dots, 5 dots, 20 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `14 + 3 = 17` (14 dots, 3 dots, 17 dots)
+- Session&nbsp;2 – `13 + 14 = 27` (13 dots, 14 dots, 27 dots)
+- Session&nbsp;3 – `10 + 1 = 11` (10 dots, 1 dot, 11 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `8 + 7 = 15` (8 dots, 7 dots, 15 dots)
+- Session&nbsp;2 – `9 + 12 = 21` (9 dots, 12 dots, 21 dots)
+- Session&nbsp;3 – `11 + 6 = 17` (11 dots, 6 dots, 17 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `18 + 2 = 20` (18 dots, 2 dots, 20 dots)
+- Session&nbsp;2 – `5 + 15 = 20` (5 dots, 15 dots, 20 dots)
+- Session&nbsp;3 – `4 + 11 = 15` (4 dots, 11 dots, 15 dots)
+
+### Term 2 Week 4 Addition
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `11 + 2 = 13` (11 dots, 2 dots, 13 dots)
+- Session&nbsp;2 – `2 + 13 = 15` (2 dots, 13 dots, 15 dots)
+- Session&nbsp;3 – `18 + 11 = 29` (18 dots, 11 dots, 29 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `19 + 13 = 32` (19 dots, 13 dots, 32 dots)
+- Session&nbsp;2 – `16 + 9 = 25` (16 dots, 9 dots, 25 dots)
+- Session&nbsp;3 – `9 + 24 = 33` (9 dots, 24 dots, 33 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `30 + 5 = 35` (30 dots, 5 dots, 35 dots)
+- Session&nbsp;2 – `2 + 10 = 12` (2 dots, 10 dots, 12 dots)
+- Session&nbsp;3 – `17 + 14 = 31` (17 dots, 14 dots, 31 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `1 + 27 = 28` (1 dot, 27 dots, 28 dots)
+- Session&nbsp;2 – `3 + 10 = 13` (3 dots, 10 dots, 13 dots)
+- Session&nbsp;3 – `16 + 5 = 21` (16 dots, 5 dots, 21 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `4 + 3 = 7` (4 dots, 3 dots, 7 dots)
+- Session&nbsp;2 – `15 + 17 = 32` (15 dots, 17 dots, 32 dots)
+- Session&nbsp;3 – `18 + 6 = 24` (18 dots, 6 dots, 24 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `12 + 9 = 21` (12 dots, 9 dots, 21 dots)
+- Session&nbsp;2 – `25 + 4 = 29` (25 dots, 4 dots, 29 dots)
+- Session&nbsp;3 – `7 + 8 = 15` (7 dots, 8 dots, 15 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `14 + 16 = 30` (14 dots, 16 dots, 30 dots)
+- Session&nbsp;2 – `6 + 13 = 19` (6 dots, 13 dots, 19 dots)
+- Session&nbsp;3 – `20 + 7 = 27` (20 dots, 7 dots, 27 dots)
+
+### Term 2 Week 5 Addition
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `1 + 2 = 3` (1 dot, 2 dots, 3 dots)
+- Session&nbsp;2 – `12 + 3 = 15` (12 dots, 3 dots, 15 dots)
+- Session&nbsp;3 – `35 + 5 = 40` (35 dots, 5 dots, 40 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `17 + 5 = 22` (17 dots, 5 dots, 22 dots)
+- Session&nbsp;2 – `6 + 19 = 25` (6 dots, 19 dots, 25 dots)
+- Session&nbsp;3 – `20 + 10 = 30` (20 dots, 10 dots, 30 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `23 + 16 = 39` (23 dots, 16 dots, 39 dots)
+- Session&nbsp;2 – `14 + 20 = 34` (14 dots, 20 dots, 34 dots)
+- Session&nbsp;3 – `7 + 3 = 10` (7 dots, 3 dots, 10 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `24 + 5 = 29` (24 dots, 5 dots, 29 dots)
+- Session&nbsp;2 – `19 + 9 = 28` (19 dots, 9 dots, 28 dots)
+- Session&nbsp;3 – `15 + 20 = 35` (15 dots, 20 dots, 35 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `4 + 12 = 16` (4 dots, 12 dots, 16 dots)
+- Session&nbsp;2 – `3 + 2 = 5` (3 dots, 2 dots, 5 dots)
+- Session&nbsp;3 – `18 + 19 = 37` (18 dots, 19 dots, 37 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `8 + 11 = 19` (8 dots, 11 dots, 19 dots)
+- Session&nbsp;2 – `22 + 6 = 28` (22 dots, 6 dots, 28 dots)
+- Session&nbsp;3 – `5 + 25 = 30` (5 dots, 25 dots, 30 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `10 + 14 = 24` (10 dots, 14 dots, 24 dots)
+- Session&nbsp;2 – `16 + 7 = 23` (16 dots, 7 dots, 23 dots)
+- Session&nbsp;3 – `9 + 27 = 36` (9 dots, 27 dots, 36 dots)
+
+### Term 2 Week 6 Addition
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `11 + 12 = 23` (11 dots, 12 dots, 23 dots)
+- Session&nbsp;2 – `16 + 13 = 29` (16 dots, 13 dots, 29 dots)
+- Session&nbsp;3 – `40 + 4 = 44` (40 dots, 4 dots, 44 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `2 + 6 = 8` (2 dots, 6 dots, 8 dots)
+- Session&nbsp;2 – `5 + 9 = 14` (5 dots, 9 dots, 14 dots)
+- Session&nbsp;3 – `41 + 1 = 42` (41 dots, 1 dot, 42 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `20 + 23 = 43` (20 dots, 23 dots, 43 dots)
+- Session&nbsp;2 – `4 + 4 = 8` (4 dots, 4 dots, 8 dots)
+- Session&nbsp;3 – `17 + 2 = 19` (17 dots, 2 dots, 19 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `4 + 5 = 9` (4 dots, 5 dots, 9 dots)
+- Session&nbsp;2 – `6 + 6 = 12` (6 dots, 6 dots, 12 dots)
+- Session&nbsp;3 – `2 + 5 = 7` (2 dots, 5 dots, 7 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `15 + 30 = 45` (15 dots, 30 dots, 45 dots)
+- Session&nbsp;2 – `23 + 14 = 37` (23 dots, 14 dots, 37 dots)
+- Session&nbsp;3 – `9 + 19 = 28` (9 dots, 19 dots, 28 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `12 + 18 = 30` (12 dots, 18 dots, 30 dots)
+- Session&nbsp;2 – `25 + 5 = 30` (25 dots, 5 dots, 30 dots)
+- Session&nbsp;3 – `3 + 32 = 35` (3 dots, 32 dots, 35 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `8 + 27 = 35` (8 dots, 27 dots, 35 dots)
+- Session&nbsp;2 – `22 + 9 = 31` (22 dots, 9 dots, 31 dots)
+- Session&nbsp;3 – `13 + 17 = 30` (13 dots, 17 dots, 30 dots)
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
