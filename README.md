@@ -125,7 +125,14 @@ dots appear on the current slide. Term&nbsp;1 now introduces numbers gradually:
 - **Week&nbsp;3** – numbers 6–10 shuffled, followed by 11–15
 - **Week&nbsp;4** – numbers 11–15 shuffled, followed by 16–20
 
-Later weeks continue sliding the window by five while keeping the lower half
+- **Week&nbsp;5** – numbers 16–20 shuffled, followed by 21–25
+- **Week&nbsp;6** – numbers 21–25 shuffled, followed by 26–30
+- **Week&nbsp;7** – numbers 26–30 shuffled, followed by 31–35
+- **Week&nbsp;8** – numbers 31–35 shuffled, followed by 36–40
+- **Week&nbsp;9** – numbers 36–40 shuffled, followed by 41–45
+- **Week&nbsp;10** – numbers 41–45 shuffled, followed by 46–50
+
+Weeks&nbsp;11 onward continue sliding the window by five while keeping the lower half
 randomized.
 
 
