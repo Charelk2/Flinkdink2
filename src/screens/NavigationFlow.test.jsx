@@ -12,6 +12,7 @@ describe('Session navigation flow', () => {
     mathWindowStart: 1,
     encyclopedia: [{ image: 'a.jpg', title: 'A', fact: 'fact' }],
     addition: [[{ a: 1, b: 1, sum: 2 }]],
+    multiplication: [[{ a: 2, b: 3, product: 6 }]],
   };
 
   it('advances through modules and completes session', () => {

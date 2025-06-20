@@ -67,6 +67,9 @@ const Session = () => {
           difference={
             weekData.subtraction?.[progress.day - 1]?.[progress.session - 1]
           }
+          product={
+            weekData.multiplication?.[progress.day - 1]?.[progress.session - 1]
+          }
         />
       )}
       {step === titles.indexOf('🦁 Encyclopedia') && (

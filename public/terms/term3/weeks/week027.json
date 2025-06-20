@@ -83,5 +83,42 @@
       "fact": "This dog has a ridge of hair along its back.",
       "image": "/images/dog.svg"
     }
+  ],
+  "multiplication": [
+    [
+      { "a": 1, "b": 2, "product": 2 },
+      { "a": 6, "b": 8, "product": 48 },
+      { "a": 3, "b": 8, "product": 24 }
+    ],
+    [
+      { "a": 7, "b": 4, "product": 28 },
+      { "a": 9, "b": 1, "product": 9 },
+      { "a": 2, "b": 6, "product": 12 }
+    ],
+    [
+      { "a": 5, "b": 7, "product": 35 },
+      { "a": 4, "b": 4, "product": 16 },
+      { "a": 9, "b": 5, "product": 45 }
+    ],
+    [
+      { "a": 3, "b": 2, "product": 6 },
+      { "a": 5, "b": 2, "product": 10 },
+      { "a": 8, "b": 1, "product": 8 }
+    ],
+    [
+      { "a": 6, "b": 7, "product": 42 },
+      { "a": 12, "b": 3, "product": 36 },
+      { "a": 5, "b": 6, "product": 30 }
+    ],
+    [
+      { "a": 2, "b": 9, "product": 18 },
+      { "a": 5, "b": 6, "product": 30 },
+      { "a": 4, "b": 8, "product": 32 }
+    ],
+    [
+      { "a": 7, "b": 2, "product": 14 },
+      { "a": 9, "b": 4, "product": 36 },
+      { "a": 6, "b": 3, "product": 18 }
+    ]
   ]
 }

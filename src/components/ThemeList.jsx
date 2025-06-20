@@ -10,15 +10,17 @@ const ThemeList = () => {
   const knowledge = weekData.encyclopedia[0].title;
   const firstSum = weekData.addition?.[0]?.[0];
   const firstDiff = weekData.subtraction?.[0]?.[0];
+  const firstProd = weekData.multiplication?.[0]?.[0];
 
   let mathText = `${mathStart}–${mathStart + mathLength - 1}`;
   const sumText = firstSum && `${firstSum.a} + ${firstSum.b} = ${firstSum.sum}`;
   const diffText = firstDiff && `${firstDiff.a} - ${firstDiff.b} = ${firstDiff.difference}`;
+  const prodText = firstProd && `${firstProd.a} × ${firstProd.b} = ${firstProd.product}`;
 
   if (mathLength === 0) {
-    mathText = sumText || diffText || mathText;
-  } else if (sumText || diffText) {
-    mathText += `, ${sumText || diffText}`;
+    mathText = sumText || diffText || prodText || mathText;
+  } else if (sumText || diffText || prodText) {
+    mathText += `, ${sumText || diffText || prodText}`;
   }
 
   return (
