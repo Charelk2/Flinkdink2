@@ -12,6 +12,7 @@
     "Familie"
   ],
   "mathWindowStart": 101,
+  "mathWindowLength": 0,
   "encyclopedia": [
     {
       "id": "afghaanse-hond",
@@ -83,5 +84,42 @@
       "fact": "This dog has a ridge of hair along its back.",
       "image": "/images/dog.svg"
     }
+  ],
+  "subtraction": [
+    [
+      { "a": 45, "b": 5, "difference": 40 },
+      { "a": 26, "b": 3, "difference": 23 },
+      { "a": 17, "b": 16, "difference": 1 }
+    ],
+    [
+      { "a": 49, "b": 19, "difference": 30 },
+      { "a": 38, "b": 28, "difference": 10 },
+      { "a": 11, "b": 8, "difference": 3 }
+    ],
+    [
+      { "a": 22, "b": 21, "difference": 1 },
+      { "a": 33, "b": 17, "difference": 16 },
+      { "a": 29, "b": 8, "difference": 21 }
+    ],
+    [
+      { "a": 44, "b": 4, "difference": 40 },
+      { "a": 45, "b": 22, "difference": 23 },
+      { "a": 41, "b": 10, "difference": 31 }
+    ],
+    [
+      { "a": 28, "b": 19, "difference": 9 },
+      { "a": 49, "b": 22, "difference": 27 },
+      { "a": 33, "b": 30, "difference": 3 }
+    ],
+    [
+      { "a": 11, "b": 2, "difference": 9 },
+      { "a": 13, "b": 5, "difference": 8 },
+      { "a": 39, "b": 14, "difference": 25 }
+    ],
+    [
+      { "a": 32, "b": 15, "difference": 17 },
+      { "a": 28, "b": 9, "difference": 19 },
+      { "a": 43, "b": 2, "difference": 41 }
+    ]
   ]
 }

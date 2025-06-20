@@ -406,6 +406,117 @@ kids match each numeral to a tangible count.
 - Session&nbsp;1 – `40 - 25 = 15` (40 dots, minus 25 dots, 15 dots)
 - Session&nbsp;2 – `33 - 30 = 3` (33 dots, minus 30 dots, 3 dots)
 - Session&nbsp;3 – `22 - 11 = 11` (22 dots, minus 11 dots, 11 dots)
+
+### Term 2 Week 8 Subtraction
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `42 - 2 = 40` (42 dots, minus 2 dots, 40 dots)
+- Session&nbsp;2 – `35 - 22 = 13` (35 dots, minus 22 dots, 13 dots)
+- Session&nbsp;3 – `38 - 9 = 29` (38 dots, minus 9 dots, 29 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `50 - 20 = 30` (50 dots, minus 20 dots, 30 dots)
+- Session&nbsp;2 – `49 - 8 = 41` (49 dots, minus 8 dots, 41 dots)
+- Session&nbsp;3 – `30 - 22 = 8` (30 dots, minus 22 dots, 8 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `28 - 5 = 23` (28 dots, minus 5 dots, 23 dots)
+- Session&nbsp;2 – `24 - 13 = 11` (24 dots, minus 13 dots, 11 dots)
+- Session&nbsp;3 – `17 - 8 = 9` (17 dots, minus 8 dots, 9 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `44 - 5 = 39` (44 dots, minus 5 dots, 39 dots)
+- Session&nbsp;2 – `8 - 2 = 6` (8 dots, minus 2 dots, 6 dots)
+- Session&nbsp;3 – `7 - 2 = 5` (7 dots, minus 2 dots, 5 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `34 - 12 = 22` (34 dots, minus 12 dots, 22 dots)
+- Session&nbsp;2 – `6 - 3 = 3` (6 dots, minus 3 dots, 3 dots)
+- Session&nbsp;3 – `37 - 11 = 26` (37 dots, minus 11 dots, 26 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `41 - 15 = 26` (41 dots, minus 15 dots, 26 dots)
+- Session&nbsp;2 – `32 - 14 = 18` (32 dots, minus 14 dots, 18 dots)
+- Session&nbsp;3 – `29 - 9 = 20` (29 dots, minus 9 dots, 20 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `48 - 24 = 24` (48 dots, minus 24 dots, 24 dots)
+- Session&nbsp;2 – `27 - 6 = 21` (27 dots, minus 6 dots, 21 dots)
+- Session&nbsp;3 – `33 - 18 = 15` (33 dots, minus 18 dots, 15 dots)
+
+### Term 2 Week 9 Subtraction
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `45 - 5 = 40` (45 dots, minus 5 dots, 40 dots)
+- Session&nbsp;2 – `26 - 3 = 23` (26 dots, minus 3 dots, 23 dots)
+- Session&nbsp;3 – `17 - 16 = 1` (17 dots, minus 16 dots, 1 dot)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `49 - 19 = 30` (49 dots, minus 19 dots, 30 dots)
+- Session&nbsp;2 – `38 - 28 = 10` (38 dots, minus 28 dots, 10 dots)
+- Session&nbsp;3 – `11 - 8 = 3` (11 dots, minus 8 dots, 3 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `22 - 21 = 1` (22 dots, minus 21 dots, 1 dot)
+- Session&nbsp;2 – `33 - 17 = 16` (33 dots, minus 17 dots, 16 dots)
+- Session&nbsp;3 – `29 - 8 = 21` (29 dots, minus 8 dots, 21 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `44 - 4 = 40` (44 dots, minus 4 dots, 40 dots)
+- Session&nbsp;2 – `45 - 22 = 23` (45 dots, minus 22 dots, 23 dots)
+- Session&nbsp;3 – `41 - 10 = 31` (41 dots, minus 10 dots, 31 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `28 - 19 = 9` (28 dots, minus 19 dots, 9 dots)
+- Session&nbsp;2 – `49 - 22 = 27` (49 dots, minus 22 dots, 27 dots)
+- Session&nbsp;3 – `33 - 30 = 3` (33 dots, minus 30 dots, 3 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `11 - 2 = 9` (11 dots, minus 2 dots, 9 dots)
+- Session&nbsp;2 – `13 - 5 = 8` (13 dots, minus 5 dots, 8 dots)
+- Session&nbsp;3 – `39 - 14 = 25` (39 dots, minus 14 dots, 25 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `32 - 15 = 17` (32 dots, minus 15 dots, 17 dots)
+- Session&nbsp;2 – `28 - 9 = 19` (28 dots, minus 9 dots, 19 dots)
+- Session&nbsp;3 – `43 - 2 = 41` (43 dots, minus 2 dots, 41 dots)
+
+### Term 2 Week 10 Subtraction
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `44 - 17 = 27` (44 dots, minus 17 dots, 27 dots)
+- Session&nbsp;2 – `33 - 12 = 21` (33 dots, minus 12 dots, 21 dots)
+- Session&nbsp;3 – `43 - 2 = 41` (43 dots, minus 2 dots, 41 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `28 - 15 = 13` (28 dots, minus 15 dots, 13 dots)
+- Session&nbsp;2 – `16 - 8 = 8` (16 dots, minus 8 dots, 8 dots)
+- Session&nbsp;3 – `27 - 3 = 24` (27 dots, minus 3 dots, 24 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `50 - 25 = 25` (50 dots, minus 25 dots, 25 dots)
+- Session&nbsp;2 – `38 - 19 = 19` (38 dots, minus 19 dots, 19 dots)
+- Session&nbsp;3 – `36 - 6 = 30` (36 dots, minus 6 dots, 30 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `40 - 18 = 22` (40 dots, minus 18 dots, 22 dots)
+- Session&nbsp;2 – `29 - 11 = 18` (29 dots, minus 11 dots, 18 dots)
+- Session&nbsp;3 – `35 - 5 = 30` (35 dots, minus 5 dots, 30 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `47 - 23 = 24` (47 dots, minus 23 dots, 24 dots)
+- Session&nbsp;2 – `31 - 14 = 17` (31 dots, minus 14 dots, 17 dots)
+- Session&nbsp;3 – `26 - 4 = 22` (26 dots, minus 4 dots, 22 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `24 - 7 = 17` (24 dots, minus 7 dots, 17 dots)
+- Session&nbsp;2 – `19 - 9 = 10` (19 dots, minus 9 dots, 10 dots)
+- Session&nbsp;3 – `37 - 18 = 19` (37 dots, minus 18 dots, 19 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `30 - 12 = 18` (30 dots, minus 12 dots, 18 dots)
+- Session&nbsp;2 – `28 - 13 = 15` (28 dots, minus 13 dots, 15 dots)
+- Session&nbsp;3 – `22 - 6 = 16` (22 dots, minus 6 dots, 16 dots)
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
