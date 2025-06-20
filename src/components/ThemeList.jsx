@@ -13,12 +13,10 @@ const ThemeList = () => {
   return (
     <ul className="list-none px-4 md:px-0 space-y-1 text-gray-700">
       <li>📝 Language: {language}…</li>
-      <li>🔢 Math Dots: {mathStart}–{mathStart + mathLength - 1}</li>
-      {firstSum && (
-        <li>
-          ➕ Addition: {firstSum.a} + {firstSum.b} = {firstSum.sum}
-        </li>
-      )}
+      <li>
+        🔢 Math: {mathStart}–{mathStart + mathLength - 1}
+        {firstSum && `, ${firstSum.a} + ${firstSum.b} = ${firstSum.sum}`}
+      </li>
       <li>🦁 Knowledge: {knowledge}…</li>
     </ul>
   );

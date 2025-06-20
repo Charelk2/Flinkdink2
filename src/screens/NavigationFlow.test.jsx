@@ -35,9 +35,7 @@ describe('Session navigation flow', () => {
     // Starts at Language step
     expect(screen.getByText('📝 Language')).toBeInTheDocument();
     fireEvent.click(screen.getAllByRole('button', { name: /next/i })[1]);
-    expect(screen.getByText('🔢 Math Dots')).toBeInTheDocument();
-    fireEvent.click(screen.getAllByRole('button', { name: /next/i })[1]);
-    expect(screen.getByText('➕ Addition')).toBeInTheDocument();
+    expect(screen.getByText('🔢 Math')).toBeInTheDocument();
     fireEvent.click(screen.getAllByRole('button', { name: /next/i })[1]);
     expect(screen.getByText('🦁 Encyclopedia')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /finish session/i }));

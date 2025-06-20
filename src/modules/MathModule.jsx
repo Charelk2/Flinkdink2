@@ -1,6 +1,33 @@
 import Carousel from '../components/Carousel'
 import { generateDotPositions } from '../utils/randomDots'
 
+const DotBoard = ({ count }) => {
+  const positions = generateDotPositions(count)
+  return (
+    <div className="relative w-full h-[60vw] sm:h-[40vh]">
+      <span
+        data-testid="dot-count"
+        className="absolute top-0 right-0 m-1 text-[10px] text-black"
+      >
+        {count}
+      </span>
+      {positions.map((pos, i) => (
+        <span
+          key={i}
+          className="absolute inline-block rounded-full"
+          style={{
+            width: '1rem',
+            height: '1rem',
+            top: pos.top,
+            left: pos.left,
+            backgroundColor: '#ef4444',
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5)
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -17,39 +44,23 @@ export const createSlides = (
   return [...first, ...secondHalf]
 }
 
-const MathModule = ({ start, length = 10, shuffleFirstHalf }) => {
-  const slides = createSlides(start, length, shuffleFirstHalf)
+const MathModule = ({ start, length = 10, shuffleFirstHalf, sum }) => {
+  const numberSlides = createSlides(start, length, shuffleFirstHalf)
+  const additionSlides = sum ? [sum.a, sum.b, sum.sum] : []
+  const slides = [...numberSlides, ...additionSlides]
 
   return (
-    <Carousel
-      items={slides}
-      renderItem={(n) => {
-        const positions = generateDotPositions(n)
-          return (
-            <div className="relative w-full h-[60vw] sm:h-[40vh]">
-              <span
-                data-testid="dot-count"
-                className="absolute top-0 right-0 m-1 text-[10px] text-black"
-              >
-                {n}
-              </span>
-              {positions.map((pos, i) => (
-                <span
-                  key={i}
-                  className="absolute inline-block rounded-full"
-                  style={{
-                    width: '1rem',
-                    height: '1rem',
-                    top: pos.top,
-                    left: pos.left,
-                    backgroundColor: '#ef4444',
-                  }}
-                />
-              ))}
-            </div>
-          )
-        }}
+    <div className="space-y-4 text-center">
+      <Carousel
+        items={slides}
+        renderItem={(n) => <DotBoard count={n} />}
       />
+      {sum && (
+        <div className="text-lg font-semibold">
+          {sum.a} + {sum.b} = {sum.sum}
+        </div>
+      )}
+    </div>
   )
 }
 

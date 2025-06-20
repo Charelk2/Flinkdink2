@@ -23,7 +23,7 @@ describe('ThemeList', () => {
     expect(items[2]).toHaveTextContent('Lion')
   })
 
-  it('shows addition when sums are provided', () => {
+  it('includes first addition sum in the math item when provided', () => {
     useContent.mockReturnValue({
       weekData: {
         language: ['apple'],
@@ -36,7 +36,7 @@ describe('ThemeList', () => {
 
     render(<ThemeList />)
     const items = screen.getAllByRole('listitem')
-    expect(items).toHaveLength(4)
-    expect(items[2]).toHaveTextContent('1 + 2 = 3')
+    expect(items).toHaveLength(3)
+    expect(items[1]).toHaveTextContent('1 + 2 = 3')
   })
 })
