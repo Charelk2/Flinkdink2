@@ -517,6 +517,43 @@ kids match each numeral to a tangible count.
 - Session&nbsp;1 – `30 - 12 = 18` (30 dots, minus 12 dots, 18 dots)
 - Session&nbsp;2 – `28 - 13 = 15` (28 dots, minus 13 dots, 15 dots)
 - Session&nbsp;3 – `22 - 6 = 16` (22 dots, minus 6 dots, 16 dots)
+
+### Term 3 Week 1 Addition & Subtraction
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `25 - 9 = 16` (25 dots, minus 9 dots, 16 dots)
+- Session&nbsp;2 – `4 + 37 = 41` (4 dots, 37 dots, 41 dots)
+- Session&nbsp;3 – `25 - 8 = 17` (25 dots, minus 8 dots, 17 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `42 + 3 = 45` (42 dots, 3 dots, 45 dots)
+- Session&nbsp;2 – `47 - 18 = 29` (47 dots, minus 18 dots, 29 dots)
+- Session&nbsp;3 – `23 + 6 = 29` (23 dots, 6 dots, 29 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `49 - 11 = 38` (49 dots, minus 11 dots, 38 dots)
+- Session&nbsp;2 – `16 + 8 = 24` (16 dots, 8 dots, 24 dots)
+- Session&nbsp;3 – `35 - 26 = 9` (35 dots, minus 26 dots, 9 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `27 + 18 = 45` (27 dots, 18 dots, 45 dots)
+- Session&nbsp;2 – `40 + 8 = 48` (40 dots, 8 dots, 48 dots)
+- Session&nbsp;3 – `14 + 0 = 14` (14 dots, 0 dots, 14 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `24 - 19 = 5` (24 dots, minus 19 dots, 5 dots)
+- Session&nbsp;2 – `27 - 16 = 11` (27 dots, minus 16 dots, 11 dots)
+- Session&nbsp;3 – `34 - 6 = 28` (34 dots, minus 6 dots, 28 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `31 + 6 = 37` (31 dots, 6 dots, 37 dots)
+- Session&nbsp;2 – `50 - 25 = 25` (50 dots, minus 25 dots, 25 dots)
+- Session&nbsp;3 – `22 + 5 = 27` (22 dots, 5 dots, 27 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `45 - 15 = 30` (45 dots, minus 15 dots, 30 dots)
+- Session&nbsp;2 – `12 + 17 = 29` (12 dots, 17 dots, 29 dots)
+- Session&nbsp;3 – `33 - 14 = 19` (33 dots, minus 14 dots, 19 dots)
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
