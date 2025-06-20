@@ -160,7 +160,7 @@ describe('jumpToWeek', () => {
     expect(stored.session).toBe(1)
   })
 
-  it('ignores out-of-range weeks', () => {
+  it('warns when week is out of range', () => {
     const Invalid = () => {
       const { progress, jumpToWeek } = useContent();
       return (
@@ -173,6 +173,8 @@ describe('jumpToWeek', () => {
       );
     };
 
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
     render(
       <ContentProvider>
         <Invalid />
@@ -181,6 +183,11 @@ describe('jumpToWeek', () => {
 
     fireEvent.click(screen.getByText('bad'));
     expect(screen.getByTestId('week-invalid')).toHaveTextContent('1');
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Week ${TOTAL_WEEKS + 1} is out of range (1-${TOTAL_WEEKS})`,
+    );
+
+    warnSpy.mockRestore();
   });
 })
 
