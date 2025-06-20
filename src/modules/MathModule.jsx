@@ -44,11 +44,26 @@ export const createSlides = (
   return [...first, ...secondHalf]
 }
 
-const MathModule = ({ start, length = 10, shuffleFirstHalf, sum, difference }) => {
+const MathModule = ({
+  start,
+  length = 10,
+  shuffleFirstHalf,
+  sum,
+  difference,
+  product,
+}) => {
   const numberSlides = createSlides(start, length, shuffleFirstHalf)
   const additionSlides = sum ? [sum.a, sum.b, sum.sum] : []
-  const subtractionSlides = difference ? [difference.a, difference.b, difference.difference] : []
-  const slides = [...numberSlides, ...additionSlides, ...subtractionSlides]
+  const subtractionSlides = difference
+    ? [difference.a, difference.b, difference.difference]
+    : []
+  const multiplicationSlides = product ? [product.a, product.b, product.product] : []
+  const slides = [
+    ...numberSlides,
+    ...additionSlides,
+    ...subtractionSlides,
+    ...multiplicationSlides,
+  ]
 
   return (
     <div className="space-y-4 text-center">
@@ -64,6 +79,11 @@ const MathModule = ({ start, length = 10, shuffleFirstHalf, sum, difference }) =
       {difference && (
         <div className="text-lg font-semibold">
           {difference.a} - {difference.b} = {difference.difference}
+        </div>
+      )}
+      {product && (
+        <div className="text-lg font-semibold">
+          {product.a} × {product.b} = {product.product}
         </div>
       )}
     </div>
