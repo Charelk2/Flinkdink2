@@ -132,8 +132,8 @@ dots appear on the current slide. Term&nbsp;1 now introduces numbers gradually:
 - **Week&nbsp;9** – numbers 36–40 shuffled, followed by 41–45
 - **Week&nbsp;10** – numbers 41–45 shuffled, followed by 46–50
 
-Weeks&nbsp;11 onward continue sliding the window by five while keeping the lower half
-randomized.
+Counting practice stops here. Starting with Week&nbsp;13, the Math module shows
+only short addition sums.
 
 ### Term 2 Week 1 Addition
 
