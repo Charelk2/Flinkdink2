@@ -39,4 +39,20 @@ describe('ThemeList', () => {
     expect(items).toHaveLength(3)
     expect(items[1]).toHaveTextContent('1 + 2 = 3')
   })
+
+  it('shows only the sum when math length is zero', () => {
+    useContent.mockReturnValue({
+      weekData: {
+        language: ['apple'],
+        mathWindowStart: 60,
+        mathWindowLength: 0,
+        encyclopedia: [{ title: 'Lion' }],
+        addition: [[{ a: 1, b: 2, sum: 3 }]],
+      },
+    })
+
+    render(<ThemeList />)
+    const items = screen.getAllByRole('listitem')
+    expect(items[1]).toHaveTextContent('1 + 2 = 3')
+  })
 })
