@@ -2,10 +2,10 @@ import { render, screen } from '@testing-library/react';
 import MathModule, { createSlides } from './MathModule';
 
 describe('MathModule', () => {
-  it('creates a carousel with ten number slides', () => {
-    render(<MathModule start={1} />);
+  it('creates a carousel with a configurable slide count', () => {
+    render(<MathModule start={1} length={5} />);
     const dots = screen.getAllByTestId('carousel-dot');
-    expect(dots).toHaveLength(10);
+    expect(dots).toHaveLength(5);
   });
 
   it('renders visible dots for each math slide', () => {
@@ -24,22 +24,11 @@ describe('MathModule', () => {
 
   describe('createSlides', () => {
     it('returns week one numbers in order', () => {
-      expect(createSlides(1)).toEqual([
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-      ]);
+      expect(createSlides(1, 5, false)).toEqual([1, 2, 3, 4, 5]);
     });
 
     it('shuffles only the first half for later weeks', () => {
-      const slides = createSlides(6);
+      const slides = createSlides(6, 10, true);
       expect(slides.slice(5)).toEqual([11, 12, 13, 14, 15]);
       const firstHalf = [...slides.slice(0, 5)].sort((a, b) => a - b);
       expect(firstHalf).toEqual([6, 7, 8, 9, 10]);
