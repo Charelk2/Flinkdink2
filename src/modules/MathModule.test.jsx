@@ -22,6 +22,12 @@ describe('MathModule', () => {
     });
   });
 
+  it('displays the dot count in the corner', () => {
+    render(<MathModule start={1} length={3} />);
+    const counter = screen.getByTestId('dot-count');
+    expect(counter).toHaveTextContent('1');
+  });
+
   describe('createSlides', () => {
     it('returns week one numbers in order', () => {
       expect(createSlides(1, 5, false)).toEqual([1, 2, 3, 4, 5]);
