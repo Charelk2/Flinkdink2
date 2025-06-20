@@ -1,9 +1,11 @@
 const fs = require('fs');
 const path = require('path');
-const weekDir = 'public/weeks';
+const weekDir = path.join('public', 'weeks');
+// Read all week files dynamically so new weeks are picked up automatically
 const weeks = fs
   .readdirSync(weekDir)
-  .filter((f) => f.startsWith('week') && f.endsWith('.json'))
+  .filter((f) => /^week\d+\.json$/.test(f))
+  .sort()
   .map((f) => path.join(weekDir, f));
 const outDir = 'src/assets/encyclopedia';
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
