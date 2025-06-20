@@ -25,15 +25,14 @@ const MathModule = ({ start, length = 10, shuffleFirstHalf }) => {
       items={slides}
       renderItem={(n) => {
         const positions = generateDotPositions(n)
-        return (
-          <>
-            <span
-              data-testid="dot-count"
-              className="absolute top-0 right-0 m-1 text-[10px] text-black"
-            >
-              {n}
-            </span>
+          return (
             <div className="relative w-full h-[60vw] sm:h-[40vh]">
+              <span
+                data-testid="dot-count"
+                className="absolute top-0 right-0 m-1 text-[10px] text-black"
+              >
+                {n}
+              </span>
               {positions.map((pos, i) => (
                 <span
                   key={i}
@@ -48,10 +47,9 @@ const MathModule = ({ start, length = 10, shuffleFirstHalf }) => {
                 />
               ))}
             </div>
-          </>
-        )
-      }}
-    />
+          )
+        }}
+      />
   )
 }
 
