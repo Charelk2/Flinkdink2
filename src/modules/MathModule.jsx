@@ -27,6 +27,12 @@ const MathModule = ({ start, length = 10, shuffleFirstHalf }) => {
         const positions = generateDotPositions(n)
         return (
           <div className="relative w-full h-[60vw] sm:h-[40vh]">
+            <span
+              data-testid="dot-count"
+              className="absolute top-1 right-1 text-xs text-black"
+            >
+              {n}
+            </span>
             {positions.map((pos, i) => (
               <span
                 key={i}

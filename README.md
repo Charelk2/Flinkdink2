@@ -115,7 +115,8 @@ A large `CTAButton` starts or continues the current session depending on your
 progress.
 
 The math module's red dots are styled inline with explicit dimensions so they
-remain visible even if Tailwind utilities are unavailable. Term&nbsp;1 now
+remain visible even if Tailwind utilities are unavailable. A small number in the
+top-right corner shows how many dots appear on the current slide. Term&nbsp;1 now
 introduces numbers gradually:
 
 - **Week&nbsp;1** – numbers 1–5 in order
