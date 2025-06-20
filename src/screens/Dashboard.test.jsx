@@ -183,6 +183,7 @@ describe('Dashboard', () => {
     expect(active).toHaveAttribute('aria-current', 'true')
     expect(active).toHaveClass('font-bold')
     expect(active).toHaveClass('hover:bg-indigo-100')
+    expect(active).toHaveClass('cursor-pointer')
   })
 
   it('renders control buttons with emoji labels', () => {
