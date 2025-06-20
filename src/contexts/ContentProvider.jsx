@@ -103,6 +103,8 @@ export const ContentProvider = ({ children }) => {
   const jumpToWeek = (week) => {
     if (week >= 1 && week <= TOTAL_WEEKS) {
       saveProgress({ week, day: 1, session: 1 })
+    } else {
+      console.warn(`Week ${week} is out of range (1-${TOTAL_WEEKS})`)
     }
   }
 
