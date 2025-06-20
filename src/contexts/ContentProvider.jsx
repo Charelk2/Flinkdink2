@@ -9,6 +9,7 @@ import { fetchWeekData } from '../utils/fetchWeek'
 
 const PROGRESS_VERSION = 1
 const PROGRESS_KEY = 'progress-v1'
+export const TOTAL_WEEKS = 46
 const DEFAULT_PROGRESS = {
   version: PROGRESS_VERSION,
   week: 1,
@@ -100,7 +101,7 @@ export const ContentProvider = ({ children }) => {
   }
 
   const jumpToWeek = (week) => {
-    if (week >= 1 && week <= 52) {
+    if (week >= 1 && week <= TOTAL_WEEKS) {
       saveProgress({ week, day: 1, session: 1 })
     }
   }

@@ -1,5 +1,5 @@
 import { render, screen, waitFor, cleanup, fireEvent } from '@testing-library/react'
-import { ContentProvider, useContent } from './ContentProvider'
+import { ContentProvider, useContent, TOTAL_WEEKS } from './ContentProvider'
 
 const TestConsumer = () => {
   const { weekData, loading, error } = useContent()
@@ -159,6 +159,29 @@ describe('jumpToWeek', () => {
     expect(stored.day).toBe(1)
     expect(stored.session).toBe(1)
   })
+
+  it('ignores out-of-range weeks', () => {
+    const Invalid = () => {
+      const { progress, jumpToWeek } = useContent();
+      return (
+        <div>
+          <span data-testid="week-invalid">{progress.week}</span>
+          <button type="button" onClick={() => jumpToWeek(TOTAL_WEEKS + 1)}>
+            bad
+          </button>
+        </div>
+      );
+    };
+
+    render(
+      <ContentProvider>
+        <Invalid />
+      </ContentProvider>,
+    );
+
+    fireEvent.click(screen.getByText('bad'));
+    expect(screen.getByTestId('week-invalid')).toHaveTextContent('1');
+  });
 })
 
 describe('reset helpers', () => {
