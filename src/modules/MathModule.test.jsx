@@ -39,12 +39,13 @@ describe('MathModule', () => {
     expect(styles.right).toBe('0px');
   });
 
-  it('nests the dot count inside the board container', () => {
+  it('positions the dot count relative to the slide container', () => {
     const { container } = render(<MathModule start={1} length={3} />);
     const card = container.querySelector('.card');
     const board = card.querySelector('div.relative');
     const counter = screen.getByTestId('dot-count');
-    expect(board.contains(counter)).toBe(true);
+    expect(card.contains(counter)).toBe(true);
+    expect(board.contains(counter)).toBe(false);
   });
 
   describe('createSlides', () => {
