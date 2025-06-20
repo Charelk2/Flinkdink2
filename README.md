@@ -114,10 +114,17 @@ Language, Math and Knowledge.
 A large `CTAButton` starts or continues the current session depending on your
 progress.
 
-The math module's red dots are now styled inline with explicit dimensions so
-they remain visible even if Tailwind utilities are unavailable. Math slides use
-a sliding window of ten numbers; starting on week two the first five appear in a
-random order while the upper five stay sequential.
+The math module's red dots are styled inline with explicit dimensions so they
+remain visible even if Tailwind utilities are unavailable. Term&nbsp;1 now
+introduces numbers gradually:
+
+- **Week&nbsp;1** – numbers 1–5 in order
+- **Week&nbsp;2** – numbers 1–5 shuffled, followed by 6–10
+- **Week&nbsp;3** – numbers 6–10 shuffled, followed by 11–15
+- **Week&nbsp;4** – numbers 11–15 shuffled, followed by 16–20
+
+Later weeks continue sliding the window by five while keeping the lower half
+randomized.
 
 
 ## Navigation

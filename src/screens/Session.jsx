@@ -56,7 +56,13 @@ const Session = () => {
       <h2 className="text-lg text-gray-500">{titles[step]}</h2>
 
       {step === 0 && <LanguageModule words={weekData.language} />}
-      {step === 1 && <MathModule start={weekData.mathWindowStart} />}
+      {step === 1 && (
+        <MathModule
+          start={weekData.mathWindowStart}
+          length={weekData.mathWindowLength}
+          shuffleFirstHalf={weekData.mathShuffleFirstHalf}
+        />
+      )}
       {step === 2 && <EncyclopediaModule cards={weekData.encyclopedia} />}
 
       <div className="flex justify-between pt-4">

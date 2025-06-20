@@ -11,7 +11,7 @@
     "pen",
     "bladsy"
   ],
-  "mathWindowStart": 11,
+  "mathWindowStart": 6,
   "encyclopedia": [
     {
       "id": "afghaanse-hond",
@@ -83,5 +83,7 @@
       "fact": "This dog has a ridge of hair along its back.",
       "image": "/images/dog.svg"
     }
-  ]
+  ],
+  "mathWindowLength": 10,
+  "mathShuffleFirstHalf": true
 }

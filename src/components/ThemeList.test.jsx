@@ -10,6 +10,7 @@ describe('ThemeList', () => {
       weekData: {
         language: ['apple'],
         mathWindowStart: 5,
+        mathWindowLength: 10,
         encyclopedia: [{ title: 'Lion' }],
       },
     })
