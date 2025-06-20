@@ -29,7 +29,7 @@ const MathModule = ({ start, length = 10, shuffleFirstHalf }) => {
           <div className="relative w-full h-[60vw] sm:h-[40vh]">
             <span
               data-testid="dot-count"
-              className="absolute top-1 right-1 text-xs text-black"
+              className="absolute top-0 right-0 m-1 text-[10px] text-black"
             >
               {n}
             </span>
