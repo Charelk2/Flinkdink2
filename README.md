@@ -135,6 +135,46 @@ dots appear on the current slide. Term&nbsp;1 now introduces numbers gradually:
 Weeks&nbsp;11 onward continue sliding the window by five while keeping the lower half
 randomized.
 
+### Term 2 Week 1 Addition
+
+Term&nbsp;2 continues math practice with short addition sums. Each day has
+three sessions and the dot counter represents the numbers visually.
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `1 + 2 = 3` (1 dot, 2 dots, 3 dots)
+- Session&nbsp;2 – `9 + 3 = 12` (9 dots, 3 dots, 12 dots)
+- Session&nbsp;3 – `4 + 3 = 7` (4 dots, 3 dots, 7 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `2 + 3 = 5` (2 dots, 3 dots, 5 dots)
+- Session&nbsp;2 – `6 + 9 = 15` (6 dots, 9 dots, 15 dots)
+- Session&nbsp;3 – `4 + 10 = 14` (4 dots, 10 dots, 14 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `8 + 9 = 17` (8 dots, 9 dots, 17 dots)
+- Session&nbsp;2 – `19 + 1 = 20` (19 dots, 1 dot, 20 dots)
+- Session&nbsp;3 – `7 + 4 = 11` (7 dots, 4 dots, 11 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `14 + 5 = 19` (14 dots, 5 dots, 19 dots)
+- Session&nbsp;2 – `4 + 2 = 6` (4 dots, 2 dots, 6 dots)
+- Session&nbsp;3 – `9 + 9 = 18` (9 dots, 9 dots, 18 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `3 + 4 = 7` (3 dots, 4 dots, 7 dots)
+- Session&nbsp;2 – `5 + 5 = 10` (5 dots, 5 dots, 10 dots)
+- Session&nbsp;3 – `8 + 1 = 9` (8 dots, 1 dot, 9 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `7 + 6 = 13` (7 dots, 6 dots, 13 dots)
+- Session&nbsp;2 – `3 + 3 = 6` (3 dots, 3 dots, 6 dots)
+- Session&nbsp;3 – `15 + 4 = 19` (15 dots, 4 dots, 19 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `10 + 10 = 20` (10 dots, 10 dots, 20 dots)
+- Session&nbsp;2 – `8 + 5 = 13` (8 dots, 5 dots, 13 dots)
+- Session&nbsp;3 – `6 + 9 = 15` (6 dots, 9 dots, 15 dots)
+
 
 ## Navigation
 
