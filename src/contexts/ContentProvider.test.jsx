@@ -255,3 +255,40 @@ describe('reset helpers', () => {
     expect(window.confirm).toHaveBeenCalled()
   })
 })
+
+describe('completeSession final week', () => {
+  it('keeps week at TOTAL_WEEKS and logs message', () => {
+    localStorage.setItem(
+      'progress-v1',
+      JSON.stringify({ version: 1, week: TOTAL_WEEKS, day: 7, session: 3, streak: 5 }),
+    )
+
+    const Consumer = () => {
+      const { progress, completeSession } = useContent()
+      return (
+        <div>
+          <span data-testid="week">{progress.week}</span>
+          <button type="button" onClick={completeSession}>
+            do
+          </button>
+        </div>
+      )
+    }
+
+    const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {})
+
+    render(
+      <ContentProvider>
+        <Consumer />
+      </ContentProvider>,
+    )
+
+    fireEvent.click(screen.getByText('do'))
+    expect(screen.getByTestId('week')).toHaveTextContent(String(TOTAL_WEEKS))
+    const stored = JSON.parse(localStorage.getItem('progress-v1'))
+    expect(stored.week).toBe(TOTAL_WEEKS)
+    expect(logSpy).toHaveBeenCalledWith('Course Finished!')
+
+    logSpy.mockRestore()
+  })
+})

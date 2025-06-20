@@ -82,12 +82,16 @@ export const ContentProvider = ({ children }) => {
     if (session < 3) {
       session += 1
     } else {
-      session = 1
       if (day < 7) {
         day += 1
-      } else {
-        day = 1
+        session = 1
+      } else if (week < TOTAL_WEEKS) {
         week += 1
+        day = 1
+        session = 1
+      } else {
+        console.log('Course Finished!')
+        // keep week/day/session at final values
       }
       streak += 1
     }
