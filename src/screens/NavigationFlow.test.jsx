@@ -11,6 +11,7 @@ describe('Session navigation flow', () => {
     language: ['one'],
     mathWindowStart: 1,
     encyclopedia: [{ image: 'a.jpg', title: 'A', fact: 'fact' }],
+    addition: [[{ a: 1, b: 1, sum: 2 }]],
   };
 
   it('advances through modules and completes session', () => {
@@ -35,6 +36,8 @@ describe('Session navigation flow', () => {
     expect(screen.getByText('📝 Language')).toBeInTheDocument();
     fireEvent.click(screen.getAllByRole('button', { name: /next/i })[1]);
     expect(screen.getByText('🔢 Math Dots')).toBeInTheDocument();
+    fireEvent.click(screen.getAllByRole('button', { name: /next/i })[1]);
+    expect(screen.getByText('➕ Addition')).toBeInTheDocument();
     fireEvent.click(screen.getAllByRole('button', { name: /next/i })[1]);
     expect(screen.getByText('🦁 Encyclopedia')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /finish session/i }));
