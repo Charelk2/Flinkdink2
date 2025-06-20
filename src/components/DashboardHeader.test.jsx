@@ -10,7 +10,7 @@ describe('DashboardHeader', () => {
 
     render(<DashboardHeader />);
 
-    expect(screen.getAllByText('Week 2 \u00B7 Day 3 \u00B7 Session 1')).toHaveLength(2);
+    expect(screen.getAllByText('Term 1 \u00B7 Week 2 \u00B7 Day 3 \u00B7 Session 1')).toHaveLength(2);
     expect(screen.getByTestId('streak')).toHaveTextContent('Streak: 4');
 
     const dots = screen.getAllByTestId('session-dot');

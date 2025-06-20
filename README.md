@@ -88,6 +88,10 @@ The application loads weeks 1–46. When adding or removing weeks, update the
 final week keeps progress locked at week 46 and logs **"Course Finished!"** in
 the browser console.
 
+Weeks are grouped into four terms of twelve weeks each. The helper
+`getTermForWeek` in `src/utils/termHelpers.js` converts a week number to its
+term, using the `WEEKS_PER_TERM` constant.
+
 ## Progress Storage
 
 User progress is stored in `localStorage` under the key `progress-v1`. Each saved record contains a `version` field. If the stored version does not match the current application version, progress is reset to defaults. Bump the version when changing the progress schema.
