@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useContent } from '../contexts/ContentProvider'
+import { useContent, TOTAL_WEEKS } from '../contexts/ContentProvider'
 import NavBar from '../components/NavBar'
 import DashboardHeader from '../components/DashboardHeader'
 
@@ -51,7 +51,7 @@ const Dashboard = () => {
 
   const days = Array.from({ length: 7 }, (_, i) => i + 1)
   const modules = ['L', 'M', 'E']
-  const weeks = Array.from({ length: 52 }, (_, i) => i + 1)
+  const weeks = Array.from({ length: TOTAL_WEEKS }, (_, i) => i + 1)
 
   const isComplete = (day, modIndex) => {
     if (day < progress.day) return true

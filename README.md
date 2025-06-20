@@ -74,6 +74,18 @@ the API routes, while React components rely on **React Testing Library**.
  - Language words now display in a very large lowercase font so toddlers
    can easily read them
 
+## Curriculum Files
+
+Week data lives under `public/weeks` as `weekXXX.json` (e.g. `week001.json`).
+Each file defines three keys:
+
+- `language` – array of 10 words for the Language module
+- `mathWindowStart` – first number in the 10-number math window
+- `encyclopedia` – array of fact objects with `id`, `title`, `query`, `fact` and `image`
+
+The application loads weeks 1–46. When adding or removing weeks, update the
+`TOTAL_WEEKS` constant in `src/contexts/ContentProvider.jsx`.
+
 ## Progress Storage
 
 User progress is stored in `localStorage` under the key `progress-v1`. Each saved record contains a `version` field. If the stored version does not match the current application version, progress is reset to defaults. Bump the version when changing the progress schema.
@@ -104,7 +116,7 @@ random order while the upper five stay sequential.
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
 Clicking the settings button now opens a simple **Dashboard** route showing overall progress and reset options.
-Parents can also jump to any of the 52 weeks from the Dashboard. Selecting a week loads its curriculum or displays "empty" if no data exists.
+Parents can also jump to any of the 46 weeks from the Dashboard. Selecting a week loads its curriculum or displays "empty" if no data exists.
 When unlocked, the Dashboard now shows a large progress header with your current week, day, session and streak. It reuses the same session dots as the home screen.
 Daily modules are listed in a small table labelled **"Weekly progress"**, where completed cells appear green.
 

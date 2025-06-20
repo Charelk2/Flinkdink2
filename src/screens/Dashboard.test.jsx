@@ -3,6 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { AuthProvider } from '../contexts/AuthProvider'
 import Dashboard from './Dashboard'
 import { useContent } from '../contexts/ContentProvider'
+const { TOTAL_WEEKS } = jest.requireActual('../contexts/ContentProvider')
 
 jest.mock('../contexts/ContentProvider')
 
@@ -85,9 +86,9 @@ describe('Dashboard', () => {
     fireEvent.change(screen.getByLabelText('PIN'), { target: { value: '1234' } })
     fireEvent.click(screen.getByRole('button', { name: /unlock/i }))
 
-    expect(screen.getByTestId('week-btn-10')).toBeInTheDocument()
-    fireEvent.click(screen.getByTestId('week-btn-10'))
-    expect(jumpToWeek).toHaveBeenCalledWith(10)
+    expect(screen.getByTestId(`week-btn-${TOTAL_WEEKS}`)).toBeInTheDocument()
+    fireEvent.click(screen.getByTestId(`week-btn-${TOTAL_WEEKS}`))
+    expect(jumpToWeek).toHaveBeenCalledWith(TOTAL_WEEKS)
   })
 
   it('uses responsive classes for week grid', () => {
