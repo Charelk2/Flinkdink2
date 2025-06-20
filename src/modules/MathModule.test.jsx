@@ -10,7 +10,9 @@ describe('MathModule', () => {
 
   it('renders visible dots for each math slide', () => {
     const { container } = render(<MathModule start={1} />);
-    const board = container.querySelector('.relative');
+    const card = container.querySelector('.card');
+    expect(card).not.toBeNull();
+    const board = card.querySelector('div.relative');
     expect(board).not.toBeNull();
     const dots = board.querySelectorAll('span');
     expect(dots.length).toBeGreaterThan(0);
@@ -26,6 +28,15 @@ describe('MathModule', () => {
     render(<MathModule start={1} length={3} />);
     const counter = screen.getByTestId('dot-count');
     expect(counter).toHaveTextContent('1');
+  });
+
+  it('positions the dot count at the top right', () => {
+    render(<MathModule start={1} length={3} />);
+    const counter = screen.getByTestId('dot-count');
+    const styles = getComputedStyle(counter);
+    expect(styles.position).toBe('absolute');
+    expect(styles.top).toBe('0px');
+    expect(styles.right).toBe('0px');
   });
 
   describe('createSlides', () => {
