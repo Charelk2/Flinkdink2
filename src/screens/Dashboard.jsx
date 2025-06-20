@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useContent, TOTAL_WEEKS } from '../contexts/ContentProvider'
 import NavBar from '../components/NavBar'
 import DashboardHeader from '../components/DashboardHeader'
@@ -8,6 +9,8 @@ const PIN = '1234'
 const Dashboard = () => {
   const [entered, setEntered] = useState('')
   const [unlocked, setUnlocked] = useState(false)
+  const [confirmWeek, setConfirmWeek] = useState(null)
+  const navigate = useNavigate()
 
   const {
     progress,
@@ -99,7 +102,7 @@ const Dashboard = () => {
             data-testid={`week-btn-${w}`}
             className={`border p-1 rounded hover:bg-indigo-100 ${w === progress.week ? 'bg-indigo-200 font-bold' : ''}`}
             aria-current={w === progress.week ? 'true' : undefined}
-            onClick={() => jumpToWeek(w)}
+            onClick={() => setConfirmWeek(w)}
           >
             {w}
           </button>
@@ -129,6 +132,29 @@ const Dashboard = () => {
           📜 Print Certificate
         </button>
       </div>
+      {confirmWeek && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center" data-testid="week-confirm">
+          <div className="bg-white p-4 rounded space-y-2 text-center shadow">
+            <p>Start Week {confirmWeek}?</p>
+            <div className="flex justify-center gap-2">
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  jumpToWeek(confirmWeek)
+                  setConfirmWeek(null)
+                  navigate('/session')
+                }}
+              >
+                Yes
+              </button>
+              <button type="button" className="btn" onClick={() => setConfirmWeek(null)}>
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       </div>
     </>
   )
