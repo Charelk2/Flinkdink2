@@ -683,6 +683,24 @@ Tel vinnig met behulp van flitskaarte.
 - Session&nbsp;1 – `15 × 2 = 30` (15 dots, 2 dots, 30 dots)
 - Session&nbsp;2 – `4 × 7 = 28` (4 dots, 7 dots, 28 dots)
 - Session&nbsp;3 – `6 × 3 = 18` (6 dots, 3 dots, 18 dots)
+
+### Term 3 Week 10 Counting in 2’s and 3’s
+
+Tel vinnig met behulp van flitskaarte.
+
+**Day&nbsp;1** – tel in twee’s: 2, 4, 6, 8, 10
+
+**Day&nbsp;2** – tel in twee’s: 12, 14, 16, 18, 20
+
+**Day&nbsp;3** – tel in drie’s: 3, 6, 9, 12, 15
+
+**Day&nbsp;4** – tel in drie’s: 15, 18, 21, 24, 27, 30
+
+**Day&nbsp;5** – tel in drie’s: 30, 33, 36, 39, 42, 45, 48
+
+**Day&nbsp;6** – tel in twee’s: 50, 52, 54, 56, 58, 60
+
+**Day&nbsp;7** – tel in drie’s: 51, 54, 57, 60, 63, 66, 69
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
