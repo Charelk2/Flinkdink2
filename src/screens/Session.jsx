@@ -70,6 +70,9 @@ const Session = () => {
           product={
             weekData.multiplication?.[progress.day - 1]?.[progress.session - 1]
           }
+          quotient={
+            weekData.division?.[progress.day - 1]?.[progress.session - 1]
+          }
         />
       )}
       {step === titles.indexOf('🦁 Encyclopedia') && (
