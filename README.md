@@ -720,6 +720,24 @@ Tel vinnig met behulp van flitskaarte.
 **Day&nbsp;6** – tel in twee’s: 50, 52, 54, 56, 58, 60
 
 **Day&nbsp;7** – tel in drie’s: 51, 54, 57, 60, 63, 66, 69
+
+### Term 4 Week 1 Counting Back in 2’s and 3’s
+
+Gebruik flitskaarte; tel of trek vinnig af.
+
+**Day&nbsp;1** – trek af in twee’s: 20, 18, 16, 14, 12, 10, 8, 6, 4, 2
+
+**Day&nbsp;2** – trek af in twee’s: 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20
+
+**Day&nbsp;3** – trek af in drie’s: 30, 27, 24, 21, 18, 15, 12, 9, 6, 3
+
+**Day&nbsp;4** – trek af in drie’s: 29, 26, 23, 20, 17, 14, 11, 8, 5, 2
+
+**Day&nbsp;5** – trek af in drie’s: 50, 47, 44, 41, 38, 35, 32, 29, 26, 23
+
+**Day&nbsp;6** – trek af in twee’s: 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10
+
+**Day&nbsp;7** – trek af in drie’s: 45, 42, 39, 36, 33, 30, 27, 24, 21, 18, 15
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
