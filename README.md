@@ -628,6 +628,80 @@ kids match each numeral to a tangible count.
 - Session&nbsp;1 – `7 × 2 = 14` (7 dots, 2 dots, 14 dots)
 - Session&nbsp;2 – `9 × 4 = 36` (9 dots, 4 dots, 36 dots)
 - Session&nbsp;3 – `6 × 3 = 18` (6 dots, 3 dots, 18 dots)
+
+### Term 3 Week 4 Multiplication
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `6 × 3 = 18` (6 dots, 3 dots, 18 dots)
+- Session&nbsp;2 – `10 × 5 = 50` (10 dots, 5 dots, 50 dots)
+- Session&nbsp;3 – `2 × 3 = 6` (2 dots, 3 dots, 6 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `8 × 4 = 32` (8 dots, 4 dots, 32 dots)
+- Session&nbsp;2 – `3 × 4 = 12` (3 dots, 4 dots, 12 dots)
+- Session&nbsp;3 – `8 × 5 = 40` (8 dots, 5 dots, 40 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `9 × 3 = 27` (9 dots, 3 dots, 27 dots)
+- Session&nbsp;2 – `7 × 7 = 49` (7 dots, 7 dots, 49 dots)
+- Session&nbsp;3 – `7 × 6 = 42` (7 dots, 6 dots, 42 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `4 × 7 = 28` (4 dots, 7 dots, 28 dots)
+- Session&nbsp;2 – `1 × 4 = 4` (1 dot, 4 dots, 4 dots)
+- Session&nbsp;3 – `3 × 7 = 21` (3 dots, 7 dots, 21 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `6 × 6 = 36` (6 dots, 6 dots, 36 dots)
+- Session&nbsp;2 – `4 × 8 = 32` (4 dots, 8 dots, 32 dots)
+- Session&nbsp;3 – `5 × 5 = 25` (5 dots, 5 dots, 25 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `2 × 8 = 16` (2 dots, 8 dots, 16 dots)
+- Session&nbsp;2 – `9 × 4 = 36` (9 dots, 4 dots, 36 dots)
+- Session&nbsp;3 – `6 × 5 = 30` (6 dots, 5 dots, 30 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `11 × 2 = 22` (11 dots, 2 dots, 22 dots)
+- Session&nbsp;2 – `4 × 9 = 36` (4 dots, 9 dots, 36 dots)
+- Session&nbsp;3 – `6 × 7 = 42` (6 dots, 7 dots, 42 dots)
+
+### Term 3 Week 5 Multiplication
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `7 × 3 = 21` (7 dots, 3 dots, 21 dots)
+- Session&nbsp;2 – `1 × 8 = 8` (1 dot, 8 dots, 8 dots)
+- Session&nbsp;3 – `5 × 4 = 20` (5 dots, 4 dots, 20 dots)
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `9 × 2 = 18` (9 dots, 2 dots, 18 dots)
+- Session&nbsp;2 – `2 × 7 = 14` (2 dots, 7 dots, 14 dots)
+- Session&nbsp;3 – `6 × 5 = 30` (6 dots, 5 dots, 30 dots)
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `11 × 2 = 22` (11 dots, 2 dots, 22 dots)
+- Session&nbsp;2 – `4 × 3 = 12` (4 dots, 3 dots, 12 dots)
+- Session&nbsp;3 – `7 × 7 = 49` (7 dots, 7 dots, 49 dots)
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `20 × 2 = 40` (20 dots, 2 dots, 40 dots)
+- Session&nbsp;2 – `13 × 3 = 39` (13 dots, 3 dots, 39 dots)
+- Session&nbsp;3 – `7 × 2 = 14` (7 dots, 2 dots, 14 dots)
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `2 × 5 = 10` (2 dots, 5 dots, 10 dots)
+- Session&nbsp;2 – `11 × 4 = 44` (11 dots, 4 dots, 44 dots)
+- Session&nbsp;3 – `4 × 6 = 24` (4 dots, 6 dots, 24 dots)
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `3 × 9 = 27` (3 dots, 9 dots, 27 dots)
+- Session&nbsp;2 – `8 × 2 = 16` (8 dots, 2 dots, 16 dots)
+- Session&nbsp;3 – `12 × 2 = 24` (12 dots, 2 dots, 24 dots)
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `15 × 2 = 30` (15 dots, 2 dots, 30 dots)
+- Session&nbsp;2 – `4 × 7 = 28` (4 dots, 7 dots, 28 dots)
+- Session&nbsp;3 – `6 × 3 = 18` (6 dots, 3 dots, 18 dots)
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
