@@ -61,6 +61,7 @@ const Session = () => {
           start={weekData.mathWindowStart}
           length={weekData.mathWindowLength}
           shuffleFirstHalf={weekData.mathShuffleFirstHalf}
+          numbers={weekData.counting?.[progress.day - 1]}
           sum={
             weekData.addition?.[progress.day - 1]?.[progress.session - 1]
           }

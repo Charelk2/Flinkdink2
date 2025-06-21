@@ -12,6 +12,7 @@ const ThemeList = () => {
   const firstDiff = weekData.subtraction?.[0]?.[0];
   const firstProd = weekData.multiplication?.[0]?.[0];
   const firstQuot = weekData.division?.[0]?.[0];
+  const firstCount = weekData.counting?.[0];
 
   let mathText = `${mathStart}–${mathStart + mathLength - 1}`;
   const sumText = firstSum && `${firstSum.a} + ${firstSum.b} = ${firstSum.sum}`;
@@ -19,7 +20,9 @@ const ThemeList = () => {
   const prodText = firstProd && `${firstProd.a} × ${firstProd.b} = ${firstProd.product}`;
   const quotText = firstQuot && `${firstQuot.a} ÷ ${firstQuot.b} = ${firstQuot.quotient}`;
 
-  if (mathLength === 0) {
+  if (firstCount) {
+    mathText = firstCount.join(', ');
+  } else if (mathLength === 0) {
     mathText = sumText || diffText || prodText || quotText || mathText;
   } else if (sumText || diffText || prodText || quotText) {
     mathText += `, ${sumText || diffText || prodText || quotText}`;

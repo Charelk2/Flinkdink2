@@ -35,11 +35,15 @@ export const createSlides = (
   start,
   length = 10,
   shuffleFirstHalf = start !== 1,
+  numbers,
 ) => {
-  const numbers = Array.from({ length }, (_, i) => start + i)
-  const firstHalfCount = Math.min(5, numbers.length)
-  const firstHalf = numbers.slice(0, firstHalfCount)
-  const secondHalf = numbers.slice(firstHalfCount)
+  if (Array.isArray(numbers)) {
+    return numbers
+  }
+  const seq = Array.from({ length }, (_, i) => start + i)
+  const firstHalfCount = Math.min(5, seq.length)
+  const firstHalf = seq.slice(0, firstHalfCount)
+  const secondHalf = seq.slice(firstHalfCount)
   const first = shuffleFirstHalf ? shuffle(firstHalf) : firstHalf
   return [...first, ...secondHalf]
 }
@@ -48,12 +52,13 @@ const MathModule = ({
   start,
   length = 10,
   shuffleFirstHalf,
+  numbers,
   sum,
   difference,
   product,
   quotient,
 }) => {
-  const numberSlides = createSlides(start, length, shuffleFirstHalf)
+  const numberSlides = createSlides(start, length, shuffleFirstHalf, numbers)
   const additionSlides = sum ? [sum.a, sum.b, sum.sum] : []
   const subtractionSlides = difference
     ? [difference.a, difference.b, difference.difference]

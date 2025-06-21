@@ -91,5 +91,10 @@ describe('MathModule', () => {
       const firstHalf = [...slides.slice(0, 5)].sort((a, b) => a - b);
       expect(firstHalf).toEqual([6, 7, 8, 9, 10]);
     });
+
+    it('uses explicit numbers when provided', () => {
+      const slides = createSlides(1, 5, false, [2, 4, 6]);
+      expect(slides).toEqual([2, 4, 6]);
+    });
   });
 });
