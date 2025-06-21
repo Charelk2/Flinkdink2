@@ -51,6 +51,7 @@ const MathModule = ({
   sum,
   difference,
   product,
+  quotient,
 }) => {
   const numberSlides = createSlides(start, length, shuffleFirstHalf)
   const additionSlides = sum ? [sum.a, sum.b, sum.sum] : []
@@ -58,11 +59,13 @@ const MathModule = ({
     ? [difference.a, difference.b, difference.difference]
     : []
   const multiplicationSlides = product ? [product.a, product.b, product.product] : []
+  const divisionSlides = quotient ? [quotient.a, quotient.b, quotient.quotient] : []
   const slides = [
     ...numberSlides,
     ...additionSlides,
     ...subtractionSlides,
     ...multiplicationSlides,
+    ...divisionSlides,
   ]
 
   return (
@@ -84,6 +87,11 @@ const MathModule = ({
       {product && (
         <div className="text-lg font-semibold">
           {product.a} × {product.b} = {product.product}
+        </div>
+      )}
+      {quotient && (
+        <div className="text-lg font-semibold">
+          {quotient.a} ÷ {quotient.b} = {quotient.quotient}
         </div>
       )}
     </div>

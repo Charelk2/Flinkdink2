@@ -72,6 +72,22 @@ describe('ThemeList', () => {
     expect(items[1]).toHaveTextContent('2 × 3 = 6')
   })
 
+  it('includes first division in the math item when provided', () => {
+    useContent.mockReturnValue({
+      weekData: {
+        language: ['apple'],
+        mathWindowStart: 5,
+        mathWindowLength: 10,
+        encyclopedia: [{ title: 'Lion' }],
+        division: [[{ a: 8, b: 2, quotient: 4 }]],
+      },
+    })
+
+    render(<ThemeList />)
+    const items = screen.getAllByRole('listitem')
+    expect(items[1]).toHaveTextContent('8 ÷ 2 = 4')
+  })
+
   it('shows only the sum when math length is zero', () => {
     useContent.mockReturnValue({
       weekData: {
@@ -118,5 +134,21 @@ describe('ThemeList', () => {
     render(<ThemeList />)
     const items = screen.getAllByRole('listitem')
     expect(items[1]).toHaveTextContent('3 × 2 = 6')
+  })
+
+  it('shows only the quotient when math length is zero', () => {
+    useContent.mockReturnValue({
+      weekData: {
+        language: ['apple'],
+        mathWindowStart: 60,
+        mathWindowLength: 0,
+        encyclopedia: [{ title: 'Lion' }],
+        division: [[{ a: 9, b: 3, quotient: 3 }]],
+      },
+    })
+
+    render(<ThemeList />)
+    const items = screen.getAllByRole('listitem')
+    expect(items[1]).toHaveTextContent('9 ÷ 3 = 3')
   })
 })

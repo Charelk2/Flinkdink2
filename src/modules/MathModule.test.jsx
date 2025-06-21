@@ -32,6 +32,14 @@ describe('MathModule', () => {
     expect(screen.getByText('2 × 3 = 6')).toBeInTheDocument();
   });
 
+  it('appends division slides when a quotient is provided', () => {
+    const quot = { a: 8, b: 2, quotient: 4 };
+    render(<MathModule start={1} length={2} quotient={quot} />);
+    const dots = screen.getAllByTestId('carousel-dot');
+    expect(dots).toHaveLength(5); // 2 number slides + 3 division slides
+    expect(screen.getByText('8 ÷ 2 = 4')).toBeInTheDocument();
+  });
+
   it('renders visible dots for each math slide', () => {
     const { container } = render(<MathModule start={1} />);
     const card = container.querySelector('.card');
