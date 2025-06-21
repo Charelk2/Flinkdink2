@@ -85,41 +85,13 @@
       "image": "/images/dog.svg"
     }
   ],
-  "subtraction": [
-    [
-      { "a": 44, "b": 17, "difference": 27 },
-      { "a": 33, "b": 12, "difference": 21 },
-      { "a": 43, "b": 2, "difference": 41 }
-    ],
-    [
-      { "a": 28, "b": 15, "difference": 13 },
-      { "a": 16, "b": 8, "difference": 8 },
-      { "a": 27, "b": 3, "difference": 24 }
-    ],
-    [
-      { "a": 50, "b": 25, "difference": 25 },
-      { "a": 38, "b": 19, "difference": 19 },
-      { "a": 36, "b": 6, "difference": 30 }
-    ],
-    [
-      { "a": 40, "b": 18, "difference": 22 },
-      { "a": 29, "b": 11, "difference": 18 },
-      { "a": 35, "b": 5, "difference": 30 }
-    ],
-    [
-      { "a": 47, "b": 23, "difference": 24 },
-      { "a": 31, "b": 14, "difference": 17 },
-      { "a": 26, "b": 4, "difference": 22 }
-    ],
-    [
-      { "a": 24, "b": 7, "difference": 17 },
-      { "a": 19, "b": 9, "difference": 10 },
-      { "a": 37, "b": 18, "difference": 19 }
-    ],
-    [
-      { "a": 30, "b": 12, "difference": 18 },
-      { "a": 28, "b": 13, "difference": 15 },
-      { "a": 22, "b": 6, "difference": 16 }
-    ]
+  "counting": [
+    [2, 4, 6, 8, 10],
+    [12, 14, 16, 18, 20],
+    [3, 6, 9, 12, 15],
+    [15, 18, 21, 24, 27, 30],
+    [30, 33, 36, 39, 42, 45, 48],
+    [50, 52, 54, 56, 58, 60],
+    [51, 54, 57, 60, 63, 66, 69]
   ]
 }

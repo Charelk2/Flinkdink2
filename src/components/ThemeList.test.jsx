@@ -151,4 +151,20 @@ describe('ThemeList', () => {
     const items = screen.getAllByRole('listitem')
     expect(items[1]).toHaveTextContent('9 ÷ 3 = 3')
   })
+
+  it('shows counting numbers when provided', () => {
+    useContent.mockReturnValue({
+      weekData: {
+        language: ['apple'],
+        mathWindowStart: 60,
+        mathWindowLength: 5,
+        encyclopedia: [{ title: 'Lion' }],
+        counting: [[2, 4, 6, 8, 10]],
+      },
+    })
+
+    render(<ThemeList />)
+    const items = screen.getAllByRole('listitem')
+    expect(items[1]).toHaveTextContent('2, 4, 6, 8, 10')
+  })
 })
