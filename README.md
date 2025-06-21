@@ -481,23 +481,42 @@ kids match each numeral to a tangible count.
 - Session&nbsp;2 – `28 - 9 = 19` (28 dots, minus 9 dots, 19 dots)
 - Session&nbsp;3 – `43 - 2 = 41` (43 dots, minus 2 dots, 41 dots)
 
-### Term 2 Week 10 Counting in 2’s and 3’s
+### Term 2 Week 10 Subtraction
 
-Tel vinnig met behulp van flitskaarte.
+**Day&nbsp;1**
+- Session&nbsp;1 – `44 - 17 = 27` (44 dots, minus 17 dots, 27 dots)
+- Session&nbsp;2 – `33 - 12 = 21` (33 dots, minus 12 dots, 21 dots)
+- Session&nbsp;3 – `43 - 2 = 41` (43 dots, minus 2 dots, 41 dots)
 
-**Day&nbsp;1** – tel in twee’s: 2, 4, 6, 8, 10
+**Day&nbsp;2**
+- Session&nbsp;1 – `28 - 15 = 13` (28 dots, minus 15 dots, 13 dots)
+- Session&nbsp;2 – `16 - 8 = 8` (16 dots, minus 8 dots, 8 dots)
+- Session&nbsp;3 – `27 - 3 = 24` (27 dots, minus 3 dots, 24 dots)
 
-**Day&nbsp;2** – tel in twee’s: 12, 14, 16, 18, 20
+**Day&nbsp;3**
+- Session&nbsp;1 – `50 - 25 = 25` (50 dots, minus 25 dots, 25 dots)
+- Session&nbsp;2 – `38 - 19 = 19` (38 dots, minus 19 dots, 19 dots)
+- Session&nbsp;3 – `36 - 6 = 30` (36 dots, minus 6 dots, 30 dots)
 
-**Day&nbsp;3** – tel in drie’s: 3, 6, 9, 12, 15
+**Day&nbsp;4**
+- Session&nbsp;1 – `40 - 18 = 22` (40 dots, minus 18 dots, 22 dots)
+- Session&nbsp;2 – `29 - 11 = 18` (29 dots, minus 11 dots, 18 dots)
+- Session&nbsp;3 – `35 - 5 = 30` (35 dots, minus 5 dots, 30 dots)
 
-**Day&nbsp;4** – tel in drie’s: 15, 18, 21, 24, 27, 30
+**Day&nbsp;5**
+- Session&nbsp;1 – `47 - 23 = 24` (47 dots, minus 23 dots, 24 dots)
+- Session&nbsp;2 – `31 - 14 = 17` (31 dots, minus 14 dots, 17 dots)
+- Session&nbsp;3 – `26 - 4 = 22` (26 dots, minus 4 dots, 22 dots)
 
-**Day&nbsp;5** – tel in drie’s: 30, 33, 36, 39, 42, 45, 48
+**Day&nbsp;6**
+- Session&nbsp;1 – `24 - 7 = 17` (24 dots, minus 7 dots, 17 dots)
+- Session&nbsp;2 – `19 - 9 = 10` (19 dots, minus 9 dots, 10 dots)
+- Session&nbsp;3 – `37 - 18 = 19` (37 dots, minus 18 dots, 19 dots)
 
-**Day&nbsp;6** – tel in twee’s: 50, 52, 54, 56, 58, 60
-
-**Day&nbsp;7** – tel in drie’s: 51, 54, 57, 60, 63, 66, 69
+**Day&nbsp;7**
+- Session&nbsp;1 – `30 - 12 = 18` (30 dots, minus 12 dots, 18 dots)
+- Session&nbsp;2 – `28 - 13 = 15` (28 dots, minus 13 dots, 15 dots)
+- Session&nbsp;3 – `22 - 6 = 16` (22 dots, minus 6 dots, 16 dots)
 
 ### Term 3 Week 1 Addition & Subtraction
 
