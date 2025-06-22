@@ -83,5 +83,185 @@
       "fact": "This dog has a ridge of hair along its back.",
       "image": "/images/dog.svg"
     }
+  ],
+  "mathWindowLength": 0,
+  "addition": [
+    [
+      {
+        "a": 4,
+        "b": 3,
+        "c": 2,
+        "sum": 9
+      },
+      null,
+      {
+        "a": 3,
+        "b": 5,
+        "c": 4,
+        "sum": 12
+      }
+    ],
+    [
+      null,
+      {
+        "a": 6,
+        "b": 7,
+        "c": 2,
+        "sum": 15
+      },
+      null
+    ],
+    [
+      {
+        "a": 3,
+        "b": 9,
+        "c": 2,
+        "sum": 14
+      },
+      null,
+      null
+    ],
+    [
+      {
+        "a": 4,
+        "b": 11,
+        "c": 6,
+        "sum": 21
+      },
+      {
+        "a": 30,
+        "b": 10,
+        "c": 10,
+        "sum": 50
+      },
+      {
+        "a": 4,
+        "b": 40,
+        "c": 2,
+        "sum": 46
+      }
+    ],
+    [
+      null,
+      null,
+      null
+    ],
+    [
+      {
+        "a": 7,
+        "b": 6,
+        "c": 8,
+        "sum": 21
+      },
+      null,
+      {
+        "a": 11,
+        "b": 3,
+        "c": 5,
+        "sum": 19
+      }
+    ],
+    [
+      null,
+      {
+        "a": 9,
+        "b": 8,
+        "c": 4,
+        "sum": 21
+      },
+      null
+    ]
+  ],
+  "subtraction": [
+    [
+      null,
+      {
+        "a": 8,
+        "b": 4,
+        "c": 1,
+        "difference": 3
+      },
+      null
+    ],
+    [
+      {
+        "a": 12,
+        "b": 6,
+        "c": 3,
+        "difference": 3
+      },
+      null,
+      {
+        "a": 14,
+        "b": 8,
+        "c": 3,
+        "difference": 3
+      }
+    ],
+    [
+      null,
+      {
+        "a": 15,
+        "b": 5,
+        "c": 2,
+        "difference": 8
+      },
+      {
+        "a": 20,
+        "b": 9,
+        "c": 4,
+        "difference": 7
+      }
+    ],
+    [
+      null,
+      null,
+      null
+    ],
+    [
+      {
+        "a": 22,
+        "b": 12,
+        "c": 5,
+        "difference": 5
+      },
+      {
+        "a": 50,
+        "b": 20,
+        "c": 20,
+        "difference": 10
+      },
+      {
+        "a": 48,
+        "b": 8,
+        "c": 15,
+        "difference": 25
+      }
+    ],
+    [
+      null,
+      {
+        "a": 18,
+        "b": 9,
+        "c": 4,
+        "difference": 5
+      },
+      null
+    ],
+    [
+      {
+        "a": 33,
+        "b": 11,
+        "c": 7,
+        "difference": 15
+      },
+      null,
+      {
+        "a": 45,
+        "b": 30,
+        "c": 5,
+        "difference": 10
+      }
+    ]
   ]
 }
