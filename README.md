@@ -738,6 +738,43 @@ Gebruik flitskaarte; tel of trek vinnig af.
 **Day&nbsp;6** – trek af in twee’s: 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10
 
 **Day&nbsp;7** – trek af in drie’s: 45, 42, 39, 36, 33, 30, 27, 24, 21, 18, 15
+
+### Term 4 Week 2 Addition & Subtraction
+
+**Day&nbsp;1**
+- Session&nbsp;1 – `1 + 2 + 3 = 6`
+- Session&nbsp;2 – `7 - 3 - 1 = 3`
+- Session&nbsp;3 – `2 + 4 + 3 = 9`
+
+**Day&nbsp;2**
+- Session&nbsp;1 – `10 - 5 - 2 = 3`
+- Session&nbsp;2 – `5 + 6 + 1 = 12`
+- Session&nbsp;3 – `12 - 10 - 1 = 1`
+
+**Day&nbsp;3**
+- Session&nbsp;1 – `3 + 10 + 5 = 18`
+- Session&nbsp;2 – `20 + 12 + 4 = 36`
+- Session&nbsp;3 – `9 + 12 + 2 = 23`
+
+**Day&nbsp;4**
+- Session&nbsp;1 – `4 + 3 + 5 = 12`
+- Session&nbsp;2 – `15 - 4 - 6 = 5`
+- Session&nbsp;3 – `8 + 7 + 2 = 17`
+
+**Day&nbsp;5**
+- Session&nbsp;1 – `20 - 10 - 5 = 5`
+- Session&nbsp;2 – `50 - 30 - 8 = 12`
+- Session&nbsp;3 – `44 - 4 - 10 = 30`
+
+**Day&nbsp;6**
+- Session&nbsp;1 – `6 + 9 + 4 = 19`
+- Session&nbsp;2 – `40 - 12 - 8 = 20`
+- Session&nbsp;3 – `11 + 5 + 3 = 19`
+
+**Day&nbsp;7**
+- Session&nbsp;1 – `22 - 11 - 2 = 9`
+- Session&nbsp;2 – `7 + 13 + 6 = 26`
+- Session&nbsp;3 – `30 - 15 - 4 = 11`
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
