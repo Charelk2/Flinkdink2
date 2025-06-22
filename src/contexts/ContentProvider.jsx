@@ -9,7 +9,7 @@ import { fetchWeekData } from '../utils/fetchWeek'
 
 const PROGRESS_VERSION = 1
 const PROGRESS_KEY = 'progress-v1'
-export const TOTAL_WEEKS = 46
+export const TOTAL_WEEKS = 47
 const DEFAULT_PROGRESS = {
   version: PROGRESS_VERSION,
   week: 1,
