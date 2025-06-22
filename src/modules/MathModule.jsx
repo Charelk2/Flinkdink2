@@ -59,9 +59,16 @@ const MathModule = ({
   quotient,
 }) => {
   const numberSlides = createSlides(start, length, shuffleFirstHalf, numbers)
-  const additionSlides = sum ? [sum.a, sum.b, sum.sum] : []
+  const additionSlides = sum
+    ? [sum.a, sum.b, ...(sum.c !== undefined ? [sum.c] : []), sum.sum]
+    : []
   const subtractionSlides = difference
-    ? [difference.a, difference.b, difference.difference]
+    ? [
+        difference.a,
+        difference.b,
+        ...(difference.c !== undefined ? [difference.c] : []),
+        difference.difference,
+      ]
     : []
   const multiplicationSlides = product ? [product.a, product.b, product.product] : []
   const divisionSlides = quotient ? [quotient.a, quotient.b, quotient.quotient] : []
@@ -81,12 +88,15 @@ const MathModule = ({
       />
       {sum && (
         <div className="text-lg font-semibold">
-          {sum.a} + {sum.b} = {sum.sum}
+          {sum.a} + {sum.b}
+          {sum.c !== undefined ? ` + ${sum.c}` : ''} = {sum.sum}
         </div>
       )}
       {difference && (
         <div className="text-lg font-semibold">
-          {difference.a} - {difference.b} = {difference.difference}
+          {difference.a} - {difference.b}
+          {difference.c !== undefined ? ` - ${difference.c}` : ''} ={' '}
+          {difference.difference}
         </div>
       )}
       {product && (

@@ -40,6 +40,22 @@ describe('ThemeList', () => {
     expect(items[1]).toHaveTextContent('1 + 2 = 3')
   })
 
+  it('handles three-number addition in the math item', () => {
+    useContent.mockReturnValue({
+      weekData: {
+        language: ['apple'],
+        mathWindowStart: 5,
+        mathWindowLength: 10,
+        encyclopedia: [{ title: 'Lion' }],
+        addition: [[{ a: 1, b: 2, c: 3, sum: 6 }]],
+      },
+    })
+
+    render(<ThemeList />)
+    const items = screen.getAllByRole('listitem')
+    expect(items[1]).toHaveTextContent('1 + 2 + 3 = 6')
+  })
+
   it('includes first subtraction in the math item when provided', () => {
     useContent.mockReturnValue({
       weekData: {
@@ -54,6 +70,22 @@ describe('ThemeList', () => {
     render(<ThemeList />)
     const items = screen.getAllByRole('listitem')
     expect(items[1]).toHaveTextContent('5 - 2 = 3')
+  })
+
+  it('handles three-number subtraction in the math item', () => {
+    useContent.mockReturnValue({
+      weekData: {
+        language: ['apple'],
+        mathWindowStart: 5,
+        mathWindowLength: 10,
+        encyclopedia: [{ title: 'Lion' }],
+        subtraction: [[{ a: 7, b: 3, c: 1, difference: 3 }]],
+      },
+    })
+
+    render(<ThemeList />)
+    const items = screen.getAllByRole('listitem')
+    expect(items[1]).toHaveTextContent('7 - 3 - 1 = 3')
   })
 
   it('includes first multiplication in the math item when provided', () => {
