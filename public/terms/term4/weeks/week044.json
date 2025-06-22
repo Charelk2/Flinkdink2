@@ -83,5 +83,51 @@
       "fact": "This dog has a ridge of hair along its back.",
       "image": "/images/dog.svg"
     }
+  ],
+  "multiplication": [
+    [
+      { "a": 2, "b": 1, "product": 2 },
+      { "a": 2, "b": 2, "product": 4 },
+      { "a": 2, "b": 3, "product": 6 }
+    ],
+    [
+      { "a": 2, "b": 4, "product": 8 },
+      { "a": 2, "b": 5, "product": 10 },
+      { "a": 2, "b": 6, "product": 12 }
+    ],
+    [
+      { "a": 2, "b": 7, "product": 14 },
+      { "a": 2, "b": 8, "product": 16 },
+      { "a": 2, "b": 9, "product": 18 }
+    ],
+    [],
+    [],
+    [],
+    [
+      { "a": 2, "b": 7, "product": 14 },
+      { "a": 2, "b": 8, "product": 16 },
+      { "a": 2, "b": 9, "product": 18 }
+    ]
+  ],
+  "division": [
+    [],
+    [],
+    [],
+    [
+      { "a": 6, "b": 2, "quotient": 3 },
+      { "a": 4, "b": 2, "quotient": 2 },
+      { "a": 2, "b": 2, "quotient": 1 }
+    ],
+    [
+      { "a": 12, "b": 2, "quotient": 6 },
+      { "a": 10, "b": 2, "quotient": 5 },
+      { "a": 8, "b": 2, "quotient": 4 }
+    ],
+    [
+      { "a": 18, "b": 2, "quotient": 9 },
+      { "a": 16, "b": 2, "quotient": 8 },
+      { "a": 14, "b": 2, "quotient": 7 }
+    ],
+    []
   ]
 }
