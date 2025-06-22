@@ -85,9 +85,9 @@ Each file defines three keys:
 - `mathWindowStart` – first number in the 10-number math window
 - `encyclopedia` – array of fact objects with `id`, `title`, `query`, `fact` and `image`
 
-The application loads weeks 1–46. When adding or removing weeks, update the
+The application loads weeks 1–47. When adding or removing weeks, update the
 `TOTAL_WEEKS` constant in `src/contexts/ContentProvider.jsx`. Completing the
-final week keeps progress locked at week 46 and logs **"Course Finished!"** in
+final week keeps progress locked at week 47 and logs **"Course Finished!"** in
 the browser console.
 
 Weeks are grouped into four terms of twelve weeks each. The helper
@@ -779,7 +779,7 @@ Gebruik flitskaarte; tel of trek vinnig af.
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
 Clicking the settings button now opens a simple **Dashboard** route showing overall progress and reset options.
-Parents can also jump to any of the 46 weeks from the Dashboard. Selecting a week now reveals a simple confirmation panel with **Continue** and **Cancel** buttons. The page automatically scrolls this panel into view so parents don't miss it on long lists. Choosing Continue jumps directly to the session while Cancel keeps you on the Dashboard. If you try to jump outside the available range, the app logs a warning in the browser console.
+Parents can also jump to any of the 47 weeks from the Dashboard. Selecting a week now reveals a simple confirmation panel with **Continue** and **Cancel** buttons. The page automatically scrolls this panel into view so parents don't miss it on long lists. Choosing Continue jumps directly to the session while Cancel keeps you on the Dashboard. If you try to jump outside the available range, the app logs a warning in the browser console.
 When unlocked, the Dashboard now shows a large progress header with your current week, day, session and streak. It reuses the same session dots as the home screen.
 Daily modules are listed in a small table labelled **"Weekly progress"**, where completed cells appear green.
 
