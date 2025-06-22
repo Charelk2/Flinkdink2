@@ -16,12 +16,28 @@ describe('MathModule', () => {
     expect(screen.getByText('1 + 2 = 3')).toBeInTheDocument();
   });
 
+  it('supports three-number addition problems', () => {
+    const sum = { a: 1, b: 2, c: 3, sum: 6 };
+    render(<MathModule start={1} length={2} sum={sum} />);
+    const dots = screen.getAllByTestId('carousel-dot');
+    expect(dots).toHaveLength(6); // 2 number slides + 4 addition slides
+    expect(screen.getByText('1 + 2 + 3 = 6')).toBeInTheDocument();
+  });
+
   it('appends subtraction slides when a difference is provided', () => {
     const diff = { a: 5, b: 2, difference: 3 };
     render(<MathModule start={1} length={2} difference={diff} />);
     const dots = screen.getAllByTestId('carousel-dot');
     expect(dots).toHaveLength(5); // 2 number slides + 3 subtraction slides
     expect(screen.getByText('5 - 2 = 3')).toBeInTheDocument();
+  });
+
+  it('supports three-number subtraction problems', () => {
+    const diff = { a: 7, b: 3, c: 1, difference: 3 };
+    render(<MathModule start={1} length={2} difference={diff} />);
+    const dots = screen.getAllByTestId('carousel-dot');
+    expect(dots).toHaveLength(6); // 2 number slides + 4 subtraction slides
+    expect(screen.getByText('7 - 3 - 1 = 3')).toBeInTheDocument();
   });
 
   it('appends multiplication slides when a product is provided', () => {

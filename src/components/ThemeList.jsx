@@ -15,8 +15,12 @@ const ThemeList = () => {
   const firstCount = weekData.counting?.[0];
 
   let mathText = `${mathStart}–${mathStart + mathLength - 1}`;
-  const sumText = firstSum && `${firstSum.a} + ${firstSum.b} = ${firstSum.sum}`;
-  const diffText = firstDiff && `${firstDiff.a} - ${firstDiff.b} = ${firstDiff.difference}`;
+  const sumText =
+    firstSum &&
+    `${firstSum.a} + ${firstSum.b}${firstSum.c !== undefined ? ` + ${firstSum.c}` : ''} = ${firstSum.sum}`;
+  const diffText =
+    firstDiff &&
+    `${firstDiff.a} - ${firstDiff.b}${firstDiff.c !== undefined ? ` - ${firstDiff.c}` : ''} = ${firstDiff.difference}`;
   const prodText = firstProd && `${firstProd.a} × ${firstProd.b} = ${firstProd.product}`;
   const quotText = firstQuot && `${firstQuot.a} ÷ ${firstQuot.b} = ${firstQuot.quotient}`;
 
