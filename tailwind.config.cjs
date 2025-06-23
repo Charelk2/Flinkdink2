@@ -11,7 +11,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['"Comic Sans MS"', '"Comic Sans"', 'cursive', ...defaultTheme.fontFamily.sans],
+        sans: ['"Comic Sans MS"', '"Comic Sans"', ...defaultTheme.fontFamily.sans],
       },
     },
   },
