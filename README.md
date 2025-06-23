@@ -79,8 +79,7 @@ the API routes, while React components rely on **React Testing Library**.
 - `src/utils/fetchWeek.js` – helper to fetch a week's JSON by number
 - `src/utils/encyclopediaImages.js` – imports encyclopedia images using Vite's glob feature
  - Language words render in a large lowercase font using the `language-word`
-   class. The font size automatically shrinks for long words so everything stays
-   inside the card on small screens.
+   class.
 
 ## Curriculum Files
 
@@ -906,7 +905,7 @@ name remain prominent within the card.
 short rows of seven week buttons with progress info below. The math practice
 screen shows four non-overlapping dots inside a square area roughly 70 % of the
 viewport width. Language slides fill most of the width thanks to the
-`language-word` class, which scales long words down so they never overflow.
+`language-word` class.
 Forms and buttons stretch across the width but remain
 capped at `max-w-xs`. These layouts were verified with browser device emulation to ensure
 no horizontal scrolling occurs.

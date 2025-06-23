@@ -105,28 +105,28 @@ const MathModule = ({
         renderItem={(n) => <DotBoard count={n} />}
       />
       {showCountingText && (
-        <div className="text-lg font-semibold">{countingText}</div>
+        <div className="text-lg font-semibold text-white">{countingText}</div>
       )}
       {sum && (
-        <div className="text-lg font-semibold">
+        <div className="text-lg font-semibold text-white">
           {sum.a} + {sum.b}
           {sum.c !== undefined ? ` + ${sum.c}` : ''} = {sum.sum}
         </div>
       )}
       {difference && (
-        <div className="text-lg font-semibold">
+        <div className="text-lg font-semibold text-white">
           {difference.a} - {difference.b}
           {difference.c !== undefined ? ` - ${difference.c}` : ''} ={' '}
           {difference.difference}
         </div>
       )}
       {product && (
-        <div className="text-lg font-semibold">
+        <div className="text-lg font-semibold text-white">
           {product.a} × {product.b} = {product.product}
         </div>
       )}
       {quotient && (
-        <div className="text-lg font-semibold">
+        <div className="text-lg font-semibold text-white">
           {quotient.a} ÷ {quotient.b} = {quotient.quotient}
         </div>
       )}

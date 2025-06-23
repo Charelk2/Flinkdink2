@@ -104,6 +104,9 @@ const Session = () => {
       <div
         ref={containerRef}
         data-testid="session-container"
+        className="min-h-screen bg-black"
+      >
+      <div
         className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-20"
       >
       <div className="hidden lg:flex justify-end">
@@ -155,6 +158,7 @@ const Session = () => {
           }}
         />
       )}
+      </div>
       </div>
     </>
   );
