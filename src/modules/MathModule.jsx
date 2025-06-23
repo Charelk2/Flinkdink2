@@ -80,12 +80,33 @@ const MathModule = ({
     ...divisionSlides,
   ]
 
+  const showCountingText =
+    !sum && !difference && !product && !quotient && slides.length > 0
+
+  let countingText = ''
+  if (showCountingText) {
+    const seq = Array.isArray(numbers)
+      ? numbers
+      : Array.from({ length }, (_, i) => start + i)
+    const step = seq.length > 1 ? seq[1] - seq[0] : 1
+    const absStep = Math.abs(step)
+    const min = Math.min(...seq)
+    const max = Math.max(...seq)
+    countingText =
+      absStep === 1
+        ? `Count from ${min} to ${max}`
+        : `Count in ${absStep}'s from ${min} to ${max}`
+  }
+
   return (
     <div className="space-y-4 text-center">
       <Carousel
         items={slides}
         renderItem={(n) => <DotBoard count={n} />}
       />
+      {showCountingText && (
+        <div className="text-lg font-semibold">{countingText}</div>
+      )}
       {sum && (
         <div className="text-lg font-semibold">
           {sum.a} + {sum.b}

@@ -96,6 +96,16 @@ describe('MathModule', () => {
     expect(board.contains(counter)).toBe(false);
   });
 
+  it('shows counting text for sequential numbers', () => {
+    render(<MathModule start={1} length={3} />);
+    expect(screen.getByText('Count from 1 to 3')).toBeInTheDocument();
+  });
+
+  it("shows counting text for custom step sequences", () => {
+    render(<MathModule numbers={[2, 4, 6, 8]} />);
+    expect(screen.getByText("Count in 2's from 2 to 8")).toBeInTheDocument();
+  });
+
   describe('createSlides', () => {
     it('returns week one numbers in order', () => {
       expect(createSlides(1, 5, false)).toEqual([1, 2, 3, 4, 5]);

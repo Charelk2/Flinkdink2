@@ -122,6 +122,10 @@ is absolutely positioned in the slide's top-right corner (about 10&nbsp;px) so
 it never shifts when the dot board is centered. The count indicates how many
 dots appear on the current slide. Term&nbsp;1 now introduces numbers gradually:
 
+When only counting numbers are shown, a caption beneath the carousel now
+summarizes the sequence (e.g. "Count in 2's from 2 to 20"). This mirrors the
+addition and subtraction captions used in later weeks.
+
 - **Week&nbsp;1** – numbers 1–5 in order
 - **Week&nbsp;2** – numbers 1–5 shuffled, followed by 6–10
 - **Week&nbsp;3** – numbers 6–10 shuffled, followed by 11–15
