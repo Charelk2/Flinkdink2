@@ -1,17 +1,18 @@
 {
   "language": [
-    "vel",
-    "voet",
-    "kop",
-    "tande",
-    "tong",
-    "hakskeen",
-    "pols",
-    "knie",
-    "tone",
-    "nael"
+    "muisgat",
+    "blompot",
+    "seepbak",
+    "koffiebeker",
+    "woltrui",
+    "braaibak",
+    "kerslig",
+    "kitaarboks",
+    "klipmuur",
+    "skoenveter"
   ],
-  "mathWindowStart": 191,
+  "mathWindowStart": 221,
+  "mathWindowLength": 0,
   "encyclopedia": [
     {
       "id": "afghaanse-hond",
@@ -84,13 +85,50 @@
       "image": "/images/dog.svg"
     }
   ],
-  "counting": [
-    [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
-    [11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31],
-    [3, 6, 9, 12, 15, 18, 21, 24, 27, 30],
-    [4, 8, 12, 16, 20, 24, 28],
-    [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
-    [30, 27, 24, 21, 18, 15, 12, 9, 6, 3],
-    [50, 45, 40, 35, 30, 25, 20, 15, 10, 5]
+  "multiplication": [
+    [
+      { "a": 3, "b": 1, "product": 3 },
+      { "a": 3, "b": 2, "product": 6 },
+      { "a": 3, "b": 3, "product": 9 }
+    ],
+    [
+      { "a": 3, "b": 4, "product": 12 },
+      { "a": 3, "b": 5, "product": 15 },
+      { "a": 3, "b": 6, "product": 18 }
+    ],
+    [
+      { "a": 3, "b": 7, "product": 21 },
+      { "a": 3, "b": 8, "product": 24 },
+      { "a": 3, "b": 9, "product": 27 }
+    ],
+    [],
+    [],
+    [],
+    [
+      { "a": 3, "b": 7, "product": 21 },
+      { "a": 3, "b": 8, "product": 24 },
+      { "a": 3, "b": 9, "product": 27 }
+    ]
+  ],
+  "division": [
+    [],
+    [],
+    [],
+    [
+      { "a": 9, "b": 3, "quotient": 3 },
+      { "a": 6, "b": 3, "quotient": 2 },
+      { "a": 3, "b": 3, "quotient": 1 }
+    ],
+    [
+      { "a": 18, "b": 3, "quotient": 6 },
+      { "a": 15, "b": 3, "quotient": 5 },
+      { "a": 12, "b": 3, "quotient": 4 }
+    ],
+    [
+      { "a": 27, "b": 3, "quotient": 9 },
+      { "a": 24, "b": 3, "quotient": 8 },
+      { "a": 21, "b": 3, "quotient": 7 }
+    ],
+    []
   ]
 }

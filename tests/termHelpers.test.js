@@ -7,9 +7,9 @@ describe('getTermForWeek', () => {
     [11, 2],
     [20, 2],
     [21, 3],
-    [36, 3],
-    [37, 4],
-    [47, 4],
+    [30, 3],
+    [31, 4],
+    [41, 4],
   ])('week %i is in term %i', (week, term) => {
     expect(getTermForWeek(week)).toBe(term);
   });
