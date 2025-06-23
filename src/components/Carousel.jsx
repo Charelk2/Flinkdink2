@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 
 const swipeThreshold = 50
 
-const Carousel = ({ items, renderItem }) => {
+const Carousel = ({ items, renderItem, onIndexChange }) => {
   const [index, setIndex] = useState(0)
   const startX = useRef(0)
 
-  const next = () => setIndex((i) => Math.min(i + 1, items.length - 1))
-  const prev = () => setIndex((i) => Math.max(i - 1, 0))
+  const next = () =>
+    setIndex((i) => Math.min(i + 1, items.length - 1))
+  const prev = () =>
+    setIndex((i) => Math.max(i - 1, 0))
 
   useEffect(() => {
     const handleKey = (e) => {
@@ -31,6 +33,10 @@ const Carousel = ({ items, renderItem }) => {
     if (diff > swipeThreshold) prev()
     else if (diff < -swipeThreshold) next()
   }
+
+  useEffect(() => {
+    if (onIndexChange) onIndexChange(index)
+  }, [index, onIndexChange])
 
   return (
     <div className="space-y-4" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>

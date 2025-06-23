@@ -13,6 +13,7 @@ const EncyclopediaModule = ({ cards }) => {
       })),
     ),
   )
+  const [index, setIndex] = useState(0)
 
   useEffect(() => {
     setItems(
@@ -26,32 +27,35 @@ const EncyclopediaModule = ({ cards }) => {
   }, [cards])
 
   return (
-    <Carousel
-      items={items}
-      renderItem={(card) => {
-        const img =
-          typeof card.image === 'string'
-            ? { avif: card.image, webp: card.image, fallback: card.image }
-            : card.image
+    <div className="space-y-4 text-center">
+      <Carousel
+        items={items}
+        onIndexChange={setIndex}
+        renderItem={(card) => {
+          const img =
+            typeof card.image === 'string'
+              ? { avif: card.image, webp: card.image, fallback: card.image }
+              : card.image
 
-        return (
-          <div className="space-y-2">
-            <picture className="zoom-img">
-              <source type="image/avif" srcSet={img.avif} />
-              <source type="image/webp" srcSet={img.webp} />
-              <img
-                loading="lazy"
-                src={img.fallback}
-                alt={card.title}
-                className="w-full rounded-xl encyclopedia-thumb"
-              />
-            </picture>
-            <h3 className="text-xl font-bold">{card.title}</h3>
-            <p className="text-gray-600">{card.fact}</p>
-          </div>
-        )
-      }}
-    />
+          return (
+            <div className="space-y-2">
+              <picture className="zoom-img">
+                <source type="image/avif" srcSet={img.avif} />
+                <source type="image/webp" srcSet={img.webp} />
+                <img
+                  loading="lazy"
+                  src={img.fallback}
+                  alt={card.title}
+                  className="w-full rounded-xl encyclopedia-thumb"
+                />
+              </picture>
+              <h3 className="text-xl font-bold">{card.title}</h3>
+            </div>
+          )
+        }}
+      />
+      <p className="text-gray-600">{items[index]?.fact}</p>
+    </div>
   )
 }
 

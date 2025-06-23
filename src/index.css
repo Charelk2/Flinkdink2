@@ -109,8 +109,13 @@
 
   /* Keep encyclopedia images consistent regardless of width */
   .encyclopedia-thumb {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+  }
+  @media (min-width: 768px) {
+    .encyclopedia-thumb {
+      aspect-ratio: 16 / 9;
+    }
   }
 
   .zoom-img {
