@@ -790,7 +790,7 @@ Gebruik flitskaarte; tel of trek vinnig af.
 ## Navigation
 
 The application now uses a `NavBar` component on the home screen. It shows a back/home icon, a centered **FlinkDink** title, and a circular settings button. Other screens continue to display the progress header with week, day, and session information.
-The session page also includes a small fullscreen toggle so flashcards can fill the entire screen on phones.
+The session page also includes a small fullscreen toggle so flashcards can fill the entire screen on phones. This now detects vendor-prefixed fullscreen APIs so mobile Safari and older Android browsers can reliably enter and exit fullscreen mode.
 Clicking the settings button now opens a simple **Dashboard** route showing overall progress and reset options.
 Parents can also jump to any of the 41 weeks from the Dashboard. Selecting a week now reveals a simple confirmation panel with **Continue** and **Cancel** buttons. The page automatically scrolls this panel into view so parents don't miss it on long lists. Choosing Continue jumps directly to the session while Cancel keeps you on the Dashboard. If you try to jump outside the available range, the app logs a warning in the browser console.
 When unlocked, the Dashboard now shows a large progress header with your current week, day, session and streak. It reuses the same session dots as the home screen.

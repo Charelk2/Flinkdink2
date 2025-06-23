@@ -78,4 +78,31 @@ describe('Session screen', () => {
     fireEvent.click(screen.getByRole('button', { name: /enter fullscreen/i }))
     expect(requestFullscreen).toHaveBeenCalled()
   })
+
+  it('falls back to vendor-prefixed fullscreen APIs', () => {
+    const webkitRequestFullscreen = jest.fn()
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      weekData: {
+        language: ['one'],
+        mathWindowStart: 1,
+        encyclopedia: [{ image: 'a', title: 'A', fact: 'fact' }],
+      },
+      loading: false,
+      error: null,
+      completeSession: jest.fn(),
+    })
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Session />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+    const container = screen.getByTestId('session-container')
+    container.requestFullscreen = undefined
+    container.webkitRequestFullscreen = webkitRequestFullscreen
+    fireEvent.click(screen.getByRole('button', { name: /enter fullscreen/i }))
+    expect(webkitRequestFullscreen).toHaveBeenCalled()
+  })
 })
