@@ -17,6 +17,8 @@ npm install
 npm run dev
 ```
 
+UI components use the `prop-types` package for runtime prop validation, so make sure this dependency is installed.
+
 This launches a hot-reloading dev server so you can iterate quickly.
 
 Tailwind CSS is processed with `@tailwindcss/postcss`. If you see a build error
