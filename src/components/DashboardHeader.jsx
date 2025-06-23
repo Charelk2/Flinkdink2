@@ -7,12 +7,12 @@ const DashboardHeader = () => {
   const { week, day, session, streak } = progress;
   const term = getTermForWeek(week);
   return (
-    <div className="text-center space-y-2">
+    <div className="text-center space-y-2 white-text-dashboard">
       <h1 className="text-3xl font-bold">
         Term {term} · Week {week} · Day {day} · Session {session}
       </h1>
       <ProgressStrip />
-      <p className="text-lg font-semibold" data-testid="streak">
+      <p className="white-text-dashboard text-lg font-semibold" data-testid="streak">
         Streak: {streak}
       </p>
     </div>

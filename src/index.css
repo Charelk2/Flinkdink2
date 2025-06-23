@@ -106,6 +106,7 @@
   .progress-table td {
     padding: 0.25rem;
     border: 1px solid rgb(209 213 219); /* tailwind gray-300 */
+    color: white
   }
 
   /* Keep encyclopedia images consistent regardless of width */
@@ -151,5 +152,14 @@
   .home-screen .logouttext {
     color: black !important;
   }
+
+  .white-text-dashboard {
+    color: white !important;
+  }
+  
+  .white-text-dashboard * {
+    color: white !important;
+    
+  }  
   
 }
