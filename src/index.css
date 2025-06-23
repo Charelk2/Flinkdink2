@@ -118,6 +118,19 @@
     }
   }
 
+  .math-board {
+    height: 70vw;
+  }
+  @media (min-width: 640px) {
+    .math-board {
+      height: 40vh;
+    }
+  }
+
+  .language-word {
+    font-size: 20vw;
+  }
+
   .zoom-img {
     transition: transform 0.2s;
   }

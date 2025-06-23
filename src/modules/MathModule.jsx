@@ -4,7 +4,7 @@ import { generateDotPositions } from '../utils/randomDots'
 const DotBoard = ({ count }) => {
   const positions = generateDotPositions(count)
   return (
-    <div className="relative w-full h-[60vw] sm:h-[40vh]">
+    <div className="relative w-full math-board">
       <span
         data-testid="dot-count"
         className="absolute top-0 right-0 m-1 text-[10px] text-black"
