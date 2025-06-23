@@ -37,4 +37,16 @@ describe('EncyclopediaModule', () => {
     const img = screen.getByRole('img', { name: 'Lion' })
     expect(img).toHaveAttribute('src', '/assets/encyclopedia/lion.svg')
   })
+
+  it('places the fact text after the progress dots', () => {
+    const cards = [
+      { image: '/images/dog.svg', title: 'Dog', fact: 'Best friend' },
+    ]
+    render(<EncyclopediaModule cards={cards} />)
+    const progress = screen.getByLabelText('carousel-progress')
+    const fact = screen.getByText('Best friend')
+    const order = progress.compareDocumentPosition(fact)
+    expect(order & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(screen.getByRole('heading', { name: 'Dog' })).toBeInTheDocument()
+  })
 });

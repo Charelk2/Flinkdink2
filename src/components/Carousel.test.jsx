@@ -26,4 +26,20 @@ describe('Carousel', () => {
     expect(prevButtons.length).toBeGreaterThan(0)
     expect(nextButtons.length).toBeGreaterThan(0)
   })
+
+  it('invokes onIndexChange when the slide changes', () => {
+    const items = ['a', 'b']
+    const handler = jest.fn()
+    render(
+      <Carousel
+        items={items}
+        renderItem={(i) => <div>{i}</div>}
+        onIndexChange={handler}
+      />,
+    )
+
+    expect(handler).toHaveBeenCalledWith(0)
+    fireEvent.click(screen.getByRole('button', { name: /next/i }))
+    expect(handler).toHaveBeenLastCalledWith(1)
+  })
 })
