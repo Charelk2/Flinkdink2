@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useContent } from '../contexts/ContentProvider'
 import LoadingSkeleton from '../components/LoadingSkeleton'
@@ -7,16 +7,35 @@ import LanguageModule from '../modules/LanguageModule';
 import MathModule from '../modules/MathModule';
 import EncyclopediaModule from '../modules/EncyclopediaModule';
 import ConfettiToast from '../components/ConfettiToast'
+import FullscreenButton from '../components/FullscreenButton'
 
 const Session = () => {
   const navigate = useNavigate()
   const { progress, weekData, loading, error, completeSession } = useContent()
   const [step, setStep] = useState(0)
   const [showToast, setShowToast] = useState(false)
+  const containerRef = useRef(null)
+  const [isFullscreen, setIsFullscreen] = useState(false)
 
   useEffect(() => {
     if (!loading) window.scrollTo(0, 0);
   }, [step, loading]);
+
+  useEffect(() => {
+    const handleChange = () => {
+      setIsFullscreen(!!document.fullscreenElement)
+    }
+    document.addEventListener('fullscreenchange', handleChange)
+    return () => document.removeEventListener('fullscreenchange', handleChange)
+  }, [])
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement && containerRef.current?.requestFullscreen) {
+      containerRef.current.requestFullscreen()
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen()
+    }
+  }
 
   if (loading) {
     return <LoadingSkeleton />
@@ -51,7 +70,17 @@ const Session = () => {
   return (
     <>
       <Header />
-      <div className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-20">
+      <div
+        ref={containerRef}
+        data-testid="session-container"
+        className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-20"
+      >
+      <div className="flex justify-end">
+        <FullscreenButton
+          onClick={toggleFullscreen}
+          isFullscreen={isFullscreen}
+        />
+      </div>
 
       {step === 0 && <LanguageModule words={weekData.language} />}
       {step === titles.indexOf('🔢 Math') && (

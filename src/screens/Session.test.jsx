@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { AuthProvider } from '../contexts/AuthProvider'
 import Session from './Session'
@@ -51,5 +51,31 @@ describe('Session screen', () => {
       </MemoryRouter>,
     )
     expect(screen.getByTestId('app-header')).toBeInTheDocument()
+  })
+
+  it('toggles fullscreen on button press', () => {
+    const requestFullscreen = jest.fn()
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      weekData: {
+        language: ['one'],
+        mathWindowStart: 1,
+        encyclopedia: [{ image: 'a', title: 'A', fact: 'fact' }],
+      },
+      loading: false,
+      error: null,
+      completeSession: jest.fn(),
+    })
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <Session />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+    const container = screen.getByTestId('session-container')
+    container.requestFullscreen = requestFullscreen
+    fireEvent.click(screen.getByRole('button', { name: /enter fullscreen/i }))
+    expect(requestFullscreen).toHaveBeenCalled()
   })
 })
