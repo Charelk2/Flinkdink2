@@ -109,7 +109,7 @@
 
   /* Keep encyclopedia images consistent regardless of width */
   .encyclopedia-thumb {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 3 / 4;
     object-fit: cover;
   }
   @media (min-width: 768px) {

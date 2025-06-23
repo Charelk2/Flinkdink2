@@ -886,13 +886,13 @@ The progress table now uses `table-fixed` so its seven columns fit within a
 360&nbsp;px wide viewport, and the action buttons are arranged in a single-column
 grid that expands to four columns on larger screens.
 Encyclopedia images now use an `.encyclopedia-thumb` class. On small screens
-images are square using `aspect-ratio: 1 / 1` so they fill most of the
-flashcard, while at the `md` breakpoint and above the aspect ratio reverts to
-`16 / 9` to match the 640×360 smart-crop returned by `/api/photos`. A
-`zoom-img` class adds a gentle scale animation on hover starting at the `md`
-breakpoint, leaving touch devices unaffected. Facts are displayed below the
-carousel progress dots similar to the Math module so the image and name remain
-prominent within the card.
+images use a portrait ratio of `aspect-ratio: 3 / 4` so they take up even more
+vertical space within the flashcard. At the `md` breakpoint and above the aspect
+ratio reverts to `16 / 9` to match the 640×360 smart-crop returned by
+`/api/photos`. A `zoom-img` class adds a gentle scale animation on hover starting
+at the `md` breakpoint, leaving touch devices unaffected. Facts are displayed
+below the carousel progress dots similar to the Math module so the image and
+name remain prominent within the card.
 
 Full-screen areas leverage viewport units so layouts adapt to device height.
 The math board scales with the viewport width while carousels always take up at
