@@ -99,16 +99,13 @@ const Session = () => {
   const handlePrev = () => step > 0 && setStep(step - 1);
 
   return (
-    <>
+    <div
+      ref={containerRef}
+      data-testid="session-container"
+      className="bg-black min-h-screen flex flex-col"
+    >
       <Header />
-      <div
-        ref={containerRef}
-        data-testid="session-container"
-        className="min-h-screen bg-black"
-      >
-      <div
-        className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-20"
-      >
+      <div className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-20 flex-grow">
         <div className="flex justify-end">
           <FullscreenButton
             onClick={toggleFullscreen}
@@ -159,8 +156,7 @@ const Session = () => {
         />
       )}
       </div>
-      </div>
-    </>
+    </div>
   );
 };
 
