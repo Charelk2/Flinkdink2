@@ -8,7 +8,7 @@ const LanguageModule = ({ words }) => {
     <Carousel
       items={items}
       renderItem={(word) => (
-        <div className="text-[18vw] font-bold lowercase leading-none">
+        <div className="language-word font-bold lowercase leading-none">
           {word}
         </div>
       )}

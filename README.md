@@ -78,8 +78,8 @@ the API routes, while React components rely on **React Testing Library**.
   `query` field with an English search term used for fetching photos
 - `src/utils/fetchWeek.js` – helper to fetch a week's JSON by number
 - `src/utils/encyclopediaImages.js` – imports encyclopedia images using Vite's glob feature
- - Language words now display in a very large lowercase font so toddlers
-   can easily read them
+ - Language words now display in an even larger lowercase font using a
+   `language-word` class so toddlers can easily read them on phones
 
 ## Curriculum Files
 
@@ -894,18 +894,19 @@ at the `md` breakpoint, leaving touch devices unaffected. Facts are displayed
 below the carousel progress dots similar to the Math module so the image and
 name remain prominent within the card.
 
-Full-screen areas leverage viewport units so layouts adapt to device height.
-The math board scales with the viewport width while carousels always take up at
-least half of the viewport height. Week buttons switch between seven and
-thirteen columns depending on the viewport width. Dots will never overlap
-because positions are regenerated until the minimum eight percent spacing is
-met.
+ Full-screen areas leverage viewport units so layouts adapt to device height.
+ The math board now uses a `.math-board` class so it spans `70vw` on phones and
+ `40vh` on larger screens. Carousels always take up at least half of the
+ viewport height. Week buttons switch between seven and thirteen columns
+ depending on the viewport width. Dots will never overlap because positions are
+ regenerated until the minimum eight percent spacing is met.
 
 **Small screen layout**: On a 360 px wide phone the Dashboard displays two
 short rows of seven week buttons with progress info below. The math practice
-screen shows four non-overlapping dots inside a square area roughly 60 % of the
-viewport width. Forms and buttons stretch across the width but remain capped at
-`max-w-xs`. These layouts were verified with browser device emulation to ensure
+screen shows four non-overlapping dots inside a square area roughly 70 % of the
+viewport width. Language slides fill most of the width thanks to the
+`language-word` class. Forms and buttons stretch across the width but remain
+capped at `max-w-xs`. These layouts were verified with browser device emulation to ensure
 no horizontal scrolling occurs.
 
 ### Build for Android or iOS
