@@ -1,17 +1,17 @@
 {
   "language": [
-    "houtvloer",
-    "veelap",
-    "tandeborsel",
-    "olielamp",
-    "eetlus",
-    "padkaart",
-    "slaapsak",
-    "waterkan",
-    "glyskaal",
-    "vuurhout"
+    "vroeg - laat",
+    "eerste - laaste",
+    "bo - onder",
+    "binne - buite",
+    "lief - kwaad",
+    "somer - winter",
+    "glad - grof",
+    "reg - verkeerd",
+    "sterk - swak",
+    "sag - hard"
   ],
-  "mathWindowStart": 231,
+  "mathWindowStart": 186,
   "mathWindowLength": 0,
   "encyclopedia": [
     {
@@ -85,134 +85,183 @@
       "image": "/images/dog.svg"
     }
   ],
-  "multiplication": [
+  "addition": [
     [
       {
-        "a": 5,
-        "b": 1,
-        "product": 5
-      },
-      {
-        "a": 5,
+        "a": 1,
         "b": 2,
-        "product": 10
+        "c": 3,
+        "sum": 6
       },
+      null,
       {
-        "a": 5,
-        "b": 3,
-        "product": 15
+        "a": 2,
+        "b": 4,
+        "c": 3,
+        "sum": 9
       }
     ],
     [
-      {
-        "a": 5,
-        "b": 4,
-        "product": 20
-      },
-      {
-        "a": 5,
-        "b": 5,
-        "product": 25
-      },
+      null,
       {
         "a": 5,
         "b": 6,
-        "product": 30
-      }
+        "c": 1,
+        "sum": 12
+      },
+      null
     ],
     [
       {
-        "a": 5,
-        "b": 7,
-        "product": 35
-      },
-      {
-        "a": 5,
-        "b": 8,
-        "product": 40
-      },
-      {
-        "a": 5,
-        "b": 9,
-        "product": 45
-      }
-    ],
-    [],
-    [],
-    [],
-    [
-      {
-        "a": 5,
-        "b": 7,
-        "product": 35
-      },
-      {
-        "a": 5,
-        "b": 8,
-        "product": 40
-      },
-      {
-        "a": 5,
-        "b": 9,
-        "product": 45
-      }
-    ]
-  ],
-  "division": [
-    [],
-    [],
-    [],
-    [
-      {
-        "a": 15,
-        "b": 5,
-        "quotient": 3
-      },
-      {
-        "a": 10,
-        "b": 5,
-        "quotient": 2
-      },
-      {
-        "a": 5,
-        "b": 5,
-        "quotient": 1
-      }
-    ],
-    [
-      {
-        "a": 30,
-        "b": 5,
-        "quotient": 6
-      },
-      {
-        "a": 25,
-        "b": 5,
-        "quotient": 5
+        "a": 3,
+        "b": 10,
+        "c": 5,
+        "sum": 18
       },
       {
         "a": 20,
-        "b": 5,
-        "quotient": 4
+        "b": 12,
+        "c": 4,
+        "sum": 36
+      },
+      {
+        "a": 9,
+        "b": 12,
+        "c": 2,
+        "sum": 23
       }
     ],
     [
       {
-        "a": 45,
-        "b": 5,
-        "quotient": 9
+        "a": 4,
+        "b": 3,
+        "c": 5,
+        "sum": 12
       },
+      null,
       {
-        "a": 40,
-        "b": 5,
-        "quotient": 8
-      },
-      {
-        "a": 35,
-        "b": 5,
-        "quotient": 7
+        "a": 8,
+        "b": 7,
+        "c": 2,
+        "sum": 17
       }
     ],
-    []
+    [
+      null,
+      null,
+      null
+    ],
+    [
+      {
+        "a": 6,
+        "b": 9,
+        "c": 4,
+        "sum": 19
+      },
+      null,
+      {
+        "a": 11,
+        "b": 5,
+        "c": 3,
+        "sum": 19
+      }
+    ],
+    [
+      null,
+      {
+        "a": 7,
+        "b": 13,
+        "c": 6,
+        "sum": 26
+      },
+      null
+    ]
+  ],
+  "subtraction": [
+    [
+      null,
+      {
+        "a": 7,
+        "b": 3,
+        "c": 1,
+        "difference": 3
+      },
+      null
+    ],
+    [
+      {
+        "a": 10,
+        "b": 5,
+        "c": 2,
+        "difference": 3
+      },
+      null,
+      {
+        "a": 12,
+        "b": 10,
+        "c": 1,
+        "difference": 1
+      }
+    ],
+    [
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      {
+        "a": 15,
+        "b": 4,
+        "c": 6,
+        "difference": 5
+      },
+      null
+    ],
+    [
+      {
+        "a": 20,
+        "b": 10,
+        "c": 5,
+        "difference": 5
+      },
+      {
+        "a": 50,
+        "b": 30,
+        "c": 8,
+        "difference": 12
+      },
+      {
+        "a": 44,
+        "b": 4,
+        "c": 10,
+        "difference": 30
+      }
+    ],
+    [
+      null,
+      {
+        "a": 40,
+        "b": 12,
+        "c": 8,
+        "difference": 20
+      },
+      null
+    ],
+    [
+      {
+        "a": 22,
+        "b": 11,
+        "c": 2,
+        "difference": 9
+      },
+      null,
+      {
+        "a": 30,
+        "b": 15,
+        "c": 4,
+        "difference": 11
+      }
+    ]
   ]
 }

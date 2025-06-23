@@ -61,9 +61,7 @@ const Dashboard = () => {
 
   const days = Array.from({ length: 7 }, (_, i) => i + 1)
   const modules = ['L', 'M', 'E']
-  const weeks = Array.from({ length: TOTAL_WEEKS }, (_, i) => i + 1).filter(
-    (w) => w !== 35 && w !== 36,
-  )
+  const weeks = Array.from({ length: TOTAL_WEEKS }, (_, i) => i + 1)
 
   const isComplete = (day, modIndex) => {
     if (day < progress.day) return true
