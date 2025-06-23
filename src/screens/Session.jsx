@@ -105,12 +105,21 @@ const Session = () => {
       className="bg-black min-h-screen flex flex-col"
     >
       <Header />
-      <div className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-20 flex-grow">
-        <div className="flex justify-end">
-          <FullscreenButton
-            onClick={toggleFullscreen}
-            isFullscreen={isFullscreen}
-          />
+
+      <div
+        ref={containerRef}
+        data-testid="session-container"
+        className="min-h-screen bg-black"
+      >
+      <div
+        className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-20"
+      >
+      <div className="hidden lg:flex justify-end">
+        <FullscreenButton
+          onClick={toggleFullscreen}
+          isFullscreen={isFullscreen}
+        />
+
       </div>
 
       {step === 0 && <LanguageModule words={weekData.language} />}
