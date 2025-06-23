@@ -52,8 +52,6 @@ const Session = () => {
     <>
       <Header />
       <div className="max-w-md mx-auto px-4 py-8 space-y-6 text-center pt-20">
-        <h1 className="text-2xl font-bold">Week {progress.week} – Session</h1>
-      <h2 className="text-lg text-gray-500">{titles[step]}</h2>
 
       {step === 0 && <LanguageModule words={weekData.language} />}
       {step === titles.indexOf('🔢 Math') && (

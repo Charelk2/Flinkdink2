@@ -34,11 +34,11 @@ describe('Session navigation flow', () => {
     );
 
     // Starts at Language step
-    expect(screen.getByText('📝 Language')).toBeInTheDocument();
+    expect(screen.getByText('one')).toBeInTheDocument();
     fireEvent.click(screen.getAllByRole('button', { name: /next/i })[1]);
-    expect(screen.getByText('🔢 Math')).toBeInTheDocument();
+    expect(screen.getByTestId('dot-count')).toBeInTheDocument();
     fireEvent.click(screen.getAllByRole('button', { name: /next/i })[1]);
-    expect(screen.getByText('🦁 Encyclopedia')).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: 'A' })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /finish session/i }));
     expect(completeSession).toHaveBeenCalled();
     expect(screen.getByText(/great job/i)).toBeInTheDocument();
