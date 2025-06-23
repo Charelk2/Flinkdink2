@@ -54,7 +54,7 @@ const EncyclopediaModule = ({ cards }) => {
           )
         }}
       />
-      <p className="text-gray-600">{items[index]?.fact}</p>
+      <p className="text-white">{items[index]?.fact}</p>
     </div>
   )
 }
