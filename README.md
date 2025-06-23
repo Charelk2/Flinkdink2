@@ -36,8 +36,8 @@ or font families under the `extend` section. The application now sets all text
 to **Comic Sans** via the `fontFamily.sans` configuration. Reusable custom
 classes should be
 placed inside the `@layer components` block in `src/index.css`.
-Placeholder SVG images now embed `font-family="Comic Sans MS, Comic Sans,
-cursive"` so any fallback text also displays in Comic Sans.
+Placeholder SVG images embed `font-family="Comic Sans MS, Comic Sans, sans-serif"`
+so fallback text uses a generic sans-serif font instead of cursive.
 
 Lint the code with ESLint:
 
