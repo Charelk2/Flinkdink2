@@ -90,7 +90,8 @@ The application loads weeks 1–47. When adding or removing weeks, update the
 final week keeps progress locked at week 47 and logs **"Course Finished!"** in
 the browser console.
 
-Weeks are grouped into four terms of twelve weeks each. The helper
+Weeks are grouped into four terms. Term 1 and Term 2 contain ten weeks each,
+Term 3 has twelve weeks, and Term 4 has eleven weeks. The helper
 `getTermForWeek` in `src/utils/termHelpers.js` converts a week number to its
 term, using the `WEEKS_PER_TERM` constant.
 

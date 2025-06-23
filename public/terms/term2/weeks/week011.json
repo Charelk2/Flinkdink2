@@ -1,17 +1,12 @@
 {
   "language": [
-    "Mamma",
-    "Pappa",
-    "Ouma",
-    "Oupa",
-    "Baba",
-    "Dogter",
-    "Seun",
-    "Neef",
-    "Niggie",
-    "Familie"
+    "silwer",
+    "koper",
+    "grys",
+    "pienk",
+    "goud"
   ],
-  "mathWindowStart": 106,
+  "mathWindowStart": 60,
   "mathWindowLength": 0,
   "encyclopedia": [
     {
@@ -85,41 +80,126 @@
       "image": "/images/dog.svg"
     }
   ],
-  "subtraction": [
+  "addition": [
     [
-      { "a": 44, "b": 17, "difference": 27 },
-      { "a": 33, "b": 12, "difference": 21 },
-      { "a": 43, "b": 2, "difference": 41 }
+      {
+        "a": 1,
+        "b": 2,
+        "sum": 3
+      },
+      {
+        "a": 9,
+        "b": 3,
+        "sum": 12
+      },
+      {
+        "a": 4,
+        "b": 3,
+        "sum": 7
+      }
     ],
     [
-      { "a": 28, "b": 15, "difference": 13 },
-      { "a": 16, "b": 8, "difference": 8 },
-      { "a": 27, "b": 3, "difference": 24 }
+      {
+        "a": 2,
+        "b": 3,
+        "sum": 5
+      },
+      {
+        "a": 6,
+        "b": 9,
+        "sum": 15
+      },
+      {
+        "a": 4,
+        "b": 10,
+        "sum": 14
+      }
     ],
     [
-      { "a": 50, "b": 25, "difference": 25 },
-      { "a": 38, "b": 19, "difference": 19 },
-      { "a": 36, "b": 6, "difference": 30 }
+      {
+        "a": 8,
+        "b": 9,
+        "sum": 17
+      },
+      {
+        "a": 19,
+        "b": 1,
+        "sum": 20
+      },
+      {
+        "a": 7,
+        "b": 4,
+        "sum": 11
+      }
     ],
     [
-      { "a": 40, "b": 18, "difference": 22 },
-      { "a": 29, "b": 11, "difference": 18 },
-      { "a": 35, "b": 5, "difference": 30 }
+      {
+        "a": 14,
+        "b": 5,
+        "sum": 19
+      },
+      {
+        "a": 4,
+        "b": 2,
+        "sum": 6
+      },
+      {
+        "a": 9,
+        "b": 9,
+        "sum": 18
+      }
     ],
     [
-      { "a": 47, "b": 23, "difference": 24 },
-      { "a": 31, "b": 14, "difference": 17 },
-      { "a": 26, "b": 4, "difference": 22 }
+      {
+        "a": 3,
+        "b": 4,
+        "sum": 7
+      },
+      {
+        "a": 5,
+        "b": 5,
+        "sum": 10
+      },
+      {
+        "a": 8,
+        "b": 1,
+        "sum": 9
+      }
     ],
     [
-      { "a": 24, "b": 7, "difference": 17 },
-      { "a": 19, "b": 9, "difference": 10 },
-      { "a": 37, "b": 18, "difference": 19 }
+      {
+        "a": 7,
+        "b": 6,
+        "sum": 13
+      },
+      {
+        "a": 3,
+        "b": 3,
+        "sum": 6
+      },
+      {
+        "a": 15,
+        "b": 4,
+        "sum": 19
+      }
     ],
     [
-      { "a": 30, "b": 12, "difference": 18 },
-      { "a": 28, "b": 13, "difference": 15 },
-      { "a": 22, "b": 6, "difference": 16 }
+      {
+        "a": 10,
+        "b": 10,
+        "sum": 20
+      },
+      {
+        "a": 8,
+        "b": 5,
+        "sum": 13
+      },
+      {
+        "a": 6,
+        "b": 9,
+        "sum": 15
+      }
     ]
   ]
 }
+
