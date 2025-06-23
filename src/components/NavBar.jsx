@@ -9,7 +9,7 @@ const NavBar = () => {
   const handleSettings = () => navigate('/dashboard');
   const common = 'w-full bg-gray-50 shadow-sm px-6 py-4 flex items-center justify-between';
   const authButton = token ? (
-    <button type="button" onClick={logout} className="text-sm underline ml-2">
+    <button type="button" onClick={logout} className="logouttext text-sm text-black underline ml-2">
       Logout
     </button>
   ) : (
