@@ -1,17 +1,19 @@
 {
   "language": [
-    "waaier",
+    "mat",
+    "bed",
+    "dak",
+    "kas",
+    "lig",
+    "bad",
+    "mes",
+    "vurk",
+    "lepel",
     "stoel",
-    "braai",
-    "matjie",
-    "kalender",
-    "tang",
-    "doek",
-    "takkie",
-    "bel",
-    "stof"
+    "tafel",
+    "ketel"
   ],
-  "mathWindowStart": 156,
+  "mathWindowStart": 121,
   "mathWindowLength": 0,
   "encyclopedia": [
     {
@@ -85,41 +87,162 @@
       "image": "/images/dog.svg"
     }
   ],
-  "division": [
+  "addition": [
     [
-      { "a": 7, "b": 1, "quotient": 7 },
-      { "a": 24, "b": 12, "quotient": 2 },
-      { "a": 33, "b": 11, "quotient": 3 }
+      null,
+      {
+        "a": 4,
+        "b": 37,
+        "sum": 41
+      },
+      null
     ],
     [
-      { "a": 32, "b": 8, "quotient": 4 },
-      { "a": 48, "b": 12, "quotient": 4 },
-      { "a": 42, "b": 14, "quotient": 3 }
+      {
+        "a": 42,
+        "b": 3,
+        "sum": 45
+      },
+      null,
+      {
+        "a": 23,
+        "b": 6,
+        "sum": 29
+      }
     ],
     [
-      { "a": 39, "b": 13, "quotient": 3 },
-      { "a": 48, "b": 16, "quotient": 3 },
-      { "a": 30, "b": 15, "quotient": 2 }
+      null,
+      {
+        "a": 16,
+        "b": 8,
+        "sum": 24
+      },
+      null
     ],
     [
-      { "a": 5, "b": 5, "quotient": 1 },
-      { "a": 32, "b": 16, "quotient": 2 },
-      { "a": 34, "b": 17, "quotient": 2 }
+      {
+        "a": 27,
+        "b": 18,
+        "sum": 45
+      },
+      {
+        "a": 40,
+        "b": 8,
+        "sum": 48
+      },
+      {
+        "a": 14,
+        "b": 0,
+        "sum": 14
+      }
     ],
     [
-      { "a": 10, "b": 2, "quotient": 5 },
-      { "a": 22, "b": 2, "quotient": 11 },
-      { "a": 10, "b": 1, "quotient": 10 }
+      null,
+      null,
+      null
     ],
     [
-      { "a": 45, "b": 9, "quotient": 5 },
-      { "a": 56, "b": 8, "quotient": 7 },
-      { "a": 96, "b": 12, "quotient": 8 }
+      {
+        "a": 31,
+        "b": 6,
+        "sum": 37
+      },
+      null,
+      {
+        "a": 22,
+        "b": 5,
+        "sum": 27
+      }
     ],
     [
-      { "a": 60, "b": 15, "quotient": 4 },
-      { "a": 84, "b": 14, "quotient": 6 },
-      { "a": 72, "b": 18, "quotient": 4 }
+      null,
+      {
+        "a": 12,
+        "b": 17,
+        "sum": 29
+      },
+      null
+    ]
+  ],
+  "subtraction": [
+    [
+      {
+        "a": 25,
+        "b": 9,
+        "difference": 16
+      },
+      null,
+      {
+        "a": 25,
+        "b": 8,
+        "difference": 17
+      }
+    ],
+    [
+      null,
+      {
+        "a": 47,
+        "b": 18,
+        "difference": 29
+      },
+      null
+    ],
+    [
+      {
+        "a": 49,
+        "b": 11,
+        "difference": 38
+      },
+      null,
+      {
+        "a": 35,
+        "b": 26,
+        "difference": 9
+      }
+    ],
+    [
+      null,
+      null,
+      null
+    ],
+    [
+      {
+        "a": 24,
+        "b": 19,
+        "difference": 5
+      },
+      {
+        "a": 27,
+        "b": 16,
+        "difference": 11
+      },
+      {
+        "a": 34,
+        "b": 6,
+        "difference": 28
+      }
+    ],
+    [
+      null,
+      {
+        "a": 50,
+        "b": 25,
+        "difference": 25
+      },
+      null
+    ],
+    [
+      {
+        "a": 45,
+        "b": 15,
+        "difference": 30
+      },
+      null,
+      {
+        "a": 33,
+        "b": 14,
+        "difference": 19
+      }
     ]
   ]
 }

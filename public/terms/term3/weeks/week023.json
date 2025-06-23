@@ -1,17 +1,18 @@
 {
   "language": [
-    "Mamma",
-    "Pappa",
-    "Ouma",
-    "Oupa",
-    "Baba",
-    "Dogter",
-    "Seun",
-    "Neef",
-    "Niggie",
-    "Familie"
+    "kaggel",
+    "grasperk",
+    "stoof",
+    "kussing",
+    "lamp",
+    "stort",
+    "handdoek",
+    "deur",
+    "wasbak",
+    "sleutel"
   ],
-  "mathWindowStart": 171,
+  "mathWindowStart": 131,
+  "mathWindowLength": 0,
   "encyclopedia": [
     {
       "id": "afghaanse-hond",
@@ -83,5 +84,42 @@
       "fact": "This dog has a ridge of hair along its back.",
       "image": "/images/dog.svg"
     }
+  ],
+  "multiplication": [
+    [
+      { "a": 6, "b": 3, "product": 18 },
+      { "a": 10, "b": 5, "product": 50 },
+      { "a": 2, "b": 3, "product": 6 }
+    ],
+    [
+      { "a": 8, "b": 4, "product": 32 },
+      { "a": 3, "b": 4, "product": 12 },
+      { "a": 8, "b": 5, "product": 40 }
+    ],
+    [
+      { "a": 9, "b": 3, "product": 27 },
+      { "a": 7, "b": 7, "product": 49 },
+      { "a": 7, "b": 6, "product": 42 }
+    ],
+    [
+      { "a": 4, "b": 7, "product": 28 },
+      { "a": 1, "b": 4, "product": 4 },
+      { "a": 3, "b": 7, "product": 21 }
+    ],
+    [
+      { "a": 6, "b": 6, "product": 36 },
+      { "a": 4, "b": 8, "product": 32 },
+      { "a": 5, "b": 5, "product": 25 }
+    ],
+    [
+      { "a": 2, "b": 8, "product": 16 },
+      { "a": 9, "b": 4, "product": 36 },
+      { "a": 6, "b": 5, "product": 30 }
+    ],
+    [
+      { "a": 11, "b": 2, "product": 22 },
+      { "a": 4, "b": 9, "product": 36 },
+      { "a": 6, "b": 7, "product": 42 }
+    ]
   ]
 }

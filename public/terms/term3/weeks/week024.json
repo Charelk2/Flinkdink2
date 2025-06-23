@@ -1,17 +1,18 @@
 {
   "language": [
-    "hamer",
-    "saag",
-    "boor",
-    "spykers",
-    "skroef",
-    "maatband",
-    "waterpas",
-    "pakkie",
-    "boks",
-    "toue"
+    "stoep",
+    "tuin",
+    "heining",
+    "venster",
+    "rekenaar",
+    "kombers",
+    "medisyne",
+    "tapyt",
+    "koppie",
+    "piering"
   ],
-  "mathWindowStart": 166,
+  "mathWindowStart": 136,
+  "mathWindowLength": 0,
   "encyclopedia": [
     {
       "id": "afghaanse-hond",
@@ -81,16 +82,44 @@
       "title": "Rhodesiese Rifrughond",
       "query": "Rhodesian Ridgeback",
       "fact": "This dog has a ridge of hair along its back.",
-      "image": "/images/dog.svg"
+    "image": "/images/dog.svg"
     }
   ],
-  "counting": [
-    [2, 4, 6, 8, 10],
-    [12, 14, 16, 18, 20],
-    [3, 6, 9, 12, 15],
-    [15, 18, 21, 24, 27, 30],
-    [30, 33, 36, 39, 42, 45, 48],
-    [50, 52, 54, 56, 58, 60],
-    [51, 54, 57, 60, 63, 66, 69]
+  "multiplication": [
+    [
+      { "a": 7, "b": 3, "product": 21 },
+      { "a": 1, "b": 8, "product": 8 },
+      { "a": 5, "b": 4, "product": 20 }
+    ],
+    [
+      { "a": 9, "b": 2, "product": 18 },
+      { "a": 2, "b": 7, "product": 14 },
+      { "a": 6, "b": 5, "product": 30 }
+    ],
+    [
+      { "a": 11, "b": 2, "product": 22 },
+      { "a": 4, "b": 3, "product": 12 },
+      { "a": 7, "b": 7, "product": 49 }
+    ],
+    [
+      { "a": 20, "b": 2, "product": 40 },
+      { "a": 13, "b": 3, "product": 39 },
+      { "a": 7, "b": 2, "product": 14 }
+    ],
+    [
+      { "a": 2, "b": 5, "product": 10 },
+      { "a": 11, "b": 4, "product": 44 },
+      { "a": 4, "b": 6, "product": 24 }
+    ],
+    [
+      { "a": 3, "b": 9, "product": 27 },
+      { "a": 8, "b": 2, "product": 16 },
+      { "a": 12, "b": 2, "product": 24 }
+    ],
+    [
+      { "a": 15, "b": 2, "product": 30 },
+      { "a": 4, "b": 7, "product": 28 },
+      { "a": 6, "b": 3, "product": 18 }
+    ]
   ]
 }
