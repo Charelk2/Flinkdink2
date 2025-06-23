@@ -165,6 +165,7 @@ const Session = () => {
         />
       )}
       </div>
+      </div>
     </div>
   );
 };
