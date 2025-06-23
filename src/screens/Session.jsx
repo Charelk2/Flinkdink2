@@ -23,17 +23,48 @@ const Session = () => {
 
   useEffect(() => {
     const handleChange = () => {
-      setIsFullscreen(!!document.fullscreenElement)
+      const el =
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement
+      setIsFullscreen(!!el)
     }
+
     document.addEventListener('fullscreenchange', handleChange)
-    return () => document.removeEventListener('fullscreenchange', handleChange)
+    document.addEventListener('webkitfullscreenchange', handleChange)
+    document.addEventListener('mozfullscreenchange', handleChange)
+    document.addEventListener('MSFullscreenChange', handleChange)
+    return () => {
+      document.removeEventListener('fullscreenchange', handleChange)
+      document.removeEventListener('webkitfullscreenchange', handleChange)
+      document.removeEventListener('mozfullscreenchange', handleChange)
+      document.removeEventListener('MSFullscreenChange', handleChange)
+    }
   }, [])
 
   const toggleFullscreen = () => {
-    if (!document.fullscreenElement && containerRef.current?.requestFullscreen) {
-      containerRef.current.requestFullscreen()
-    } else if (document.exitFullscreen) {
-      document.exitFullscreen()
+    const el = containerRef.current || document.documentElement
+    const isFs =
+      document.fullscreenElement ||
+      document.webkitFullscreenElement ||
+      document.mozFullScreenElement ||
+      document.msFullscreenElement
+
+    if (!isFs) {
+      const requestFn =
+        el.requestFullscreen ||
+        el.webkitRequestFullscreen ||
+        el.mozRequestFullScreen ||
+        el.msRequestFullscreen
+      if (requestFn) requestFn.call(el)
+    } else {
+      const exitFn =
+        document.exitFullscreen ||
+        document.webkitExitFullscreen ||
+        document.mozCancelFullScreen ||
+        document.msExitFullscreen
+      if (exitFn) exitFn.call(document)
     }
   }
 
