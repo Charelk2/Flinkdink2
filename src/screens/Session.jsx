@@ -99,8 +99,13 @@ const Session = () => {
   const handlePrev = () => step > 0 && setStep(step - 1);
 
   return (
-    <>
+    <div
+      ref={containerRef}
+      data-testid="session-container"
+      className="bg-black min-h-screen flex flex-col"
+    >
       <Header />
+
       <div
         ref={containerRef}
         data-testid="session-container"
@@ -114,6 +119,7 @@ const Session = () => {
           onClick={toggleFullscreen}
           isFullscreen={isFullscreen}
         />
+
       </div>
 
       {step === 0 && <LanguageModule words={weekData.language} />}
@@ -159,8 +165,7 @@ const Session = () => {
         />
       )}
       </div>
-      </div>
-    </>
+    </div>
   );
 };
 
