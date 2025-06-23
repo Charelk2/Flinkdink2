@@ -1,17 +1,17 @@
 {
   "language": [
-    "kaggel",
-    "grasperk",
-    "stoof",
-    "kussing",
-    "lamp",
-    "stort",
-    "handdoek",
-    "deur",
-    "wasbak",
-    "sleutel"
+    "flits",
+    "wekker",
+    "kabel",
+    "prop",
+    "skêr",
+    "gom",
+    "liniaal",
+    "potlood",
+    "gloeilamp",
+    "notaboek"
   ],
-  "mathWindowStart": 131,
+  "mathWindowStart": 151,
   "mathWindowLength": 0,
   "encyclopedia": [
     {
@@ -85,41 +85,41 @@
       "image": "/images/dog.svg"
     }
   ],
-  "multiplication": [
+  "division": [
     [
-      { "a": 6, "b": 3, "product": 18 },
-      { "a": 10, "b": 5, "product": 50 },
-      { "a": 2, "b": 3, "product": 6 }
+      { "a": 48, "b": 8, "quotient": 6 },
+      { "a": 48, "b": 6, "quotient": 8 },
+      { "a": 20, "b": 5, "quotient": 4 }
     ],
     [
-      { "a": 8, "b": 4, "product": 32 },
-      { "a": 3, "b": 4, "product": 12 },
-      { "a": 8, "b": 5, "product": 40 }
+      { "a": 20, "b": 2, "quotient": 10 },
+      { "a": 14, "b": 2, "quotient": 7 },
+      { "a": 24, "b": 4, "quotient": 6 }
     ],
     [
-      { "a": 9, "b": 3, "product": 27 },
-      { "a": 7, "b": 7, "product": 49 },
-      { "a": 7, "b": 6, "product": 42 }
+      { "a": 27, "b": 3, "quotient": 9 },
+      { "a": 30, "b": 6, "quotient": 5 },
+      { "a": 40, "b": 5, "quotient": 8 }
     ],
     [
-      { "a": 4, "b": 7, "product": 28 },
-      { "a": 1, "b": 4, "product": 4 },
-      { "a": 3, "b": 7, "product": 21 }
+      { "a": 32, "b": 4, "quotient": 8 },
+      { "a": 40, "b": 8, "quotient": 5 },
+      { "a": 50, "b": 2, "quotient": 25 }
     ],
     [
-      { "a": 6, "b": 6, "product": 36 },
-      { "a": 4, "b": 8, "product": 32 },
-      { "a": 5, "b": 5, "product": 25 }
+      { "a": 6, "b": 2, "quotient": 3 },
+      { "a": 18, "b": 3, "quotient": 6 },
+      { "a": 44, "b": 11, "quotient": 4 }
     ],
     [
-      { "a": 2, "b": 8, "product": 16 },
-      { "a": 9, "b": 4, "product": 36 },
-      { "a": 6, "b": 5, "product": 30 }
+      { "a": 72, "b": 8, "quotient": 9 },
+      { "a": 36, "b": 9, "quotient": 4 },
+      { "a": 54, "b": 6, "quotient": 9 }
     ],
     [
-      { "a": 11, "b": 2, "product": 22 },
-      { "a": 4, "b": 9, "product": 36 },
-      { "a": 6, "b": 7, "product": 42 }
+      { "a": 66, "b": 3, "quotient": 22 },
+      { "a": 81, "b": 9, "quotient": 9 },
+      { "a": 42, "b": 6, "quotient": 7 }
     ]
   ]
 }
