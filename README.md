@@ -115,6 +115,11 @@ context exposes a `useProfiles` hook that returns the list of profiles, the
 currently selected profile and helper functions to create, edit, delete and
 select profiles.
 
+When no profiles exist, the **OnboardingHome** screen prompts parents to create
+a profile. The form collects the child's name, date of birth and an optional
+emoji avatar. Submitting the form saves the profile via `ProfileProvider` and
+redirects to the kid selection page.
+
 ## Home Screen
 
 The top of the page includes a sticky `NavBar` with a centered **FlinkDink**
