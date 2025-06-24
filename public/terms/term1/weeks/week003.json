@@ -14,74 +14,74 @@
   "mathWindowStart": 6,
   "encyclopedia": [
     {
-      "id": "afghaanse-hond",
-      "title": "Afgaanse hond",
-      "query": "Afghan hound",
-      "fact": "This hound has long, silky hair.",
-      "image": "/images/dog.svg"
+      "id": "swartkorhaan",
+      "title": "Swartkorhaan",
+      "query": "Black korhaan",
+      "fact": "A ground-dwelling bird known for its striking black and white plumage.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "goudkleurige-apporteerhond",
-      "title": "Goudkleurige Apporteerhond",
-      "query": "Golden Retriever",
-      "fact": "This retriever loves to fetch.",
-      "image": "/images/dog.svg"
+      "id": "swartkopreier",
+      "title": "Swartkopreier",
+      "query": "Black-headed heron",
+      "fact": "Tall wading bird often seen stalking in wetlands.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "dalmatiese-hond",
-      "title": "Dalmatiese hond",
-      "query": "Dalmatian",
-      "fact": "Known for its white coat with black spots.",
-      "image": "/images/dog.svg"
+      "id": "blouvalk",
+      "title": "Blouvalk",
+      "query": "Pale chanting goshawk",
+      "fact": "This raptor hunts from perches in open areas.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "dashond",
-      "title": "Dashond",
-      "query": "Dachshund",
-      "fact": "This breed has a long body and short legs.",
-      "image": "/images/dog.svg"
+      "id": "bloukraanvoel",
+      "title": "Bloukraanvoël",
+      "query": "Blue crane",
+      "fact": "South Africa's graceful national bird.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "franse-dashond",
-      "title": "Franse Dashond",
-      "query": "Basset Hound",
-      "fact": "A playful companion from France.",
-      "image": "/images/dog.svg"
+      "id": "bruinvalk",
+      "title": "Bruinvalk",
+      "query": "Brown hawk",
+      "fact": "Medium-sized bird of prey with brown plumage.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "jagwindhond",
-      "title": "Jagwindhond",
-      "query": "greyhound",
-      "fact": "This sighthound can run very fast.",
-      "image": "/images/dog.svg"
+      "id": "tortelduif",
+      "title": "Tortelduif",
+      "query": "Turtle dove",
+      "fact": "Small dove famous for its gentle call.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "bulhond",
-      "title": "Bulhond",
-      "query": "Bulldog",
-      "fact": "Bulldogs have a distinctive wrinkled face.",
-      "image": "/images/dog.svg"
+      "id": "bosluisvoel",
+      "title": "Bosluisvoël",
+      "query": "Oxpecker",
+      "fact": "Feeds on ticks found on large mammals.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "engelse-patryshond",
-      "title": "Engelse Patryshond",
-      "query": "English pointer",
-      "fact": "English Pointers excel at bird hunting.",
-      "image": "/images/dog.svg"
+      "id": "kiewiet",
+      "title": "Kiewiet",
+      "query": "Lapwing",
+      "fact": "Ground-nesting bird known for its loud alarm calls.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "bloedhond",
-      "title": "Bloedhond",
-      "query": "Bloodhound",
-      "fact": "Bloodhounds have an exceptional sense of smell.",
-      "image": "/images/dog.svg"
+      "id": "europese-byvreter",
+      "title": "Europese byvreter",
+      "query": "European bee-eater",
+      "fact": "Colorful bird that catches insects in flight.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "rhodesiese-rifrughond",
-      "title": "Rhodesiese Rifrughond",
-      "query": "Rhodesian Ridgeback",
-      "fact": "This dog has a ridge of hair along its back.",
-      "image": "/images/dog.svg"
+      "id": "europese-swawel",
+      "title": "Europese swawel",
+      "query": "European swallow",
+      "fact": "Migratory swallow that nests under roofs.",
+      "image": "/images/placeholder.png"
     }
   ],
   "mathWindowLength": 10,
