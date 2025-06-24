@@ -1,13 +1,15 @@
 let fetchCleanPhoto
+let clearCache
 
 beforeAll(async () => {
-  ;({ default: fetchCleanPhoto } = await import('../utils/fetchCleanPhoto.js'))
+  ;({ default: fetchCleanPhoto, clearCache } = await import('../utils/fetchCleanPhoto.js'))
 })
 
 describe('fetchCleanPhoto', () => {
   afterEach(() => {
     jest.restoreAllMocks()
     delete global.fetch
+    clearCache()
   })
 
   test('returns first result', async () => {

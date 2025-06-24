@@ -940,6 +940,9 @@ npx cap open android
 npx cap open ios
 ```
 
+Additional steps for preparing the native release are tracked in
+[`tasks/native-launch-checklist.md`](tasks/native-launch-checklist.md).
+
 From there you can build and publish the app to the Play Store or App Store. For
 release builds remember to configure signing keys:
 

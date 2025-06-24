@@ -2,6 +2,7 @@
  * @jest-environment node
  */
 import request from 'supertest';
+import { clearCache } from '../utils/fetchCleanPhoto.js';
 
 let app;
 beforeAll(async () => {
@@ -58,6 +59,7 @@ describe('photo endpoint', () => {
 
   afterEach(() => {
     jest.restoreAllMocks();
+    clearCache();
   });
 
   test('returns photo URLs on success', async () => {
