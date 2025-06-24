@@ -120,6 +120,14 @@ a profile. The form collects the child's name, date of birth and an optional
 emoji avatar. Submitting the form saves the profile via `ProfileProvider` and
 redirects to the kid selection page.
 
+### Kid Selector
+
+Saved profiles appear in a responsive grid rendered by the **KidSelector**
+component. Each card shows the child's avatar emoji, name and calculated age.
+Tapping a card selects that profile and navigates to the learning hub. Cards
+include ✏️ and 🗑️ buttons for editing or deleting a profile. A final "➕ Add
+Another Child" card links back to the onboarding form.
+
 ## Home Screen
 
 The top of the page includes a sticky `NavBar` with a centered **FlinkDink**
