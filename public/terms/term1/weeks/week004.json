@@ -14,74 +14,67 @@
   "mathWindowStart": 11,
   "encyclopedia": [
     {
-      "id": "afghaanse-hond",
-      "title": "Afgaanse hond",
-      "query": "Afghan hound",
-      "fact": "This hound has long, silky hair.",
-      "image": "/images/dog.svg"
+      "id": "graafmasjien",
+      "title": "Graafmasjien",
+      "query": "Excavator",
+      "fact": "A powerful machine used for digging.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "goudkleurige-apporteerhond",
-      "title": "Goudkleurige Apporteerhond",
-      "query": "Golden Retriever",
-      "fact": "This retriever loves to fetch.",
-      "image": "/images/dog.svg"
+      "id": "trekker",
+      "title": "Trekker",
+      "query": "Tractor",
+      "fact": "Tractors help pull heavy loads.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "dalmatiese-hond",
-      "title": "Dalmatiese hond",
-      "query": "Dalmatian",
-      "fact": "Known for its white coat with black spots.",
-      "image": "/images/dog.svg"
+      "id": "huiskraan",
+      "title": "Huiskraan",
+      "query": "Crane",
+      "fact": "Used to lift heavy objects on site.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "dashond",
-      "title": "Dashond",
-      "query": "Dachshund",
-      "fact": "This breed has a long body and short legs.",
-      "image": "/images/dog.svg"
+      "id": "vullistrok",
+      "title": "Vullistrok",
+      "query": "Garbage truck",
+      "fact": "Truck that collects waste.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "franse-dashond",
-      "title": "Franse Dashond",
-      "query": "Basset Hound",
-      "fact": "A playful companion from France.",
-      "image": "/images/dog.svg"
+      "id": "padroller",
+      "title": "Padroller",
+      "query": "Road roller",
+      "fact": "Heavy vehicle that compacts road surfaces.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "jagwindhond",
-      "title": "Jagwindhond",
-      "query": "greyhound",
-      "fact": "This sighthound can run very fast.",
-      "image": "/images/dog.svg"
+      "id": "grader",
+      "title": "Grader",
+      "query": "Grader",
+      "fact": "Machine that levels soil or roads.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "bulhond",
-      "title": "Bulhond",
-      "query": "Bulldog",
-      "fact": "Bulldogs have a distinctive wrinkled face.",
-      "image": "/images/dog.svg"
+      "id": "forklift",
+      "title": "Forklift",
+      "query": "Forklift",
+      "fact": "Used in warehouses to move pallets.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "engelse-patryshond",
-      "title": "Engelse Patryshond",
-      "query": "English pointer",
-      "fact": "English Pointers excel at bird hunting.",
-      "image": "/images/dog.svg"
+      "id": "bulldozer",
+      "title": "Bulldozer",
+      "query": "Bulldozer",
+      "fact": "Large machine with a blade for pushing earth.",
+      "image": "/images/placeholder.png"
     },
     {
-      "id": "bloedhond",
-      "title": "Bloedhond",
-      "query": "Bloodhound",
-      "fact": "Bloodhounds have an exceptional sense of smell.",
-      "image": "/images/dog.svg"
-    },
-    {
-      "id": "rhodesiese-rifrughond",
-      "title": "Rhodesiese Rifrughond",
-      "query": "Rhodesian Ridgeback",
-      "fact": "This dog has a ridge of hair along its back.",
-      "image": "/images/dog.svg"
+      "id": "sementmenger",
+      "title": "Sementmenger",
+      "query": "Cement mixer",
+      "fact": "Mixes cement for building.",
+      "image": "/images/placeholder.png"
     }
   ],
   "mathWindowLength": 10,
