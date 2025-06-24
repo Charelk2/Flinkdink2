@@ -75,7 +75,14 @@
       "query": "Cement mixer",
       "fact": "Mixes cement for building.",
       "image": "/images/placeholder.png"
-    }
+    },
+    {
+      "id": "stroper",
+      "title": "Stroper",
+      "query": "Harvester",
+      "fact": "Machine that harvests crops.",
+      "image": "/images/placeholder.png"
+    },
   ],
   "mathWindowLength": 10,
   "mathShuffleFirstHalf": true
