@@ -14,45 +14,17 @@
   "mathWindowStart": 41,
   "encyclopedia": [
     {
-      "id": "afghaanse-hond",
-      "title": "Afgaanse hond",
-      "query": "Afghan hound",
-      "fact": "This hound has long, silky hair.",
-      "image": "/images/dog.svg"
-    },
-    {
-      "id": "goudkleurige-apporteerhond",
-      "title": "Goudkleurige Apporteerhond",
-      "query": "Golden Retriever",
-      "fact": "This retriever loves to fetch.",
-      "image": "/images/dog.svg"
-    },
-    {
-      "id": "dalmatiese-hond",
-      "title": "Dalmatiese hond",
+      "id": "dalmation",
+      "title": "Dalmation",
       "query": "Dalmatian",
-      "fact": "Known for its white coat with black spots.",
+      "fact": "A spotted working dog.",
       "image": "/images/dog.svg"
     },
     {
-      "id": "dashond",
-      "title": "Dashond",
+      "id": "worshond",
+      "title": "Worshond",
       "query": "Dachshund",
-      "fact": "This breed has a long body and short legs.",
-      "image": "/images/dog.svg"
-    },
-    {
-      "id": "franse-dashond",
-      "title": "Franse Dashond",
-      "query": "Basset Hound",
-      "fact": "A playful companion from France.",
-      "image": "/images/dog.svg"
-    },
-    {
-      "id": "jagwindhond",
-      "title": "Jagwindhond",
-      "query": "greyhound",
-      "fact": "This sighthound can run very fast.",
+      "fact": "Also called a sausage dog because of its shape.",
       "image": "/images/dog.svg"
     },
     {
@@ -63,13 +35,6 @@
       "image": "/images/dog.svg"
     },
     {
-      "id": "engelse-patryshond",
-      "title": "Engelse Patryshond",
-      "query": "English pointer",
-      "fact": "English Pointers excel at bird hunting.",
-      "image": "/images/dog.svg"
-    },
-    {
       "id": "bloedhond",
       "title": "Bloedhond",
       "query": "Bloodhound",
@@ -77,11 +42,46 @@
       "image": "/images/dog.svg"
     },
     {
-      "id": "rhodesiese-rifrughond",
-      "title": "Rhodesiese Rifrughond",
+      "id": "golden-retriever",
+      "title": "Golden Retriever",
+      "query": "Golden Retriever",
+      "fact": "This retriever loves to fetch.",
+      "image": "/images/dog.svg"
+    },
+    {
+      "id": "windhond",
+      "title": "Windhond",
+      "query": "greyhound",
+      "fact": "This sighthound can run very fast.",
+      "image": "/images/dog.svg"
+    },
+    {
+      "id": "rifrug",
+      "title": "Rifrug",
       "query": "Rhodesian Ridgeback",
       "fact": "This dog has a ridge of hair along its back.",
       "image": "/images/dog.svg"
+    },
+    {
+      "id": "ierse-wolfhond",
+      "title": "Ierse Wolfhond",
+      "query": "Irish Wolfhound",
+      "fact": "One of the tallest dog breeds.",
+      "image": "/images/dog.svg"
+    },
+    {
+      "id": "vizsla",
+      "title": "Vizsla",
+      "query": "Vizsla",
+      "fact": "Vizslas are energetic hunting dogs.",
+      "image": "/images/dog.svg"
+    },
+    {
+      "id": "skaaphond",
+      "title": "Skaaphond",
+      "query": "Sheepdog",
+      "fact": "Sheepdogs help herd livestock.",
+      "image": "/images/dog.svg"
     }
-  ]
+  ],
 }
