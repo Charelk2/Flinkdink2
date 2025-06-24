@@ -82,7 +82,7 @@
       "query": "Harvester",
       "fact": "Machine that harvests crops.",
       "image": "/images/placeholder.png"
-    },
+    }
   ],
   "mathWindowLength": 10,
   "mathShuffleFirstHalf": true
