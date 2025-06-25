@@ -45,4 +45,22 @@ describe('LearningHub', () => {
     );
     expect(screen.getByTestId('progress-circle')).toHaveTextContent('2%');
   });
+
+  it('displays earned badges', () => {
+    useProfiles.mockReturnValue({
+      selectedProfile: { name: 'Meg', avatar: '🐶', badges: ['first-day'] },
+    });
+    useContent.mockReturnValue({
+      progress: { week: 1, day: 1, session: 1 },
+      weekPercent: 1,
+    });
+
+    render(
+      <MemoryRouter>
+        <LearningHub />
+      </MemoryRouter>,
+    );
+
+    expect(screen.getByTestId('badge-list')).toHaveTextContent('🎈');
+  });
 });

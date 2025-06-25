@@ -88,3 +88,46 @@ describe('selectProfile', () => {
     expect(stored.selectedId).toBe('2');
   });
 });
+
+describe('unlockBadge', () => {
+  test('adds badge to selected profile and persists', () => {
+    let createFn;
+    let unlockFn;
+    render(
+      <ProfileProvider>
+        <Caller
+          action={({ createProfile, unlockBadge }) => {
+            createFn = createProfile;
+            unlockFn = unlockBadge;
+          }}
+        />
+      </ProfileProvider>,
+    );
+
+    act(() => createFn({ name: 'Mia' }));
+    act(() => unlockFn('first-day'));
+    const stored = JSON.parse(localStorage.getItem(PROFILES_KEY));
+    expect(stored.profiles[0].badges).toContain('first-day');
+  });
+
+  test('does not duplicate badges', () => {
+    let createFn;
+    let unlockFn;
+    render(
+      <ProfileProvider>
+        <Caller
+          action={({ createProfile, unlockBadge }) => {
+            createFn = createProfile;
+            unlockFn = unlockBadge;
+          }}
+        />
+      </ProfileProvider>,
+    );
+
+    act(() => createFn({ name: 'Mia' }));
+    act(() => unlockFn('first-day'));
+    act(() => unlockFn('first-day'));
+    const stored = JSON.parse(localStorage.getItem(PROFILES_KEY));
+    expect(stored.profiles[0].badges).toEqual(['first-day']);
+  });
+});

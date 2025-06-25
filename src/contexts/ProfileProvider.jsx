@@ -29,7 +29,11 @@ function loadData() {
       stored.version === PROFILES_VERSION &&
       Array.isArray(stored.profiles)
     ) {
-      return stored;
+      const withBadges = stored.profiles.map((p) => ({
+        ...p,
+        badges: Array.isArray(p.badges) ? p.badges : [],
+      }));
+      return { ...stored, profiles: withBadges };
     }
   } catch {
     // ignore JSON errors
@@ -52,7 +56,7 @@ export const ProfileProvider = ({ children }) => {
   const createProfile = (profile) => {
     const id =
       profile.id || (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString());
-    const newProfile = { ...profile, id };
+    const newProfile = { ...profile, id, badges: profile.badges || [] };
     setProfiles((prev) => [...prev, newProfile]);
     setSelectedId(id);
   };
@@ -72,6 +76,18 @@ export const ProfileProvider = ({ children }) => {
     }
   };
 
+  const unlockBadge = (badgeId) => {
+    if (!selectedId) return;
+    setProfiles((prev) =>
+      prev.map((p) => {
+        if (p.id !== selectedId) return p;
+        const badges = Array.isArray(p.badges) ? p.badges : [];
+        if (badges.includes(badgeId)) return p;
+        return { ...p, badges: [...badges, badgeId] };
+      }),
+    );
+  };
+
   const selectedProfile = profiles.find((p) => p.id === selectedId) || null;
 
   return (
@@ -84,6 +100,7 @@ export const ProfileProvider = ({ children }) => {
         editProfile,
         deleteProfile,
         selectProfile,
+        unlockBadge,
       }}
     >
       {children}
