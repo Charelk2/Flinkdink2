@@ -146,6 +146,10 @@ Tapping a card selects that profile and navigates to the learning hub. Cards
 include ✏️ and 🗑️ buttons for editing or deleting a profile. A final "➕ Add
 Another Child" card links back to the onboarding form.
 
+Editing uses the same validations as the onboarding form. If the name field is
+blank or the birthday is missing or set in the future, an inline error message
+appears and the save action is blocked.
+
 ![Kid selector grid](public/images/kid-selector.svg)
 
 Select a different card at any time to switch children. The newly chosen
