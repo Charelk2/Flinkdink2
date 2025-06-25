@@ -160,6 +160,17 @@ the dashboard and see completed weeks and earned badges.
 
 ![Learning Hub](public/images/learning-hub.svg)
 
+## Viewing Progress
+
+The Progress screen summarizes overall completion for the selected child.
+At the top a large header shows the current term, week, day and session using
+the same progress strip as the dashboard. Any badges the child has earned are
+displayed below this header.
+
+A grid lists all 41 weeks. Completed weeks appear green while the current week
+is highlighted in purple. Future weeks remain gray so parents can quickly scan
+which parts of the curriculum are finished.
+
 ## Home Screen
 
 The top of the page includes a sticky `NavBar` with a centered **FlinkDink**
