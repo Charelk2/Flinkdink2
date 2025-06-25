@@ -22,7 +22,12 @@ export default function OnboardingHome() {
       setError('Name is required');
       return;
     }
-    if (birthday && Number.isNaN(new Date(birthday).getTime())) {
+    if (!birthday) {
+      setError('Birthday is required');
+      return;
+    }
+    const dateVal = new Date(birthday);
+    if (Number.isNaN(dateVal.getTime()) || dateVal > new Date()) {
       setError('Invalid date');
       return;
     }
@@ -36,7 +41,7 @@ export default function OnboardingHome() {
         onSubmit={handleSubmit}
         className="space-y-4 bg-white p-6 shadow rounded w-full max-w-xs"
       >
-        <h1 className="text-xl font-bold text-center">Welcome!</h1>
+        <h1 className="text-xl font-bold text-center">Let’s add your first explorer!</h1>
         {error && (
           <div className="text-red-600" role="alert">
             {error}
@@ -52,6 +57,7 @@ export default function OnboardingHome() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="border rounded p-2 w-full"
+          required
         />
         <label htmlFor="dob" className="sr-only">
           Date of Birth
@@ -63,6 +69,7 @@ export default function OnboardingHome() {
           onChange={(e) => setBirthday(e.target.value)}
           className="border rounded p-2 w-full"
           aria-label="date of birth"
+          required
         />
         <div className="flex items-center justify-between">
           <span className="text-3xl" aria-label="avatar">
@@ -80,7 +87,7 @@ export default function OnboardingHome() {
           type="submit"
           className="bg-indigo-600 text-white w-full py-2 rounded"
         >
-          Create Profile
+          Save and Start
         </button>
       </form>
     </div>

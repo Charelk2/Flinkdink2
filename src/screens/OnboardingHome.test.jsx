@@ -29,7 +29,7 @@ test('submits valid form and redirects', () => {
   fireEvent.change(screen.getByLabelText(/date of birth/i), {
     target: { value: '2020-01-01' },
   });
-  fireEvent.click(screen.getByRole('button', { name: /create profile/i }));
+  fireEvent.click(screen.getByRole('button', { name: /save and start/i }));
 
   expect(mockNavigate).toHaveBeenCalledWith('/select-kid');
   const stored = JSON.parse(localStorage.getItem(PROFILES_KEY));
@@ -45,7 +45,28 @@ test('shows error for missing name', () => {
     </MemoryRouter>
   );
 
-  fireEvent.click(screen.getByRole('button', { name: /create profile/i }));
+  fireEvent.click(screen.getByRole('button', { name: /save and start/i }));
   expect(screen.getByRole('alert')).toHaveTextContent(/name is required/i);
+});
+
+test('blocks future birth dates', () => {
+  render(
+    <MemoryRouter>
+      <ProfileProvider>
+        <OnboardingHome />
+      </ProfileProvider>
+    </MemoryRouter>,
+  );
+
+  fireEvent.change(screen.getByLabelText(/name/i), {
+    target: { value: 'Tim' },
+  });
+  const future = new Date();
+  future.setFullYear(future.getFullYear() + 1);
+  fireEvent.change(screen.getByLabelText(/date of birth/i), {
+    target: { value: future.toISOString().slice(0, 10) },
+  });
+  fireEvent.click(screen.getByRole('button', { name: /save and start/i }));
+  expect(screen.getByRole('alert')).toHaveTextContent(/invalid date/i);
 });
 

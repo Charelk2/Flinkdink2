@@ -1,6 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useProfiles } from '../contexts/ProfileProvider';
 import { getAgeFromBirthday } from '../utils/age';
+import EditProfileModal from './EditProfileModal';
+import DeleteConfirmModal from './DeleteConfirmModal';
 
 function displayAge(birthday) {
   const age = getAgeFromBirthday(birthday);
@@ -15,25 +18,22 @@ export default function KidSelector() {
     editProfile,
   } = useProfiles();
   const navigate = useNavigate();
+  const [editing, setEditing] = useState(null);
+  const [deleting, setDeleting] = useState(null);
 
   const handleSelect = (id) => {
     selectProfile(id);
     navigate('/learning-hub');
   };
 
-  const handleDelete = (e, id) => {
+  const handleDelete = (e, p) => {
     e.stopPropagation();
-    if (window.confirm('Delete this profile?')) {
-      deleteProfile(id);
-    }
+    setDeleting(p);
   };
 
-  const handleEdit = (e, id, name) => {
+  const handleEdit = (e, p) => {
     e.stopPropagation();
-    const newName = window.prompt('New name', name);
-    if (newName) {
-      editProfile(id, { name: newName });
-    }
+    setEditing(p);
   };
 
   return (
@@ -49,9 +49,9 @@ export default function KidSelector() {
               if (e.key === 'Enter') handleSelect(p.id);
             }}
             aria-label={`Select ${p.name}`}
-            className="card space-y-1 text-center cursor-pointer"
+            className="card space-y-1 text-center cursor-pointer hover:ring-2 focus:ring-2 ring-blue-500 transition focus:outline-none"
           >
-            <div className="text-6xl" aria-label="avatar">
+            <div className="text-7xl" aria-label="avatar">
               {p.avatar}
             </div>
             <div className="font-semibold">{p.name}</div>
@@ -61,7 +61,7 @@ export default function KidSelector() {
             <div className="flex justify-center space-x-2 pt-2">
               <button
                 type="button"
-                onClick={(e) => handleEdit(e, p.id, p.name)}
+                onClick={(e) => handleEdit(e, p)}
                 aria-label={`Edit ${p.name}`}
                 className="icon-btn hover:bg-gray-200"
               >
@@ -69,7 +69,7 @@ export default function KidSelector() {
               </button>
               <button
                 type="button"
-                onClick={(e) => handleDelete(e, p.id)}
+                onClick={(e) => handleDelete(e, p)}
                 aria-label={`Delete ${p.name}`}
                 className="icon-btn hover:bg-gray-200"
               >
@@ -80,11 +80,27 @@ export default function KidSelector() {
         ))}
         <Link
           to="/onboarding"
-          className="card flex items-center justify-center text-xl font-semibold"
+          className="card flex items-center justify-center text-xl font-semibold hover:ring-2 focus:ring-2 ring-blue-500 transition focus:outline-none"
         >
           ➕ Add Another Child
         </Link>
       </div>
+      {editing && (
+        <EditProfileModal
+          open={Boolean(editing)}
+          onClose={() => setEditing(null)}
+          profile={editing}
+          onSave={(data) => editProfile(editing.id, data)}
+        />
+      )}
+      {deleting && (
+        <DeleteConfirmModal
+          open={Boolean(deleting)}
+          onClose={() => setDeleting(null)}
+          name={deleting.name}
+          onConfirm={() => deleteProfile(deleting.id)}
+        />
+      )}
     </div>
   );
 }

@@ -44,26 +44,25 @@ test('selects profile and navigates to hub', () => {
 
 test('deletes profile when confirmed', () => {
   const { deleteProfile } = useProfiles.mock.results[0].value;
-  window.confirm = jest.fn(() => true);
   render(
     <MemoryRouter>
       <KidSelector />
     </MemoryRouter>,
   );
   fireEvent.click(screen.getByLabelText('Delete Sam'));
-  expect(window.confirm).toHaveBeenCalled();
+  fireEvent.click(screen.getByRole('button', { name: 'Delete' }));
   expect(deleteProfile).toHaveBeenCalledWith('1');
 });
 
 test('edits profile name', () => {
   const { editProfile } = useProfiles.mock.results[0].value;
-  window.prompt = jest.fn(() => 'Sally');
   render(
     <MemoryRouter>
       <KidSelector />
     </MemoryRouter>,
   );
   fireEvent.click(screen.getByLabelText('Edit Sam'));
-  expect(window.prompt).toHaveBeenCalled();
-  expect(editProfile).toHaveBeenCalledWith('1', { name: 'Sally' });
+  fireEvent.change(screen.getByLabelText('name'), { target: { value: 'Sally' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+  expect(editProfile).toHaveBeenCalledWith('1', expect.objectContaining({ name: 'Sally' }));
 });
