@@ -14,6 +14,7 @@ describe('LearningHub', () => {
     });
     useContent.mockReturnValue({
       progress: { week: 2, day: 3, session: 1 },
+      weekPercent: 2,
     });
 
     const today = new Date();
@@ -42,5 +43,6 @@ describe('LearningHub', () => {
       'href',
       '/progress',
     );
+    expect(screen.getByTestId('progress-circle')).toHaveTextContent('2%');
   });
 });

@@ -6,6 +6,7 @@ import {
   useCallback,
 } from 'react'
 import { fetchWeekData } from '../utils/fetchWeek'
+import { calculateWeekPercent } from '../utils/progress'
 
 const PROGRESS_VERSION = 1
 const PROGRESS_KEY = 'progress-v1'
@@ -122,19 +123,22 @@ export const ContentProvider = ({ children }) => {
     }
   }
 
+  const weekPercent = calculateWeekPercent(progress.week, TOTAL_WEEKS)
+
   return (
     <ContentContext.Provider
       value={{
         progress,
+        weekPercent,
         weekData,
         loading,
-      error,
-      completeSession,
-      loadWeek,
-      previousWeek,
-      jumpToWeek,
-      resetToday,
-      resetAll,
+        error,
+        completeSession,
+        loadWeek,
+        previousWeek,
+        jumpToWeek,
+        resetToday,
+        resetAll,
     }}
     >
       {children}

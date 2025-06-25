@@ -1,15 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useProfiles } from '../contexts/ProfileProvider';
-import { useContent, TOTAL_WEEKS } from '../contexts/ContentProvider';
+import { useContent } from '../contexts/ContentProvider';
 
 export default function LearningHub() {
   const { selectedProfile } = useProfiles();
-  const { progress } = useContent();
+  const { progress, weekPercent } = useContent();
   const { week, day, session } = progress;
-
-  const completedSessions = (week - 1) * 21 + (day - 1) * 3 + (session - 1);
-  const totalSessions = TOTAL_WEEKS * 7 * 3;
-  const percent = Math.round((completedSessions / totalSessions) * 100);
 
   const today = new Date();
   const weekday = today.toLocaleDateString('en-US', { weekday: 'long' });
@@ -39,7 +35,7 @@ export default function LearningHub() {
           className="w-24 h-24 ring-4 ring-green-400 rounded-full flex items-center justify-center animate-pulse text-center"
           data-testid="progress-circle"
         >
-          {percent}%
+          {weekPercent}%
         </div>
       </div>
       <div className="flex flex-col items-center space-y-2">
