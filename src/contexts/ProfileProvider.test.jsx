@@ -131,3 +131,73 @@ describe('unlockBadge', () => {
     expect(stored.profiles[0].badges).toEqual(['first-day']);
   });
 });
+
+describe('editProfile', () => {
+  test('updates stored profile data', async () => {
+    let createFn;
+    let editFn;
+
+    render(
+      <ProfileProvider>
+        <Caller
+          action={({ createProfile, editProfile }) => {
+            createFn = createProfile;
+            editFn = editProfile;
+          }}
+        />
+        <Display />
+      </ProfileProvider>,
+    );
+
+    act(() => createFn({ name: 'Mia' }));
+
+    let id;
+    await waitFor(() => {
+      const stored = JSON.parse(localStorage.getItem(PROFILES_KEY));
+      id = stored.profiles[0].id;
+      expect(stored.profiles[0].name).toBe('Mia');
+    });
+
+    act(() => editFn(id, { name: 'Lily' }));
+
+    await waitFor(() => {
+      const stored = JSON.parse(localStorage.getItem(PROFILES_KEY));
+      expect(stored.profiles[0].name).toBe('Lily');
+      expect(stored.selectedId).toBe(id);
+    });
+  });
+});
+
+describe('deleteProfile', () => {
+  test('removes profile and clears selectedId when deleted', async () => {
+    localStorage.setItem(
+      PROFILES_KEY,
+      JSON.stringify({
+        version: 1,
+        profiles: [
+          { id: '1', name: 'One' },
+          { id: '2', name: 'Two' },
+        ],
+        selectedId: '1',
+      }),
+    );
+
+    let deleteFn;
+
+    render(
+      <ProfileProvider>
+        <Caller action={({ deleteProfile }) => { deleteFn = deleteProfile; }} />
+        <Display />
+      </ProfileProvider>,
+    );
+
+    act(() => deleteFn('1'));
+
+    await waitFor(() => {
+      const stored = JSON.parse(localStorage.getItem(PROFILES_KEY));
+      expect(stored.profiles).toHaveLength(1);
+      expect(stored.profiles[0].id).toBe('2');
+      expect(stored.selectedId).toBeNull();
+    });
+  });
+});
