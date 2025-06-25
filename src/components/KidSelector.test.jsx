@@ -62,7 +62,7 @@ test('edits profile name', () => {
     </MemoryRouter>,
   );
   fireEvent.click(screen.getByLabelText('Edit Sam'));
-  fireEvent.change(screen.getByLabelText('name'), { target: { value: 'Sally' } });
+  fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'Sally' } });
   fireEvent.click(screen.getByRole('button', { name: 'Save' }));
   expect(editProfile).toHaveBeenCalledWith('1', expect.objectContaining({ name: 'Sally' }));
 });

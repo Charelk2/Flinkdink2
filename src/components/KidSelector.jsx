@@ -18,7 +18,7 @@ export default function KidSelector() {
     editProfile,
   } = useProfiles();
   const navigate = useNavigate();
-  const [editing, setEditing] = useState(null);
+  const [editingProfile, setEditingProfile] = useState(null);
   const [deleting, setDeleting] = useState(null);
 
   const handleSelect = (id) => {
@@ -33,7 +33,7 @@ export default function KidSelector() {
 
   const handleEdit = (e, p) => {
     e.stopPropagation();
-    setEditing(p);
+    setEditingProfile(p);
   };
 
   return (
@@ -85,12 +85,12 @@ export default function KidSelector() {
           ➕ Add Another Child
         </Link>
       </div>
-      {editing && (
+      {editingProfile && (
         <EditProfileModal
-          open={Boolean(editing)}
-          onClose={() => setEditing(null)}
-          profile={editing}
-          onSave={(data) => editProfile(editing.id, data)}
+          isOpen={Boolean(editingProfile)}
+          onClose={() => setEditingProfile(null)}
+          profile={editingProfile}
+          onSave={(updated) => editProfile(editingProfile.id, updated)}
         />
       )}
       {deleting && (

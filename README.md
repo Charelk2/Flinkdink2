@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-UI components use the `prop-types` package for runtime prop validation, so make sure this dependency is installed.
+UI components use the `prop-types` package for runtime prop validation, so make sure this dependency is installed. The profile editing modal relies on `@headlessui/react` for accessibility, so ensure that package is installed too.
 
 This launches a hot-reloading dev server so you can iterate quickly.
 
