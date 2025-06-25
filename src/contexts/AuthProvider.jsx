@@ -6,6 +6,23 @@ export const AuthProvider = ({ children }) => {
 
   const baseUrl = getBaseUrl();
 
+  const parseError = async (res, context) => {
+    const text = await res.text();
+    let detail;
+    try {
+      ({ detail } = JSON.parse(text));
+    } catch {
+      detail = text;
+    }
+    if (res.status === 422) {
+      console.warn(`${context} returned 422`, text);
+    }
+    const error = new Error(detail || `HTTP ${res.status}`);
+    error.detail = detail;
+    error.status = res.status;
+    return error;
+  };
+
   const login = async (email, password) => {
     const res = await fetch(`${baseUrl}/api/login`, {
       method: 'POST',
@@ -13,9 +30,7 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify({ email, password }),
     });
     if (!res.ok) {
-      const message = await res.text();
-      console.error('Login failed', message);
-      throw new Error(message || `HTTP ${res.status}`);
+      throw await parseError(res, 'Login');
     }
     const data = await res.json();
     setToken(data.token);
@@ -29,9 +44,7 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify({ email, password }),
     });
     if (!res.ok) {
-      const message = await res.text();
-      console.error('Registration failed', message);
-      throw new Error(message || `HTTP ${res.status}`);
+      throw await parseError(res, 'Registration');
     }
     const data = await res.json();
     setToken(data.token);

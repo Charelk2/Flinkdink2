@@ -17,7 +17,7 @@ export default function Login() {
       navigate('/');
     } catch (err) {
       console.error('Login failed', err);
-      setError('Invalid email or password');
+      setError(err.detail || 'Invalid email or password');
     }
   };
 
