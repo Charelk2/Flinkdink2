@@ -17,7 +17,7 @@ export default function SignUp() {
       navigate('/');
     } catch (err) {
       console.error('Registration failed', err);
-      setError('Could not register');
+      setError(err.detail || 'Could not register');
     }
   };
 

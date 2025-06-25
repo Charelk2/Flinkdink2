@@ -908,6 +908,9 @@ UNSPLASH_SECRET_KEY=your-unsplash-secret
 The default credentials are **demo@example.com** / **password**. You can also
 register a new account using the **Sign Up** page. Successful authentication
 returns a token stored in `localStorage` by the `AuthProvider`.
+Server responses include a `detail` field when something goes wrong; these
+messages are now surfaced on the login and sign‑up pages so users know exactly
+what happened.
 Access this context via the `useAuth` hook exported from
 `src/contexts/authHelpers.js`.
 To sign out, tap the **Log Out** button in the navigation bar or call
