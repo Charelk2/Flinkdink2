@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, {
   createContext,
   useContext,
@@ -8,6 +9,16 @@ import React, {
 const PROFILES_VERSION = 1;
 export const PROFILES_KEY = 'profiles-v1';
 
+export const PROGRESS_VERSION = 1;
+export const PROGRESS_KEY = 'progress-v1';
+export const DEFAULT_PROGRESS = {
+  version: PROGRESS_VERSION,
+  week: 1,
+  day: 1,
+  session: 1,
+  streak: 0,
+};
+
 const DEFAULT_DATA = {
   version: PROFILES_VERSION,
   profiles: [],
@@ -16,12 +27,17 @@ const DEFAULT_DATA = {
 
 const ProfileContext = createContext();
 
-// eslint-disable-next-line react-refresh/only-export-components
 export function useProfiles() {
   return useContext(ProfileContext);
 }
 
 function loadData() {
+  const result = {
+    version: PROFILES_VERSION,
+    profiles: [],
+    selectedId: null,
+  };
+
   try {
     const stored = JSON.parse(localStorage.getItem(PROFILES_KEY));
     if (
@@ -29,16 +45,37 @@ function loadData() {
       stored.version === PROFILES_VERSION &&
       Array.isArray(stored.profiles)
     ) {
-      const withBadges = stored.profiles.map((p) => ({
+      result.profiles = stored.profiles.map((p) => ({
         ...p,
         badges: Array.isArray(p.badges) ? p.badges : [],
+        progress:
+          p.progress && p.progress.version === PROGRESS_VERSION
+            ? { ...DEFAULT_PROGRESS, ...p.progress }
+            : DEFAULT_PROGRESS,
       }));
-      return { ...stored, profiles: withBadges };
+      result.selectedId = stored.selectedId || null;
     }
   } catch {
     // ignore JSON errors
   }
-  return DEFAULT_DATA;
+
+  try {
+    const legacy = JSON.parse(localStorage.getItem(PROGRESS_KEY));
+    if (legacy && legacy.version === PROGRESS_VERSION && result.selectedId) {
+      const idx = result.profiles.findIndex((p) => p.id === result.selectedId);
+      if (idx !== -1) {
+        result.profiles[idx] = {
+          ...result.profiles[idx],
+          progress: { ...DEFAULT_PROGRESS, ...legacy },
+        };
+        localStorage.removeItem(PROGRESS_KEY);
+      }
+    }
+  } catch {
+    // ignore migration errors
+  }
+
+  return result;
 }
 
 export const ProfileProvider = ({ children }) => {
@@ -56,7 +93,12 @@ export const ProfileProvider = ({ children }) => {
   const createProfile = (profile) => {
     const id =
       profile.id || (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString());
-    const newProfile = { ...profile, id, badges: profile.badges || [] };
+    const newProfile = {
+      ...profile,
+      id,
+      badges: profile.badges || [],
+      progress: profile.progress || DEFAULT_PROGRESS,
+    };
     setProfiles((prev) => [...prev, newProfile]);
     setSelectedId(id);
   };
@@ -88,6 +130,13 @@ export const ProfileProvider = ({ children }) => {
     );
   };
 
+  const setProgress = (progress) => {
+    if (!selectedId) return;
+    setProfiles((prev) =>
+      prev.map((p) => (p.id === selectedId ? { ...p, progress } : p)),
+    );
+  };
+
   const selectedProfile = profiles.find((p) => p.id === selectedId) || null;
 
   return (
@@ -101,6 +150,7 @@ export const ProfileProvider = ({ children }) => {
         deleteProfile,
         selectProfile,
         unlockBadge,
+        setProgress,
       }}
     >
       {children}
