@@ -2,6 +2,8 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import Home from './screens/Home'
 import Session from './screens/Session'
 import Dashboard from './screens/Dashboard'
+import LearningHub from './screens/LearningHub'
+import Progress from './screens/Progress'
 import Login from './screens/Login'
 import SignUp from './screens/SignUp'
 import OnboardingHome from './screens/OnboardingHome'
@@ -23,6 +25,8 @@ const RoutesWithProfiles = () => {
         element={profiles.length === 0 ? <OnboardingHome /> : <Navigate to="/select-kid" />}
       />
       <Route path="/select-kid" element={<SelectKid />} />
+      <Route path="/learning-hub" element={<LearningHub />} />
+      <Route path="/progress" element={<Progress />} />
       <Route path="/session" element={<Session />} />
       <Route path="/dashboard" element={<Dashboard />} />
     </Routes>

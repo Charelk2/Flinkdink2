@@ -820,6 +820,8 @@ Daily modules are listed in a small table labelled **"Weekly progress"**, where 
 
 Below the table is a row of control buttons arranged with `flex` and `flex-wrap` so they stack neatly on narrow screens. Each button label now starts with a small emoji, for example **"🔄 Reset Today"** and **"🗑️ Reset All"**. Selecting **Reset All** opens a confirmation dialog before all progress is cleared.
 
+After a child profile is selected, they land on a new **Learning Hub**. This dashboard greets them with their avatar, today's date, and the current week/day/session. From here kids can quickly continue the session or view their overall progress.
+
 ## Accessibility
 
 Carousel navigation buttons now include descriptive ARIA labels and retain their focus outlines for improved keyboard navigation.

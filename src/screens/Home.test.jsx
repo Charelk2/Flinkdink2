@@ -1,41 +1,17 @@
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
-import { AuthProvider } from '../contexts/AuthProvider';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
-import { useContent } from '../contexts/ContentProvider';
 
-jest.mock('../contexts/ContentProvider');
-
-describe('Home screen', () => {
-  it('renders hero, progress, themes and CTA', () => {
-    useContent.mockReturnValue({
-      progress: { week: 2, day: 3, session: 2 },
-      weekData: {
-        language: ['apple'],
-        mathWindowStart: 10,
-        encyclopedia: [{ title: 'Lion' }],
-      },
-      loading: false,
-    });
-
+describe('Home redirect', () => {
+  it('redirects to learning hub', () => {
     render(
-      <MemoryRouter>
-        <AuthProvider>
-          <Home />
-        </AuthProvider>
+      <MemoryRouter initialEntries={["/"]}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/learning-hub" element={<div>Hub</div>} />
+        </Routes>
       </MemoryRouter>,
     );
-
-    expect(
-      screen.getByRole('heading', { name: /flinkdink flashcards/i }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('Week 2 \u00B7 Day 3 \u00B7 Session 2'),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /settings/i })).toBeInTheDocument();
-    expect(
-      screen.getByRole('link', { name: /continue week 2 · day 3 · session 2/i }),
-    ).toBeInTheDocument();
-    expect(screen.getAllByRole('listitem')).toHaveLength(3);
+    expect(screen.getByText('Hub')).toBeInTheDocument();
   });
 });
