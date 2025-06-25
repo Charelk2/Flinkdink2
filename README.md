@@ -113,7 +113,7 @@ term based on these fixed ranges.
 
 ## Progress Storage
 
-User progress is stored in `localStorage` under the key `progress-v1`. Each saved record contains a `version` field. If the stored version does not match the current application version, progress is reset to defaults. Bump the version when changing the progress schema.
+User progress is stored per child profile inside `profiles-v1`. Each profile record includes a `progress` object with a `version` field. On first run the app will migrate any legacy `progress-v1` data into the selected profile automatically.
 
 ## Child Profiles
 

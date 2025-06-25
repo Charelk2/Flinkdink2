@@ -1,5 +1,6 @@
 import { render, screen, waitFor, cleanup, fireEvent } from '@testing-library/react'
 import { ContentProvider, useContent, TOTAL_WEEKS } from './ContentProvider'
+import { ProfileProvider, PROFILES_KEY, PROGRESS_KEY, DEFAULT_PROGRESS } from './ProfileProvider'
 
 const TestConsumer = () => {
   const { weekData, loading, error } = useContent()
@@ -13,6 +14,24 @@ const ProgressConsumer = () => {
   return <div data-testid="progress">{progress.week}</div>
 }
 
+const renderWithProviders = (ui) =>
+  render(
+    <ProfileProvider>
+      <ContentProvider>{ui}</ContentProvider>
+    </ProfileProvider>,
+  )
+
+const setupProfile = (progress = DEFAULT_PROGRESS) => {
+  localStorage.setItem(
+    PROFILES_KEY,
+    JSON.stringify({
+      version: 1,
+      profiles: [{ id: '1', name: 'Kid', progress, badges: [] }],
+      selectedId: '1',
+    }),
+  )
+}
+
 afterEach(() => {
   jest.restoreAllMocks()
   cleanup()
@@ -22,29 +41,23 @@ afterEach(() => {
 
 describe('ContentProvider fetch handling', () => {
   it('loads week data successfully', async () => {
-  global.fetch = jest.fn().mockResolvedValue({
+    setupProfile()
+    global.fetch = jest.fn().mockResolvedValue({
       ok: true,
       json: async () => ({ language: ['hi'], mathWindowStart: 0, encyclopedia: [] }),
     })
 
-    render(
-      <ContentProvider>
-        <TestConsumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<TestConsumer />)
 
     await waitFor(() => expect(screen.getByTestId('language')).toBeInTheDocument())
     expect(screen.getByTestId('language')).toHaveTextContent('hi')
   })
 
   it('handles fetch failure', async () => {
-  global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 404 })
+    setupProfile()
+    global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 404 })
 
-    render(
-      <ContentProvider>
-        <TestConsumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<TestConsumer />)
 
     await waitFor(() => expect(screen.getByTestId('error')).toBeInTheDocument())
     expect(screen.getByTestId('error')).toHaveTextContent('404')
@@ -54,33 +67,36 @@ describe('ContentProvider fetch handling', () => {
 describe('progress version handling', () => {
 
   it('loads stored progress when version matches', () => {
-    localStorage.setItem(
-      'progress-v1',
-      JSON.stringify({ version: 1, week: 5, day: 6, session: 2 }),
-    )
+    setupProfile({ version: 1, week: 5, day: 6, session: 2, streak: 0 })
 
-    render(
-      <ContentProvider>
-        <ProgressConsumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<ProgressConsumer />)
 
     expect(screen.getByTestId('progress')).toHaveTextContent('5')
   })
 
   it('resets progress when version mismatches', () => {
-    localStorage.setItem(
-      'progress-v1',
-      JSON.stringify({ version: 0, week: 5, day: 6, session: 2 }),
-    )
+    setupProfile({ version: 0, week: 5, day: 6, session: 2, streak: 0 })
 
-    render(
-      <ContentProvider>
-        <ProgressConsumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<ProgressConsumer />)
 
     expect(screen.getByTestId('progress')).toHaveTextContent('1')
+  })
+
+  it('migrates legacy progress on first run', () => {
+    localStorage.setItem(
+      PROGRESS_KEY,
+      JSON.stringify({ version: 1, week: 4, day: 2, session: 3 }),
+    )
+    localStorage.setItem(
+      PROFILES_KEY,
+      JSON.stringify({ version: 1, profiles: [{ id: '1', name: 'Kid', badges: [] }], selectedId: '1' }),
+    )
+
+    renderWithProviders(<ProgressConsumer />)
+
+    const stored = JSON.parse(localStorage.getItem(PROFILES_KEY))
+    expect(stored.profiles[0].progress.week).toBe(4)
+    expect(localStorage.getItem(PROGRESS_KEY)).toBeNull()
   })
 })
 
@@ -100,26 +116,19 @@ describe('previousWeek', () => {
   }
 
   it('moves back one week and resets day and session', () => {
-    localStorage.setItem(
-      'progress-v1',
-      JSON.stringify({ version: 1, week: 3, day: 4, session: 2 }),
-    )
+    setupProfile({ version: 1, week: 3, day: 4, session: 2, streak: 0 })
 
-    render(
-      <ContentProvider>
-        <PrevConsumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<PrevConsumer />)
 
     expect(screen.getByTestId('week')).toHaveTextContent('3')
     fireEvent.click(screen.getByText('prev'))
     expect(screen.getByTestId('week')).toHaveTextContent('2')
     expect(screen.getByTestId('day')).toHaveTextContent('1')
     expect(screen.getByTestId('session')).toHaveTextContent('1')
-    const stored = JSON.parse(localStorage.getItem('progress-v1'))
-    expect(stored.week).toBe(2)
-    expect(stored.day).toBe(1)
-    expect(stored.session).toBe(1)
+    const stored = JSON.parse(localStorage.getItem(PROFILES_KEY))
+    expect(stored.profiles[0].progress.week).toBe(2)
+    expect(stored.profiles[0].progress.day).toBe(1)
+    expect(stored.profiles[0].progress.session).toBe(1)
   })
 })
 
@@ -139,25 +148,18 @@ describe('jumpToWeek', () => {
   }
 
   it('jumps to given week and resets progress', () => {
-    localStorage.setItem(
-      'progress-v1',
-      JSON.stringify({ version: 1, week: 2, day: 3, session: 2 }),
-    )
+    setupProfile({ version: 1, week: 2, day: 3, session: 2, streak: 0 })
 
-    render(
-      <ContentProvider>
-        <JumpConsumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<JumpConsumer />)
 
     fireEvent.click(screen.getByText('jump'))
     expect(screen.getByTestId('week')).toHaveTextContent('4')
     expect(screen.getByTestId('day')).toHaveTextContent('1')
     expect(screen.getByTestId('session')).toHaveTextContent('1')
-    const stored = JSON.parse(localStorage.getItem('progress-v1'))
-    expect(stored.week).toBe(4)
-    expect(stored.day).toBe(1)
-    expect(stored.session).toBe(1)
+    const stored = JSON.parse(localStorage.getItem(PROFILES_KEY))
+    expect(stored.profiles[0].progress.week).toBe(4)
+    expect(stored.profiles[0].progress.day).toBe(1)
+    expect(stored.profiles[0].progress.session).toBe(1)
   })
 
   it('warns when week is out of range', () => {
@@ -175,11 +177,9 @@ describe('jumpToWeek', () => {
 
     const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-    render(
-      <ContentProvider>
-        <Invalid />
-      </ContentProvider>,
-    );
+    setupProfile()
+
+    renderWithProviders(<Invalid />);
 
     fireEvent.click(screen.getByText('bad'));
     expect(screen.getByTestId('week-invalid')).toHaveTextContent('1');
@@ -193,10 +193,7 @@ describe('jumpToWeek', () => {
 
 describe('reset helpers', () => {
   it('resetToday sets session to 1', () => {
-    localStorage.setItem(
-      'progress-v1',
-      JSON.stringify({ version: 1, week: 2, day: 3, session: 2 }),
-    )
+    setupProfile({ version: 1, week: 2, day: 3, session: 2, streak: 0 })
 
     const ResetConsumer = () => {
       const { progress, resetToday } = useContent()
@@ -210,23 +207,16 @@ describe('reset helpers', () => {
       )
     }
 
-    render(
-      <ContentProvider>
-        <ResetConsumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<ResetConsumer />)
 
     fireEvent.click(screen.getByText('reset'))
     expect(screen.getByTestId('session')).toHaveTextContent('1')
-    const stored = JSON.parse(localStorage.getItem('progress-v1'))
-    expect(stored.session).toBe(1)
+    const stored = JSON.parse(localStorage.getItem(PROFILES_KEY))
+    expect(stored.profiles[0].progress.session).toBe(1)
   })
 
   it('resetAll clears all progress after confirmation', () => {
-    localStorage.setItem(
-      'progress-v1',
-      JSON.stringify({ version: 1, week: 3, day: 2, session: 3 }),
-    )
+    setupProfile({ version: 1, week: 3, day: 2, session: 3, streak: 0 })
 
     const AllConsumer = () => {
       const { progress, resetAll } = useContent()
@@ -242,26 +232,19 @@ describe('reset helpers', () => {
 
     window.confirm = jest.fn(() => true)
 
-    render(
-      <ContentProvider>
-        <AllConsumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<AllConsumer />)
 
     fireEvent.click(screen.getByText('reset all'))
     expect(screen.getByTestId('week')).toHaveTextContent('1')
-    const stored = JSON.parse(localStorage.getItem('progress-v1'))
-    expect(stored.week).toBe(1)
+    const stored = JSON.parse(localStorage.getItem(PROFILES_KEY))
+    expect(stored.profiles[0].progress.week).toBe(1)
     expect(window.confirm).toHaveBeenCalled()
   })
 })
 
 describe('completeSession final week', () => {
   it('keeps week at TOTAL_WEEKS and logs message', () => {
-    localStorage.setItem(
-      'progress-v1',
-      JSON.stringify({ version: 1, week: TOTAL_WEEKS, day: 7, session: 3, streak: 5 }),
-    )
+    setupProfile({ version: 1, week: TOTAL_WEEKS, day: 7, session: 3, streak: 5 })
 
     const Consumer = () => {
       const { progress, completeSession } = useContent()
@@ -277,16 +260,12 @@ describe('completeSession final week', () => {
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation(() => {})
 
-    render(
-      <ContentProvider>
-        <Consumer />
-      </ContentProvider>,
-    )
+    renderWithProviders(<Consumer />)
 
     fireEvent.click(screen.getByText('do'))
     expect(screen.getByTestId('week')).toHaveTextContent(String(TOTAL_WEEKS))
-    const stored = JSON.parse(localStorage.getItem('progress-v1'))
-    expect(stored.week).toBe(TOTAL_WEEKS)
+    const stored = JSON.parse(localStorage.getItem(PROFILES_KEY))
+    expect(stored.profiles[0].progress.week).toBe(TOTAL_WEEKS)
     expect(logSpy).toHaveBeenCalledWith('Course Finished!')
 
     logSpy.mockRestore()

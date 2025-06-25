@@ -7,18 +7,13 @@ import {
 } from 'react'
 import { fetchWeekData } from '../utils/fetchWeek'
 import { calculateWeekPercent } from '../utils/progress'
-import { useProfiles } from './ProfileProvider'
+import {
+  useProfiles,
+  DEFAULT_PROGRESS,
+  PROGRESS_VERSION,
+} from './ProfileProvider'
 
-const PROGRESS_VERSION = 1
-const PROGRESS_KEY = 'progress-v1'
 export const TOTAL_WEEKS = 41
-const DEFAULT_PROGRESS = {
-  version: PROGRESS_VERSION,
-  week: 1,
-  day: 1,
-  session: 1,
-  streak: 0,
-}
 
 const ContentContext = createContext()
 
@@ -27,27 +22,9 @@ export function useContent() {
   return useContext(ContentContext)
 }
 
-function loadProgress() {
-  try {
-    const stored = JSON.parse(localStorage.getItem(PROGRESS_KEY))
-    if (
-      stored &&
-      stored.version === PROGRESS_VERSION &&
-      stored.week &&
-      stored.day &&
-      stored.session
-    ) {
-      return { ...DEFAULT_PROGRESS, ...stored }
-    }
-  } catch {
-    // ignore parse errors
-  }
-  return DEFAULT_PROGRESS
-}
-
 export const ContentProvider = ({ children }) => {
-  const { unlockBadge } = useProfiles();
-  const [progress, setProgress] = useState(loadProgress())
+  const { selectedProfile, unlockBadge, setProgress } = useProfiles();
+  const progress = selectedProfile?.progress || DEFAULT_PROGRESS;
   const [weekData, setWeekData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -73,9 +50,9 @@ export const ContentProvider = ({ children }) => {
   }, [progress.week])
 
   const saveProgress = (p) => {
+    if (!selectedProfile) return
     const data = { ...p, version: PROGRESS_VERSION }
     setProgress(data)
-    localStorage.setItem(PROGRESS_KEY, JSON.stringify(data))
   }
 
   const completeSession = () => {
