@@ -59,6 +59,15 @@ With everything installed you can run the Jest suite manually:
 npm test
 ```
 
+Additional scripts are available for running the backend and mobile builds:
+
+```bash
+npm run server      # start the API server
+npm run cap:sync    # copy env vars into native projects
+npm run cap:android # open Android Studio
+npm run cap:ios     # open Xcode
+```
+
 The `postinstall` script also invokes `npm test` automatically, so simply
 running `npm install` will execute the suite in CI environments.
 
@@ -120,6 +129,14 @@ a profile. The form collects the child's name, date of birth and an optional
 emoji avatar. Submitting the form saves the profile via `ProfileProvider` and
 redirects to the kid selection page.
 
+### Creating Profiles
+
+1. Tap **Add Child** on the onboarding screen.
+2. Enter the child's name, birthday and optionally choose an emoji avatar.
+3. Press **Save Profile** to store it locally and return to the selector.
+
+You can repeat these steps to create profiles for multiple children.
+
 ### Kid Selector
 
 Saved profiles appear in a responsive grid rendered by the **KidSelector**
@@ -127,6 +144,20 @@ component. Each card shows the child's avatar emoji, name and calculated age.
 Tapping a card selects that profile and navigates to the learning hub. Cards
 include ✏️ and 🗑️ buttons for editing or deleting a profile. A final "➕ Add
 Another Child" card links back to the onboarding form.
+
+![Kid selector grid](public/images/kid-selector.svg)
+
+Select a different card at any time to switch children. The newly chosen
+profile becomes active and the app loads their progress.
+
+### Learning Hub
+
+After choosing a profile the child lands on the Learning Hub. The hub greets
+them with their avatar, today's date and the current week/day/session.
+From here they can continue the next session or tap **View Progress** to open
+the dashboard and see completed weeks and earned badges.
+
+![Learning Hub](public/images/learning-hub.svg)
 
 ## Home Screen
 
@@ -856,6 +887,8 @@ PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
 VITE_API_BASE_URL=http://localhost:3001
+UNSPLASH_ACCESS_KEY=your-unsplash-key
+UNSPLASH_SECRET_KEY=your-unsplash-secret
 ```
 
 
@@ -941,7 +974,7 @@ Install Capacitor and sync the project:
 ```bash
 npm install
 npm run build
-npx cap sync
+npm run cap:sync
 ```
 
 Before building the native projects, make sure a `.env` file exists in the
@@ -952,16 +985,18 @@ PORT=3001
 JWT_SECRET=your-secret
 DB_PATH=./users.db
 VITE_API_BASE_URL=https://your-server.com
+UNSPLASH_ACCESS_KEY=your-unsplash-key
+UNSPLASH_SECRET_KEY=your-unsplash-secret
 ```
 
-Whenever you change these variables run `npx cap sync` again so Capacitor copies
+Whenever you change these variables run `npm run cap:sync` again so Capacitor copies
 them into the platform folders.
 
 Open the project in Android Studio or Xcode:
 
 ```bash
-npx cap open android
-npx cap open ios
+npm run cap:android
+npm run cap:ios
 ```
 
 Additional steps for preparing the native release are tracked in
