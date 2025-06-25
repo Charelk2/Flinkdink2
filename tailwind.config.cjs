@@ -6,8 +6,8 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#6366F1',
-          dark: '#4F46E5',
+          DEFAULT: '#4f46e5',
+          dark: '#4338ca',
         },
         accent: {
           DEFAULT: '#FF6B6B',
@@ -18,7 +18,7 @@ module.exports = {
         secondary: '#6B7280',
       },
       fontFamily: {
-        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+        sans: ['"Comic Sans MS"', '"Comic Sans"', ...defaultTheme.fontFamily.sans],
       },
     },
   },

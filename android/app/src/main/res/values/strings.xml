@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">flinkdink</string>
+    <string name="title_activity_main">flinkdink</string>
+    <string name="package_name">com.flinkdink.app</string>
+    <string name="custom_url_scheme">com.flinkdink.app</string>
+</resources>

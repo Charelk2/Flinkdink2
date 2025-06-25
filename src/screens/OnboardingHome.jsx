@@ -36,12 +36,12 @@ export default function OnboardingHome() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4 pt-[env(safe-area-inset-top)] pb-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-white p-6 rounded-xl shadow-md w-full max-w-xs"
+        className="space-y-4 bg-white p-6 shadow rounded w-full max-w-xs"
       >
-        <h1 className="text-2xl font-bold text-center">Let’s add your first explorer!</h1>
+        <h1 className="text-xl font-bold text-center">Let’s add your first explorer!</h1>
         {error && (
           <div className="text-red-600" role="alert">
             {error}
@@ -56,7 +56,7 @@ export default function OnboardingHome() {
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="border rounded p-3 w-full text-lg"
+          className="border rounded p-2 w-full"
           required
         />
         <label htmlFor="dob" className="sr-only">
@@ -67,7 +67,7 @@ export default function OnboardingHome() {
           type="date"
           value={birthday}
           onChange={(e) => setBirthday(e.target.value)}
-          className="border rounded p-3 w-full text-lg"
+          className="border rounded p-2 w-full"
           aria-label="date of birth"
           required
         />
@@ -85,7 +85,7 @@ export default function OnboardingHome() {
         </div>
         <button
           type="submit"
-          className="btn w-full text-lg"
+          className="bg-indigo-600 text-white w-full py-2 rounded"
         >
           Save and Start
         </button>

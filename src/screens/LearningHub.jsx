@@ -51,13 +51,13 @@ export default function LearningHub() {
       <div className="flex flex-col items-center space-y-2">
         <Link
           to="/session"
-          className="btn w-full text-lg"
+          className="bg-purple-600 text-white rounded-xl px-4 py-2 w-full text-center"
         >
           Continue Session
         </Link>
         <Link
           to="/progress"
-          className="border-2 border-secondary rounded-xl px-4 py-2 w-full text-center"
+          className="border-2 border-gray-400 rounded-xl px-4 py-2 w-full text-center"
         >
           View Progress
         </Link>

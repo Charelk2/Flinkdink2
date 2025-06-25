@@ -49,7 +49,8 @@ export default function KidSelector() {
               if (e.key === 'Enter') handleSelect(p.id);
             }}
             aria-label={`Select ${p.name}`}
-            className="card space-y-1 text-center cursor-pointer hover:ring-2 focus:ring-2 ring-brand transition focus:outline-none"
+            className="card space-y-1 text-center cursor-pointer hover:ring-2 focus:ring-2 ring-blue-500 transition
+            focus:outline-none"
           >
             <div className="text-7xl" aria-label="avatar">
               {p.avatar}
@@ -80,7 +81,8 @@ export default function KidSelector() {
         ))}
         <Link
           to="/onboarding"
-          className="card flex items-center justify-center text-xl font-semibold hover:ring-2 focus:ring-2 ring-brand transition focus:outline-none"
+          className="card flex items-center justify-center text-xl font-semibold hover:ring-2 focus:ring-2 ring-blue-500
+          transition focus:outline-none"
         >
           ➕ Add Another Child
         </Link>

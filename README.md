@@ -34,10 +34,11 @@ properties (e.g. `width: 2.5rem; height: 2.5rem;`) or use the new `size-*`
 utilities.
 
 You can modify default styles by editing `tailwind.config.cjs`. Add new colors
-or font families under the `extend` section. The application now uses the **Poppins** font via the `fontFamily.sans` configuration. Reusable custom
-classes should be
+or font families under the `extend` section. The application now sets all text
+to **Comic Sans** via the `fontFamily.sans` configuration. Reusable custom
 placed inside the `@layer components` block in `src/index.css`.
-Placeholder SVG images embed `font-family="Poppins, sans-serif"` so fallback text uses a generic sans-serif font.
+Placeholder SVG images embed `font-family="Comic Sans MS, Comic Sans, sans-serif"`
+so fallback text uses a generic sans-serif font instead of cursive.
 
 Lint the code with ESLint:
 
