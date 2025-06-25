@@ -75,7 +75,7 @@ const Dashboard = () => {
       <NavBar />
       <DashboardHeader />
       <div className="p-4 space-y-4 pt-20 ">
-        <h1 className="text-2xl font-bold white-text-dashboard">Dashboard</h1>
+        <h1 className="text-2xl font-bold">Dashboard</h1>
       <table className="progress-table w-full table-fixed text-center text-xs" aria-label="Weekly progress">
         <thead>
           <tr>
@@ -100,7 +100,7 @@ const Dashboard = () => {
           ))}
         </tbody>
       </table>
-      <h2 className="text-xl font-semibold pt-4 white-text-dashboard">Weeks</h2>
+      <h2 className="text-xl font-semibold pt-4">Weeks</h2>
       <div className="grid grid-cols-7 sm:grid-cols-13 gap-1 text-center" data-testid="week-grid">
         {weeks.map((w) => (
           <button
@@ -119,7 +119,7 @@ const Dashboard = () => {
       {!loading && error && <p className="text-red-600">Failed to load</p>}
       {!loading && !error && !weekData && <p>empty</p>}
       {!loading && weekData && (
-        <div className="pt-2 text-sm white-text-dashboard" data-testid="week-info">
+        <div className="pt-2 text-sm" data-testid="week-info">
           <div>Language: {weekData.language.slice(0, 3).join(', ')}</div>
           <div>Math start: {weekData.mathWindowStart}</div>
           <div>Cards: {weekData.encyclopedia.length}</div>
@@ -145,7 +145,7 @@ const Dashboard = () => {
           data-testid="week-confirm"
           ref={confirmRef}
         >
-          <p className='white-text-dashboard'>Continue to session?</p>
+          <p>Continue to session?</p>
           <div className="flex justify-center gap-2">
             <button
               type="button"

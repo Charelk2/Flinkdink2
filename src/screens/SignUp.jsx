@@ -22,16 +22,16 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 shadow rounded w-full max-w-xs">
-        <h1 className="text-xl font-bold text-center">Create Account</h1>
+    <div className="min-h-screen flex items-center justify-center bg-background px-4 pt-[env(safe-area-inset-top)] pb-4">
+      <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl shadow-md w-full max-w-xs">
+        <h1 className="text-2xl font-bold text-center">Create Account</h1>
         {error && <div className="text-red-600" role="alert">{error}</div>}
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="border rounded p-2 w-full"
+          className="border rounded p-3 w-full text-lg"
           aria-label="email"
           required
         />
@@ -40,11 +40,11 @@ export default function SignUp() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="border rounded p-2 w-full"
+          className="border rounded p-3 w-full text-lg"
           aria-label="password"
           required
         />
-        <button type="submit" className="bg-indigo-600 text-white w-full py-2 rounded">
+        <button type="submit" className="btn w-full text-lg">
           Sign Up
         </button>
         <p className="text-sm text-center">
