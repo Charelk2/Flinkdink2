@@ -4,43 +4,45 @@ import NavBar from './NavBar'
 import { AuthProvider } from '../contexts/AuthProvider'
 
 describe('NavBar', () => {
-  it('shows logo and settings on the home route', () => {
+  it('renders tab links with labels', () => {
     render(
-      <MemoryRouter initialEntries={["/"]}>
-        <AuthProvider>
-          <NavBar />
-        </AuthProvider>
-      </MemoryRouter>,
-    )
-    expect(screen.getByText('FlinkDink')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /settings/i })).toBeInTheDocument()
-    expect(screen.queryByRole('link', { name: /home/i })).toBeNull()
-  })
-
-  it('shows home link on the session route', () => {
-    render(
-      <MemoryRouter initialEntries={["/session"]}>
+      <MemoryRouter initialEntries={["/learning-hub"]}>
         <AuthProvider>
           <NavBar />
         </AuthProvider>
       </MemoryRouter>,
     )
     expect(screen.getByRole('link', { name: /home/i })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /settings/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /profiles/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /curriculum/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /progress/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /settings/i })).toBeInTheDocument()
   })
 
-  it('navigates to dashboard when settings clicked', () => {
+  it('highlights the active tab', () => {
     render(
-      <MemoryRouter initialEntries={["/"]}>
+      <MemoryRouter initialEntries={["/progress"]}>
+        <AuthProvider>
+          <NavBar />
+        </AuthProvider>
+      </MemoryRouter>,
+    )
+    const active = screen.getByRole('link', { name: /progress/i })
+    expect(active).toHaveAttribute('aria-current', 'page')
+  })
+
+  it('navigates when a tab is clicked', () => {
+    render(
+      <MemoryRouter initialEntries={["/learning-hub"]}>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<NavBar />} />
+            <Route path="/learning-hub" element={<NavBar />} />
             <Route path="/dashboard" element={<div>Dash</div>} />
           </Routes>
         </AuthProvider>
       </MemoryRouter>,
     )
-    fireEvent.click(screen.getByRole('button', { name: /settings/i }))
+    fireEvent.click(screen.getByRole('link', { name: /settings/i }))
     expect(screen.getByText('Dash')).toBeInTheDocument()
   })
 })
