@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useProfiles } from '../contexts/ProfileProvider';
 import { useContent } from '../contexts/ContentProvider';
+import { BADGE_MAP } from '../utils/badges';
 
 export default function LearningHub() {
   const { selectedProfile } = useProfiles();
@@ -38,6 +39,15 @@ export default function LearningHub() {
           {weekPercent}%
         </div>
       </div>
+      {selectedProfile.badges.length > 0 && (
+        <div className="flex justify-center space-x-2" data-testid="badge-list">
+          {selectedProfile.badges.map((b) => (
+            <span key={b} role="img" aria-label={BADGE_MAP[b].label}>
+              {BADGE_MAP[b].icon}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="flex flex-col items-center space-y-2">
         <Link
           to="/session"

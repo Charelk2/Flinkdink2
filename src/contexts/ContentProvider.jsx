@@ -7,6 +7,7 @@ import {
 } from 'react'
 import { fetchWeekData } from '../utils/fetchWeek'
 import { calculateWeekPercent } from '../utils/progress'
+import { useProfiles } from './ProfileProvider'
 
 const PROGRESS_VERSION = 1
 const PROGRESS_KEY = 'progress-v1'
@@ -45,6 +46,7 @@ function loadProgress() {
 }
 
 export const ContentProvider = ({ children }) => {
+  const { unlockBadge } = useProfiles();
   const [progress, setProgress] = useState(loadProgress())
   const [weekData, setWeekData] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -95,6 +97,8 @@ export const ContentProvider = ({ children }) => {
         // keep week/day/session at final values
       }
       streak += 1
+      if (streak === 1) unlockBadge('first-day')
+      if (streak === 5) unlockBadge('five-day-streak')
     }
     saveProgress({ week, day, session, streak })
   }
