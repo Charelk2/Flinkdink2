@@ -17,6 +17,7 @@ describe('NavBar', () => {
     expect(screen.getByRole('link', { name: /curriculum/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /progress/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /settings/i })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /log out/i })).toBeInTheDocument()
   })
 
   it('highlights the active tab', () => {

@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
+import LogoutButton from './LogoutButton';
 
 const NAV_ITEMS = [
   { to: '/learning-hub', label: 'Home', icon: '🏠' },
@@ -29,6 +30,7 @@ const NavBar = () => {
           </NavLink>
         );
       })}
+      <LogoutButton />
     </nav>
   );
 };

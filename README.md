@@ -910,6 +910,9 @@ register a new account using the **Sign Up** page. Successful authentication
 returns a token stored in `localStorage` by the `AuthProvider`.
 Access this context via the `useAuth` hook exported from
 `src/contexts/authHelpers.js`.
+To sign out, tap the **Log Out** button in the navigation bar or call
+`useAuth().logout()` directly. This clears the saved token and redirects
+back to the `/login` page.
 
 During development the API server runs on `http://localhost:3001`, so the
 `VITE_API_BASE_URL` variable should point there. For production builds set it to
