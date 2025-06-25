@@ -24,6 +24,7 @@ const RoutesWithProfiles = () => {
         path="/"
         element={profiles.length === 0 ? <OnboardingHome /> : <Navigate to="/select-kid" />}
       />
+      <Route path="/onboarding" element={<OnboardingHome />} />
       <Route path="/select-kid" element={<SelectKid />} />
       <Route path="/learning-hub" element={<LearningHub />} />
       <Route path="/progress" element={<Progress />} />
