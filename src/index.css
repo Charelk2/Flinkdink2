@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
+    @apply min-h-screen bg-background text-text font-sans;
   }
 }
 
@@ -12,12 +12,14 @@
 @layer components {
   .btn {
     padding: 0.5rem 1.25rem;
-    background-color: rgb(79 70 229);
+    background-color: theme('colors.brand.DEFAULT');
     color: white;
     border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
   }
   .btn:hover {
-    background-color: rgb(67 56 202);
+    background-color: theme('colors.brand.dark');
   }
   .btn:disabled {
     opacity: 0.5;
@@ -25,7 +27,7 @@
 
   .card {
     border-radius: 1rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
     background-color: white;
     padding: 1.5rem;
   }
@@ -40,13 +42,12 @@
   }
 
   .progress-dot.filled {
-    background-color: rgb(79 70 229);
-    border-color: rgb(79 70 229);
+    background-color: theme('colors.brand.DEFAULT');
+    border-color: theme('colors.brand.DEFAULT');
   }
 
   .badge {
-    /* Use explicit color to avoid unknown Tailwind utility errors */
-    background-color: #f97316; /* tailwind orange-500 */
+    background-color: theme('colors.accent.DEFAULT');
     color: white;
     padding: 0.25rem 0.5rem;
     border-radius: 9999px;
@@ -64,6 +65,7 @@
     border-radius: 9999px; /* rounded-full */
     background-color: white; /* bg-white */
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* shadow */
+    transition: background-color 0.2s ease;
   }
 
   .cta-btn {
@@ -72,7 +74,7 @@
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1.25rem; /* py-3 and btn horizontal padding */
-    background-color: rgb(79 70 229);
+    background-color: theme('colors.brand.DEFAULT');
     color: white;
     border-radius: 9999px;
     width: 100%;
@@ -82,7 +84,7 @@
   }
 
   .cta-btn:hover {
-    background-color: rgb(67 56 202);
+    background-color: theme('colors.brand.dark');
   }
 
   .cta-arrow {
@@ -141,25 +143,6 @@
       transform: scale(1.05);
     }
   }
-  .home-screen {
-    color: white !important;
-  }
-  
-  .home-screen * {
-    color: white !important;
-    
-  }  
-  .home-screen .logouttext {
-    color: black !important;
-  }
-
-  .white-text-dashboard {
-    color: white !important;
-  }
-  
-  .white-text-dashboard * {
-    color: white !important;
-    
-  }  
+  /* legacy classes removed */
   
 }

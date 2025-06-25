@@ -14,7 +14,7 @@ const LogoutButton = () => {
     <button
       type="button"
       onClick={handleClick}
-      className="flex flex-col items-center text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-600"
+      className="flex flex-col items-center text-xs focus:outline-none focus:ring-2 focus:ring-brand text-secondary"
     >
       <span aria-hidden="true">🚪</span>
       <span>Log Out</span>

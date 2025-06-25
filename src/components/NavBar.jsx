@@ -13,15 +13,15 @@ const NavBar = () => {
   const { pathname } = useLocation();
 
   return (
-    <nav className="w-full bg-gray-50 shadow-sm px-2 py-2 flex justify-around fixed bottom-0" role="navigation">
+    <nav className="w-full bg-white shadow-md px-2 py-2 flex justify-around fixed bottom-0" role="navigation">
       {NAV_ITEMS.map((item) => {
         const active = pathname.startsWith(item.to);
         return (
           <NavLink
             key={item.to}
             to={item.to}
-            className={`flex flex-col items-center text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-              active ? 'text-indigo-600 font-bold' : 'text-gray-600'
+            className={`flex flex-col items-center text-xs focus:outline-none focus:ring-2 focus:ring-brand ${
+              active ? 'text-brand font-bold' : 'text-secondary'
             }`}
             aria-current={active ? 'page' : undefined}
           >
