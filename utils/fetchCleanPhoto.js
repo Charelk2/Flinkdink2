@@ -1,4 +1,4 @@
-import { breedMap } from '../server.js';
+import { breedMap } from './breedMap.js';
 const UNSPLASH_URL = 'https://api.unsplash.com/search/photos';
 
 const IMGIX_PARAMS = 'w=640&h=360&fit=crop&crop=faces,entropy';
