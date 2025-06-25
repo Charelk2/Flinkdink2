@@ -1,17 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useProfiles } from '../contexts/ProfileProvider';
+import { getAgeFromBirthday } from '../utils/age';
 
-function calcAge(birthday) {
-  if (!birthday) return '-';
-  const birth = new Date(birthday);
-  if (Number.isNaN(birth.getTime())) return '-';
-  const today = new Date();
-  let age = today.getFullYear() - birth.getFullYear();
-  const m = today.getMonth() - birth.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
-    age -= 1;
-  }
-  return age;
+function displayAge(birthday) {
+  const age = getAgeFromBirthday(birthday);
+  return Number.isNaN(age) ? '-' : age;
 }
 
 export default function KidSelector() {
@@ -63,7 +56,7 @@ export default function KidSelector() {
             </div>
             <div className="font-semibold">{p.name}</div>
             <div className="text-sm text-gray-600">
-              {calcAge(p.birthday)} years
+              {displayAge(p.birthday)} years
             </div>
             <div className="flex justify-center space-x-2 pt-2">
               <button

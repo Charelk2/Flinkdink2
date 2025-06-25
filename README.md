@@ -141,6 +141,7 @@ You can repeat these steps to create profiles for multiple children.
 
 Saved profiles appear in a responsive grid rendered by the **KidSelector**
 component. Each card shows the child's avatar emoji, name and calculated age.
+The age is computed by the `getAgeFromBirthday` helper in `src/utils/age.js`.
 Tapping a card selects that profile and navigates to the learning hub. Cards
 include ✏️ and 🗑️ buttons for editing or deleting a profile. A final "➕ Add
 Another Child" card links back to the onboarding form.
