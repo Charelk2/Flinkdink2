@@ -6,10 +6,23 @@ export default function EditProfileModal({ isOpen, onClose, profile, onSave }) {
   const [name, setName] = useState(profile.name);
   const [birthday, setBirthday] = useState(profile.birthday);
   const [avatar, setAvatar] = useState(profile.avatar || '🐼');
+  const [error, setError] = useState('');
 
   const handleSubmit = () => {
-    if (!name.trim()) return;
-    onSave({ ...profile, name, birthday, avatar });
+    if (!name.trim()) {
+      setError('Name is required');
+      return;
+    }
+    if (!birthday) {
+      setError('Birthday is required');
+      return;
+    }
+    const dateVal = new Date(birthday);
+    if (Number.isNaN(dateVal.getTime()) || dateVal > new Date()) {
+      setError('Invalid date');
+      return;
+    }
+    onSave({ ...profile, name: name.trim(), birthday, avatar });
     onClose();
   };
 
@@ -18,6 +31,12 @@ export default function EditProfileModal({ isOpen, onClose, profile, onSave }) {
       <Dialog.Overlay className="fixed inset-0 bg-black/30 backdrop-blur-sm" />
       <div className="bg-white rounded-2xl p-6 w-[90%] max-w-md shadow-lg relative z-10">
         <Dialog.Title className="text-xl font-bold mb-4">Edit Profile</Dialog.Title>
+
+        {error && (
+          <div className="text-red-600 mb-2" role="alert">
+            {error}
+          </div>
+        )}
 
         <div className="space-y-4">
           <label className="block">

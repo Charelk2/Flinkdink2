@@ -66,3 +66,33 @@ test('edits profile name', () => {
   fireEvent.click(screen.getByRole('button', { name: 'Save' }));
   expect(editProfile).toHaveBeenCalledWith('1', expect.objectContaining({ name: 'Sally' }));
 });
+
+test('shows error for blank name when editing', () => {
+  const { editProfile } = useProfiles.mock.results[0].value;
+  render(
+    <MemoryRouter>
+      <KidSelector />
+    </MemoryRouter>,
+  );
+  fireEvent.click(screen.getByLabelText('Edit Sam'));
+  fireEvent.change(screen.getByLabelText('Name'), { target: { value: '' } });
+  fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+  expect(screen.getByRole('alert')).toHaveTextContent(/name is required/i);
+  expect(editProfile).not.toHaveBeenCalled();
+});
+
+test('blocks future birthday when editing', () => {
+  const { editProfile } = useProfiles.mock.results[0].value;
+  render(
+    <MemoryRouter>
+      <KidSelector />
+    </MemoryRouter>,
+  );
+  fireEvent.click(screen.getByLabelText('Edit Sam'));
+  const future = new Date();
+  future.setFullYear(future.getFullYear() + 1);
+  fireEvent.change(screen.getByLabelText('Birthday'), { target: { value: future.toISOString().slice(0, 10) } });
+  fireEvent.click(screen.getByRole('button', { name: 'Save' }));
+  expect(screen.getByRole('alert')).toHaveTextContent(/invalid date/i);
+  expect(editProfile).not.toHaveBeenCalled();
+});
